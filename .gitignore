@@ -1,0 +1,65 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython artifacts
+*.c
+*.so
+*.pyd
+
+# Cython build intermediates
+*.html
+build/
+*.egg-info/
+.eggs/
+
+# Distribution folders
+dist/
+wheelhouse/
+pip-wheel-metadata/
+
+# Local install/test artifacts
+qlc_v*/
+qlc_latest/
+qlc/
+plugin/
+
+# Installer outputs
+VERSION.json
+*.bak
+*.backup
+
+# Config/logs/cache
+*.log
+*.tmp
+*.cache
+*.swp
+untitled*.txt
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# macOS metadata
+.DS_Store
+
+# Jupyter / Notebook
+.ipynb_checkpoints/
+
+# GitHub workflows cache
+.github/workflows/__pycache__/
+
+# Personal scripts
+scripts/
+*.sh~
+
+# TestPyPI / upload leftovers
+*.asc
+*.whl
+
+# Read-the-docs / docs build
+docs/_build/
+*.pdf

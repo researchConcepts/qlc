@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "cython"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qlc"
+version = "0.3.5"
+license = { text = "MIT" }
+description = "Quick Look Content (QLC): Model–Observation Comparison Suite for Use with CAMS"
+authors = [
+  { name = "ResearchConcepts io GmbH", email = "contact@researchconcepts.io" }
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "xarray",
+  "netCDF4"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+cams = []
+
+[project.scripts]
+qlc-install = "qlc.cli.installer:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+"qlc.examples" = ["**/*"]
+"qlc.config" = ["**/*"]
+"qlc.sh" = ["**/*"]

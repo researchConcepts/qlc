@@ -1,0 +1,11 @@
+# .gitattributes
+
+*.pyx export-ignore
+*.pxd export-ignore
+*.c   export-ignore
+*.so  export-ignore
+/tests/* export-ignore
+/dev/* export-ignore
+/qlc/py/*.pyx export-ignore
+/qlc/py/*.c export-ignore
+/qlc/py/*.pxd export-ignore

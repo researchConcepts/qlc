@@ -1,0 +1,28 @@
+# MANIFEST.in
+
+# Include python scripts, exclude source
+include qlc/__init__.py
+include qlc/install.py
+include qlc/cli.py
+exclude qlc/py/*.py
+exclude qlc/py/*.c
+
+# Include shell scripts, excluding ToDo
+recursive-include qlc/sh *.sh
+recursive-exclude qlc/sh/ToDo *
+
+# Include configuration templates and examples
+recursive-include qlc/config *.conf *.json *.xml *.nml
+recursive-include qlc/examples *
+recursive-include qlc/doc *
+recursive-include qlc/cli *
+
+# Exclude macOS metadata
+global-exclude *.DS_Store
+global-exclude __MACOSX
+
+include README.md
+include LICENSE
+
+prune qlc/sh/ToDo
+prune __pycache__
