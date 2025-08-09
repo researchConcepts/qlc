@@ -20,7 +20,6 @@ __pycache__/            export-ignore
 *.pyo                   export-ignore
 *.pyd                   export-ignore
 *.c                     export-ignore
-*.so                    export-ignore
 
 # 3. OS-specific and temporary files
 .DS_Store               export-ignore
