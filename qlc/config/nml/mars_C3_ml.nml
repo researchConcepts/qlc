@@ -1,0 +1,19 @@
+# adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
+# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
+# param_C3-ml=("247.210" "248.210" "249.210" "11.210")
+# ncvar_C3-ml=("var247"  "var248"  "var249"  "var11" )
+# myvar_C3-ml=("NO3a"    "NO3b"    "NH4"     "SO4")
+# model levels
+RETRIEVE,
+CLASS      = XCLASS,
+TYPE       = fc, 
+STREAM     = oper,
+EXPVER     = EXP,
+PARAM      = 247.210/248.210/249.210/11.210,
+LEVTYPE    = ml,
+GRID       = 0.5/0.5,
+TIME       = 00:00:00,
+STEP       = 0/to/21/by/3,
+LEVELIST   = 1/to/137,
+DATE       = SDATE/to/EDATE,
+target     = "MYPATH/MYFILE_C3_ml.grb"

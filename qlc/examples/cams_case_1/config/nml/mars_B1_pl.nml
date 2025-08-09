@@ -1,0 +1,19 @@
+# adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
+# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
+# param_B=("19.217"  "6.217"   "122.210" "203.210")
+# ncvar_B=("var19"   "var6"    "var122"  "var203")
+# myvar_B=("NH3"     "HNO3"    "SO2"     "O3")
+# pressure levels
+RETRIEVE,
+CLASS      = XCLASS,
+TYPE       = fc, 
+STREAM     = oper,
+EXPVER     = EXP,
+PARAM      = 19.217,
+LEVTYPE    = pl,
+GRID       = 1.0/1.0,
+TIME       = 00:00:00,
+STEP       = 0/6/12/18,
+LEVELIST   = 10/20/30/50/70/100/150/200/250/300/400/500/700/850/925/1000,
+DATE       = SDATE/to/EDATE,
+target     = "MYPATH/MYFILE_B1_pl.grb"

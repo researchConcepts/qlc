@@ -1,11 +1,32 @@
 # .gitattributes
+#
+# This file is used by 'git archive' to create a clean distribution (e.g., for a public repository mirror).
+# By default, all files are included unless they match a pattern here.
 
-*.pyx export-ignore
-*.pxd export-ignore
-*.c   export-ignore
-*.so  export-ignore
-/tests/* export-ignore
-/dev/* export-ignore
-/qlc/py/*.pyx export-ignore
-/qlc/py/*.c export-ignore
-/qlc/py/*.pxd export-ignore
+# --- Exclusions ---
+# Exclude files based on their path and name.
+
+# 1. Private/Development directories
+/qlc-dev/               export-ignore
+/dev/                   export-ignore
+/tests/                 export-ignore
+
+# 2. Build artifacts and intermediate files
+/build/                 export-ignore
+/dist/                  export-ignore
+*.egg-info/             export-ignore
+__pycache__/            export-ignore
+*.pyc                   export-ignore
+*.pyo                   export-ignore
+*.pyd                   export-ignore
+*.c                     export-ignore
+*.so                    export-ignore
+
+# 3. OS-specific and temporary files
+.DS_Store               export-ignore
+*.swp                   export-ignore
+*~                      export-ignore
+
+# 4. QLC-specific exclusions
+/qlc/sh/ToDo/           export-ignore
+/qlc/py/*.py            export-ignore

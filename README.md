@@ -26,10 +26,13 @@ Use one of the following install modes:
 
 ```bash
 # Option 1: CAMS (default data links + config)
-pip install qlc && qlc-install --mode cams
+pip install qlc && qlc-install --cams
 
 # Option 2: Local test mode with embedded examples
-pip install qlc && qlc-install --mode test
+pip install qlc && qlc-install --test
+
+# Option 3: Custom interactive mode
+pip install qlc && qlc-install --interactive="./path/to/qlc_user.conf"
 ```
 
 ---
@@ -51,63 +54,56 @@ qlc-py
 sqlc
 ```
 
-## 🔧 Developer / Custom Installation
+## 🔧 Developer Setup
 
-# PyPip:
-
-```bash
-pip install qlc && qlc-install --interactive="./path/to/qlc_user.conf"
-```
-
-# Local wheel:
+To work on the `qlc` source code, clone the repository and install it in "editable" mode. This will install all dependencies and link the `qlc` command to your source tree.
 
 ```bash
-VERSION="0.3.5"
-ARCH="cp310-cp310-macosx_14_0_arm64"
-DIST=~/qlc_package_v$VERSION/dist/qlc-$VERSION-$ARCH.whl
-pip uninstall qlc
-pip install $DIST && qlc-install --interactive="./path/to/qlc_user.conf"
-```
-# Verify version:
+# 1. Clone the repository
+git clone https://github.com/researchConcepts/qlc.git
+cd qlc
 
-```bash
-pip show -f qlc
+# 2. (Recommended) Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3. Install in editable mode
+pip install -e .
 ```
 
 ---
 
 ## 🔧 Configuration Structure
 
-The following directory is automatically created at:
+The installer script creates the following structure in your home directory:
 ```
-$HOME/qlc/v0.3.5/
-├── bin/                    # Symlink to shell scripts
-├── doc/                    # Symlink to documentation files
-├── config/                 # Active config file: qlc.conf + qlc_tex.conf
-├── examples/               # Test input and output files
-├── obs/, mod/, run/, log/  # Runtime directories
-└── VERSION.json            # Tracks install mode and version
+$HOME/qlc_v<version>/
+├── test/                   # Root directory for the 'test' installation mode
+│   ├── bin/                # Symlinks to shell scripts
+│   ├── doc/                # Symlinks to documentation
+│   ├── config/             # Active config files (e.g., qlc.conf)
+│   ├── examples/           # Test input and output files
+│   ├── obs/, mod/, ...     # Runtime directories
+│   └── VERSION.json        # Tracks install mode and version
+└── cams/                   # Root for 'cams' mode, etc.
 ```
-
-You can edit `config/qlc.conf` to modify runtime behavior.
+A symlink `$HOME/qlc` is also created to point to the active installation. You can edit `$HOME/qlc/config/qlc.conf` to modify runtime behavior.
 
 ---
 
 ## 📄 Documentation
 
-- [Jupyter Notebook Overview (PDF)](doc/qlc-JupyterNotebook.pdf)
-- All logic described in `qlc_main.sh` and `qlc_main.py`
-- Shell scripts: `src/sh/*.sh`
-- Python logic: `qlc/*.pyx` (compiled as `.so`)
+- All core logic is contained in the `qlc` package.
+- Shell scripts for driving the pipeline are in `qlc/sh/`.
+- The core Python/Cython logic is in `qlc/py/*.py` and is compiled to binary modules for performance.
 
 ---
 
 ## 🛠 Developer Notes
 
-- Source files are cythonized and installed as compiled binaries
-- Shell scripts remain user-readable
-- Versions are auto-detected from `version.pyx`
-- Config selection uses symlinks and is mode-dependent
+- Python source files (`.py`) are compiled to binary modules (`.so`) using Cython at install time.
+- The package version is managed in `pyproject.toml`.
+- The `qlc-install` script sets up the runtime environment by creating directories and symlinks.
 
 ---
 

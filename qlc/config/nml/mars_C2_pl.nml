@@ -1,0 +1,19 @@
+# adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
+# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
+# param_C2=("36.212" "35.212" "2.212" "1.212")
+# ncvar_C2=("var36"  "var35"  "var2"  "var1" )
+# myvar_C2=("NO3_as" "NH4_as" "SO4_as" "N_as")
+# model levels
+RETRIEVE,
+CLASS      = XCLASS,
+TYPE       = fc, 
+STREAM     = oper,
+EXPVER     = EXP,
+PARAM      = 36.212/35.212/2.212/1.212,
+LEVTYPE    = pl,
+GRID       = 0.5/0.5,
+TIME       = 00:00:00,
+STEP       = 0/to/21/by/3,
+LEVELIST   = 1/2/3/5/7/10/20/30/50/70/100/150/200/250/300/400/500/700/850/925/1000,
+DATE       = SDATE/to/EDATE,
+target     = "MYPATH/MYFILE_C2_pl.grb"

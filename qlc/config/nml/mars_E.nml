@@ -1,0 +1,19 @@
+# adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
+# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
+# param_E=("210025")
+# ncvar_E=("aergn10")
+# myvar_E=("EQdiag")
+# model level 1:80: 1-30 GF/ 31-60 AW speciated + 61-80 diag fields
+RETRIEVE,
+CLASS      = XCLASS,
+TYPE       = fc, 
+STREAM     = oper,
+EXPVER     = EXP,
+PARAM      = 210025,
+LEVTYPE    = ml,
+GRID       = 0.5/0.5,
+TIME       = 00:00:00,
+STEP       = 0/to/21/by/3,
+LEVELIST   = 1/to/71,
+DATE       = SDATE/to/EDATE,
+target     = "MYPATH/MYFILE_E.grb"

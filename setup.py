@@ -2,14 +2,59 @@
 try:
     import tomllib  # Python 3.11+
 except ModuleNotFoundError:
-    import toml as tomllib  # Use third-party `toml` package for <3.11
+    import tomli as tomllib  # Python < 3.11
 import datetime
 from pathlib import Path
 from setuptools import setup, Extension, find_packages
+import sys
+import platform
+
 from Cython.Build import cythonize
-from qlc.install import CustomInstallCommand
+
+from setuptools.command.build_py import build_py as _build_py
+
+import shutil
+
+def get_ignore_patterns():
+    """Returns a set of patterns to ignore during file copy."""
+    return shutil.ignore_patterns(
+        ".DS_Store",
+        "__pycache__",
+        "*.pyc",
+        "ToDo"
+    )
+
+class CustomBuildPyCommand(_build_py):
+    """Custom build to manually copy all data dirs, resolving symlinks."""
+    def run(self):
+        # Run standard build first
+        _build_py.run(self)
+
+        if not self.dry_run:
+            build_dir = Path(self.build_lib)
+            
+            # Manually copy all data directories
+            data_dirs = ["config", "doc", "examples", "sh"]
+            ignore = get_ignore_patterns()
+            
+            for d in data_dirs:
+                source_dir = Path("qlc") / d
+                target_dir = build_dir / "qlc" / d
+                
+                print(f"Manually copying data directory: {source_dir} -> {target_dir}")
+                
+                if source_dir.exists():
+                    shutil.copytree(
+                        source_dir, 
+                        target_dir, 
+                        symlinks=False, 
+                        dirs_exist_ok=True,
+                        ignore=ignore
+                    )
 
 # --- Helper functions ---
+
+
 
 def get_version_from_pyproject(pyproject_path: Path) -> str:
     if tomllib.__name__ == "toml":
@@ -20,58 +65,70 @@ def get_version_from_pyproject(pyproject_path: Path) -> str:
             config = tomllib.load(f)
     return config["project"]["version"]
 
-def generate_version_pyx(version: str, output_path: Path):
-    template_path = Path("qlc/py/version.pyx.in")
-    content = template_path.read_text()
-    content = content.replace("@QLC_VERSION@", version)
-    content = content.replace("@QLC_RELEASE_DATE@", datetime.date.today().isoformat())
-    output_path.write_text(content)
+
 
 # --- Main setup logic ---
 
 root = Path(__file__).parent
-version = get_version_from_pyproject(root / "pyproject.toml")
 
-# Generate version.pyx from template
-generate_version_pyx(version, root / "qlc/py/version.pyx")
+# Gather py files for compilation from qlc/py
+# Note: __init__.py is excluded as it shouldn't be compiled itself.
+py_files_to_compile = [
+    p for p in Path("qlc/py").glob("*.py") if p.name != "__init__.py"
+]
 
-# Gather pyx files from qlc
-pyx_files = list(Path("qlc/py").glob("*.pyx"))
+# Print build environment for debugging ABI mismatches
+try:
+    import numpy as _np
+    _np_includes = [_np.get_include()]
+    print(f"[BUILD-ENV] Python: {sys.version}")
+    print(f"[BUILD-ENV] Platform: {platform.platform()}")
+    print(f"[BUILD-ENV] NumPy version: {_np.__version__}")
+    print(f"[BUILD-ENV] NumPy include: {_np_includes}")
+except Exception as _e:
+    _np_includes = []
+    print(f"[BUILD-ENV] NumPy not importable during build: {_e}")
 
 # Define Cython extension(s)
 extensions = cythonize(
-    [Extension("qlc." + f.stem, [str(f)]) for f in pyx_files],
-    compiler_directives={"language_level": "3"}
+    [
+        Extension(
+            "qlc.py." + f.stem,
+            [str(f)],
+            include_dirs=_np_includes,
+        )
+        for f in py_files_to_compile
+    ],
+    compiler_directives={
+        "language_level": "3",
+        "boundscheck": False,
+        "wraparound": False,
+        "initializedcheck": False,
+        "nonecheck": False,
+        "cdivision": True,
+        "embedsignature": True,
+    },
 )
 
 # Long description from doc
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-
 setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://pypi.org/project/qlc/",
-    packages=find_packages(),
+    packages=find_packages(exclude=["qlc.py", "qlc.py.*"]),
     ext_modules=extensions,
     include_package_data=True,
     zip_safe=False,
 
-    entry_points={
-        "console_scripts": [
-            "qlc=qlc.cli:run_shell_driver",
-            "qlc-py=qlc.cli:run_python_driver",
-            "sqlc=qlc.cli:run_batch_driver"
-        ]
-    },
+    package_data={},
 
-    package_data={
-        "qlc": ["*.so"],  # Optional: add sh, conf, doc, etc. if needed
-    },
+
 
     cmdclass={
-        "install": CustomInstallCommand
+        "build_py": CustomBuildPyCommand
     },
 
     classifiers=[

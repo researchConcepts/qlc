@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel", "cython"]
+requires = ["setuptools>=61.0", "wheel", "cython", "oldest-supported-numpy"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,7 +10,7 @@ description = "Quick Look Content (QLC): Model–Observation Comparison Suite fo
 authors = [
   { name = "ResearchConcepts io GmbH", email = "contact@researchconcepts.io" }
 ]
-readme = "README.md"
+readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
 
 dependencies = [
@@ -18,20 +18,23 @@ dependencies = [
   "pandas",
   "matplotlib",
   "xarray",
-  "netCDF4"
+  "netCDF4",
+  "scipy",
+  "cartopy",
+  "tqdm"
 ]
 
 [project.optional-dependencies]
+build = ["tomli"]
 test = ["pytest"]
 cams = []
 
 [project.scripts]
+qlc = "qlc.cli:run_shell_driver"
+qlc-py = "qlc.cli.qlc_py_main:main"
+qlc-python = "qlc.cli:run_python_driver"
+sqlc = "qlc.cli:run_batch_driver"
 qlc-install = "qlc.cli.installer:main"
 
 [tool.setuptools]
 include-package-data = true
-
-[tool.setuptools.package-data]
-"qlc.examples" = ["**/*"]
-"qlc.config" = ["**/*"]
-"qlc.sh" = ["**/*"]

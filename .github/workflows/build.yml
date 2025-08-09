@@ -1,4 +1,4 @@
-name: Build Multi-Platform Wheels
+name: Build Cross-Platform Wheels
 
 on:
   push:
@@ -7,71 +7,51 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    name: Build on ${{ matrix.os }} / ${{ matrix.arch }}
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-
     strategy:
+      fail-fast: false
       matrix:
-        include:
-          # Linux
-          - os: ubuntu-latest
-            arch: x86_64
-            cibw_platform: linux
-          - os: ubuntu-latest
-            arch: aarch64
-            cibw_platform: linux
-
-          # macOS
-          - os: macos-14  # macos-latest (arm64)
-            arch: arm64
-            cibw_platform: macos
-
-          # Windows
-          - os: windows-latest
-            arch: x86_64
-            cibw_platform: windows
+        os: [ubuntu-latest, windows-latest, macos-14]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up QEMU (for ARM64 build on Linux)
+        if: runner.os == 'Linux'
+        uses: docker/setup-qemu-action@v3
         with:
-          python-version: "3.10"
+          platforms: all
 
-      - name: Install cibuildwheel
+      - name: Install system dependencies (Linux)
+        if: runner.os == 'Linux'
         run: |
-          python -m pip install --upgrade pip
-          pip install cibuildwheel
+          sudo apt-get update
+          sudo apt-get install -y libgeos-dev proj-bin libproj-dev
 
-      - name: Build wheels with cibuildwheel
+      - name: Install system dependencies (macOS)
+        if: runner.os == 'macOS'
         run: |
-          cibuildwheel --platform ${{ matrix.cibw_platform }} --arch ${{ matrix.arch }} --output-dir dist
+          brew install geos proj
+
+      - name: Build wheels via cibuildwheel
+        uses: pypa/cibuildwheel@v2.16.5
         env:
-          CIBW_BUILD: cp310-*         # Only Python 3.10
-          CIBW_SKIP: pp*              # Skip PyPy
-          CIBW_ENVIRONMENT: CFLAGS="-O2"
-          CIBW_ARCHS_MACOS: arm64     # macOS-specific arch control
-          CIBW_ARCHS_WINDOWS: AMD64   # Windows-specific arch control
+          # --- Configure wheel builds ---
+          # Build wheels for CPython 3.10 and 3.11, skipping musl-based Linux
+          CIBW_BUILD: "cp310-* cp311-*"
+          CIBW_SKIP: "*-musllinux_*"
+          
+          # Tell cibuildwheel to install cartopy's system dependencies on linux
+          CIBW_BEFORE_ALL_LINUX: "yum install -y geos-devel proj-devel || apt-get install -y libgeos-dev libproj-dev"
+        with:
+          # Create wheels in the default dist/ directory
+          output-dir: dist
 
       - name: Upload built wheels
         uses: actions/upload-artifact@v4
         with:
-          name: qlc-${{ matrix.os }}-${{ matrix.arch }}
+          name: qlc-wheels-${{ matrix.os }}
           path: dist/*.whl
-
-      - name: Upload wheels to GitHub Release
-        if: startsWith(github.ref, 'refs/tags/')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: dist/*.whl
-
-      - name: Set up pip cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/pyproject.toml') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-

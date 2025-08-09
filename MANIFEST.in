@@ -1,28 +1,33 @@
 # MANIFEST.in
 
-# Include python scripts, exclude source
+# Include root-level metadata
+include README.md
+include LICENSE
+include pyproject.toml
+
+# Include the top-level package and scripts
 include qlc/__init__.py
 include qlc/install.py
 include qlc/cli.py
-exclude qlc/py/*.py
-exclude qlc/py/*.c
+recursive-include qlc/cli *.py
 
-# Include shell scripts, excluding ToDo
-recursive-include qlc/sh *.sh
-recursive-exclude qlc/sh/ToDo *
+# For building from source (sdist), include the Cython files.
+# No longer needed as we compile from .py files now.
 
-# Include configuration templates and examples
-recursive-include qlc/config *.conf *.json *.xml *.nml
-recursive-include qlc/examples *
-recursive-include qlc/doc *
-recursive-include qlc/cli *
+# --- Exclusions ---
+# Exclude the source files from the compiled directory
+prune qlc/py
 
-# Exclude macOS metadata
-global-exclude *.DS_Store
-global-exclude __MACOSX
+# Now, specifically include back ONLY the compiled modules.
+# This ensures no .py or .c files from this dir get into the wheel.
+recursive-include qlc/py *.so
+recursive-include qlc/py __init__.py
 
-include README.md
-include LICENSE
-
+# Prune other directories
+prune qlc/examples
 prune qlc/sh/ToDo
-prune __pycache__
+
+# Exclude common unwanted files
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .DS_Store

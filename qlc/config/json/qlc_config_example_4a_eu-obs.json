@@ -1,0 +1,41 @@
+[
+  {
+    "name": "CAMS2_35",
+    "logdir": "./log",
+    "workdir": "./run",
+    "output_base_name": "$HOME/qlc/output/GMD",
+    "station_file": "$HOME/qlc/obs/data/ebas_station-locations.csv",
+    "obs_path": "$HOME/qlc/obs/data/ver0d",
+    "obs_dataset_type": "ebas_daily",
+    "start_date": "2018-12-01",
+    "end_date": "2018-12-31",
+    "variable": "SO2,SO4_as,HNO3,NO3_as,NH3,NH4_as",
+    "station_radius_deg": 10.0,
+    "plot_type": "",
+    "plot_region": "EU",
+    "time_average": "daily, weekly",
+    "station_plot_group_size": 5,
+    "show_stations": false,
+    "show_min_max": true,
+    "log_y_axis": false,
+    "fix_y_axis": true,
+    "show_station_map": true,
+    "load_station_timeseries_obs": true,
+    "show_station_timeseries_obs": true,
+    "show_station_timeseries_mod": false,
+    "show_station_timeseries_com": false,
+    "save_plot_format": "pdf",
+    "save_data_format": "nc",
+    "multiprocessing": true,
+    "n_threads": "20",
+    "debug": false,
+
+    "global_attributes": {
+      "title": "Air pollutants over Europe, SO2,SO4,HNO3,NO3,NH3,NH4",
+      "summary": "Ebas daily observations for selected EU stations.",
+      "author": "Swen Metzger, sm@researchconcepts.io",
+      "history": "Processed for CAMS (dev 1.2)",
+      "Conventions": "CF-1.8"
+    }
+  }
+]
