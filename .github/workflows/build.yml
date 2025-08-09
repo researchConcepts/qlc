@@ -21,6 +21,7 @@ jobs:
 
       - name: Clean up old build artifacts
         run: rm -rf dist/
+        shell: bash
 
       - name: Set up QEMU (for ARM64 build on Linux)
         if: runner.os == 'Linux'
