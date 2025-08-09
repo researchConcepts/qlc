@@ -29,3 +29,4 @@ __pycache__/            export-ignore
 # 4. QLC-specific exclusions
 /qlc/sh/ToDo/           export-ignore
 /qlc/py/*.py            export-ignore
+/qlc/plugin/            export-ignore

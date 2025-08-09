@@ -11,6 +11,7 @@ jobs:
     name: Publish wheels to PyPI
     if: github.event.workflow_run.conclusion == 'success' && startsWith(github.event.workflow_run.head_branch, 'v')
     runs-on: ubuntu-latest
+    environment: pypi  # This is required to match the PyPI trusted publisher configuration
 
     permissions:
       actions: read      # Required to download artifacts from other workflows
@@ -20,16 +21,16 @@ jobs:
       - name: Download all wheel artifacts
         uses: actions/download-artifact@v4
         with:
-          # The name of the artifact is the name of the workflow that produced it
-          # followed by the name of the artifact that was uploaded.
-          # We download all artifacts from the completed workflow run.
-          name: qlc-wheels-*
+          # When 'name' is not supplied, all artifacts from the workflow run will be downloaded.
           path: dist/
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: List downloaded files
+      - name: List downloaded files for debugging
         run: ls -R dist
+
+      - name: Move all wheels to top-level dist directory
+        run: find dist -type f -name "*.whl" -exec mv {} dist/ \;
 
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1

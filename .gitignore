@@ -11,6 +11,12 @@ venv/
 dist/
 build/
 
+# Build artifacts and local environments
+*.egg-info/
+dist/
+build/
+.qlc_verify_env/
+
 # Cython
 *.c
 *.so

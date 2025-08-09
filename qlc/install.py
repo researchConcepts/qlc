@@ -249,8 +249,13 @@ def setup(mode, config_file=None, version="latest"):
         "config": selected_conf.name
     }
 
-    safe_move_and_link(root, Path.home() / "qlc_latest")
-    safe_move_and_link(Path.home() / "qlc_latest", Path.home() / "qlc")
+    # Preemptively remove 'qlc_latest' symlink to ensure clean update, mimicking `ln -sf`.
+    qlc_latest_link = Path.home() / "qlc_latest"
+    if qlc_latest_link.is_symlink():
+        qlc_latest_link.unlink()
+
+    safe_move_and_link(root, qlc_latest_link)
+    safe_move_and_link(qlc_latest_link, Path.home() / "qlc")
 
     (root / "VERSION.json").write_text(json.dumps(info, indent=2))
     print(f"[WRITE] VERSION.json at {root}")

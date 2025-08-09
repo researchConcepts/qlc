@@ -5,14 +5,14 @@ designed to support climate and air quality monitoring and specifically adapted 
 
 | Package | Status |
 |---------|--------|
-| [qlc on PyPI](https://pypi.org/project/qlc/) | ![PyPI](https://img.shields.io/pypi/v/qlc?color=blue) |
+| [rc-qlc on PyPI](https://pypi.org/project/rc-qlc/) | ![PyPI](https://img.shields.io/pypi/v/rc-qlc?color=blue) |
 
 ---
 
-## 🚀 Features
+## Features
 
 - Side-by-side evaluation of observational and modelled data
-- Fully scriptable and automated post-processing chain (`qlc_main.sh`)
+- Fully scriptable and automated post-processing chain 
 - Modular structure using shell + Python + Cython
 - Generates publication-ready figures and LaTeX integration
 - Supports NetCDF and CSV time series formats
@@ -20,24 +20,24 @@ designed to support climate and air quality monitoring and specifically adapted 
 
 ---
 
-## 🧩 User Installation
+## User Installation
 
 Use one of the following install modes:
 
 ```bash
 # Option 1: CAMS (default data links + config)
-pip install qlc && qlc-install --cams
+pip install rc-qlc && qlc-install --cams
 
 # Option 2: Local test mode with embedded examples
-pip install qlc && qlc-install --test
+pip install rc-qlc && qlc-install --test
 
 # Option 3: Custom interactive mode
-pip install qlc && qlc-install --interactive="./path/to/qlc_user.conf"
+pip install rc-qlc && qlc-install --interactive="./path/to/qlc_user.conf"
 ```
 
 ---
 
-## 🧪 Example Use Cases
+## Example Use Cases
 
 ### Run the full shell pipeline (retrieval, processing, plotting):
 ```bash
@@ -54,7 +54,7 @@ qlc-py
 sqlc
 ```
 
-## 🔧 Developer Setup
+## Developer Setup
 
 To work on the `qlc` source code, clone the repository and install it in "editable" mode. This will install all dependencies and link the `qlc` command to your source tree.
 
@@ -73,7 +73,7 @@ pip install -e .
 
 ---
 
-## 🔧 Configuration Structure
+## Configuration Structure
 
 The installer script creates the following structure in your home directory:
 ```
@@ -91,7 +91,7 @@ A symlink `$HOME/qlc` is also created to point to the active installation. You c
 
 ---
 
-## 📄 Documentation
+## Documentation
 
 - All core logic is contained in the `qlc` package.
 - Shell scripts for driving the pipeline are in `qlc/sh/`.
@@ -99,7 +99,7 @@ A symlink `$HOME/qlc` is also created to point to the active installation. You c
 
 ---
 
-## 🛠 Developer Notes
+## Developer Notes
 
 - Python source files (`.py`) are compiled to binary modules (`.so`) using Cython at install time.
 - The package version is managed in `pyproject.toml`.
@@ -107,7 +107,7 @@ A symlink `$HOME/qlc` is also created to point to the active installation. You c
 
 ---
 
-## 🔗 License
+## License
 
 © ResearchConcepts io GmbH  
 Contact: [contact@researchconcepts.io](mailto:contact@researchconcepts.io)  

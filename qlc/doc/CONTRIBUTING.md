@@ -6,7 +6,7 @@ This project supports structured comparisons between model and observation datas
 
 ---
 
-## 📦 Package Layout
+## Package Layout
 
 - `qlc/`: Main package directory.
   - `cli/`: Command-line entry point logic.
@@ -18,7 +18,7 @@ This project supports structured comparisons between model and observation datas
 
 ---
 
-## 🐍 CLI Tools
+## CLI Tools
 
 After installation, the following entry points are available:
 
@@ -28,7 +28,7 @@ After installation, the following entry points are available:
 
 ---
 
-## 🔌 Plugin Support
+## Plugin Support
 
 Plugins may be placed in:
 
@@ -40,7 +40,7 @@ These are loaded dynamically via `plugin_loader.py` if found.
 
 ---
 
-## 🛠️ Development Setup
+## Development Setup
 
 To contribute to `qlc`, you should set up a local development environment. This allows you to edit the code and test your changes live.
 
@@ -64,7 +64,7 @@ To contribute to `qlc`, you should set up a local development environment. This 
 
 ---
 
-## 🧪 Building Wheels for Distribution
+## Building Wheels for Distribution
 
 To build the platform-specific wheels for distribution on PyPI, use the provided build script. It handles the complexities of cross-platform compilation.
 
@@ -77,7 +77,7 @@ The final wheels will be located in the `dist/` directory.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 Unit tests (to be added) will be collected under `tests/`.
 
@@ -88,7 +88,7 @@ Unit tests (to be added) will be collected under `tests/`.
 
 ---
 
-## 🧾 Style Guide
+## Style Guide
 
 - Follow [PEP8](https://www.python.org/dev/peps/pep-0008/)
 - Use docstrings in PEP257 format and keep things simple (KISS principle)
@@ -96,7 +96,7 @@ Unit tests (to be added) will be collected under `tests/`.
 
 ---
 
-## 📜 License
+## License
 
 This project uses the MIT License. By contributing, you agree your code may be distributed under the same license.
 
