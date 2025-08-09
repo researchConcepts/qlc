@@ -65,11 +65,21 @@ def get_version_from_pyproject(pyproject_path: Path) -> str:
             config = tomllib.load(f)
     return config["project"]["version"]
 
-
+def generate_version_py(version: str, output_path: Path):
+    """Generates a qlc/py/version.py file from a template."""
+    template_path = Path("qlc/py/version.py.in")
+    content = template_path.read_text()
+    content = content.replace("@QLC_VERSION@", version)
+    content = content.replace("@QLC_RELEASE_DATE@", datetime.date.today().isoformat())
+    output_path.write_text(content)
 
 # --- Main setup logic ---
 
 root = Path(__file__).parent
+version = get_version_from_pyproject(root / "pyproject.toml")
+
+# Generate the version.py file dynamically before the build starts
+generate_version_py(version, root / "qlc/py/version.py")
 
 # Gather py files for compilation from qlc/py
 # Note: __init__.py is excluded as it shouldn't be compiled itself.

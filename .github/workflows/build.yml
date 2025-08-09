@@ -19,6 +19,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Clean up old build artifacts
+        run: rm -rf dist/
+
       - name: Set up QEMU (for ARM64 build on Linux)
         if: runner.os == 'Linux'
         uses: docker/setup-qemu-action@v3
@@ -44,8 +47,15 @@ jobs:
           CIBW_BUILD: "cp310-* cp311-*"
           CIBW_SKIP: "*-musllinux_*"
           
-          # Tell cibuildwheel to install cartopy's system dependencies on linux
-          CIBW_BEFORE_ALL_LINUX: "yum install -y geos-devel proj-devel || apt-get install -y libgeos-dev libproj-dev"
+          # Only build for the modern 64-bit architecture on Linux, skipping obsolete i686.
+          CIBW_ARCHS_LINUX: x86_64
+          
+          # Tell cibuildwheel to install cartopy's system dependencies on linux.
+          # We first enable EPEL which provides extra development packages.
+          CIBW_BEFORE_ALL_LINUX: "yum install -y epel-release && yum install -y geos-devel proj-devel"
+          
+          # Use a modern, reliable manylinux image to avoid networking/EOL issues
+          CIBW_MANYLINUX_X86_64_IMAGE: "manylinux_2_28"
         with:
           # Create wheels in the default dist/ directory
           output-dir: dist
