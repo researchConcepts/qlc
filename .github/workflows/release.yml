@@ -32,5 +32,11 @@ jobs:
       - name: Move all wheels to top-level dist directory
         run: find dist -type f -name "*.whl" -exec mv {} dist/ \;
 
+      - name: Clean up empty artifact directories
+        run: find dist -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} +
+
+      - name: List final contents of dist for debugging
+        run: ls -R dist
+
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
