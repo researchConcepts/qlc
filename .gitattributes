@@ -10,6 +10,7 @@
 /qlc-dev/               export-ignore
 /dev/                   export-ignore
 /tests/                 export-ignore
+/dev/                   export-ignore
 
 # 2. Build artifacts and intermediate files
 /build/                 export-ignore

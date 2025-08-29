@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -20,7 +20,7 @@ for param in "$@"; do
   log "Subscript $0 received parameter: $param"
 done
 
-log "$0 TEX_DIRECTORY = $TEX_DIRECTORY"
+log "$0 TEX_DIRECTORY = ${TEX_DIRECTORY}"
 pwd -P
 
 # module load for ATOS
@@ -90,10 +90,10 @@ log  "--------------------------------------------------------------------------
 log "Processing ${PLOTTYPE}:"
 
 log "QLTYPE           : $QLTYPE"
-log "TEAM_PREFIX      : $TEAM_PREFIX"
-log "EVALUATION_PREFIX: $EVALUATION_PREFIX"
-log "MODEL_RESOLUTION : $MODEL_RESOLUTION"
-log "TIME_RESOLUTION  : $TIME_RESOLUTION"
+log "TEAM_PREFIX      : ${TEAM_PREFIX}"
+log "EVALUATION_PREFIX: ${EVALUATION_PREFIX}"
+log "MODEL_RESOLUTION : ${MODEL_RESOLUTION}"
+log "TIME_RESOLUTION  : ${TIME_RESOLUTION}"
 log "mDate            : $mDate"
 log "ext              : $ext"
 log "exp1             : $exp1"

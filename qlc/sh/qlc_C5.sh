@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -59,6 +59,7 @@ sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 ext="$PLOTEXTENSION"
+ulev="$UTLS"
 
 hpath="$PLOTS_DIRECTORY/${exp1}-${exp2}_${mDate}"
 
@@ -80,14 +81,15 @@ for exp in $exps ; do
 	log "Processing ${PLOTTYPE} plot for experiment: $exp"
 
 	log "QLTYPE           : $QLTYPE"
-	log "TEAM_PREFIX      : $TEAM_PREFIX"
-	log "EVALUATION_PREFIX: $EVALUATION_PREFIX"
-	log "MODEL_RESOLUTION : $MODEL_RESOLUTION"
-	log "TIME_RESOLUTION  : $TIME_RESOLUTION"
+	log "TEAM_PREFIX      : ${TEAM_PREFIX}"
+	log "EVALUATION_PREFIX: ${EVALUATION_PREFIX}"
+	log "MODEL_RESOLUTION : ${MODEL_RESOLUTION}"
+	log "TIME_RESOLUTION  : ${TIME_RESOLUTION}"
 	log "mDate            : $mDate"
 	log "ext              : $ext"
 	log "exp1             : $exp1"
 	log "exp2             : $exp2"
+	log "ulev             : $ulev"
 
 	# definition of plot file base name
 	pfile="${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}"
@@ -198,7 +200,7 @@ for exp in $exps ; do
 			else
 				plev="${nlev}"
 			fi
-			log "${plev} plot for: $pvar"
+			log "Model level array index ${plev} for: $pvar"
 
 			# definition of plot files for each exp + variable (log, diff for exp1)
 #			tfile="${pfile}_${name}_${pvar}_${exp}"
@@ -213,15 +215,7 @@ for exp in $exps ; do
 			lat='`lat`'
 			lev='`lev`'
 			tim='`tim`'
-			# crude workaround, needs to be implemented properly
- 			# plev="21"    # 1000 hPa
-			if [ "${plev}" == "21" ]; then
-  				ulev="11:15" # 100:300 hPa
-			elif [ "${plev}" == "16" ]; then
-  				ulev="11:13" # 100:300 hPa
-  			else
-  				ulev="11:12" # default
-  			fi
+  			ulev="${ulev}"
 			facS="1*"
 			facB="1*"
 			facZ="1*"
@@ -736,20 +730,15 @@ file_name="${file_name%.*}"   # Remove extension
 # Split the file name into parts
 IFS="_" read -ra parts <<< "$file_name"
 
-pqlc="${parts[5]}"
-pnml="${parts[6]}"
-# files without level type (_pl _ml _sfc)
-#pvar2="${parts[7]}"
-#pexp="${parts[8]}"
-#ptyp="${parts[9]}"
-#pdif="${parts[11]}"
-# files with level type (_pl _ml _sfc)
-tlev="${parts[7]}"
-pvar2="${parts[8]}"
-pexp="${parts[9]}"
-ptyp="${parts[10]}"
-plog="${parts[11]}"
-pdif="${parts[12]}"
+pqlc="${parts[4]}"
+pnml="${parts[5]}"
+tlev="${parts[6]}"
+pvar2="${parts[7]}"
+pexp="${parts[8]}"
+ptyp="${parts[9]}"
+plog="${parts[10]}"
+pdif="${parts[11]}"
+
 if [[ "$pvar2" == *"-"* ]]; then
 # echo "INFO: variable name '$pvar2' contains dash, display as underscore."
   pvar=$pvar2
@@ -779,7 +768,7 @@ fi
 if [ "${tlev}" != "sfc" ] ; then
   GO="GO"
 fi
-
+#log "${GO} = GO | ${pexp} = ${exp1} | ${plog}"
 if [ "${GO}" == "GO" ] && [ "${pexp}" == "${exp1}" ] && [ "${plog}" == "" ] ; then
 plot1="$PLOTS_DIRECTORY/${exp1}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp1}_${ptyp}.${ext}"
 plot2="$PLOTS_DIRECTORY/${exp2}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp2}_${ptyp}.${ext}"

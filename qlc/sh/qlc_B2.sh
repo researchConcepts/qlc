@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -64,6 +64,8 @@ for exp in $exps ; do
     mkdir -p "$tpath"
   fi
 
+  log  "----------------------------------------------------------------------------------------"
+
   for name in "${MARS_RETRIEVALS[@]}"; do
 
 	  # Define the corresponding arrays based on the name
@@ -76,12 +78,16 @@ for exp in $exps ; do
 	  ncvar=("${!ncvar_var}")
 	  myvar=("${!myvar_var}")
 
+	  log "ipath : ${ipath}"
+	  log "tpath : ${tpath}"
+
 	  log "name : ${name}"
 	  log "param: ${param}"
 	  log "ncvar: ${ncvar}"
 	  log "myvar: ${myvar}"
 
 	  cd $ipath
+      pwd -P
 
 	  set +e
 	  # List available NC-files
@@ -92,6 +98,7 @@ for exp in $exps ; do
 	  log "ncfiles : ${ncfiles}"
 
 	  cd $tpath
+      pwd -P
 
 	  # Loop through the variables for this $name
 	  for ((i = 0; i < ${#ncvar[@]}; i++)); do

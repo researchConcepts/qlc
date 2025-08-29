@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -34,16 +34,34 @@ for exp in $exps ; do
     mkdir -p $MARS_RETRIEVAL_DIRECTORY/$exp
   fi
 
-  EXPCLASS=`echo ${exp} | cut -c 1`
-  if [  "${EXPCLASS}" == "b" ]; then
-    XCLASS="nl"
-  elif [  "${EXPCLASS}" == "a" ]; then
-    XCLASS="be"
-  else
-    XCLASS="rd"
-  fi
-  log   ${exp} ${XCLASS}
-
+  # Map the experiment prefix to the corresponding ECMWF MARS class.
+  # This is required for retrieving data from the MARS archive.
+  EXPCLASS=$(echo "${exp}" | cut -c 1)
+ 
+  case "${EXPCLASS}" in
+    a) XCLASS="be" ;;  # Belgium
+    b) XCLASS="nl" ;;  # Netherlands
+    c) XCLASS="fr" ;;  # France
+    d) XCLASS="de" ;;  # Germany
+    e) XCLASS="es" ;;  # Spain
+    f) XCLASS="fi" ;;  # Finland
+    g) XCLASS="gr" ;;  # Greece
+    h) XCLASS="hu" ;;  # Hungary
+    i) XCLASS="it" ;;  # Italy
+    k) XCLASS="dk" ;;  # Denmark
+    l) XCLASS="pt" ;;  # Portugal
+    m) XCLASS="at" ;;  # Austria
+    n) XCLASS="no" ;;  # Norway
+    s) XCLASS="se" ;;  # Sweden
+    t) XCLASS="tr" ;;  # Turkey
+    u) XCLASS="uk" ;;  # United Kingdom
+    w) XCLASS="ch" ;;  # Switzerland
+    *) XCLASS="rd" ;;  # Default to Research Department
+  esac
+  log "${exp}" "${XCLASS}"
+ 
+  # --------------------------------------------------------------------
+  # 2. MARS request for sfc data
   for name in "${MARS_RETRIEVALS[@]}"; do
     nml_name="mars_${name}.nml"
     log "Processing subscript: $nml_name"

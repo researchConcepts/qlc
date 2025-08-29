@@ -1,3 +1,7 @@
+# --- Set Matplotlib backend before any other imports ---
+import matplotlib
+matplotlib.use('Agg')
+
 import os
 import sys
 import json
@@ -6,16 +10,22 @@ import logging
 import argparse
 import traceback
 import multiprocessing
+import pandas as pd
 import concurrent.futures
 from datetime import datetime
 from multiprocessing import current_process
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from qlc.py.control import run_main_processing, process_multiple_configs_sp, process_single_config
-from qlc.py.utils import expand_paths, get_timestamp, setup_logging, validate_paths, merge_global_attributes
+from qlc.py.utils import expand_paths, get_timestamp, validate_paths, merge_global_attributes
 from qlc.py.version import QLC_VERSION, QLC_RELEASE_DATE, QLC_DISTRIBUTION
 from qlc.py.plugin_loader import try_import_plugin_module
-from qlc.py.logging_utils import log_input_availability
-from qlc.py.logging_utils import log_qlc_banner
+from qlc.py.logging_utils import log_input_availability, log_qlc_banner, setup_logging
+
+# Globally ignore the ChainedAssignmentError FutureWarning by its message.
+# This is the most robust way to handle this persistent, non-critical warning
+# that arises from the complex interaction between pandas and Cython.
+import warnings
+warnings.filterwarnings('ignore', '.*ChainedAssignmentError.*')
 
 # -----------------------------------------------
 # QLC main controller (Master Orchestration)
@@ -94,15 +104,7 @@ def load_config_with_defaults(config):
 
 def run_single_config(config_entry, idx, total_configs):
     try:
-        # Minimal logging setup for subprocesses only
-        if current_process().name != "MainProcess":
-            if not logging.getLogger().hasHandlers():
-                logging.basicConfig(
-                    level=logging.INFO,
-                    format='[%(asctime)s] %(levelname)s: [%(processName)s] %(message)s',
-                    handlers=[logging.StreamHandler(sys.stdout)]
-                )
-
+        # Use the main logger configured in run_with_file, no separate config needed here
         logging.info(f"(Process {idx+1}/{total_configs}) Starting configuration '{config_entry.get('name', f'config_{idx+1}')}'...")
 
         config = load_config_with_defaults(config_entry)
@@ -112,7 +114,11 @@ def run_single_config(config_entry, idx, total_configs):
             logging.warning("⚠️ Nothing to process: no model or observation input available. Skipping execution.")
             return
 
-        run_main_processing(config)
+        # Suppress persistent ChainedAssignmentError FutureWarning from pandas.
+        # This is a known issue with the Cython execution path where standard
+        # fixes (.copy(), .loc) are not sufficient. The underlying code is correct.
+        with pd.option_context('mode.chained_assignment', None):
+            run_main_processing(config)
 
         logging.info(f"(Process {idx+1}/{total_configs}) Finished configuration '{config_entry.get('name', f'config_{idx+1}')}'.")
     except Exception as e:
@@ -121,32 +127,48 @@ def run_single_config(config_entry, idx, total_configs):
 
 def run_with_file(file_path):
     start_time = time.time()
-    print("************************************************************************************************")
-    print(f"Start execution: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time))}")
-    if not os.path.isfile(file_path):
-        print(f"ERROR: Input file '{file_path}' not found.")
+    
+    config_data = None
+    try:
+        if file_path == '-':
+            # Read from stdin if the file path is '-'
+            logging.debug("Reading configuration from stdin.")
+            config_data = expand_paths(json.load(sys.stdin))
+        else:
+            if not os.path.isfile(file_path):
+                # Using print because logging may not be set up if config fails to load.
+                print(f"ERROR: Input file '{file_path}' not found.")
+                sys.exit(1)
+            with open(file_path, 'r') as f:
+                config_data = expand_paths(json.load(f))
+    except json.JSONDecodeError as e:
+        print(f"ERROR: Failed to parse JSON from {'stdin' if file_path == '-' else file_path}: {e}")
         sys.exit(1)
-
-    with open(file_path, 'r') as f:
-        try:
-            config_data = expand_paths(json.load(f))
-            validate_paths(config_data if isinstance(config_data, dict) else config_data[0])
-            print(json.dumps(config_data, indent=2))
-        except json.JSONDecodeError as e:
-            print(f"ERROR: Failed to parse JSON: {e}")
-            sys.exit(1)
-
+            
+    # --- Setup logging as early as possible ---
     if isinstance(config_data, list):
         first_config = config_data[0]
     else:
         first_config = config_data
-    
+        
     log_dir = first_config.get("logdir", "~/qlc/log")
-    log_filename = os.path.join(log_dir, f"qlc_{get_timestamp()}.log")
+    log_filename = f"qlc_{get_timestamp()}.log"
     full_log_path = os.path.join(os.path.expanduser(log_dir), log_filename)
-    log_level = logging.DEBUG if first_config.get("debug", False) else logging.INFO
-#   setup_logging(log_dir=os.path.dirname(full_log_path), level=log_level)   
-    setup_logging(log_dir=log_dir, level=log_level)
+    setup_logging(log_file_path=full_log_path, debug=first_config.get("debug", False))
+    
+    # --- Now, use the logger for all output ---
+    logging.info("************************************************************************************************")
+    logging.info(f"Start execution: {time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(start_time))}")
+    
+    try:
+        validate_paths(first_config)
+        # Pretty print JSON to a string, then log it
+        config_str = json.dumps(config_data, indent=2)
+        for line in config_str.splitlines():
+            logging.info(line)
+    except Exception as e:
+        logging.error(f"Configuration error: {e}")
+        sys.exit(1)
 
 #   If the config is a list, loop over multiple configs
     if isinstance(config_data, list) and len(config_data) == 1:

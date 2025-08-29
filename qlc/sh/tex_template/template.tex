@@ -1,0 +1,109 @@
+\documentclass{beamer}
+%\documentclass[slidestop,usepdftitle=false]{beamer}
+%\usetheme{Frankfurt}
+%\usetheme{Szeged}
+\usetheme{CAMS2_35}
+%\usecolortheme{CAMS2_35}\usefonttheme{CAMS2_35}
+%\usetheme{Boadilla}\usecolortheme{rose}\usefonttheme{professionalfonts}
+%\usetheme{AnnArbor}\usecolortheme{albatross}\usefonttheme{default}
+%\usetheme{Frankfurt}\usecolortheme{default}\usefonttheme{default}
+%\usetheme{Darmstadt}\usecolortheme{default}\usefonttheme{default}
+%\usetheme{Boadilla}\usecolortheme{sidebartab}\usefonttheme{professionalfonts}
+% Theme to: AnnArbor Antibes Bergen Berkeley Berlin Boadilla boxes CambridgeUS Copenhagen Darmstadt default Dresden Frankfurt Goettingen Hannover Ilmenau JuanLesPins Luebeck Madrid Malmoe Marburg Montpellier PaloAlto Pittsburgh Rochester Singapore Szeged Warsaw
+%Color to: albatross beaver beetle crane default dolphin dove fly lily orchid rose seagull seahorse sidebartab structure whale wolverine
+%Font to: default professionalfonts serif structurebold structureitalicserif structuresmallcapsserif
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{%
+ convert #1 \OutputFile         
+}
+\AppendGraphicsExtensions{.gif}
+%\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{convert gif:#1 png:\OutputFile}
+%\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .gif`.png}
+%\AppendGraphicsExtensions{.gif}
+\usepackage{float}
+\useoutertheme{infolines}
+\usepackage{sidecap}
+\usepackage[font={scriptsize,it}]{caption}
+\usepackage{tikz}
+%\usepackage{subcaption}
+%\makeatletter
+%\@cons\caption@subtypelist{{figure}}
+%\makeatother
+\usepackage{color,colortbl}
+\definecolor{Gray}{gray}{0.9}
+%\usepackage{mathptmx}
+%\usepackage[T1]{fontenc}
+\usepackage{tabularx}
+\usepackage{cancel}
+\usepackage{multirow}
+\usepackage{supertabular}
+\usepackage{amsthm}
+\usepackage{lscape}
+\usepackage{xr}
+\usepackage{booktabs}
+\pdfminorversion=5 
+\pdfcompresslevel=9
+\pdfobjcompresslevel=2
+%===============================================================================
+%===============================================================================
+\newcommand\mytext{XTEAM-XXUSR \hfill \insertpagenumber}
+%\newcommand\mytext{Swen Metzger, ResearchConcepts io GmbH\hfill \insertpagenumber}
+\makeatother
+\setbeamertemplate{footline}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}%
+  \mytext
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+    \usebeamerfont{author in head/foot} XXTIT results \hfill \insertdate
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatletter
+%===============================================================================
+%===============================================================================
+%\addtobeamertemplate{title page}{\vspace{0mm}\hspace{0mm}\includegraphics[clip=true,trim = 0cm 0mm 0mm 0mm, width=0.2\textwidth]{./Figures/hygeos-logo}  \hspace{75mm} \includegraphics[clip=true,trim = 0cm 0mm 0mm 0mm, width=0.15\textwidth]{./tex_template/Figures/CAMS-logo}} {}
+
+\vspace{-300mm}
+
+\title{CAMS XXTIT results (XXRES) \\ XEXP1 vs XEXP2 (XXDAT, XXAVG)}
+\vspace{-20mm}
+\author{{XTEAM Team -- XXUSR 
+}}
+\vspace{-10mm}
+%\date{May 1, 2021}
+\date{\today}
+
+%\vspace{-10mm}
+%===============================================================================
+%\makeatletter
+%\***@addto@macro\***@extensions{,.gif}
+%\makeatother
+%\DeclareGraphicsRule{.gif}{png}{.png}{%
+%`giftopnm '#1'|pnmtopng>`dirname '#1'`/`basename '#1' .gif`.png%
+%}
+%===============================================================================
+\begin{document}
+%===============================================================================
+\frame{\titlepage}
+%===============================================================================
+\section[Outline]{}
+\frame{\tableofcontents}
+%===============================================================================
+%\section{Simulations}
+%\input{./Simulations}
+%===============================================================================
+\section{Results}
+\input{./CAMS_PLOTS.tex}
+%===============================================================================
+%\section{Summary}
+%\input{./Summary}
+%===============================================================================
+%\section{References}
+%\input{./References}
+%===============================================================================
+%\fontsize{15}{18}\selectfont .
+%===============================================================================
+\end{document}

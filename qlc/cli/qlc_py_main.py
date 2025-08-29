@@ -7,67 +7,72 @@ from pathlib import Path
 def main():
     """
     Python entry point for running the main QLC processing script.
+    This script now acts as a silent wrapper. All console output
+    is handled by the logging configuration in the downstream qlc_main module.
     """
-    script_name = sys.argv[0]
-    print("________________________________________________________________________________________")
-    print(f"Start {script_name} at {datetime.now()}")
-    print("----------------------------------------------------------------------------------------")
-
-    # --- Change to QLC home directory ---
+    # --- Ensure QLC home directory exists ---
     qlc_home = Path.home() / "qlc"
+    # The qlc-install script creates this directory.
+    # If it's not here, the user needs to run the installer.
     if not qlc_home.is_dir():
+        # Use print here because logging is not yet configured and this is a pre-flight check.
         print(f"[ERROR] QLC home directory not found at: {qlc_home}")
         print("Please run 'qlc-install' to set up the required structure.")
         sys.exit(1)
-    
+
     os.chdir(qlc_home)
-    print(f"Changed working directory to: {os.getcwd()}")
-    # ---
 
-    config_path = sys.argv[1] if len(sys.argv) > 1 else str(Path.home() / "qlc" / "config" / "json" / "qlc_config.json")
-    log_dir = qlc_home / "log"
-    log_dir.mkdir(parents=True, exist_ok=True)
+    # Determine config path. Default to the standard location if no args are given.
+    # Look for a --config flag.
+    config_arg_present = "--config" in sys.argv
+    stdin_mode = False
+    config_path_str = str(qlc_home / "config" / "json" / "qlc_config.json") # Default
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = log_dir / f"qlc_run_{timestamp}.log"
+    if config_arg_present:
+        config_idx = sys.argv.index("--config")
+        if len(sys.argv) > config_idx + 1:
+            config_value = sys.argv[config_idx + 1]
+            if config_value == '-':
+                stdin_mode = True
+                config_path_str = '-' # Pass the stdin marker to the subprocess
+            else:
+                config_path_str = config_value # A specific file was passed
+        else:
+            # This case should be caught by argparse in the child, but we can be safe.
+            print("[ERROR] --config flag was provided without a value.", file=sys.stderr)
+            sys.exit(1)
 
-    print("************************************************************************************************")
-    print(f"Running {script_name} with output logged to {log_file}")
-
-    # The command will use the same Python interpreter that is running this script
     python_executable = sys.executable
     command = [
         python_executable,
         "-m",
         "qlc.cli.qlc_main",
         "--config",
-        config_path,
+        config_path_str,
     ]
     
-    print(f"Executing command: {' '.join(command)}")
-
     try:
-        with open(log_file, "w") as lf:
-            process = subprocess.Popen(
+        # If in stdin mode, we need to pass our stdin to the subprocess.
+        # Otherwise, the subprocess runs without piped data.
+        if stdin_mode:
+            subprocess.run(
                 command,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
+                check=True,
                 text=True,
-                bufsize=1,
-                universal_newlines=True,
+                stdin=sys.stdin  # Pass stdin through
             )
-            if process.stdout:
-                for line in process.stdout:
-                    print(line, end="")
-                    lf.write(line)
-            process.wait()
-
+        else:
+            subprocess.run(
+                command,
+                check=True,
+                text=True,
+            )
+    except subprocess.CalledProcessError as e:
+        # The error output from the subprocess will have already been printed.
+        sys.exit(e.returncode)
     except Exception as e:
-        print(f"An error occurred: {e}")
-
-    print("________________________________________________________________________________________")
-    print(f"End   {script_name} at {datetime.now()}")
-    print("________________________________________________________________________________________")
+        print(f"A critical error occurred in the QLC wrapper: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()

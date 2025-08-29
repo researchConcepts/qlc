@@ -23,12 +23,13 @@ def read_version_json(version_json_path: Path) -> dict:
 def get_bin_path():
     return Path(sys.executable).resolve().parent
 
-def copy_or_link(src, dst, symlink=False):
+def copy_or_link(src, dst, symlink=False, relative=False):
     dst.parent.mkdir(parents=True, exist_ok=True)
     if dst.exists() or dst.is_symlink():
         dst.unlink()
     if symlink:
-        dst.symlink_to(src.resolve())
+        link_target = os.path.relpath(src.resolve(), dst.parent) if relative else src.resolve()
+        dst.symlink_to(link_target, target_is_directory=src.is_dir())
     else:
         shutil.copy(src, dst)
 
@@ -49,41 +50,39 @@ def copytree_with_symlinks(src: Path, dst: Path):
         else:
             shutil.copy2(s, d)
 
-def safe_move_and_link(source: Path, target: Path):
+def safe_move_and_link(src: Path, dst: Path, relative: bool = False, backup: bool = True):
     """
-    Ensures `target` is a symlink to `source`. 
-    If `target` exists but points elsewhere (or is a dir), it gets backed up first.
+    Safely create a symlink from dst to src.
+    If dst exists, it's backed up (if backup=True) before the new link is created.
+    If dst is already a symlink pointing to src, do nothing.
     """
-    if target.is_symlink():
-        current = target.resolve()
-        if current == source.resolve():
-            print(f"[SKIP] {target} already links to {source}")
-            return
-        else:
-            print(f"[BACKUP] {target} symlink points to {current}, backing up")
-    elif target.exists():
-        if target.is_dir():
-            # Only backup if it's not the install root (we don't want to mv source itself)
-            if target.resolve() != source.resolve():
-                backup = target.with_name(f"{target.name}_backup")
-                count = 1
-                while backup.exists():
-                    backup = target.with_name(f"{target.name}_backup{count}")
-                    count += 1
-                print(f"[BACKUP] Moving existing directory {target} → {backup}")
-                shutil.move(str(target), str(backup))
-        else:
-            # File or other type — always back up
-            backup = target.with_name(f"{target.name}_backup")
-            count = 1
-            while backup.exists():
-                backup = target.with_name(f"{target.name}_backup{count}")
-                count += 1
-            print(f"[BACKUP] Moving existing file {target} → {backup}")
-            shutil.move(str(target), str(backup))
+    if dst.is_symlink():
+        try:
+            if dst.resolve() == src.resolve():
+                print(f"[SKIP] Link {dst} already points to {src}")
+                return
+            else:
+                print(f"[INFO] Unlinking existing symlink {dst} -> {dst.readlink()}")
+                dst.unlink()
+        except FileNotFoundError:
+            # This handles broken symlinks
+            print(f"[INFO] Removing broken symlink {dst}")
+            dst.unlink()
 
-    print(f"[LINK] {target} → {source}")
-    target.symlink_to(source, target_is_directory=True)
+    elif dst.exists():
+        if backup:
+            backup_dst = dst.with_name(f"{dst.name}_backup_link")
+            print(f"[BACKUP] Moving existing path {dst} -> {backup_dst}")
+            shutil.move(str(dst), str(backup_dst))
+        else:
+            print(f"[INFO] Removing existing path {dst}")
+            if dst.is_dir():
+                shutil.rmtree(dst)
+            else:
+                dst.unlink()
+
+    # Create the new link
+    copy_or_link(src, dst, symlink=True, relative=relative)
 
 def update_qlc_version(config_path: Path, version: str):
     if not config_path.exists():
@@ -106,7 +105,97 @@ def update_qlc_version(config_path: Path, version: str):
         config_path.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
         print(f"[UPDATED] QLC_VERSION set to {version} in {config_path}")
 
-def setup(mode, config_file=None, version="latest"):
+def setup_data_directories(root: Path, mode: str):
+    """
+    Creates the two-stage symlink structure for data-heavy directories WITHIN a mode's root.
+    - Creates <root>/data
+    - Populates it with either real directories (test) or symlinks (cams)
+    - Creates top-level symlinks from <root>/* -> <root>/data/*
+    """
+    print("[SETUP] Configuring data directories...")
+    data_dir = root / "data"
+    data_dir.mkdir(exist_ok=True)
+
+    # Define the mapping for CAMS mode
+    cams_env_map = {
+        "Results": "SCRATCH",
+        "Analysis": "HPCPERM",
+        "Plots": "PERM",
+        "Presentations": "PERM",
+        "log": "PERM",
+        "run": "PERM",
+        "output": "PERM"
+    }
+    
+    data_heavy_dirs = ["Results", "Analysis", "Plots", "Presentations", "log", "run", "output"]
+
+    for d in data_heavy_dirs:
+        data_subdir = data_dir / d
+        
+        # Robustly remove existing path before creating a new one
+        if data_subdir.is_symlink():
+            data_subdir.unlink()
+        elif data_subdir.is_dir():
+            shutil.rmtree(data_subdir)
+        elif data_subdir.exists():
+            data_subdir.unlink()
+
+        if mode == "cams":
+            env_var = cams_env_map.get(d)
+            target_base_path = os.environ.get(env_var)
+            
+            if target_base_path:
+                target_path = Path(target_base_path) / d
+                target_path.mkdir(parents=True, exist_ok=True)
+                data_subdir.symlink_to(target_path, target_is_directory=True)
+                print(f"[LINK] {data_subdir} -> {target_path}")
+            else:
+                print(f"[WARN] Environment variable ${env_var} not set for {d}. Creating local directory.")
+                data_subdir.mkdir(exist_ok=True)
+        else: # test mode
+            data_subdir.mkdir(exist_ok=True)
+            print(f"[MKDIR] {data_subdir}")
+
+        # Create the top-level symlink, e.g., <root>/Results -> <root>/data/Results
+        top_level_link = root / d
+        if top_level_link.is_symlink() or top_level_link.exists():
+            top_level_link.unlink()
+        
+        # --- Create a relative symlink ---
+        # The target is data_subdir, and the link is created at top_level_link.
+        # We need the path of the target relative to the link's parent directory.
+        relative_target = os.path.relpath(data_subdir, top_level_link.parent)
+        top_level_link.symlink_to(relative_target, target_is_directory=True)
+        print(f"[LINK] {top_level_link} -> {relative_target}")
+
+def link_model_experiments(mod_data_src_root: Path, results_dst_root: Path, debug: bool = False):
+    """
+    Links model experiment files from mod_data_src_root to results_dst_root.
+    Creates absolute symlinks for the model data files.
+    """
+    if not mod_data_src_root.is_dir():
+        print(f"[WARN] Source directory not found for model experiments: {mod_data_src_root}")
+        return
+
+    for exp_dir in mod_data_src_root.iterdir():
+        if exp_dir.is_dir():
+            # This is an experiment dir, e.g., /path/to/test/mod/b2ro
+            results_exp_dir = results_dst_root / exp_dir.name
+            results_exp_dir.mkdir(exist_ok=True)
+            
+            # Find all .grb files, searching recursively through year folders
+            for year_dir in exp_dir.iterdir():
+                if year_dir.is_dir():
+                    for src_file in year_dir.glob('*.grb'):
+                        dst_file = results_exp_dir / src_file.name
+                        dst_file.parent.mkdir(parents=True, exist_ok=True)
+                        # Use absolute paths for these links as they point from the data dir to the mod dir,
+                        # which can be far apart.
+                        copy_or_link(src_file, dst_file, symlink=True, relative=False)
+                        if debug:
+                            print(f"[LINK] {dst_file} -> {src_file}")
+
+def setup(mode: str, version: str, debug: bool = False, config_file: str = None):
 
     # Define source root
     qlc_root = Path(__file__).resolve().parent.parent
@@ -117,73 +206,92 @@ def setup(mode, config_file=None, version="latest"):
 
     from qlc.py.version import QLC_VERSION as version
 
-    # Select appropriate configuration file
-    if mode == "cams":
-        perm_path = Path(os.environ.get("PERM", "/perm")) / os.environ.get("USER", "user")
-        user_home = perm_path
-        selected_conf = config_src / "qlc_cams.conf"
-    elif mode == "test":
-        user_home = Path.home()
-        selected_conf = config_src / "qlc_test.conf"
-    elif mode == "interactive":
-        if not config_file:
-            raise ValueError("You must provide a config file via --interactive=<path>")
-        selected_conf = Path(config_file)
-    else:
-        raise ValueError(f"Unsupported mode: {mode}")
+    # --- QLC paths are now consistently based on $HOME ---
+    install_base = Path.home()
+    user_home = install_base
+    print(f"[INFO] Using $HOME as installation base: {install_base}")
+        
+    # The stable link path, always $HOME/qlc
+    qlc_stable_link = user_home / "qlc"
+    
+    # The versioned installation directory, e.g., $HOME/qlc_v0.3.25
+    versioned_install_dir = user_home / f"qlc_v{version}"
+    
+    # The mode-specific root, e.g., $HOME/qlc_v0.3.25/test
+    root = versioned_install_dir / mode
 
-    source = user_home / f"qlc_v{version}"
-
-    if source.exists() and not source.is_symlink():
-        backup = source.with_name(f"{source.name}_backup")
+    # --- Backup Logic: Back up the entire versioned directory if the specific mode being installed already exists ---
+    if root.exists():
+        backup_name = f"{versioned_install_dir.name}_backup"
+        backup = versioned_install_dir.with_name(backup_name)
         count = 1
         while backup.exists():
-            backup = source.with_name(f"{source.name}_backup{count}")
+            backup = versioned_install_dir.with_name(f"{backup_name}{count}")
             count += 1
-        print(f"[BACKUP] Moving existing install root {source} → {backup}")
-        shutil.move(str(source), str(backup))
-
-    root = source / mode
-#   safe_move_and_link(source, Path.home() / f"qlc_v{version}")
+        print(f"[BACKUP] Moving existing install root {versioned_install_dir} → {backup}")
+        shutil.move(str(versioned_install_dir), str(backup))
 
     print(f"[SETUP] Mode: {mode}, Version: {version}")
-    print(f"[PATHS] QLC Root: {root}")
+    print(f"[PATHS] QLC Install Root: {root}")
+    
+    # Create essential directories for the mode
+    root.mkdir(parents=True, exist_ok=True)
 
-    # Prepare paths
+    # Prepare paths inside the versioned, mode-specific directory
     config_dst = root / "config"
     example_dst = root / "examples"
     bin_dst = root / "bin"
-    log_dst = root / "log"
     mod_dst = root / "mod"
     obs_dst = root / "obs"
     doc_dst = root / "doc"
-    run_dst = root / "run"
-    out_dst = root / "output"
     plug_dst = root / "plugin"
-
-    # Create distribution directories
-    for path in [bin_dst, log_dst, mod_dst, obs_dst, doc_dst, run_dst, out_dst, plug_dst, example_dst, config_dst]:
+    
+    # Create non-data directories inside the mode-specific root
+    # NOTE: 'run' and 'output' are now handled by setup_data_directories
+    for path in [config_dst, example_dst, bin_dst, mod_dst, obs_dst, doc_dst, plug_dst]:
         path.mkdir(parents=True, exist_ok=True)
 
-    # Copy config files
-    if config_dst.exists():
-        copytree_with_symlinks(config_src, config_dst)
+    # --- Setup the new data directory structure INSIDE the mode root ---
+    setup_data_directories(root, mode)
 
-    # Copy example files
+    # Copy config files
+    shutil.copytree(config_src, config_dst, dirs_exist_ok=True)
+    print(f"[COPY] {config_src} -> {config_dst}")
+
+    # Link example directories instead of copying
     if example_src.exists():
-#       shutil.copytree(example_src, example_dst, dirs_exist_ok=True, symlinks=True)
-        copytree_with_symlinks(example_src, example_dst)
+        for item in example_src.iterdir():
+            if item.is_dir(): # Only link directories
+                dst_link = example_dst / item.name
+                if dst_link.exists() or dst_link.is_symlink():
+                    if dst_link.is_dir() and not dst_link.is_symlink():
+                        shutil.rmtree(dst_link)
+                    else:
+                        dst_link.unlink()
+                dst_link.symlink_to(item.resolve(), target_is_directory=True)
+                print(f"[LINK] {dst_link} -> {item}")
 
     # Link all documentation files
 #   shutil.copytree(doc_src, doc_dst, dirs_exist_ok=True)
     for doc_file in doc_src.glob("*"):
         dst = doc_dst / doc_file.name
-        copy_or_link(doc_file, dst, symlink=True)
+        copy_or_link(doc_file, dst, symlink=True, relative=False)
+        print(f"[LINK] {dst} -> {doc_file.resolve()}")
 
     # Link all *.sh files to bin_dst (helpers included)
     for sh_file in sh_src.glob("*.sh"):
         dst = bin_dst / sh_file.name
-        copy_or_link(sh_file, dst, symlink=True)
+        copy_or_link(sh_file, dst, symlink=True, relative=False)
+        print(f"[LINK] {dst} -> {sh_file.resolve()}")
+
+    # Copy the TeX template directory to bin_dst
+    tex_template_src = sh_src / "tex_template"
+    tex_template_dst = bin_dst / "tex_template"
+    if tex_template_src.is_dir():
+        if tex_template_dst.exists():
+            shutil.rmtree(tex_template_dst)
+        shutil.copytree(tex_template_src, tex_template_dst)
+        print(f"[COPY] {tex_template_src} -> {tex_template_dst}")
 
     # Create shell tool links (now handled by entry_points in setup.py)
     pass
@@ -198,17 +306,16 @@ def setup(mode, config_file=None, version="latest"):
         obs_data_dest_dir = root / "obs/data/ver0d/ebas_daily"
         obs_data_dest_dir.mkdir(parents=True, exist_ok=True)
         
-        # Create the v_20240216 symlink
+        # Create the v_20240216 symlink with an absolute path
         link1_target = obs_data_dest_dir / "v_20240216"
-        if link1_target.exists() or link1_target.is_symlink():
-            link1_target.unlink()
-        link1_target.symlink_to(obs_data_source.resolve(), target_is_directory=True)
-        print(f"[LINK] {link1_target} -> {obs_data_source}")
+        copy_or_link(obs_data_source, link1_target, symlink=True, relative=False)
+        print(f"[LINK] {link1_target} -> {obs_data_source.resolve()}")
 
         # Create the latest symlink, relative to its location
         link2_target = obs_data_dest_dir / "latest"
         if link2_target.exists() or link2_target.is_symlink():
             link2_target.unlink()
+        # This one MUST be relative by its nature
         link2_target.symlink_to("v_20240216", target_is_directory=True)
         print(f"[LINK] {link2_target} -> v_20240216")
 
@@ -220,48 +327,95 @@ def setup(mode, config_file=None, version="latest"):
             print(f"[COPY] {station_file_dest}")
 
 
-        # Link sample model data (unchanged)
+        # Link sample model data, ensuring absolute paths
         mod_data_src_root = root / "examples" / "cams_case_1" / "mod"
         mod_data_dst_root = root / "mod"
         if mod_data_src_root.is_dir():
             for model_dir in mod_data_src_root.iterdir():
                 if model_dir.is_dir():
-                    mod_data_dst = mod_data_dst_root / model_dir.name
-                    if mod_data_dst.exists() or mod_data_dst.is_symlink():
-                        mod_data_dst.unlink()
-                    mod_data_dst.symlink_to(model_dir.resolve(), target_is_directory=True)
-                    print(f"[LINK] {mod_data_dst} -> {model_dir}")
+                    dst_link = mod_data_dst_root / model_dir.name
+                    # Use copy_or_link to create an absolute symlink
+                    copy_or_link(model_dir, dst_link, symlink=True, relative=False)
+                    print(f"[LINK] {dst_link} -> {model_dir.resolve()}")
 
-    # Create a generic qlc.conf symlink
-    config_dir = root / "config"
-    generic_config_path = config_dir / "qlc.conf"
-    if generic_config_path.exists() or generic_config_path.is_symlink():
-        generic_config_path.unlink()
-    
-    if selected_conf.exists():
-        generic_config_path.symlink_to(selected_conf.name)
-        print(f"[LINK] {generic_config_path} -> {selected_conf.name}")
+        # Link model experiment files to the 'Results' directory (relative)
+        results_dst_root = root / "Results"
+        results_dst_root.mkdir(exist_ok=True)
+        print(f"[SETUP] Linking model experiments to {results_dst_root}")
+
+        if mod_data_dst_root.is_dir():
+            for exp_dir in mod_data_dst_root.iterdir():
+                if exp_dir.is_dir():
+                    # This is an experiment dir, e.g., /path/to/test/mod/b2ro
+                    results_exp_dir = results_dst_root / exp_dir.name
+                    results_exp_dir.mkdir(exist_ok=True)
+                    
+                    # Find all .grb files, searching recursively through year folders
+                    for year_dir in exp_dir.iterdir():
+                        if year_dir.is_dir():
+                            for src_file in year_dir.glob('*.grb'):
+                                dst_file = results_exp_dir / src_file.name
+                                dst_file.parent.mkdir(parents=True, exist_ok=True)
+                                # Use absolute paths for these links as they point from the data dir to the mod dir,
+                                # which can be far apart.
+                                copy_or_link(src_file, dst_file, symlink=True, relative=False)
+                                if debug:
+                                    print(f"[LINK] {dst_file} -> {src_file}")
+
+    # In CAMS mode: link to operational directories
+    if mode == "cams":
+        # Link obs data directory
+        cams_obs_src = Path("/ec/vol/cams/qlc/obs")
+        if obs_dst.is_symlink() or obs_dst.is_symlink():
+            obs_dst.unlink()
+        elif obs_dst.is_dir():
+            shutil.rmtree(obs_dst)
+        obs_dst.symlink_to(cams_obs_src, target_is_directory=True)
+        print(f"[LINK] {obs_dst} -> {cams_obs_src}")
+        
+        # Link mod directory to this mode's internal Results directory
+        results_link = root / "Results"
+        if mod_dst.is_symlink() or mod_dst.is_symlink():
+            mod_dst.unlink()
+        elif mod_dst.is_dir():
+            shutil.rmtree(mod_dst)
+        mod_dst.symlink_to(results_link, target_is_directory=True)
+        print(f"[LINK] {mod_dst} -> {results_link}")
+
+    # The config is now static, just need to update the version
+    generic_config_path = config_dst / "qlc.conf"
+    update_qlc_version(generic_config_path, version)
+
+    # --- Setup master symlinks to point to this installation (relative) ---
+    # Link qlc_latest to the new version-specific root
+    qlc_latest_link = Path(user_home) / "qlc_latest"
+    safe_move_and_link(root, qlc_latest_link, relative=True, backup=False)
+
+    # Ensure $HOME/qlc points to qlc_latest
+    qlc_stable_link = Path(user_home) / "qlc"
+    if not qlc_stable_link.exists() or not qlc_stable_link.is_symlink():
+         safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
+    else:
+        try:
+            if not qlc_stable_link.resolve() == qlc_latest_link.resolve():
+                safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
+            else:
+                print(f"[SKIP] {qlc_stable_link} already links to {qlc_latest_link.name}")
+        except FileNotFoundError: # Handle broken link
+            safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
 
     # Write install info
     info = {
         "version": version,
         "mode": mode,
-        "config": selected_conf.name
+        "config": "qlc.conf"
     }
-
-    # Preemptively remove 'qlc_latest' symlink to ensure clean update, mimicking `ln -sf`.
-    qlc_latest_link = Path.home() / "qlc_latest"
-    if qlc_latest_link.is_symlink():
-        qlc_latest_link.unlink()
-
-    safe_move_and_link(root, qlc_latest_link)
-    safe_move_and_link(qlc_latest_link, Path.home() / "qlc")
 
     (root / "VERSION.json").write_text(json.dumps(info, indent=2))
     print(f"[WRITE] VERSION.json at {root}")
 
-    version_info = read_version_json(Path.home() / "qlc" / "VERSION.json")
-    update_qlc_version(generic_config_path, version_info["version"])
+    # Final version update on the stable link path
+    update_qlc_version(qlc_stable_link / "config" / "qlc.conf", version)
 
     print("\n[INFO] QLC installation complete.")
     print("[INFO] To get started, you may need to open a new terminal or run 'rehash'.")

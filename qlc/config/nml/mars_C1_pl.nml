@@ -3,7 +3,7 @@
 # param_C2=("36.212" "35.212" "2.212" "1.212")
 # ncvar_C2=("var36"  "var35"  "var2"  "var1" )
 # myvar_C2=("NO3_as" "NH4_as" "SO4_as" "N_as")
-# model levels
+# pressure levels
 RETRIEVE,
 CLASS      = XCLASS,
 TYPE       = fc, 

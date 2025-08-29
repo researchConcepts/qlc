@@ -25,6 +25,13 @@ build/
 .DS_Store
 *.swp
 *~
+*.tar.gz*
+*.whl
+*.zip
+*.tar.bz2
+*.tar.xz
+*.tar.lzma
+*.tar.7z
 
 # QLC specific
 qlc/sh/ToDo/
@@ -33,3 +40,4 @@ qlc/sh/ToDo/
 qlc-dev/
 qlc/py/*.py
 qlc/py/*.c
+tests/

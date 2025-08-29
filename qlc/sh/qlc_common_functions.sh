@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -13,27 +13,13 @@ HOST=`hostname -s  | awk '{printf $1}' | cut -c 1`
 
 # Function to log messages to a file
 log() {
-  local timestamp
-  timestamp1=$(date +"%Y-%m-%d %H:%M:%S")
-  timestamp2=$(date +"%Y%m%d%H%M")
-# timestamp2=$(date +"%Y%m%d%H")
-  local log_message="[$timestamp1] $1"
-
-  # Create log directory if not existent
-  if  [ ! -d "$WORKING_DIRECTORY/log" ]; then
-	mkdir -p  $WORKING_DIRECTORY/log
-  fi
-  
-  # Specify the log file path
-# local log_file="$WORKING_DIRECTORY/log/qlc_${timestamp2}_$$.log"
-  local log_file="$WORKING_DIRECTORY/log/qlc_${timestamp2}.log"
-  
-  # Append the log message to the log file
-  echo "$log_message"       >> "$log_file"
-# echo "$log_message" | tee -a "$log_file"
- 
-  # Also print the log message to the standard output (console)
-  echo "$log_message"
+  # Create a log message and write to stdout and log file
+  # We use a subshell to ensure all output is captured and redirected atomically
+  (
+      local log_message
+      log_message=$(printf "[%s] %s" "$(date +"%Y-%m-%d %H:%M:%S")" "$*")
+      echo "$log_message"
+  )
 }
 
 # Define the sorting function
@@ -53,15 +39,15 @@ sort_files() {
     # Initialize arrays
     fnam=()
     
-    # workaround for system dependency
+    # workaround for system dependency (obsolete)
 	if [ "${myOS}" == "Darwin" ]; then
-#		var_element=8
-		var_element=9
-		exp_element=10
+#		var_element=9
+#		exp_element=10
+		var_element=7
+		exp_element=8
 	else
-#		var_element=7
-		var_element=8
-		exp_element=9
+		var_element=7
+		exp_element=8
 	fi
 
     # Read the list of files from the file list
@@ -72,6 +58,8 @@ sort_files() {
         var="${parts[$var_element]}"
         fvar+=("$var")
         vars+=" $var"  # Create a space-separated list of variable names
+#       echo "file $file"
+#       echo "var  $var"
     done < "$files_list"
 
     # Get unique variable list

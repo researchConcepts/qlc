@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 
 # Source the configuration file to load the settings
 . "$CONFIG_FILE"
@@ -65,7 +65,6 @@ for exp in $exps ; do
 
   for name in "${MARS_RETRIEVALS[@]}"; do
 
-	  set +e
 	  # List available GRIB files for selected exp and time period
 #	  grbfiles=($(ls *${mDate}*_${name}_*.grb))
 	  grbfiles=($(ls *${mDate}*_${name}*.grb))
@@ -93,21 +92,6 @@ for exp in $exps ; do
 			ls -lh           $ncfile
 	#       ncdump -h        $ncfile
 		  fi
-		  # conversion of tine averaged grib files to netcdf (seasmean)
-		  ncfil2="${gribfile%.grb}_tavg.nc"
-		  if [ ! -f "$ncfil2" ]; then
-			log  "cdo timavg      ${gribfile} ${gribfile%.grb}.grbtavg"
-				  cdo timavg      ${gribfile} ${gribfile%.grb}.grbtavg
-			log  "cdo -f nc copy  ${gribfile%.grb}.grbtavg $ncfil2"
-			  	  cdo -f nc copy  ${gribfile%.grb}.grbtavg $ncfil2
-	#       rm -f           "$gribfile" # Clean up GRIB file
-			ls -lh           $ncfil2
-			ncdump -h        $ncfil2
-		  else
-			log "Nothing to do! NC-file already exists: $ncfil2"
-			ls -lh           $ncfil2
-	#       ncdump -h        $ncfil2
-		  fi
 		done # file
 		log  "----------------------------------------------------------------------------------------"
 	  fi
@@ -120,4 +104,3 @@ log  "End ${SCRIPT} at `date`"
 log  "________________________________________________________________________________________"
 
 exit 0
-
