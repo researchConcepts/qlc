@@ -51,7 +51,7 @@ qlc-install --mode test
 Navigate to the working directory and run the `qlc` command. This will process the example data (comparing experiments `b2ro` and `b2rn`) and generate a full PDF report in `$HOME/qlc/Presentations`.
 ```bash
 cd $(readlink -f $HOME/qlc)
-qlc b2ro b2rn 2018-12-01 2018-12-31
+qlc b2ro b2rn 2018-12-01 2018-12-21
 ```
 
 ---

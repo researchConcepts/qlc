@@ -34,12 +34,12 @@ qlc <exp1> <exp2> <start_date> <end_date> [mars]
 
 **Examples**
 ```bash
-# Run a comparison of experiments b2ro and b2rn for December 2018
+# Run a comparison of experiments b2ro and b2rn for the first three weeks of Dec 2018
 # This uses the example data included in the 'test' installation.
-qlc b2ro b2rn 2018-12-01 2018-12-31
+qlc b2ro b2rn 2018-12-01 2018-12-21
 
 # Run the same comparison, but first retrieve the data from MARS
-qlc b2ro b2rn 2018-12-01 2018-12-31 mars
+qlc b2ro b2rn 2018-12-01 2018-12-21 mars
 
 # Run without options to see the help message
 qlc
@@ -71,7 +71,7 @@ For long-running jobs, you can submit the QLC pipeline to a batch scheduling sys
 sqlc
 
 # Submit with specific experiments and dates, including MARS retrieval
-sqlc b2ro b2rn 2018-12-01 2018-12-31 mars
+sqlc b2ro b2rn 2018-12-01 2018-12-21 mars
 ```
 
 ---
