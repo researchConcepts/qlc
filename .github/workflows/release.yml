@@ -7,19 +7,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_and_publish:
-    name: Build and publish wheels on ${{ matrix.os }}
+  build_wheels:
+    name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-14]
-
-    environment: pypi  # This is required to match the PyPI trusted publisher configuration
-
-    permissions:
-      contents: read   # Needed to checkout the repository
-      id-token: write  # IMPORTANT: this is required for trusted publishing to PyPI
 
     steps:
       - name: Checkout repository
@@ -45,18 +39,41 @@ jobs:
       - name: Build wheels via cibuildwheel
         uses: pypa/cibuildwheel@v2.16.5
         env:
-          # --- Configure wheel builds ---
           CIBW_BUILD: "cp310-* cp311-*"
           CIBW_SKIP: "*-musllinux_*"
           CIBW_ARCHS_LINUX: "x86_64"
           CIBW_BEFORE_ALL_LINUX: "yum install -y epel-release && yum install -y geos-devel proj-devel"
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux_2_28"
         with:
-          # Create wheels in the standard dist/ directory
           output-dir: dist
+
+      - name: Upload wheels as a workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-packages-${{ matrix.os }}
+          path: dist/
+
+  publish_wheels:
+    name: Publish wheels to PyPI
+    needs: build_wheels
+    runs-on: ubuntu-latest
+
+    environment: pypi
+    permissions:
+      id-token: write
+
+    steps:
+      - name: Download all wheel artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+          pattern: python-packages-*
+          merge-multiple: true
+
+      - name: List contents of dist for debugging
+        run: ls -R dist
 
       - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
-          # Trusted publishing does not require secrets.
           attestations: false

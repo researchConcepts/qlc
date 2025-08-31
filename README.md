@@ -10,7 +10,7 @@ The suite streamlines the entire post-processing workflow, from data retrieval a
 
 ---
 
-## What's New in v0.3.25
+## What's New in v0.3.26
 
 This version introduces a completely new, high-performance Python processing engine and a more robust installation system.
 - **New Python Engine (`qlc-py`)**: The core data processing and plotting is now handled by a powerful Python-based tool, compiled with Cython for maximum performance. This replaces much of the previous shell-script-based logic.
