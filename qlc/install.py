@@ -386,23 +386,28 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
     generic_config_path = config_dst / "qlc.conf"
     update_qlc_version(generic_config_path, version)
 
-    # --- Setup master symlinks to point to this installation (relative) ---
-    # Link qlc_latest to the new version-specific root
-    qlc_latest_link = Path(user_home) / "qlc_latest"
-    safe_move_and_link(root, qlc_latest_link, relative=True, backup=False)
+    # --- Setup master symlinks to point to this installation ---
 
-    # Ensure $HOME/qlc points to qlc_latest
-    qlc_stable_link = Path(user_home) / "qlc"
-    if not qlc_stable_link.exists() or not qlc_stable_link.is_symlink():
-         safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
-    else:
-        try:
-            if not qlc_stable_link.resolve() == qlc_latest_link.resolve():
-                safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
-            else:
-                print(f"[SKIP] {qlc_stable_link} already links to {qlc_latest_link.name}")
-        except FileNotFoundError: # Handle broken link
-            safe_move_and_link(qlc_latest_link, qlc_stable_link, relative=True, backup=False)
+    qlc_latest_link = user_home / "qlc_latest"
+    qlc_stable_link = user_home / "qlc"
+
+    # Forcefully remove existing links to ensure a clean state
+    print(f"[LINK] Removing existing master links if they exist: {qlc_stable_link.name}, {qlc_latest_link.name}")
+    qlc_stable_link.unlink(missing_ok=True)
+    qlc_latest_link.unlink(missing_ok=True)
+
+    # Create qlc_latest -> qlc_vX.Y.Z/<mode> (relative link)
+    # Target path is relative to the link's location ($HOME)
+    latest_target = os.path.relpath(root, user_home)
+    print(f"[LINK] Creating master link: {qlc_latest_link} -> {latest_target}")
+    qlc_latest_link.symlink_to(latest_target, target_is_directory=True)
+
+    # Create qlc -> qlc_latest (relative link)
+    # Target path is relative to the link's location ($HOME)
+    stable_target = os.path.relpath(qlc_latest_link, user_home)
+    print(f"[LINK] Creating stable link: {qlc_stable_link} -> {stable_target}")
+    qlc_stable_link.symlink_to(stable_target, target_is_directory=True)
+
 
     # Write install info
     info = {
@@ -418,8 +423,14 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
     update_qlc_version(qlc_stable_link / "config" / "qlc.conf", version)
 
     print("\n[INFO] QLC installation complete.")
-    print("[INFO] To get started, you may need to open a new terminal or run 'rehash'.")
     print("[INFO] The following commands are now available: qlc, qlc-py, sqlc, qlc-install")
+    print("\n[ACTION REQUIRED]")
+    print("To make these commands available, you may need to add the local bin directory to your PATH.")
+    print("For most bash users, you can do this by running the following command:")
+    print("  echo 'export PATH=\"$HOME/.local/bin:$PATH\"' >> ~/.bashrc")
+    print("\nFor other shells (like zsh), you may need to add this line to '~/.zshrc' instead.")
+    print("After running the command, please open a new terminal or run 'source ~/.bashrc' to apply the changes.")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Install QLC runtime structure")

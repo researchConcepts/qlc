@@ -40,9 +40,9 @@ cat > $HOME/qlc/run/qlc_batch.sh$$<<EOF
 #SBATCH --output=log-%J.out
 #SBATCH --error=err-%J.out
 #SBATCH --export=ALL
-$HOME/qlc/bin/qlc $1 $2 $3 $4 $5
+qlc $1 $2 $3 $4 $5
 echo "SLURM_JOB_ID = ${jobid}"
-sbatch --dependency=afterok:${jobid} --mail-user=$USER@ecmwf.int $HOME/qlc/bin/qlc $1 $2 $3 $4
+sbatch --dependency=afterok:${jobid} --mail-user=$USER@ecmwf.int qlc $1 $2 $3 $4
 EOF
 else
 cat > $HOME/qlc/run/qlc_batch.sh$$<<EOF
@@ -50,7 +50,7 @@ cat > $HOME/qlc/run/qlc_batch.sh$$<<EOF
 #SBATCH --job-name=$HOME/qlc/run/qlc_batch.sh$$
 #SBATCH --output=log-%J.out
 #SBATCH --error=err-%J.out
-$HOME/qlc/bin/qlc $1 $2 $3 $4
+qlc $1 $2 $3 $4
 EOF
 fi
 sbatch $HOME/qlc/run/qlc_batch.sh$$

@@ -31,15 +31,6 @@ if [  "${HOST}" == "a" ] && [ "${myOS}" != "Darwin" ]; then
 module load python3/3.10.10-01
 fi
 
-# Check if python exists
-if ! command_exists python; then
-  log  "Error: python command not found" >&2
-  exit 1
-else
-  log  "Success: python command found"
-  which python
-fi
-
 # Check if qlc-py exists
 if ! command_exists qlc-py; then
   log  "Error: qlc-py command not found" >&2

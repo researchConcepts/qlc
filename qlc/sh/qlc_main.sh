@@ -1,6 +1,23 @@
 #!/bin/bash -e
 umask 0022
 
+# --- Start: Environment Setup ---
+# Find the Python executable that runs this tool.
+# This ensures that any executables installed in the same environment (like pyferret) are found.
+# Fallback to 'python3' if 'qlc' is not in the path (e.g., during development).
+PYTHON_CMD=$(which python3)
+if command -v qlc >/dev/null 2>&1; then
+    QLC_PATH=$(which qlc)
+    PYTHON_CMD=$(head -n 1 "$QLC_PATH" | sed 's/^#!//')
+fi
+
+# Get the directory of the Python executable.
+PYTHON_BIN_DIR=$(dirname "$PYTHON_CMD")
+
+# Prepend this directory to the PATH for this script and all subscripts.
+export PATH="$PYTHON_BIN_DIR:$PATH"
+# --- End: Environment Setup ---
+
 ARCH="`uname -m`"
 myOS="`uname -s`"
 HOST="`hostname -s`"

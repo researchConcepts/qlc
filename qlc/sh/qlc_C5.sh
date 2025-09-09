@@ -23,21 +23,56 @@ done
 log "$0 ANALYSIS_DIRECTORY = $ANALYSIS_DIRECTORY"
 
 # module load for ATOS
-myOS="`uname -s`"
-HOST=`hostname -s  | awk '{printf $1}' | cut -c 1`
-log   "HOST = ${HOST} | `hostname -s`"
-log   "myOS = ${myOS}"
-if [  "${HOST}" == "a" ] && [ "${myOS}" != "Darwin" ]; then
-	module load ferret/7.6.3
+myOS="$(uname -s)"
+HOST="$(hostname -s | cut -c 1)"
+log "HOST = ${HOST} | $(hostname -s)"
+log "myOS = ${myOS}"
+
+if [ "${HOST}" = "a" ] && [ "${myOS}" != "Darwin" ]; then
+    # Only on ATOS-like hosts (non-macOS, short host starting with 'a')
+    if command -v module >/dev/null 2>&1; then
+        module load ferret/7.6.3
+    else
+        log "[WARN] 'module' command not found; skipping ferret module load"
+    fi
+else
+    # Conda activation for pyferret_env
+    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniforge3/etc/profile.d/conda.sh"
+        conda activate pyferret_env
+    elif [ -f "$HOME/miniforge3/bin/activate" ]; then
+        . "$HOME/miniforge3/bin/activate" "pyferret_env"
+    else
+        log "[WARN] Conda activation scripts not found; relying on PATH for pyferret"
+    fi
 fi
 
-# Check if pyferret exists
-if ! command_exists pyferret; then
-  log  "Error: pyferret command not found" >&2
-  exit 1
-else
-  log  "Success: pyferret command found"
-  which pyferret
+# Determine the pyferret command to use.
+# First, check if pyferret is in the PATH (e.g., from "pip install 'rc-qlc[ferret]'").
+# If not, fall back to the direct path in the conda environment as per the README.
+PYFERRET_CMD=""
+if command -v pyferret &> /dev/null; then
+    log "Using 'pyferret' found in system PATH."
+    PYFERRET_CMD="pyferret"
+elif [ -x "$HOME/miniforge3/envs/pyferret_env/bin/pyferret" ]; then
+    log "Using 'pyferret' from dedicated conda environment."
+    PYFERRET_CMD="$HOME/miniforge3/envs/pyferret_env/bin/pyferret"
+fi
+
+# Check if we found a valid pyferret command
+if [ -z "$PYFERRET_CMD" ]; then
+  log  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  log  "WARNING: pyferret command not found."
+  log  "The qlc_C5.sh script requires pyferret for generating global map plots."
+  log  "You can install it as an optional dependency with:"
+  log  "    pip install 'rc-qlc[ferret]'"
+  log  "For more detailed instructions (e.g., for macOS), please see the"
+  log  "'Advanced Topics' section in the main README.md file."
+  log  "Alternatively, you can disable this script by commenting out 'C5' in the"
+  log  "SUBSCRIPT_NAMES array in your qlc.conf file."
+  log  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  log  "Skipping pyferret plots and exiting script gracefully."
+  exit 0
 fi
 
 # Create output directory if not existent
@@ -612,51 +647,51 @@ EOF
 			if [ -f  "$ferret.jnl" ]; then
 			    cp -p $ferret.jnl  .
 				rm -f ${tfile}_burden.${ext} ${tfile}_burden_log.${ext}
-				log "pyferret -nodisplay -script $ferret.jnl ${ifile} ${pvar} ${MODEL_RESOLUTION} ${exp} ${tfile}_burden ${ext}"
-					 pyferret -nodisplay -script $ferret.jnl ${ifile} ${pvar} ${MODEL_RESOLUTION} ${exp} ${tfile}_burden ${ext}
+				log "$PYFERRET_CMD -nodisplay -script $ferret.jnl ${ifile} ${pvar} ${MODEL_RESOLUTION} ${exp} ${tfile}_burden ${ext}"
+					 $PYFERRET_CMD -nodisplay -script $ferret.jnl ${ifile} ${pvar} ${MODEL_RESOLUTION} ${exp} ${tfile}_burden ${ext}
 			else
 			 	# ferret plots for default journal file
 				rm -f ${tfile}_burden.${ext} ${tfile}_burden_log.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_burden_1x1.jnl"
-					 pyferret -nodisplay -script  ${tfile}_burden_1x1.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1.jnl
 
 				rm -f ${tfile}_zonal.${ext} ${tfile}_zonal_log.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_zonal_1x1.jnl"
-					 pyferret -nodisplay -script  ${tfile}_zonal_1x1.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_zonal_1x1.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_zonal_1x1.jnl
 
 				rm -f ${tfile}_meridional.${ext}  ${tfile}_meridional_log.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_meridional_1x1.jnl"
-					 pyferret -nodisplay -script  ${tfile}_meridional_1x1.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_meridional_1x1.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_meridional_1x1.jnl
 
 				rm -f ${tfile}_surface.${ext}     ${tfile}_surface_log.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_surface_1x1.jnl"
-					 pyferret -nodisplay -script  ${tfile}_surface_1x1.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_surface_1x1.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_surface_1x1.jnl
 
 				rm -f ${tfile}_utls.${ext}        ${tfile}_utls_log.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_utls_1x1.jnl"
-					 pyferret -nodisplay -script  ${tfile}_utls_1x1.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_utls_1x1.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_utls_1x1.jnl
 			fi
 					 
 			if [ "${exp}" == "${exp1}" ]; then
 				rm -f ${tfile}_burden_diff.${ext} ${tfile}_burden_log_diff.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_burden_1x1_diff.jnl"
-					 pyferret -nodisplay -script  ${tfile}_burden_1x1_diff.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1_diff.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1_diff.jnl
 
 				rm -f ${tfile}_zonal_diff.${ext}  ${tfile}_zonal_log_diff.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_zonal_1x1_diff.jnl"
-					 pyferret -nodisplay -script  ${tfile}_zonal_1x1_diff.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_zonal_1x1_diff.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_zonal_1x1_diff.jnl
 
 				rm -f ${tfile}_meridional_diff.${ext} ${tfile}_meridional_log_diff.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_meridional_1x1_diff.jnl"
-					 pyferret -nodisplay -script  ${tfile}_meridional_1x1_diff.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_meridional_1x1_diff.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_meridional_1x1_diff.jnl
 
 				rm -f ${tfile}_surface_diff.${ext} ${tfile}_surface_log_diff.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_surface_1x1_diff.jnl"
-					 pyferret -nodisplay -script  ${tfile}_surface_1x1_diff.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_surface_1x1_diff.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_surface_1x1_diff.jnl
 
 				rm -f ${tfile}_utls_diff.${ext}   ${tfile}_utls_log_diff.${ext}
-				log "pyferret -nodisplay -script  ${tfile}_utls_1x1_diff.jnl"
-					 pyferret -nodisplay -script  ${tfile}_utls_1x1_diff.jnl
+				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_utls_1x1_diff.jnl"
+					 $PYFERRET_CMD -nodisplay -script  ${tfile}_utls_1x1_diff.jnl
 
 #				files=("${tfile}" "${tfile}_log" "${tfile}_diff" "${tfile}_log_diff")
 				files=("${tfile}_surface"    "${tfile}_surface_log"    "${tfile}_surface_diff"    "${tfile}_surface_log_diff"    \
@@ -801,6 +836,7 @@ cat >> ${texFile} <<EOF
 EOF
 fi
 done # plot
+
 log  "----------------------------------------------------------------------------------------"
 log "${texFile}"
 cat  ${texFile}

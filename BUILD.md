@@ -64,7 +64,7 @@ The package includes GitHub Actions workflows that automatically build wheels fo
 - Windows (x86_64)
 
 To trigger a build:
-1. Push a tag starting with 'v' (e.g., `v0.3.26`)
+1. Push a tag starting with 'v' (e.g., `v0.3.27`)
 2. The workflow will build wheels for all supported platforms
 3. Download the artifacts from the GitHub Actions page
 
@@ -155,8 +155,8 @@ If you encounter segmentation faults:
 1. **Update version in pyproject.toml**
 2. **Create and push a tag:**
    ```bash
-   git tag v0.3.26
-   git push origin v0.3.26
+   git tag v0.3.27
+   git push origin v0.3.27
    ```
 3. **Wait for GitHub Actions to complete**
 4. **Download and test wheels**
