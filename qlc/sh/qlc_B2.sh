@@ -43,17 +43,18 @@ else
   which ncdump
 fi
 
-# Assign the command line input parameters to variables
-exp1="$1"
-exp2="$2"
-sDat="$3"
-eDat="$4"
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments: <exp1> <exp2> ... <expN> <start_date> <end_date> [config]
+# ----------------------------------------------------------------------------------------
+# Use common parsing function from qlc_common_functions.sh
+# Sets: experiments (array), sDat, eDat, config_arg
+parse_qlc_arguments "$@" || exit 1
+
 sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 
-exps="$exp1 $exp2"
-for exp in $exps ; do
+for exp in "${experiments[@]}"; do
   log "Processing experiment: $exp"
 
   ipath="$MARS_RETRIEVAL_DIRECTORY/$exp"
@@ -82,17 +83,17 @@ for exp in $exps ; do
 	  log "tpath : ${tpath}"
 
 	  log "name : ${name}"
-	  log "param: ${param}"
-	  log "ncvar: ${ncvar}"
-	  log "myvar: ${myvar}"
+	  log "param: ${param[*]}"
+	  log "ncvar: ${ncvar[*]}"
+	  log "myvar: ${myvar[*]}"
 
 	  cd $ipath
       pwd -P
 
 	  set +e
 	  # List available NC-files
-#	  ncfiles=($(ls *${mDate}*_${name}_*.nc))
-	  ncfiles=($(ls *${mDate}*_${name}*.nc))
+#	  ncfiles=($(ls *${mDate}*_${name}_*.nc 2>/dev/null))
+	  ncfiles=($(ls *${mDate}*_${name}*.nc 2>/dev/null))
 	  set -e
 
 	  log "ncfiles : ${ncfiles}"
@@ -180,13 +181,31 @@ for exp in $exps ; do
 #			    log "No renaming for $ncvar_name != $var of $ncfile to $tfile"
 			fi
 
-			if [ "${GO}" == "GO" ]; then
-			log  "----------------------------------------------------------------------------------------"
-			log  "cdo ${setctomiss} ${setzaxis} -setcalendar,standard -chname,level,lev -chname,longitude,lon -chname,latitude,lat -chname,$var,${varn} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile"
-				  cdo ${setctomiss} ${setzaxis} -setcalendar,standard -chname,level,lev -chname,longitude,lon -chname,latitude,lat -chname,$var,${varn} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile
-			ls -lh    $tpath/$tfile
-			log  "----------------------------------------------------------------------------------------"
-			fi # GO
+		  if [ "${GO}" == "GO" ]; then
+		log  "----------------------------------------------------------------------------------------"
+		# Build conditional chname operations based on what variables exist
+		chname_ops=""
+		# Check and rename level/lev
+		if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float level("; then
+		  chname_ops="${chname_ops} -chname,level,lev"
+		fi
+		# Check and rename longitude/lon
+		if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float longitude("; then
+		  chname_ops="${chname_ops} -chname,longitude,lon"
+		fi
+		# Check and rename latitude/lat
+		if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float latitude("; then
+		  chname_ops="${chname_ops} -chname,latitude,lat"
+		fi
+		# Always rename the target variable
+		chname_ops="${chname_ops} -chname,$var,${varn}"
+		
+		log  "cdo ${setctomiss} ${setzaxis} -setcalendar,standard ${chname_ops} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile"
+			  # Suppress HDF5 diagnostic messages (harmless pre-creation file checks)
+			  cdo ${setctomiss} ${setzaxis} -setcalendar,standard ${chname_ops} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile 2>&1 | grep -v -E "HDF5-DIAG|H5F\.|H5VL|H5FD|major:|minor:" || true
+		ls -lh    $tpath/$tfile
+		log  "----------------------------------------------------------------------------------------"
+		fi # GO
 
 #			log "add time average"
 			xfile=`echo $tfile | sed "s|${varn}\.nc|${varn}_tavg\.nc|g"`
@@ -215,14 +234,28 @@ for exp in $exps ; do
 					varn="${dvar}"
 					lev="${nvar}"
 					sellevel="-sellevel,${lev}"
-			  tfile=`echo $ncfile | sed "s|${ltype}\.nc|_${varn}\.nc|g"`
-			  if [ -f "$tpath/$tfile" ]; then
-					log  "Nothing to do, target file exists: $tpath/$tfile"
-			  else
-				log  "cdo ${setctomiss} ${setzaxis} -setcalendar,standard -chname,level,lev -chname,longitude,lon -chname,latitude,lat -chname,$var,${varn} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile"
-					  cdo ${setctomiss} ${setzaxis} -setcalendar,standard -chname,level,lev -chname,longitude,lon -chname,latitude,lat -chname,$var,${varn} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile
-			  fi
-			  ls -lh $tpath/$tfile
+		  tfile=`echo $ncfile | sed "s|${ltype}\.nc|_${varn}\.nc|g"`
+		  if [ -f "$tpath/$tfile" ]; then
+				log  "Nothing to do, target file exists: $tpath/$tfile"
+		  else
+			# Build conditional chname operations based on what variables exist
+			chname_ops=""
+			if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float level("; then
+			  chname_ops="${chname_ops} -chname,level,lev"
+			fi
+			if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float longitude("; then
+			  chname_ops="${chname_ops} -chname,longitude,lon"
+			fi
+			if ncdump -h "$ipath/$ncfile" 2>/dev/null | grep -q "float latitude("; then
+			  chname_ops="${chname_ops} -chname,latitude,lat"
+			fi
+			chname_ops="${chname_ops} -chname,$var,${varn}"
+			
+		log  "cdo ${setctomiss} ${setzaxis} -setcalendar,standard ${chname_ops} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile"
+			  # Suppress HDF5 diagnostic messages (harmless pre-creation file checks)
+			  cdo ${setctomiss} ${setzaxis} -setcalendar,standard ${chname_ops} ${sellevel} -selvar,$var  $ipath/$ncfile $tpath/$tfile 2>&1 | grep -v -E "HDF5-DIAG|H5F\.|H5VL|H5FD|major:|minor:|#[0-9]{3}:" || true
+		  fi
+		  ls -lh $tpath/$tfile
 
 #			  log "add time average"
 		      xfile=`echo $tfile | sed "s|${varn}\.nc|${varn}_tavg\.nc|g"`

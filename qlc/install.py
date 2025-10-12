@@ -206,18 +206,27 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
 
     from qlc.py.version import QLC_VERSION as version
 
-    # --- QLC paths are now consistently based on $HOME ---
+    # --- QLC paths with isolated PyPI and Dev installations ---
     install_base = Path.home()
     user_home = install_base
     print(f"[INFO] Using $HOME as installation base: {install_base}")
-        
-    # The stable link path, always $HOME/qlc
-    qlc_stable_link = user_home / "qlc"
     
-    # The versioned installation directory, e.g., $HOME/qlc_v0.3.25
-    versioned_install_dir = user_home / f"qlc_v{version}"
+    # Determine installation directory based on mode
+    # Runtime: qlc_pypi (underscore) for production, qlc_dev (underscore) for development
+    # Source: qlc-pypi (hyphen) for public, qlc-dev (hyphen) for private
+    if mode == 'dev':
+        install_root_name = "qlc_dev"
+        stable_link_name = "qlc-dev-run"
+        print(f"[INFO] Development mode: using {install_root_name} runtime root")
+    else:  # test, cams, interactive
+        install_root_name = "qlc_pypi"
+        stable_link_name = "qlc"
+        print(f"[INFO] Production mode: using {install_root_name} runtime root")
     
-    # The mode-specific root, e.g., $HOME/qlc_v0.3.25/test
+    # The versioned installation directory, e.g., $HOME/qlc_pypi/v0.4.1
+    versioned_install_dir = user_home / install_root_name / f"v{version}"
+    
+    # The mode-specific root, e.g., $HOME/qlc_pypi/v0.4.1/test or $HOME/qlc_dev/v0.4.1/dev
     root = versioned_install_dir / mode
 
     # --- Backup Logic: Back up the entire versioned directory if the specific mode being installed already exists ---
@@ -319,12 +328,15 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
         link2_target.symlink_to("v_20240216", target_is_directory=True)
         print(f"[LINK] {link2_target} -> v_20240216")
 
-        # Copy the station file for the test case
-        station_file_source = root / "examples/cams_case_1/obs/ebas_station-locations.csv"
-        station_file_dest = root / "obs/data/ebas_station-locations.csv"
-        if station_file_source.exists():
-            copy_or_link(station_file_source, station_file_dest, symlink=False)
-            print(f"[COPY] {station_file_dest}")
+        # Copy all station files for the test case
+        station_files_source_dir = root / "examples/cams_case_1/obs"
+        station_files_dest_dir = root / "obs/data"
+        if station_files_source_dir.exists():
+            # Copy all CSV station files
+            for station_file in station_files_source_dir.glob("*.csv"):
+                dest_file = station_files_dest_dir / station_file.name
+                copy_or_link(station_file, dest_file, symlink=False)
+                print(f"[COPY] {dest_file}")
 
 
         # Link sample model data, ensuring absolute paths
@@ -386,27 +398,39 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
     generic_config_path = config_dst / "qlc.conf"
     update_qlc_version(generic_config_path, version)
 
-    # --- Setup master symlinks to point to this installation ---
-
-    qlc_latest_link = user_home / "qlc_latest"
-    qlc_stable_link = user_home / "qlc"
-
-    # Forcefully remove existing links to ensure a clean state
-    print(f"[LINK] Removing existing master links if they exist: {qlc_stable_link.name}, {qlc_latest_link.name}")
-    qlc_stable_link.unlink(missing_ok=True)
-    qlc_latest_link.unlink(missing_ok=True)
-
-    # Create qlc_latest -> qlc_vX.Y.Z/<mode> (relative link)
-    # Target path is relative to the link's location ($HOME)
-    latest_target = os.path.relpath(root, user_home)
-    print(f"[LINK] Creating master link: {qlc_latest_link} -> {latest_target}")
-    qlc_latest_link.symlink_to(latest_target, target_is_directory=True)
-
-    # Create qlc -> qlc_latest (relative link)
-    # Target path is relative to the link's location ($HOME)
-    stable_target = os.path.relpath(qlc_latest_link, user_home)
-    print(f"[LINK] Creating stable link: {qlc_stable_link} -> {stable_target}")
-    qlc_stable_link.symlink_to(stable_target, target_is_directory=True)
+    # --- Setup master symlinks for isolated PyPI/Dev installations ---
+    
+    # Create the new two-level symlink structure:
+    # 1. qlc_pypi/current -> v0.4.1 (or qlc_dev/current -> v0.4.1)
+    # 2. ~/qlc -> qlc_pypi/current/test (or ~/qlc-dev-run -> qlc_dev/current/dev)
+    
+    install_root = versioned_install_dir.parent  # e.g., ~/qlc_pypi or ~/qlc_dev
+    current_link = install_root / "current"
+    stable_link = user_home / stable_link_name  # qlc or qlc-dev-run
+    
+    # Create/update current -> v0.4.1 (inside qlc_pypi or qlc_dev)
+    if current_link.is_symlink():
+        current_link.unlink()
+    elif current_link.exists():
+        shutil.rmtree(current_link)
+    
+    # Create relative symlink to version directory
+    current_link.symlink_to(versioned_install_dir.name, target_is_directory=True)
+    print(f"[LINK] {current_link} -> {versioned_install_dir.name}")
+    
+    # Create/update ~/qlc or ~/qlc-dev-run -> qlc_pypi/current/test (or dev)
+    if stable_link.is_symlink():
+        stable_link.unlink()
+    elif stable_link.exists():
+        if stable_link.is_dir():
+            print(f"[WARN] {stable_link} exists as directory, not overwriting")
+        else:
+            stable_link.unlink()
+    
+    # Create relative symlink from home to runtime directory
+    relative_target = os.path.relpath(root, user_home)
+    stable_link.symlink_to(relative_target, target_is_directory=True)
+    print(f"[LINK] {stable_link} -> {relative_target}")
 
 
     # Write install info
@@ -420,7 +444,7 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
     print(f"[WRITE] VERSION.json at {root}")
 
     # Final version update on the stable link path
-    update_qlc_version(qlc_stable_link / "config" / "qlc.conf", version)
+    update_qlc_version(stable_link / "config" / "qlc.conf", version)
 
     print("\n[INFO] QLC installation complete.")
     print("[INFO] The following commands are now available: qlc, qlc-py, sqlc, qlc-install")

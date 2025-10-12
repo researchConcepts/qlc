@@ -35,9 +35,10 @@ build/
 
 # QLC specific
 qlc/sh/ToDo/
+qlc/plugin/
 
 # Private development directory
-qlc-dev/
+dev/
 qlc/py/*.py
 qlc/py/*.c
 tests/

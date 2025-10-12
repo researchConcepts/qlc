@@ -82,10 +82,16 @@ version = get_version_from_pyproject(root / "pyproject.toml")
 generate_version_py(version, root / "qlc/py/version.py")
 
 # Gather py files for compilation from qlc/py
-# Note: __init__.py is excluded as it shouldn't be compiled itself.
+# Note: Excluded from compilation:
+# - __init__.py, test files, __main__.py (standard exclusions)
 py_files_to_compile = [
-    p for p in Path("qlc/py").glob("*.py") if p.name != "__init__.py"
+    p for p in Path("qlc/py").glob("*.py") 
+    if p.name != "__init__.py" 
+    and not p.name.startswith("test_")
+    and p.name != "__main__.py"
 ]
+
+print(f"[BUILD] Compiling {len(py_files_to_compile)} files with aggressive optimization")
 
 # Print build environment for debugging ABI mismatches
 try:
@@ -99,7 +105,7 @@ except Exception as _e:
     _np_includes = []
     print(f"[BUILD-ENV] NumPy not importable during build: {_e}")
 
-# Define Cython extension(s)
+# Define Cython extensions with aggressive optimization
 extensions = cythonize(
     [
         Extension(
@@ -111,11 +117,11 @@ extensions = cythonize(
     ],
     compiler_directives={
         "language_level": "3",
-        "boundscheck": False,
-        "wraparound": False,
-        "initializedcheck": False,
-        "nonecheck": False,
-        "cdivision": True,
+        "boundscheck": False,      # Aggressive: disable bounds checking
+        "wraparound": False,       # Aggressive: disable negative indexing
+        "initializedcheck": False, # Aggressive: disable initialization checks
+        "nonecheck": False,        # Aggressive: disable None checks
+        "cdivision": True,         # Aggressive: C-style division
         "embedsignature": True,
     },
 )

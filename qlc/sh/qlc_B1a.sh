@@ -43,17 +43,18 @@ else
   which ncdump
 fi
 
-# Assign the command line input parameters to variables
-exp1="$1"
-exp2="$2"
-sDat="$3"
-eDat="$4"
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments: <exp1> <exp2> ... <expN> <start_date> <end_date> [config]
+# ----------------------------------------------------------------------------------------
+# Use common parsing function from qlc_common_functions.sh
+# Sets: experiments (array), sDat, eDat, config_arg
+parse_qlc_arguments "$@" || exit 1
+
 sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 
-exps="$exp1 $exp2"
-for exp in $exps ; do
+for exp in "${experiments[@]}"; do
   log "Processing experiment: $exp"
 
   # Create output directory if not existent
@@ -67,7 +68,7 @@ for exp in $exps ; do
 
 	  # List available GRIB files for selected exp and time period
 #	  grbfiles=($(ls *${mDate}*_${name}_*.grb))
-	  grbfiles=($(ls *${mDate}*_${name}*.grb))
+	  grbfiles=($(ls *${mDate}*_${name}*.grb 2>/dev/null))
 	  set -e
 
       log "Processing grbfiles: $grbfiles"
@@ -87,10 +88,12 @@ for exp in $exps ; do
 			cdo -f nc copy  "$gribfile"  "$ncfile"
 			ls -lh          "$ncfile"
 			ncdump -h       "$ncfile"
+		    pwd -P
 		  else
 			log "Nothing to do! NC-file already exists: $ncfile"
 			ls -lh           $ncfile
 	#       ncdump -h        $ncfile
+		    pwd -P
 		  fi
 		done # file
 		log  "----------------------------------------------------------------------------------------"

@@ -49,21 +49,28 @@ CDATE="20`date +"%y%m%d%H"`"    # pdf creation date
 CDATE="20`date +"%y%m%d%H%M"`"  # pdf creation date
 ext="$PLOTEXTENSION"            # embedded plot type
 
-# Assign the command line input parameters to variables
-exp1="$1"
-exp2="$2"
-sDat="$3"
-eDat="$4"
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments: <exp1> <exp2> ... <expN> <start_date> <end_date> [config]
+# Experiments come first, followed by dates in YYYY-MM-DD format, optional config at end
+# ----------------------------------------------------------------------------------------
+parse_qlc_arguments "$@" || exit 1
+
+# Create experiment strings for different uses
+experiments_comma=$(IFS=,; echo "${experiments[*]}")  # Comma-separated for JSON
+experiments_hyphen=$(IFS=-; echo "${experiments[*]}") # Hyphen-separated for paths
+exp1="${experiments[0]}" # Keep exp1 for backward compatibility in some operations
+
+# Process dates
 sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 
 # definition of tex file name
-pfile="${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}-${ext}_${CDATE}"
+pfile="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}-${ext}_${CDATE}"
 log "pfile base name  : $pfile"
 
 tpath="${TEX_DIRECTORY}/${pfile}"
-hpath="$PLOTS_DIRECTORY/${exp1}-${exp2}_${mDate}"
+hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}"
 
 # Create help directory if not existent
 if [  ! -d "$hpath" ]; then
@@ -96,8 +103,7 @@ log "MODEL_RESOLUTION : ${MODEL_RESOLUTION}"
 log "TIME_RESOLUTION  : ${TIME_RESOLUTION}"
 log "mDate            : $mDate"
 log "ext              : $ext"
-log "exp1             : $exp1"
-log "exp2             : $exp2"
+log "experiments      : ${experiments[*]}"
 log "USER             : $CUSR"
 log "DATE             : $CDATE"
 
@@ -136,10 +142,31 @@ log  "--------------------------------------------------------------------------
 # XXTIT, XXRES, XEXP1, XEXP2, XXDAT, XXAVG, XXUSR, XXTEAM
 TEAM=$(echo "$TEAM_PREFIX" | sed 's/_/\\\\_/g')
 log "TEAM $TEAM"
+
+# Build experiment title string for multiple experiments
+# Format: "exp1 vs exp2" or "exp1, exp2 vs exp3" etc.
+exp_title=""
+for i in "${!experiments[@]}"; do
+    if [ $i -eq 0 ]; then
+        exp_title="${experiments[$i]}"
+    elif [ $i -eq $((${#experiments[@]} - 1)) ]; then
+        exp_title="${exp_title} vs ${experiments[$i]}"
+    else
+        exp_title="${exp_title}, ${experiments[$i]}"
+    fi
+done
+
+log "Experiment title: $exp_title"
+
+# For backward compatibility, keep XEXP1 and XEXP2 but populate with first two experiments
+exp1_tex="${experiments[0]}"
+exp2_tex="${experiments[1]:-${experiments[0]}}"  # Use first if only one experiment
+
 sed -e "s/XXTIT/${EVALUATION_PREFIX}/g" \
     -e "s/XXRES/${MODEL_RESOLUTION}/g" \
-    -e "s/XEXP1/${exp1}/g" \
-    -e "s/XEXP2/${exp2}/g" \
+    -e "s/XEXP1 vs XEXP2/${exp_title}/g" \
+    -e "s/XEXP1/${exp1_tex}/g" \
+    -e "s/XEXP2/${exp2_tex}/g" \
     -e "s/XXAVG/${TIME_RESOLUTION}/g" \
     -e "s/XXDAT/${mDate}/g" \
     -e "s/XXUSR/${CUSR}/g" \

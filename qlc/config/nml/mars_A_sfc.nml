@@ -1,0 +1,19 @@
+# adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
+# add your param_, ncvar_ and myvar_ to your $QLC_HOME/config/qlc.conf
+# param_A=("207.210" "72.210"  "73.210"  "74.210")
+# ncvar_A=("var207"  "var72"   "var73"   "var74")
+# myvar_A=("AOD"     "PM1"     "PM2.5"   "PM10")
+# surface level
+RETRIEVE,
+CLASS      = XCLASS,
+TYPE       = fc, 
+STREAM     = oper,
+EXPVER     = EXP,
+PARAM      = 207.210/72.210/73.210/74.210,
+LEVTYPE    = sfc,
+GRID       = 0.5/0.5,
+TIME       = 00:00:00,
+STEP       = 0/to/21/by/3,
+LEVELIST   = 137,
+DATE       = SDATE/to/EDATE,
+target     = "MYPATH/MYFILE_A2_sfc.grb"

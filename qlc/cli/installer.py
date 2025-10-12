@@ -10,11 +10,12 @@ def main():
     parser.add_argument(
         "--mode",
         type=str,
-        choices=['test', 'cams', 'interactive'],
+        choices=['test', 'cams', 'dev', 'interactive'],
         required=True,
         help="The installation mode.\n"
-             "'test': A standalone mode with bundled example data.\n"
+             "'test': A standalone mode with bundled example data (PyPI).\n"
              "'cams': An operational mode for CAMS environments.\n"
+             "'dev': Development mode for parallel testing (creates qlc_dev runtime).\n"
              "'interactive': A mode for developers to use a custom config."
     )
     parser.add_argument("--version", type=str, help="Override QLC version (for development)")

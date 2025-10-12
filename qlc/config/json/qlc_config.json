@@ -35,7 +35,7 @@
       "title": "Air pollutants over Europe, SO2,SO4,HNO3,NO3,NH3,NH4",
       "summary": "Custom summary for netCDF output: Ebas daily observations for selected EU stations.",
       "author": "Swen Metzger, sm@researchconcepts.io",
-      "history": "Processed for CAMS2_35bis (qlc_v0.3.25)",
+      "history": "Processed for CAMS2_35bis (qlc_v0.3.28)",
       "Conventions": "CF-1.8"
     }
   },
@@ -75,7 +75,7 @@
       "title": "Air pollutants over EU",
       "summary": "Output of b2ro,iqi9 / ifs for selected EU stations.",
       "author": "Swen Metzger, sm@researchconcepts.io",
-      "history": "Processed for CAMS2_35bis (qlc_v0.3.25)",
+      "history": "Processed for CAMS2_35bis (qlc_v0.3.28)",
       "Conventions": "CF-1.8"
     }
   },
@@ -118,7 +118,7 @@
       "title": "Air pollutants over Europe, PM2.5,NH3 (CAMAERA-D3.2-V1.3_M7_in_IFS)",
       "summary": "EBAS daily observations for selected EU stations.",
       "author": "Swen Metzger, sm@researchconcepts.io",
-      "history": "Processed for CAMS2_35bis (qlc_v0.3.25)",
+      "history": "Processed for CAMS2_35bis (qlc_v0.3.28)",
       "Conventions": "CF-1.8"
     }
   }

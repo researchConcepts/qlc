@@ -22,6 +22,81 @@ log() {
   )
 }
 
+# Function to check if argument is a date (matches YYYY-MM-DD pattern)
+is_date() {
+  local arg="$1"
+  if [ ${#arg} -eq 10 ] && [ "${arg:4:1}" = "-" ] && [ "${arg:7:1}" = "-" ]; then
+    local year="${arg:0:4}"
+    local month="${arg:5:2}"
+    local day="${arg:8:2}"
+    if [ "$year" -eq "$year" ] 2>/dev/null && [ "$month" -eq "$month" ] 2>/dev/null && [ "$day" -eq "$day" ] 2>/dev/null; then
+      return 0
+    fi
+  fi
+  return 1
+}
+
+# Function to parse QLC command line arguments
+# Usage: parse_qlc_arguments "$@"
+# Sets global variables: experiments (array), sDat, eDat, config_arg
+parse_qlc_arguments() {
+  log "Parsing command line arguments..."
+  
+  # Check minimum number of arguments
+  if [ $# -lt 3 ]; then
+    log "Error: Insufficient arguments. Expected: <exp1> [exp2 ...] <start_date> <end_date> [config]"
+    return 1
+  fi
+  
+  # Parse arguments from the end to handle variable number of experiments
+  local args=("$@")
+  local num_args=$#
+  
+  # Determine if last argument is a config name (not a date)
+  config_arg=""
+  local end_idx=$num_args
+  if [ $num_args -ge 5 ] && ! is_date "${args[$((num_args-1))]}"; then
+    # Last arg is config name - store it and adjust parsing
+    config_arg="${args[$((num_args-1))]}"
+    end_idx=$((num_args-1))
+    log "Config argument detected: $config_arg"
+  fi
+  
+  # Now parse: everything before the last two items are experiments, last two are dates
+  if [ $end_idx -lt 3 ]; then
+    log "Error: Insufficient arguments after removing config"
+    return 1
+  fi
+  
+  eDat="${args[$((end_idx-1))]}"
+  sDat="${args[$((end_idx-2))]}"
+  
+  # Validate dates
+  if ! is_date "$sDat" || ! is_date "$eDat"; then
+    log "Error: Invalid date format. Expected YYYY-MM-DD"
+    log "Got start_date='$sDat', end_date='$eDat'"
+    return 1
+  fi
+  
+  # Everything before the dates are experiments
+  experiments=()
+  for ((i=0; i<end_idx-2; i++)); do
+    experiments+=("${args[$i]}")
+  done
+  
+  # Validate we have at least one experiment
+  if [ ${#experiments[@]} -eq 0 ]; then
+    log "Error: At least one experiment must be specified"
+    return 1
+  fi
+  
+  log "Found ${#experiments[@]} experiment(s): ${experiments[*]}"
+  log "Start date: $sDat"
+  log "End date: $eDat"
+  
+  return 0
+}
+
 # Define the sorting function
 sort_files() {
     local script_name="$1"

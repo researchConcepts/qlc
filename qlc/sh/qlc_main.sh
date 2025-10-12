@@ -18,14 +18,118 @@ PYTHON_BIN_DIR=$(dirname "$PYTHON_CMD")
 export PATH="$PYTHON_BIN_DIR:$PATH"
 # --- End: Environment Setup ---
 
+# --- Start: QLC Runtime Detection ---
+# Detect QLC runtime directory with priority:
+# 1. QLC_HOME environment variable (explicit override)
+# 2. Auto-detection based on conda environment
+# 3. Default to ~/qlc (production)
+if [ -n "$QLC_HOME" ]; then
+  echo "[QLC] Using explicit QLC_HOME: $QLC_HOME"
+  QLCHOME="$QLC_HOME"
+elif [ -n "$CONDA_DEFAULT_ENV" ] && [[ "$CONDA_DEFAULT_ENV" == *"qlc-dev"* ]]; then
+  echo "[QLC-DEV] Auto-detected development environment"
+  QLCHOME="$HOME/qlc-dev-run"
+else
+  QLCHOME="$HOME/qlc"
+fi
+
+# Verify runtime exists
+if [ ! -d "$QLCHOME" ]; then
+  echo "[ERROR] QLC runtime directory not found: $QLCHOME"
+  echo "[ERROR] Please run: qlc-install --mode test (or --mode dev)"
+  exit 1
+fi
+
+# Export for subscripts
+export QLCHOME
+# --- End: QLC Runtime Detection ---
+
 ARCH="`uname -m`"
 myOS="`uname -s`"
 HOST="`hostname -s`"
 CUSR="`echo $USER`"
+
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments dynamically to support variable number of experiments
+# Format: qlc exp1 [exp2 ...] startDate endDate [config]
+# ----------------------------------------------------------------------------------------
+
+# Handle --version and --help (if called directly instead of via Python wrapper)
+if [ "$1" == "--version" ] || [ "$1" == "-V" ]; then
+  echo "QLC version information (use Python entry point for full details)"
+  echo "Run: python -m qlc.cli --version"
+  exit 0
+fi
+
+if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
+  echo "QLC help (use Python entry point for full details)"
+  echo "Run: python -m qlc.cli --help"
+  exit 0
+fi
+
+# Function to check if argument is a date (matches YYYY-MM-DD pattern)
+is_date() {
+  [[ "$1" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
+}
+
+# Parse arguments from the end to handle variable number of experiments
+args=("$@")
+num_args=$#
+
+# Determine if last argument is a config name (not a date)
+if [ $num_args -ge 5 ] && ! is_date "${args[$((num_args-1))]}"; then
+  # Last arg is config name
+  config_arg="${args[$((num_args-1))]}"
+  end_date="${args[$((num_args-2))]}"
+  start_date="${args[$((num_args-3))]}"
+  # Everything before start_date is experiments
+  experiments=("${args[@]:0:$((num_args-3))}")
+elif [ $num_args -ge 4 ]; then
+  # No config name, using default
+  config_arg=""
+  end_date="${args[$((num_args-1))]}"
+  start_date="${args[$((num_args-2))]}"
+  # Everything before start_date is experiments
+  experiments=("${args[@]:0:$((num_args-2))}")
+else
+  echo "Error: Insufficient arguments"
+  echo "Usage: qlc exp1 [exp2 ...] startDate endDate [config]"
+  exit 1
+fi
+
+# Validate dates
+if ! is_date "$start_date" || ! is_date "$end_date"; then
+  echo "Error: Dates must be in YYYY-MM-DD format"
+  echo "Got start_date='$start_date', end_date='$end_date'"
+  exit 1
+fi
+
+# Validate we have at least one experiment
+if [ ${#experiments[@]} -eq 0 ]; then
+  echo "Error: At least one experiment must be specified"
+  exit 1
+fi
+
+# Log parsed arguments (before CONFIG_FILE is loaded, so using echo)
+echo "[$(date +"%Y-%m-%d %H:%M:%S")] Parsed arguments:"
+echo "[$(date +"%Y-%m-%d %H:%M:%S")]   Experiments: ${experiments[*]} (${#experiments[@]} total)"
+echo "[$(date +"%Y-%m-%d %H:%M:%S")]   Start date: $start_date"
+echo "[$(date +"%Y-%m-%d %H:%M:%S")]   End date: $end_date"
+echo "[$(date +"%Y-%m-%d %H:%M:%S")]   Config: ${config_arg:-default}"
+
 # user specific configuration file
-QLC_DIR="$HOME/qlc"
-CONFIG_DIR="$QLC_DIR/config"
-CONFIG_FILE="$CONFIG_DIR/qlc.conf"
+QLC_DIR="$QLCHOME"
+if [ "$config_arg" == "mars" ] || [ -z "$config_arg" ]; then
+   USER_DIR="default"
+else
+   USER_DIR="$config_arg"
+fi
+CONFIG_DIR="$QLC_DIR/config/$USER_DIR"
+CONFIG_FILE="$CONFIG_DIR/qlc_$USER_DIR.conf"
+#----------------------------------------------------------------------
+JSON_DIR="${CONFIG_DIR}/../json"
+NAMELIST_DIR="${CONFIG_DIR}/../nml"
+#----------------------------------------------------------------------
 
 # Source the configuration file and automatically export all defined variables
 # to make them available to any subscripts that are called.
@@ -35,6 +139,8 @@ set +a
 
 export CONFIG_DIR
 export CONFIG_FILE
+export NAMELIST_DIR
+export JSON_DIR
 
 # Include common functions
 FUNCTIONS="$SCRIPTS_PATH/qlc_common_functions.sh"
@@ -56,18 +162,64 @@ log  "--------------------------------------------------------------------------
 
 # Check if the required parameters are provided
 if [ $# -eq 0 ]; then
-  log  "No parameters provided. Please provide your parameters in the following syntax:"
-  log  "qlc exp1 exp2  startDate   endDate [mars]"
-  log  "type, e.g.:"
-  log  "qlc b2ro b2rn 2018-12-01 2018-12-21"
-  log  "qlc b2ro b2rn 2018-12-01 2018-12-21 mars"
+  log  "________________________________________________________________________________________"
+  log  "QLC (Quick Look Content) - Interactive Execution"
+  log  "----------------------------------------------------------------------------------------"
   log  " "
-  log  "Use option 'mars' to retrieve files and then submit a dependency job once all data have been retrieved."
-  log  "Or, option 'mars' can be skipped, if all data are already present in $MARS_RETRIEVAL_DIRECTORY"
+  log  "Usage:"
+  log  "  qlc <exp1> [exp2 ...] <start_date> <end_date> [config]"
+  log  " "
+  log  "Arguments:"
+  log  "  <exp1> [exp2 ...]  One or more experiment identifiers (minimum 1)"
+  log  "  <start_date>       Start date in YYYY-MM-DD format"
+  log  "  <end_date>         End date in YYYY-MM-DD format"
+  log  "  [config]           Configuration option (default: 'default')"
+  log  " "
+  log  "Configuration Options:"
+  log  "  Each subdirectory in ~/qlc/config can be used as a config option:"
+  log  " "
+  log  "  default (or mars)  MARS data retrieval only (no analysis)"
+  log  "  qpy                qlc-py collocation & time series plots"
+  log  "  evaltools          Advanced statistics with Taylor diagrams"
+  log  "  eac5               EAC5/CAMS reanalysis analysis (K1 namelist)"
+  log  "  pyferret           PyFerret visualization integration"
+  log  "  ver0d              Ver0D processing (ATOS/IDL-based)"
+  log  " "
+  log  "Multi-Experiment Support:"
+  log  "  QLC supports comparing any number of experiments (N >= 1):"
+  log  "  - Single:  qlc exp1 2018-12-01 2018-12-21 qpy"
+  log  "  - Two:     qlc exp1 exp2 2018-12-01 2018-12-21 qpy"
+  log  "  - Three+:  qlc exp1 exp2 exp3 2018-12-01 2018-12-21 qpy"
+  log  " "
+  log  "Examples:"
+  log  "  # Two experiments with qlc-py collocation and time series"
+  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 qpy"
+  log  " "
+  log  "  # Three experiments with evaltools statistics"
+  log  "  qlc exp1 exp2 exp3 2018-12-01 2018-12-21 evaltools"
+  log  " "
+  log  "  # EAC5 reanalysis validation (K1 namelist: 10 variables)"
+  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 eac5"
+  log  " "
+  log  "  # MARS data retrieval only (no analysis)"
+  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 mars"
+  log  " "
+  log  "  # PyFerret visualization"
+  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 pyferret"
+  log  " "
+  log  "Data Retrieval Behavior:"
+  log  "  - Non-mars configs: Auto-retrieve data if qlc_A1.sh is active"
+  log  "    (checks data_retrieval flag; only retrieves if needed)"
+  log  "  - 'mars' config: Retrieves data ONLY, no analysis/processing"
+  log  "  - Data based on MARS namelist (e.g., mars_K1_sfc.nml) and"
+  log  "    parameter mapping (e.g., K1_sfc in MARS_RETRIEVALS)"
+  log  " "
+  log  "For batch submission, use: sqlc <exp1> [exp2 ...] <dates> [config]"
+  log  "For help: qlc --help (or just 'qlc' without arguments in Python wrapper)"
   log  "________________________________________________________________________________________"
   log  "End   ${SCRIPT} at `date`"
   log  "________________________________________________________________________________________"
-  exit 1
+  exit 0
 fi
 
 # Loop through the provided parameters
@@ -128,7 +280,7 @@ for name in "${SUBSCRIPT_NAMES[@]}"; do
     log   "$SCRIPTS_PATH/$script_name" "$@"
           "$SCRIPTS_PATH/$script_name" "$@"
 
-    if [ "$5" == "mars" ]; then
+    if [ "$config_arg" == "mars" ]; then
        log "Only calling the mars retrieval script, the other processes can be called in the second qlc submission step (without option: mars)"
        log  "----------------------------------------------------------------------------------------"
        log  "End ${SCRIPT} at `date`"

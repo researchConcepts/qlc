@@ -30,10 +30,11 @@ After installation, the following entry points are available:
 
 ## Plugin Support
 
-Plugins may be placed in:
+Plugins may be placed in your runtime directory:
 
 ```bash
-~/qlc/plugin/
+~/qlc/plugin/              # For PyPI installation
+~/qlc-dev-run/plugin/      # For development installation
 ```
 
 These are loaded dynamically via `plugin_loader.py` if found.
@@ -42,25 +43,56 @@ These are loaded dynamically via `plugin_loader.py` if found.
 
 ## Development Setup
 
-To contribute to `qlc`, you should set up a local development environment. This allows you to edit the code and test your changes live.
+**New in v0.4.1**: QLC now supports isolated development environments that can run in parallel with PyPI installations.
+
+### Quick Start
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/researchConcepts/qlc.git
-    cd qlc
+    git clone https://github.com/researchConcepts/qlc.git ~/qlc-dev
+    cd ~/qlc-dev
     ```
 
-2.  **(Recommended) Create and activate a virtual environment:**
+2.  **Create and activate a conda environment (use 'qlc-dev' name):**
     ```bash
-    python3 -m venv .venv
-    source .venv/bin/activate
+    conda create -n qlc-dev python=3.10 -y
+    conda activate qlc-dev
     ```
 
 3.  **Install in "editable" mode:**
     This command installs all dependencies and links your environment to your source code. Any changes you make to the `.py` files will be reflected immediately.
     ```bash
-    pip install -e .
+    pip install -e ".[dev]"
     ```
+    
+    **Note**: Evaltools must be installed separately - see `qlc/doc/EVALTOOLS.md` for instructions.
+
+4.  **Setup isolated development runtime:**
+    This creates a separate runtime directory (`~/qlc_dev/`) that won't conflict with PyPI installations.
+    ```bash
+    qlc-install --mode dev
+    ```
+
+5.  **Setup conda environment auto-switching (recommended):**
+    ```bash
+    bash qlc/sh/tools/setup_conda_env.sh qlc-dev
+    ```
+
+### Verify Setup
+
+```bash
+conda deactivate && conda activate qlc-dev
+qlc --version
+# Should show: Runtime: /Users/<user>/qlc-dev-run (conda-dev)
+```
+
+### For Complete Development Guide
+
+See **INSTALL_DEV.md** for comprehensive development setup instructions, including:
+- Parallel testing with PyPI version
+- Version switching methods
+- Troubleshooting common issues
+- Development utilities documentation
 
 ---
 

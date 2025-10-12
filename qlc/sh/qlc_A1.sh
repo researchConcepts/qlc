@@ -17,17 +17,18 @@ SCRIPT="$0"
 log "$0 MARS_RETRIEVALS = $CONFIG_DIR nml files: ${MARS_RETRIEVALS[*]}"
 pwd -P
 
-# Assign the command line input parameters to variables
-exp1="$1"
-exp2="$2"
-sDat="$3"
-eDat="$4"
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments: <exp1> <exp2> ... <expN> <start_date> <end_date> [config]
+# ----------------------------------------------------------------------------------------
+# Use common parsing function from qlc_common_functions.sh
+# Sets: experiments (array), sDat, eDat, config_arg
+parse_qlc_arguments "$@" || exit 1
 
 myOS="`uname -s`"
 
-exps="$exp1 $exp2"
-for exp in $exps ; do
-  log "Processing experiment: $exp"
+# Process each experiment
+for exp in "${experiments[@]}"; do
+  log "Processing experiment: $exp - class: ${XCLASS}"
 
   # Create experiment directory if not existent
   if [ ! -d "$MARS_RETRIEVAL_DIRECTORY/$exp" ]; then
@@ -59,7 +60,6 @@ for exp in $exps ; do
 #     w) XCLASS="ch" ;;  # Switzerland
     *) XCLASS="rd" ;;  # Default to Research Department
   esac
-  log "${exp}" "${XCLASS}"
  
   # --------------------------------------------------------------------
   # 2. MARS request for sfc data
@@ -67,36 +67,59 @@ for exp in $exps ; do
     nml_name="mars_${name}.nml"
     log "Processing subscript: $nml_name"
 
-    if [ -f "$CONFIG_DIR/nml/$nml_name" ]; then
-      nml_template="$CONFIG_DIR/nml/$nml_name"
+    if [ -f "$NAMELIST_DIR/$nml_name" ]; then
+      nml_template="$NAMELIST_DIR/$nml_name"
       nml_file="$MARS_RETRIEVAL_DIRECTORY/$exp/$nml_name"
 
       # Create a unique flag for this experiment and time period
-      data_retrieved_flag="$MARS_RETRIEVAL_DIRECTORY/$exp/data_retrieved_$sDat-$eDat.flag_${name}"
+      data_retrieved_flag="$MARS_RETRIEVAL_DIRECTORY/$exp/data_retrieved_${exp}_${sDat}-${eDat}_${name}.flag"
 
-      # Check for the control file in the mars retrieval directory
-      if [ -f  "$data_retrieved_flag" ]; then
+      # Replace placeholders in the namelist file to extract target information
+      # EXP, SDATE, EDATE, MYPATH, MYFILE
+      temp_nml=$(mktemp)
+      sed -e "s/= EXP,/= $exp,/g" \
+          -e "s/= XCLASS/= $XCLASS/g" \
+          -e "s/= SDATE/= $sDat/g" \
+          -e "s|o/EDATE|o/$eDat|g" \
+          -e "s/MYFILE_/$exp\_${sDat//[-:]/}-${eDat//[-:]/}_/g" \
+          -e "s|MYPATH/|${MARS_RETRIEVAL_DIRECTORY}/$exp/|g" \
+           "$nml_template" > "$temp_nml"
+      
+      # Extract the 'target' value to check if files exist
+      target=$(awk -F'=' '/target/ {gsub("\"", "", $2); gsub(/^[ \t]+|[ \t]+$/, "", $2); print $2}' "$temp_nml")
+      
+      # Check for the control file and actual data files in the mars retrieval directory
+      if [ -f "$data_retrieved_flag" ]; then
         ls -lh "$data_retrieved_flag"
-        log "Data retrieval in progress or completed for experiment $exp and namelist case $name."
-        log "Proceeding without retrieval script qlc_${name}.sh for case $name"
+        
+        # Check if the actual grb files exist (support wildcards in target path)
+        grb_files_exist=false
+        if [ -n "$target" ]; then
+          # Check for files matching the target pattern
+          if ls $target 2>/dev/null | head -n 1 | grep -q .; then
+            grb_files_exist=true
+            log "Data files found: $target"
+            ls -lh $target 2>/dev/null | head -5
+          fi
+        fi
+        
+        if [ "$grb_files_exist" = true ]; then
+          log "Data retrieval completed for experiment $exp and namelist case $name"
+          log "Found existing grb files. Skipping retrieval for case $name"
+        else
+          log "Data retrieval in progress for experiment $exp and namelist case $name"
+          log "Flag exists but grb files not yet available. Skipping re-submission for case $name"
+        fi
       else
         log "Data has not been retrieved. Calling script:"
         log "$0 for data retrieval for experiment $exp and namelist case $name"
-		  # Replace placeholders in the namelist file
-		  # EXP, SDATE, EDATE, MYPATH, MYFILE
-		  sed -e "s/= EXP,/= $exp,/g" \
-			  -e "s/= XCLASS/= $XCLASS/g" \
-			  -e "s/= SDATE/= $sDat/g" \
-			  -e "s|o/EDATE|o/$eDat|g" \
-			  -e "s/MYFILE_/$exp\_${sDat//[-:]/}-${eDat//[-:]/}_/g" \
-			  -e "s|MYPATH/|${MARS_RETRIEVAL_DIRECTORY}/$exp/|g" \
-			   "$nml_template" > "$nml_file"
-		  log "$nml_file" 
-		  cat "$nml_file"  # Print the modified namelist
-		  log MARS_RETRIEVAL_DIRECTORY $MARS_RETRIEVAL_DIRECTORY
-
-		  # Extract the 'target' value and assign it to a variable
-		  target=$(awk -F'=' '/target/ {gsub("\"", "", $2); print $2}' "$nml_file")
+        
+        # Use the already processed namelist
+        nml_file="$MARS_RETRIEVAL_DIRECTORY/$exp/$nml_name"
+        cp "$temp_nml" "$nml_file"
+        log "$nml_file" 
+        cat "$nml_file"  # Print the modified namelist
+        log MARS_RETRIEVAL_DIRECTORY $MARS_RETRIEVAL_DIRECTORY
 		  log "mars target file: $target"
 
         # Create a batch job script
@@ -131,6 +154,9 @@ EOF
         touch $data_retrieved_flag
         log "----------------------------------------------------------------------------------------"
       fi
+      
+      # Cleanup temporary namelist file
+      rm -f "$temp_nml"
     else
       log "Error: $nml_name not found in $CONFIG_DIR"
     fi

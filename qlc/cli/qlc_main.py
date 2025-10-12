@@ -39,7 +39,7 @@ def load_config_with_defaults(config):
             "subtitle": f"Processing file info (auto replaced)",
             "summary": "This file contains metadata processed by QLC.",
             "author": "Plain & Simple, plain.simple@example.com",
-            "source": "Quick Look CAMS (QLC) Processor",
+            "source": "Quick Look Content (QLC) Processor",
             "version": f"QLC Version: {QLC_VERSION}",
             "qlcmode": f"QLC Mode: {QLC_DISTRIBUTION}",
             "release": f"QLC Release Date: {QLC_RELEASE_DATE}",
@@ -193,8 +193,65 @@ def run_with_file(file_path):
     logging.info("************************************************************************************************")
 
 def main():
-    parser = argparse.ArgumentParser(description="Run QLC Python Processor")
-    parser.add_argument("--config", type=str, help="Path to config JSON", default=os.path.expanduser("~/qlc/config/json/qlc_config.json"))
+    parser = argparse.ArgumentParser(
+        prog='qlc-py',
+        description='QLC Python Processing Engine - Model-observation collocation and time series analysis',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Use default configuration
+  qlc-py
+  
+  # Use custom configuration
+  qlc-py --config ~/qlc/config/json/my_config.json
+  
+  # Read configuration from stdin
+  cat config.json | qlc-py --config -
+
+Configuration File Format:
+  The JSON configuration file(s) specify:
+  - Experiment names and paths
+  - Observation datasets and station locations
+  - Variables to process
+  - Time range and temporal aggregation
+  - Output formats and plotting options
+  - Multi-region settings (optional)
+  
+  See ~/qlc/config/json/qlc_config.json for a template.
+  See ~/qlc/config/examples/ for working examples.
+
+Multi-Configuration Support:
+  The config file can contain either:
+  - Single config object: Process one configuration
+  - Array of configs: Process multiple configurations (sequential or parallel)
+
+Typical Workflow:
+  1. Shell wrapper (qlc) sets up environment and calls appropriate scripts
+  2. Scripts generate JSON configuration for qlc-py
+  3. qlc-py performs collocation and generates time series plots
+  4. Results saved to Analysis/ and Plots/ directories
+  5. E1/E2 scripts can convert output to evaltools format (optional)
+  6. Z1 generates PDF reports from all plots
+
+Related Commands:
+  qlc                     Main QLC command-line interface
+  qlc-extract-stations    Extract station metadata from observations
+  sqlc                    Submit QLC jobs to batch scheduler
+
+Documentation:
+  Usage Guide:    ~/qlc/doc/USAGE.md
+  Configuration:  ~/qlc/doc/README.md
+  Online:         https://pypi.org/project/rc-qlc/
+  Online:         https://github.com/researchConcepts/qlc
+        """
+    )
+    parser.add_argument(
+        "--config",
+        type=str,
+        help="Path to JSON configuration file (or '-' for stdin). Default: ~/qlc/config/json/qlc_config.json",
+        default=os.path.expanduser("~/qlc/config/json/qlc_config.json")
+    )
+    
     args = parser.parse_args()
 
     if args.config:

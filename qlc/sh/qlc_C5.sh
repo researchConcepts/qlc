@@ -36,40 +36,85 @@ if [ "${HOST}" = "a" ] && [ "${myOS}" != "Darwin" ]; then
         log "[WARN] 'module' command not found; skipping ferret module load"
     fi
 else
-    # Conda activation for pyferret_env
-    if [ -f "$HOME/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "$HOME/miniforge3/etc/profile.d/conda.sh"
-        conda activate pyferret_env
-    elif [ -f "$HOME/miniforge3/bin/activate" ]; then
-        . "$HOME/miniforge3/bin/activate" "pyferret_env"
-    else
-        log "[WARN] Conda activation scripts not found; relying on PATH for pyferret"
-    fi
+    # Conda activation for pyferret/ferret environment
+    # Try multiple possible environment names and base paths
+    for base in "$HOME/miniforge3" "$HOME/anaconda3" "/opt/homebrew/anaconda3"; do
+        if [ -f "$base/etc/profile.d/conda.sh" ]; then
+            . "$base/etc/profile.d/conda.sh"
+            # Try activating common pyferret environment names
+            for env in "pyferret_env" "pyferret" "ferret"; do
+                if conda activate "$env" 2>/dev/null; then
+                    log "[INFO] conda activate $env"
+                    log "[INFO] Activated conda environment: $env"
+                    source $HOME/ferret_paths.sh
+                    break 2
+                fi
+            done
+        fi
+    done
 fi
 
 # Determine the pyferret command to use.
-# First, check if pyferret is in the PATH (e.g., from "pip install 'rc-qlc[ferret]'").
-# If not, fall back to the direct path in the conda environment as per the README.
+# Check multiple possible locations
 PYFERRET_CMD=""
 if command -v pyferret &> /dev/null; then
-    log "Using 'pyferret' found in system PATH."
     PYFERRET_CMD="pyferret"
-elif [ -x "$HOME/miniforge3/envs/pyferret_env/bin/pyferret" ]; then
-    log "Using 'pyferret' from dedicated conda environment."
-    PYFERRET_CMD="$HOME/miniforge3/envs/pyferret_env/bin/pyferret"
+    log "Using 'pyferret' found in system PATH: `which $PYFERRET_CMD`"
+else
+    # Search for pyferret in common conda environment locations
+    for base in "$HOME/miniforge3" "$HOME/anaconda3" "/opt/homebrew/anaconda3"; do
+        for env in "pyferret_env" "pyferret" "ferret"; do
+            if [ -x "$base/envs/$env/bin/pyferret" ]; then
+                log "Using 'pyferret' from conda environment: $env at $base"
+                PYFERRET_CMD="$base/envs/$env/bin/pyferret"
+                break 2
+            fi
+        done
+    done
 fi
 
 # Check if we found a valid pyferret command
 if [ -z "$PYFERRET_CMD" ]; then
+  ARCH=$(uname -m)
   log  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   log  "WARNING: pyferret command not found."
   log  "The qlc_C5.sh script requires pyferret for generating global map plots."
-  log  "You can install it as an optional dependency with:"
-  log  "    pip install 'rc-qlc[ferret]'"
-  log  "For more detailed instructions (e.g., for macOS), please see the"
-  log  "'Advanced Topics' section in the main README.md file."
-  log  "Alternatively, you can disable this script by commenting out 'C5' in the"
-  log  "SUBSCRIPT_NAMES array in your qlc.conf file."
+  log  ""
+  
+  if [ "$ARCH" = "arm64" ]; then
+    log  "IMPORTANT: You are running on Apple Silicon (ARM64) architecture."
+    log  "PyFerret native ARM64 builds are not available, but it CAN run via Rosetta 2."
+    log  ""
+    log  "Installation options for Apple Silicon:"
+    log  ""
+    log  "Option 1: Install x86_64 conda and pyferret (via Rosetta 2)"
+    log  "  # Install Rosetta 2 if not already installed"
+    log  "  softwareupdate --install-rosetta"
+    log  ""
+    log  "  # Download x86_64 version of Anaconda/Miniforge"
+    log  "  arch -x86_64 /bin/bash -c \"\$(curl -fsSL https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh)\""
+    log  ""
+    log  "  # Create x86_64 environment with pyferret"
+    log  "  CONDA_SUBDIR=osx-64 conda create -n ferret python=3.10"
+    log  "  conda activate ferret"
+    log  "  conda config --env --set subdir osx-64"
+    log  "  conda install -c conda-forge pyferret"
+    log  ""
+    log  "Option 2: Disable C5 script"
+    log  "  Remove 'C5' from SUBSCRIPT_NAMES array in your config file"
+    log  ""
+    log  "Note: All other QLC functionality works natively on Apple Silicon."
+  else
+    log  "PyFerret is available via conda-forge for your architecture."
+    log  "To install pyferret:"
+    log  ""
+    log  "    conda activate qlc-dev"
+    log  "    conda install -c conda-forge pyferret"
+    log  ""
+    log  "Alternatively, you can disable this script by removing 'C5' from the"
+    log  "SUBSCRIPT_NAMES array in your config file."
+  fi
+  
   log  "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   log  "Skipping pyferret plots and exiting script gracefully."
   exit 0
@@ -85,18 +130,36 @@ script_name="${SCRIPT##*/}"     # Remove directory path
 script_name="${script_name%.*}" # Remove extension
 QLTYPE="$script_name"
 
-# Assign the command line input parameters to variables
-exp1="$1"
-exp2="$2"
-sDat="$3"
-eDat="$4"
+# ----------------------------------------------------------------------------------------
+# Parse command line arguments: <exp1> <exp2> ... <expN> <start_date> <end_date> [config]
+# ----------------------------------------------------------------------------------------
+# Use common parsing function from qlc_common_functions.sh
+# Sets: experiments (array), sDat, eDat, config_arg
+parse_qlc_arguments "$@" || exit 1
+
+# Generic experiment handling: last experiment is the reference
+num_experiments=${#experiments[@]}
+if [ $num_experiments -lt 1 ]; then
+    log "Error: At least one experiment required"
+    exit 1
+fi
+
+# Last experiment is the reference for difference plots
+ref_exp="${experiments[$((num_experiments-1))]}"
+log "Reference experiment (for diff plots): $ref_exp"
+
+# For backward compatibility, set exp1 and exp2
+exp1="${experiments[0]}"
+exp2="${ref_exp}"
+
+experiments_hyphen=$(IFS=-; echo "${experiments[*]}")
 sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 ext="$PLOTEXTENSION"
 ulev="$UTLS"
 
-hpath="$PLOTS_DIRECTORY/${exp1}-${exp2}_${mDate}"
+hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}"
 
 # Create help directory if not existent
 if [  ! -d "$hpath" ]; then
@@ -110,10 +173,10 @@ texFile="${texPlotsfile%.list}.tex"
 rm -f $texPlotsfile
 touch $texPlotsfile
 
-exps="$exp1 $exp2"
-for exp in $exps ; do
+# Loop over all experiments
+for exp in "${experiments[@]}" ; do
 	log  "----------------------------------------------------------------------------------------"
-	log "Processing ${PLOTTYPE} plot for experiment: $exp"
+	log "Processing ${PLOTTYPE} plot for experiment: $exp (reference: $ref_exp)"
 
 	log "QLTYPE           : $QLTYPE"
 	log "TEAM_PREFIX      : ${TEAM_PREFIX}"
@@ -126,8 +189,8 @@ for exp in $exps ; do
 	log "exp2             : $exp2"
 	log "ulev             : $ulev"
 
-	# definition of plot file base name
-	pfile="${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}"
+	# definition of plot file base name (includes all experiments)
+	pfile="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}"
 	log "pfile base name  : $pfile"
 
 	ipath="$ANALYSIS_DIRECTORY/$exp"
@@ -220,9 +283,10 @@ for exp in $exps ; do
 #			ifile1="$ANALYSIS_DIRECTORY/$exp1/${exp1}_${mDate}_${name}${ltype}_${pvar}_tavg.nc"
 #			ifile2="$ANALYSIS_DIRECTORY/$exp2/${exp2}_${mDate}_${name}${ltype}_${pvar}_tavg.nc"
 
-			ifile="$ipath/${exp}_${mDate}_${name}_${pvar}_tavg.nc"
-			ifile1="$ANALYSIS_DIRECTORY/$exp1/${exp1}_${mDate}_${name}_${pvar}_tavg.nc"
-			ifile2="$ANALYSIS_DIRECTORY/$exp2/${exp2}_${mDate}_${name}_${pvar}_tavg.nc"
+		ifile="$ipath/${exp}_${mDate}_${name}_${pvar}_tavg.nc"
+		# For diff plots: current experiment vs reference experiment
+		ifile_current="$ANALYSIS_DIRECTORY/$exp/${exp}_${mDate}_${name}_${pvar}_tavg.nc"
+		ifile_ref="$ANALYSIS_DIRECTORY/$ref_exp/${ref_exp}_${mDate}_${name}_${pvar}_tavg.nc"
 
 			if [ -f "${ifile}" ]; then
 			
@@ -292,6 +356,12 @@ for exp in $exps ; do
 			   facZ="1e7*"
 			   facM="1e7*"
 			   facU="1e8*"
+			elif [ "${pvar}" == "AOD" ]; then
+			   facS="1e1*"
+			   facB="1e1*"
+			   facZ="1e1*"
+			   facM="1e1*"
+			   facU="1e1*"
 			elif [ "${pvar}" == "SO2" ]; then
 			   facS="1e11*"
 			   facB="1e10*"
@@ -351,8 +421,8 @@ fill ${pal} ${LEVELS2}  /title="Burden: ${MODEL_RESOLUTION} - ${exp}: log(${var}
 EOF
 cat > ${tfile}_burden_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
-use ${ifile1}
-use ${ifile2}
+use ${ifile_current}
+use ${ifile_ref}
 show data
 CANCEL MODE logo
 SET MEMORY/SIZE=${FERRETMEMSIZE}
@@ -369,12 +439,12 @@ let lat="-90:90"
 let tim="@AVE"
 let lev="@SUM"
 let var="${facB}${pvar}"
-fill ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
+fill ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
 !${CONTOUR}                                                                       (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
 ! FRAME/TRANSPARENT/file=${tfile}_burden_diff.$ext
   FRAME/file=${tfile}_burden_diff.$ext
 !SPAWN ls -l ${tfile}_burden_diff.$ext
-fill  ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
+fill  ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
 !${CONTOUR}                                                                             (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
 ! FRAME/TRANSPARENT/file=${tfile}_burden_log_diff.$ext
   FRAME/file=${tfile}_burden_log_diff.$ext
@@ -416,8 +486,8 @@ ${CONTOUR}  ${LEVELS2}                                                          
 EOF
 cat > ${tfile}_zonal_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
-use ${ifile1}
-use ${ifile2}
+use ${ifile_current}
+use ${ifile_ref}
 show data
 CANCEL MODE logo
 SET MEMORY/SIZE=${FERRETMEMSIZE}
@@ -434,12 +504,12 @@ let lat="-90:90"
 let tim="@AVE"
 let lev="1:${plev}"
 let var="${facZ}${pvar}"
-fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
+fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
 ${CONTOUR}                                                                           (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
 ! FRAME/TRANSPARENT/file=${tfile}_zonal_diff.$ext
   FRAME/file=${tfile}_zonal_diff.$ext
 !SPAWN ls -l ${tfile}_zonal_diff.$ext
-fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
+fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
 ${CONTOUR}                                                                                (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
 ! FRAME/TRANSPARENT/file=${tfile}_zonal_log_diff.$ext
   FRAME/file=${tfile}_zonal_log_diff.$ext
@@ -480,8 +550,8 @@ ${CONTOUR}  ${LEVELS2}                                                          
 EOF
 cat > ${tfile}_meridional_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
-use ${ifile1}
-use ${ifile2}
+use ${ifile_current}
+use ${ifile_ref}
 show data
 CANCEL MODE logo
 SET MEMORY/SIZE=${FERRETMEMSIZE}
@@ -498,12 +568,12 @@ let lat="-90:90@AVE"
 let tim="@AVE"
 let lev="1:${plev}"
 let var="${facM}${pvar}"
-fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
+fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
 ${CONTOUR}                                                                                (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
 ! FRAME/TRANSPARENT/file=${tfile}_meridional_diff.$ext
   FRAME/file=${tfile}_meridional_diff.$ext
 !SPAWN ls -l ${tfile}_meridional_diff.$ext
-fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
+fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
 ${CONTOUR}                                                                                     (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
 ! FRAME/TRANSPARENT/file=${tfile}_meridional_log_diff.$ext
   FRAME/file=${tfile}_meridional_log_diff.$ext
@@ -545,8 +615,8 @@ fill ${pal} ${LEVELS2} /title="Surface: ${MODEL_RESOLUTION} - ${exp}: log(${var}
 EOF
 cat > ${tfile}_surface_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
-use ${ifile1}
-use ${ifile2}
+use ${ifile_current}
+use ${ifile_ref}
 show data
 CANCEL MODE logo
 SET MEMORY/SIZE=${FERRETMEMSIZE}
@@ -563,12 +633,12 @@ let lat="-90:90"
 let tim="@AVE"
 let lev="${plev}"
 let var="${facS}${pvar}"
-fill  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
+fill  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
 !${CONTOUR}                                                                         (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
 ! FRAME/TRANSPARENT/file=${tfile}_surface_diff.$ext
   FRAME/file=${tfile}_surface_diff.$ext
 !SPAWN ls -l ${tfile}_surface_diff.$ext
-fill  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
+fill  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
 !${CONTOUR}                                                                              (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
 ! FRAME/TRANSPARENT/file=${tfile}_surface_log_diff.$ext
   FRAME/file=${tfile}_surface_log_diff.$ext
@@ -610,8 +680,8 @@ fill ${pal} ${LEVELS3} /title="UTLS: ${MODEL_RESOLUTION} - ${exp}: log(${var})" 
 EOF
 cat > ${tfile}_utls_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
-use ${ifile1}
-use ${ifile2}
+use ${ifile_current}
+use ${ifile_ref}
 show data
 CANCEL MODE logo
 SET MEMORY/SIZE=${FERRETMEMSIZE}
@@ -628,12 +698,12 @@ let lat="-90:90"
 let tim="@AVE"
 let lev="${ulev}@SUM"
 let var="${facU}${pvar}"
-fill  ${pal}  /title="UTLS: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
+fill  ${pal}  /title="UTLS: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
 !${CONTOUR}                                                                     (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
 ! FRAME/TRANSPARENT/file=${tfile}_utls_diff.$ext
   FRAME/file=${tfile}_utls_diff.$ext
 !SPAWN ls -l ${tfile}_utls_diff.$ext
-fill  ${pal}  /title="UTLS: ${MODEL_RESOLUTION} - Diff: ${exp1}-${exp2}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
+fill  ${pal}  /title="UTLS: ${MODEL_RESOLUTION} - Diff: ${exp}-${ref_exp}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
 !${CONTOUR}                                                                          (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
 ! FRAME/TRANSPARENT/file=${tfile}_utls_log_diff.$ext
   FRAME/file=${tfile}_utls_log_diff.$ext
@@ -672,7 +742,9 @@ EOF
 					 $PYFERRET_CMD -nodisplay -script  ${tfile}_utls_1x1.jnl
 			fi
 					 
-			if [ "${exp}" == "${exp1}" ]; then
+			# Create diff plots for all experiments except the reference
+			if [ "${exp}" != "${ref_exp}" ]; then
+				log "Creating difference plots: ${exp} - ${ref_exp}"
 				rm -f ${tfile}_burden_diff.${ext} ${tfile}_burden_log_diff.${ext}
 				log "$PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1_diff.jnl"
 					 $PYFERRET_CMD -nodisplay -script  ${tfile}_burden_1x1_diff.jnl
@@ -701,6 +773,7 @@ EOF
 				       "${tfile}_utls"       "${tfile}_utls_log"       "${tfile}_utls_diff"       "${tfile}_utls_log_diff"       \
 				       )
 			else
+				log "Skipping difference plots for reference experiment: ${ref_exp}"
 #				files=("${tfile}" "${tfile}_log")
 #				files=("${tfile}" "${tfile}_log"  "${tfile}_zonal" "${tfile}_zonal_log" "${tfile}_meridional" "${tfile}_meridional_log" "${tfile}_surface" "${tfile}_surface_log" "${tfile}_utls" "${tfile}_utls_log")
 				files=("${tfile}_surface"    "${tfile}_surface_log"       \
@@ -747,10 +820,25 @@ pfiles="`cat ${texPlotsfile}`"
 log  "----------------------------------------------------------------------------------------"
 log  "sorted file list:"
 sorted_files="${hpath}/sorted_files_${script_name}.list"
+rm -f ${sorted_files}
 touch ${sorted_files}
-log "sort_files  "${QLTYPE}" "${exp1}" "${exp2}" "$texPlotsfile" "${ext}" "${hpath}""
-     sort_files  "${QLTYPE}" "${exp1}" "${exp2}" "$texPlotsfile" "${ext}" "${hpath}"
-#cp ${texPlotsfile} ${sorted_files} # test / remove
+
+# Loop over each non-reference experiment to generate sorted file lists
+for curr_exp in "${experiments[@]}"; do
+  if [ "${curr_exp}" != "${ref_exp}" ]; then
+    log "sort_files  "${QLTYPE}" "${curr_exp}" "${ref_exp}" "$texPlotsfile" "${ext}" "${hpath}""
+         sort_files  "${QLTYPE}" "${curr_exp}" "${ref_exp}" "$texPlotsfile" "${ext}" "${hpath}"
+    # Append this experiment's sorted list to the combined list
+    exp_sorted_files="${hpath}/sorted_files_${script_name}.list"
+    if [ -f "${exp_sorted_files}" ]; then
+      cat "${exp_sorted_files}" >> "${sorted_files}.combined"
+    fi
+  fi
+done
+
+# Use the combined sorted file
+mv "${sorted_files}.combined" "${sorted_files}"
+
 tfiles="`cat ${sorted_files}`"
 log         "${tfiles}"
 log  "----------------------------------------------------------------------------------------"
@@ -783,16 +871,16 @@ else
   pvar=$pvar2
   pvar3=$pvar2
 fi
-tvar="${ptyp}: ${pvar3} of ${exp1} vs ${exp2}"
+tvar="${ptyp}: ${pvar3} of ${pexp} vs ${ref_exp}"
 for part in "${parts[@]}"; do
   if [ "${plog}" == "log" ] ; then
-    tvar="${ptyp}: ${pvar3} of ${exp1} vs ${exp2} (log)"
+    tvar="${ptyp}: ${pvar3} of ${pexp} vs ${ref_exp} (log)"
   fi
   if [ "${plog}" == "diff" ]; then
-    tvar="${ptyp}: ${pvar3} | diff of ${exp1}-${exp2}"
+    tvar="${ptyp}: ${pvar3} | diff of ${pexp}-${ref_exp}"
   fi
   if [ "${pdif}" == "diff" ]; then
-    tvar="${ptyp}: ${pvar3} | diff of ${exp1}-${exp2} (log)"
+    tvar="${ptyp}: ${pvar3} | diff of ${pexp}-${ref_exp} (log)"
   fi
 done
 
@@ -803,14 +891,15 @@ fi
 if [ "${tlev}" != "sfc" ] ; then
   GO="GO"
 fi
-#log "${GO} = GO | ${pexp} = ${exp1} | ${plog}"
-if [ "${GO}" == "GO" ] && [ "${pexp}" == "${exp1}" ] && [ "${plog}" == "" ] ; then
-plot1="$PLOTS_DIRECTORY/${exp1}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp1}_${ptyp}.${ext}"
-plot2="$PLOTS_DIRECTORY/${exp2}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp2}_${ptyp}.${ext}"
-plot3="$PLOTS_DIRECTORY/${exp1}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp1}_${ptyp}_diff.${ext}"
-plot4="$PLOTS_DIRECTORY/${exp1}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp1}_${ptyp}_log.${ext}"
-plot5="$PLOTS_DIRECTORY/${exp2}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp2}_${ptyp}_log.${ext}"
-plot6="$PLOTS_DIRECTORY/${exp1}/${TEAM_PREFIX}_${exp1}-${exp2}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${exp1}_${ptyp}_log_diff.${ext}"
+#log "${GO} = GO | ${pexp} = ${pexp} vs ${ref_exp} | ${plog}"
+# Generate TeX frame for each non-reference experiment (showing it vs reference)
+if [ "${GO}" == "GO" ] && [ "${pexp}" != "${ref_exp}" ] && [ "${plog}" == "" ] ; then
+plot1="$PLOTS_DIRECTORY/${pexp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${pexp}_${ptyp}.${ext}"
+plot2="$PLOTS_DIRECTORY/${ref_exp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${ref_exp}_${ptyp}.${ext}"
+plot3="$PLOTS_DIRECTORY/${pexp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${pexp}_${ptyp}_diff.${ext}"
+plot4="$PLOTS_DIRECTORY/${pexp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${pexp}_${ptyp}_log.${ext}"
+plot5="$PLOTS_DIRECTORY/${ref_exp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${ref_exp}_${ptyp}_log.${ext}"
+plot6="$PLOTS_DIRECTORY/${pexp}/${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${pnml}_${tlev}_${pvar}_${pexp}_${ptyp}_log_diff.${ext}"
 cat >> ${texFile} <<EOF
 %===============================================================================
 \frame{

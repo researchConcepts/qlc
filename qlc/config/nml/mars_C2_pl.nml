@@ -1,8 +1,8 @@
 # adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
-# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
-# param_C2=("36.212" "35.212" "2.212" "1.212")
-# ncvar_C2=("var36"  "var35"  "var2"  "var1" )
-# myvar_C2=("NO3_as" "NH4_as" "SO4_as" "N_as")
+# add your param_, ncvar_ and myvar_ to your $QLC_HOME/config/qlc.conf
+# param_C2_pl=("36.212" "35.212" "2.212" "1.212")
+# ncvar_C2_pl=("var36"  "var35"  "var2"  "var1" )
+# myvar_C2_pl=("NO3_as" "NH4_as" "SO4_as" "N_as")
 # pressure levels
 RETRIEVE,
 CLASS      = XCLASS,

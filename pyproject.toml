@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rc-qlc"
-version = "0.3.27"
+version = "0.4.1"
 license = { text = "MIT" }
-description = "Quick Look Content (QLC): Model–Observation Comparison Suite for Use with CAMS"
+description = "Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS [BETA]"
 authors = [
   { name = "ResearchConcepts io GmbH", email = "contact@researchconcepts.io" }
 ]
@@ -17,19 +17,27 @@ dependencies = [
   "numpy",
   "pandas",
   "matplotlib",
+  "seaborn",
   "xarray",
   "netCDF4",
+  "dask[complete]",
   "scipy",
   "cartopy",
   "tqdm",
-  "adjustText"
+  "adjustText",
+  "cftime",
+  "bottleneck",
+  "tomli; python_version < '3.11'"
 ]
 
 [project.optional-dependencies]
-build = ["tomli"]
+build = ["tomli", "pyproject-hooks", "twine"]
 test = ["pytest"]
-ferret = ["pyferret"]
+dev = ["tomli", "pyproject-hooks", "keyring", "readme-renderer", "requests", "requests-toolbelt", "rfc3986", "rich", "urllib3", "twine"]
 cams = []
+# Note: evaltools and pyferret must be installed separately - not available via PyPI
+# evaltools: Manual download required from https://redmine.umr-cnrm.fr/ - see qlc/doc/EVALTOOLS.md
+# pyferret: Install via conda-forge or as module on HPC systems - see installation documentation
 
 [project.scripts]
 qlc = "qlc.cli:run_shell_driver"
@@ -37,6 +45,7 @@ qlc-py = "qlc.cli.qlc_py_main:main"
 qlc-python = "qlc.cli:run_python_driver"
 sqlc = "qlc.cli:run_batch_driver"
 qlc-install = "qlc.cli.installer:main"
+qlc-extract-stations = "qlc.py.extract_stations:main"
 
 [tool.setuptools]
 include-package-data = true

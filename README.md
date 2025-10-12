@@ -1,12 +1,259 @@
-# Quick Look Content (QLC): An Automated Model–Observation Comparison Suite
+# Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS
 
-**Quick Look Content (QLC)** is a powerful, command-line driven suite for model–observation comparisons, designed to automate the evaluation of climate and air quality model data. It is optimized for use with CAMS (Cop Copernicus Atmospheric Monitoring Service) datasets but is flexible enough for general use cases.
+> **⚠️ BETA RELEASE - v0.4.1**: This major release is currently under development and requires further testing. While the core functionality has been validated, some edge cases and platform-specific issues may exist. Please report any issues you encounter.
+
+**Quick Look Content (QLC)** is a powerful, command-line driven suite for model–observation comparisons, designed to automate the evaluation of climate and air quality model data. It is optimized for use with CAMS (Copernicus Atmospheric Monitoring Service) datasets but is flexible enough for general use cases.
 
 The suite streamlines the entire post-processing workflow, from data retrieval and collocation to statistical analysis and the generation of publication-quality figures and reports.
 
 | Package | Status |
 |---------|--------|
 | [rc-qlc on PyPI](https://pypi.org/project/rc-qlc/) | ![PyPI](https://img.shields.io/pypi/v/rc-qlc?color=blue) |
+
+---
+
+## What's New in v0.4.1 (Beta)
+
+**Note**: This is a beta release undergoing active testing and validation.
+
+This major release represents a complete architectural overhaul of QLC, transforming it from a two-experiment comparison tool into a comprehensive, flexible model-observation analysis framework. Key improvements include unlimited experiment support, multi-region analysis capabilities, advanced statistical integration, and a modern task-based configuration system.
+
+### Known Limitations
+
+- **Threading on macOS**: When using ThreadPoolExecutor with NetCDF/HDF5 files on some systems, set `"n_threads": "1"` in your configuration to avoid HDF5 library thread-safety issues (if needed)
+- Platform-specific testing is ongoing - please report any issues you encounter
+
+### 1. Complete Multi-Experiment Architecture
+
+**Major Enhancement**: All QLC scripts (A1-F5, Z1) now support **unlimited experiments** - no longer limited to two.
+
+-   **Dynamic Experiment Handling**:
+    -   Compare any number of experiments: 1, 2, 3, or more
+    -   Last experiment automatically designated as reference
+    -   All non-reference experiments compared against reference
+    -   Consistent file naming: `exp1-exp2-exp3-...-expN`
+    
+-   **Examples**:
+    ```bash
+    # Two experiments (traditional)
+    qlc b2ro b2rn 2018-12-01 2018-12-21 qpy
+    
+    # Three or more experiments
+    qlc exp1 exp2 exp3 2018-12-01 2018-12-21 qpy
+    qlc exp1 exp2 exp3 exp4 2018-12-01 2018-12-21 evaltools
+    ```
+
+-   **Smart Plot Generation**:
+    -   Automated reference selection (last experiment)
+    -   Difference plots for all exp vs reference comparisons
+    -   Dynamic title formatting: "exp1, exp2 vs exp3"
+    -   Consistent across all output formats (PNG, PDF, TeX)
+
+### 2. Multi-Region Analysis Framework
+
+**Transformative Capability**: Process multiple geographical regions with different observation networks in a single execution.
+
+-   **Multi-Region Processing** (qlc_D1.sh):
+    -   Analyze Europe, North America, and Asia simultaneously
+    -   Region-specific observation networks (EBAS, CASTNET, AMoN, AirNow, China AQ, AERONET)
+    -   Automatic variable filtering based on data availability
+    -   Per-region configuration overrides (MARS retrievals, search radius, variables)
+    
+-   **Region-Specific Customization**:
+    ```bash
+    # Configure multiple regions in qlc_qpy.conf
+    MULTI_REGION_MODE=true
+    ACTIVE_REGIONS=("EU" "US_CASTNET" "US_AMON")
+    
+    # EU: Dense EBAS network
+    REGION_EU_VARIABLES="NH3,NH4_as,O3,PM25"
+    REGION_EU_STATION_RADIUS_DEG=0.5
+    
+    # US AMoN: Sparse NH3-only network
+    REGION_US_AMON_VARIABLES="NH3"
+    REGION_US_AMON_STATION_RADIUS_DEG=2.0
+    REGION_US_AMON_MARS_RETRIEVALS=("B1_pl")
+    ```
+
+-   **Organized Output Structure**:
+    -   Region-specific subdirectories: `Plots/exp_DATE/EU/`, `Plots/exp_DATE/US_CASTNET/`
+    -   Combined TeX files for multi-region reports
+    -   Individual region TeX files for detailed analysis
+
+### 3. Advanced Statistical Integration: Evaltools
+
+**New Integration**: Comprehensive statistical analysis with Taylor diagrams and 15+ advanced plot types.
+
+-   **Evaltools Workflow** (E1, E2 scripts):
+    -   Direct conversion from qlc-py collocation to evaltools format
+    -   Automatic discovery of experiments and variables from collocated data
+    -   Multi-experiment overlay in statistical plots
+    
+-   **Statistical Visualizations**:
+    -   Taylor diagrams (standard deviation, correlation, RMSE)
+    -   Target diagrams (bias vs unbiased RMSE)
+    -   Enhanced time series with statistical metrics
+    -   Seasonal cycle analysis
+    -   Quantile-quantile plots
+    -   Diurnal cycle analysis (hourly data)
+    
+-   **Scientific Applications**:
+    ```bash
+    # Create collocation
+    qlc b2ro b2rn 2018-12-01 2018-12-21 qpy
+    
+    # Generate advanced statistics
+    qlc b2ro b2rn 2018-12-01 2018-12-21 evaltools
+    ```
+    
+-   **Multi-Region Compatible**: Automatically processes all regions when using multi-region mode
+
+### 4. Ver0D External Tool Integration
+
+**HPC Integration**: Seamless integration with ECMWF's ver0D verification tool for specialized analysis.
+
+-   **Ver0D Scripts** (F1-F5):
+    -   **F1**: Data retrieval for AOD and GAW modes
+    -   **F2**: AOD plots with AERONET observations
+    -   **F3**: GAW surface plots (Global Atmosphere Watch)
+    -   **F4/F5**: Total column and surface aerosol (stub implementations)
+    
+-   **Multi-Experiment Support**:
+    -   All ver0D scripts updated for unlimited experiments
+    -   Consistent file naming and directory structure
+    -   Ver0D-specific date format standardization
+    
+-   **Usage**:
+    ```bash
+    # Run ver0D analysis (ATOS/HPC systems)
+    qlc exp1 exp2 exp3 2018-12-01 2018-12-21 ver0d
+    ```
+
+### 5. Task-Based Configuration System
+
+**Flexible Workflow**: Select analysis pipeline via command-line task parameter.
+
+-   **Available Tasks**:
+    -   **`qpy`**: Fast qlc-py collocation and time series plots
+    -   **`evaltools`**: Advanced statistical analysis with evaltools
+    -   **`eac5`**: EAC5/CAMS reanalysis validation (K1 namelist)
+    -   **`pyferret`**: PyFerret global visualization
+    -   **`ver0d`**: Ver0D external verification (ATOS-specific)
+    -   **`mars`**: MARS data retrieval only
+    -   **default**: Standard workflow with all subscripts
+    
+-   **Configuration Structure**:
+    ```
+    qlc/config/
+    ├── qlc.conf              # Base configuration
+    ├── qpy/
+    │   └── qlc_qpy.conf      # qlc-py specific
+    ├── evaltools/
+    │   └── qlc_evaltools.conf  # Evaltools specific
+    └── eac5/
+        └── qlc_eac5.conf      # EAC5 specific
+    ```
+    
+-   **Configuration Inheritance**: Task configs inherit base settings and add overrides
+    
+-   **Usage Examples**:
+    ```bash
+    # qlc-py only
+    qlc b2ro b2rn 2018-12-01 2018-12-21 qpy
+    
+    # Advanced statistics
+    qlc b2ro b2rn 2018-12-01 2018-12-21 evaltools
+    
+    # EAC5 validation
+    qlc b2ro b2rn 2018-12-01 2018-12-21 eac5
+    ```
+
+### 6. K1 Namelist: EAC5/CAMS Reanalysis Configuration
+
+**Comprehensive Setup**: Pre-configured MARS retrieval optimized for atmospheric reanalysis validation.
+
+-   **10 Surface Variables**:
+    -   Temperature (T)
+    -   Particulate Matter (PM2.5, PM10)
+    -   Gases (O3, NO2, SO2, HNO3, NH3)
+    -   Aerosol Components (NH4_as - ammonium)
+    -   Optical Properties (AOD - aerosol optical depth)
+    
+-   **Scientific Applications**:
+    -   EAC5/CAMS reanalysis validation
+    -   Multi-temporal analysis (daily, weekly, monthly, seasonal)
+    -   Multi-network comparison (EBAS, CASTNET, AMoN, AERONET)
+    -   Urban vs rural performance assessment
+    -   Seasonal skill evaluation
+    
+-   **Integrated Workflow**:
+    ```bash
+    # Complete EAC5 validation with Taylor diagrams
+    qlc b2ro b2rn 2018-12-01 2018-12-21 eac5 evaltools
+    ```
+    
+-   **Multi-Region Ready**: Automatically adapts to regional observation networks
+
+### 7. Modern Installation Architecture
+
+**Development-Ready**: New installation system supporting parallel PyPI and development environments.
+
+-   **Parallel Installation Support**:
+    -   Run PyPI and dev versions simultaneously without conflicts
+    -   Isolated runtime directories: `~/qlc_pypi/` (production) and `~/qlc_dev/` (development)
+    -   Access via stable symlinks: `~/qlc` (PyPI) and `~/qlc-dev-run` (dev)
+    -   New installer mode: `qlc-install --mode dev`
+
+-   **Intelligent Runtime Detection**:
+    -   Three-tier priority system for automatic runtime selection
+    -   Priority 1: `QLC_HOME` environment variable (explicit override)
+    -   Priority 2: Conda environment auto-detection (if env name contains `qlc-dev`)
+    -   Priority 3: Default to `~/qlc` (production)
+
+-   **Enhanced Version Information**:
+    -   `qlc --version` now shows installation type, runtime location, and detection method
+    -   Clear distinction between PyPI and development installations
+    -   Example output: `QLC version 0.4.1 [Development (Conda)] Runtime: ~/qlc-dev-run (conda-dev)`
+
+-   **Conda Environment Integration**:
+    -   New `setup_conda_env.sh` script for automatic runtime switching
+    -   Auto-sets `QLC_HOME` when activating `qlc-dev` conda environment
+    -   Seamless switching: `conda activate qlc-dev` → uses dev runtime automatically
+
+-   **Clear Naming Convention**:
+    -   Source code (hyphens): `~/qlc-pypi/` (public), `~/qlc-dev/` (private)
+    -   Runtime (underscores): `~/qlc_pypi/` (PyPI), `~/qlc_dev/` (dev)
+
+### Additional Enhancements
+
+-   **Global Station Filtering**: 
+    -   New `qlc-extract-stations` command-line tool
+    -   Comprehensive database of 300+ major world cities
+    -   Urban/rural classification globally (all continents)
+    -   Enables targeted station subset analysis
+
+-   **Improved Documentation**:
+    -   Expanded USAGE.md with comprehensive examples
+    -   Task-specific configuration guides
+    -   Multi-region setup tutorials
+    -   Evaltools integration documentation
+
+-   **Enhanced Error Handling**:
+    -   Graceful handling of missing data
+    -   Automatic variable discovery and validation
+    -   Comprehensive logging throughout pipeline
+    -   Clear error messages and diagnostic information
+
+### Migration from v0.3.27
+
+**Important**: v0.4.1 represents a major architectural change. Fresh installation recommended.
+
+-   New installation structure (`~/qlc_pypi/` or `~/qlc_dev/`)
+-   Task-based configuration system
+-   Updated shell script architecture
+-   No automatic migration from v0.3.x
+
+**Use Cases**: Global model evaluation, multi-network validation campaigns, urban/rural comparisons, reanalysis validation, seasonal analysis, dataset-specific studies
 
 ---
 
@@ -46,8 +293,10 @@ This version introduces a completely new, high-performance Python processing eng
 - **High-Performance Engine**: The core data processing logic is written in Python and compiled with Cython into native binary modules, ensuring high performance for large datasets.
 - **Publication-Ready Outputs**: Automatically generates a suite of plots (time series, bias, statistics, maps) and integrates them into a final, professionally formatted PDF presentation using a LaTeX backend.
 - **Flexible Installation Modes**: The `qlc-install` script supports multiple, co-existing modes:
-    - `--mode test`: A standalone mode with bundled example data, perfect for new users. All data is stored locally in `$HOME/qlc_v<version>/test/`.
+    - `--mode test`: A standalone mode with bundled example data, perfect for new users. All data is stored locally in `$HOME/qlc_pypi/v<version>/test/`.
     - `--mode cams`: An operational mode that links to standard CAMS data directories and uses environment variables like `$SCRATCH` and `$PERM` for data storage in shared HPC environments.
+    - `--mode dev`: **New in v0.4.1** - Development mode for parallel testing. Creates isolated runtime in `$HOME/qlc_dev/v<version>/dev/`.
+- **Parallel Development Support**: Run PyPI (production) and development versions simultaneously without conflicts. Easy switching via conda environments or `QLC_HOME` variable.
 - **Simplified Configuration**: The entire suite is controlled by a single, well-documented configuration file (`$HOME/qlc/config/qlc.conf`) where you can set paths, experiment labels, and plotting options.
 
 ---
@@ -57,6 +306,7 @@ This version introduces a completely new, high-performance Python processing eng
 **1. Install the Package**
 ```bash
 pip install rc-qlc
+qlc --version
 ```
 
 **2. Set Up the Test Environment**
@@ -65,12 +315,38 @@ This creates a local runtime environment in `$HOME/qlc_v<version>/test` and link
 qlc-install --mode test
 ```
 
-**3. Run the Full Pipeline**
-Navigate to the working directory and run the `qlc` command. This will process the example data (comparing experiments `b2ro` and `b2rn`) and generate a full PDF report in `$HOME/qlc/Presentations`.
+**3. Verify Installation**
+Check that QLC is properly installed:
+```bash
+qlc --version
+qlc --help
+```
+
+**4. Run the Full Pipeline**
+Navigate to the working directory and run the `qlc` command. This will process the example data (comparing any number of experiments) and generate a full PDF report in `$HOME/qlc/Presentations`.
 ```bash
 cd $(readlink -f $HOME/qlc)
+
+# Compare two experiments (standard)
 qlc b2ro b2rn 2018-12-01 2018-12-21
+
+# Compare three or more experiments
+qlc exp1 exp2 exp3 2018-12-01 2018-12-21
 ```
+
+---
+
+## Command-Line Tools
+
+Once installed, QLC provides the following command-line entry points:
+
+- **`qlc`**: The main pipeline driver. Supports task-based workflows via optional `[task]` parameter
+- **`qlc-py`**: Standalone Python engine for rapid analysis with JSON configuration
+- **`qlc-extract-stations`**: Station metadata extraction with global urban/rural classification
+- **`qlc-install`**: Installation and environment setup tool
+- **`sqlc`**: Batch job submission wrapper for HPC environments
+
+For detailed usage of each tool, see the [USAGE.md](USAGE.md) guide
 
 ---
 
@@ -142,20 +418,31 @@ pip install rc-qlc && $HOME/.local/bin/qlc-install --mode test
 ```
 
 ### Where Files Are Installed
+
+**PyPI Installation**:
 - **Python Package Source**: `$HOME/.local/lib/python3.10/site-packages/qlc/`
 - **Executable Scripts**: `$HOME/.local/bin/`
-- **QLC Runtime Environment**: `$HOME/qlc_v<version>/<mode>`
-- **Stable Symlink**: `$HOME/qlc` (points to the latest installed runtime environment)
+- **QLC Runtime Environment**: `$HOME/qlc_pypi/v<version>/<mode>`
+- **Stable Symlink**: `$HOME/qlc` (points to `qlc_pypi/current/test`)
+
+**Development Installation** (when using `pip install -e`):
+- **Python Package Source**: `$HOME/.conda/envs/qlc-dev/lib/python3.10/site-packages/qlc/` (editable link)
+- **Executable Scripts**: `$HOME/.conda/envs/qlc-dev/bin/`
+- **QLC Runtime Environment**: `$HOME/qlc_dev/v<version>/dev`
+- **Stable Symlink**: `$HOME/qlc-dev-run` (points to `qlc_dev/current/dev`)
 
 
 ### Configuration Structure
 
-The primary configuration file is located at `$HOME/qlc/config/qlc.conf`. The installation process uses a two-stage symlink system to manage data directories, allowing the config file to remain simple and portable.
+The primary configuration file is located at `$HOME/qlc/config/qlc.conf` (for PyPI) or `$HOME/qlc-dev-run/config/qlc.conf` (for dev). The installation process uses a two-stage symlink system to manage data directories, allowing the config file to remain simple and portable.
 
-For example, in `test` mode:
-- `$HOME/qlc/Results` (the path in your config) -> is a symlink to
-- `$HOME/qlc_v<version>/test/Results` -> which is a symlink to
-- `$HOME/qlc_v<version>/test/data/Results` -> which is a real directory.
+**PyPI Installation (test mode)**:
+- `$HOME/qlc/Results` (the path in your config) → is a symlink to
+- `$HOME/qlc_pypi/v<version>/test/data/Results` → which is a real directory.
+
+**Development Installation (dev mode)**:
+- `$HOME/qlc-dev-run/Results` (the path in your config) → is a symlink to
+- `$HOME/qlc_dev/v<version>/dev/data/Results` → which is a real directory.
 
 In `cams` mode, the final target is a symlink to a shared directory (e.g., `$SCRATCH/Results`), but the path in your config file remains the same.
 
@@ -163,34 +450,106 @@ In `cams` mode, the final target is a symlink to a shared directory (e.g., `$SCR
 
 ## Developer Setup
 
-To work on the `qlc` source code, clone the repository and install it in "editable" mode.
+**New in v0.4.1**: QLC now supports parallel PyPI and development installations with complete isolation. This allows you to test new features alongside stable releases without conflicts.
+
+### Quick Development Setup
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/researchConcepts/qlc.git
-cd qlc
+git clone https://github.com/researchConcepts/qlc.git ~/qlc-dev
+cd ~/qlc-dev
 
-# 2. (Recommended) Create and activate a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate
+# 2. Create and activate a dedicated conda environment (use 'qlc-dev' name)
+conda create -n qlc-dev python=3.10 -y
+conda activate qlc-dev
 
-# 3. Install in editable mode (this compiles the Cython modules)
-pip install -e .
+# 3. Install in editable mode with development dependencies
+pip install -e ".[dev]"
 
-# 4. Set up the test environment for development
-qlc-install --mode test
+# 4. Set up the isolated development runtime
+qlc-install --mode dev
+
+# 5. Setup conda environment auto-switching (recommended)
+bash bin/tools/setup_conda_env.sh qlc-dev
+
+# 6. Verify installation
+conda deactivate && conda activate qlc-dev
+qlc --version
+# Should show: Runtime: /Users/<user>/qlc-dev-run (conda-dev)
 ```
 
-For advanced development, you can also use `--mode interactive`, which requires you to provide a path to a custom configuration file using the `--config` flag. This is useful for testing with non-standard setups.
+### Parallel PyPI and Dev Testing
+
+With v0.4.1, you can run both versions simultaneously:
+
+```bash
+# Terminal 1: Test with PyPI version
+conda deactivate
+cd ~/qlc
+qlc b2ro b2rn 2018-12-01 2018-12-21
+
+# Terminal 2: Test with dev version (in parallel!)
+conda activate qlc-dev
+cd ~/qlc-dev-run
+qlc b2ro b2rn 2018-12-01 2018-12-21
+
+# Compare results
+diff -r ~/qlc/Plots ~/qlc-dev-run/Plots
+```
+
+### Version Switching
+
+```bash
+# Method 1: Conda Environment (Automatic - Recommended)
+conda deactivate          # Use PyPI version
+conda activate qlc-dev    # Use dev version
+
+# Method 2: Environment Variable (Manual)
+export QLC_HOME=~/qlc          # Use PyPI
+export QLC_HOME=~/qlc-dev-run  # Use dev
+```
+
+### Advanced Setup Options
+
+For advanced development, you can use `--mode interactive` for custom configurations:
 ```bash
 qlc-install --mode interactive --config /path/to/your/custom_qlc.conf
 ```
 
+### Development Utilities
+
+QLC includes several development and debugging utilities in the `bin/tools/` directory:
+
+- **`setup_conda_env.sh`**: **New in v0.4.1** - Setup conda environment auto-switching for dev mode
+- **`qlc-extract-stations-examples.sh`**: Ready-to-use examples for station extraction workflows
+- **`qlc-inspect-evaluator.sh`**: Inspect evaltools evaluator pickle files with detailed diagnostics
+- **`qlc_dev_env.sh`**: Development environment helper with utility functions:
+  - `qlc-rebuild`: Rebuild the development package
+  - `qlc-test-extract`: Test station extraction
+  - `qlc-find-evaluators`: Find evaluator files
+  - `qlc-inspect-all`: Inspect all evaluators
+- **`qlc_test_config_loading.sh`**: Test configuration file loading and inheritance
+
+To use the development helpers:
+```bash
+source ~/qlc-dev-run/bin/tools/qlc_dev_env.sh
+qlc-rebuild
+qlc-test-extract
+```
+
+For complete developer documentation, see:
+- **INSTALL_DEV.md**: Detailed development installation guide
+- **bin/tools/README.md**: Complete documentation of development utilities
+
 ## Advanced Topics
 
-### Installing PyFerret for Global Plots
+### Installing Optional Packages
 
-The `qlc_C5.sh` script, which generates global map plots, requires the `pyferret` library. This is an optional dependency.
+QLC supports several optional packages for extended functionality.
+
+#### PyFerret for Global Plots
+
+The `qlc_C5.sh` script, which generates global map plots, requires the `pyferret` library.
 
 -   **To install with `pyferret` support:**
     ```bash
@@ -198,6 +557,63 @@ The `qlc_C5.sh` script, which generates global map plots, requires the `pyferret
     ```
 -   **If you do not need these plots**, you can either skip the `pyferret` installation or, if it's already installed, disable the script by commenting out `"C5"` in the `SUBSCRIPT_NAMES` array in your `$HOME/qlc/config/qlc.conf` file.
 -   **For HPC environments**, `pyferret` is often available as a module that can be loaded (e.g., `module load ferret/7.6.3`).
+
+#### Evaltools for Advanced Statistical Plots
+
+The evaltools integration requires the [evaltools package from Météo-France](https://opensource.umr-cnrm.fr/projects/evaltools/wiki). This enables a comprehensive suite of 15+ statistical and comparative plot types.
+
+**Installation** (manual setup required):
+
+Download and install evaltools v1.0.9 from the official repository:
+
+```bash
+mkdir -p ~/download_evaltools && cd ~/download_evaltools
+wget https://redmine.umr-cnrm.fr/attachments/download/5300/evaltools_v1.0.9.zip
+wget https://redmine.umr-cnrm.fr/attachments/download/4014/simple_example_v1.0.6.zip
+wget https://redmine.umr-cnrm.fr/attachments/download/5298/documentation_v1.0.9.zip
+unzip evaltools_v1.0.9.zip
+unzip simple_example_v1.0.6.zip
+unzip documentation_v1.0.9.zip -d documentation_v1.0.9
+
+# Create conda environment
+cat > environment.yml <<EOF
+name: evaltools
+channels:
+  - conda-forge
+dependencies:
+  - pip=20.0.2
+  - python=3.8
+  - shapely==1.8.0
+  - cartopy=0.20.2
+  - cython=0.29.32
+  - numpy=1.22.2
+  - scipy=1.9.1
+  - matplotlib=3.5.1
+  - pandas=1.3.5
+  - packaging
+  - pyyaml=6.0
+  - netCDF4==1.5.8
+  - pip:
+    - ./evaltools_1.0.9
+variables:
+  PYTHONNOUSERSITE: True
+EOF
+
+conda deactivate
+conda env create -f environment.yml
+conda env update -f environment.yml
+conda activate evaltools
+
+# View documentation
+open documentation_v1.0.9/index.html
+```
+
+**Note:** The evaltools conda environment name should match the `EVALTOOLS_CONDA_ENV` setting in `~/qlc/config/evaltools/qlc_evaltools.conf` (default: `"evaltools"`).
+
+**Resources**:
+- **Evaltools Wiki**: https://opensource.umr-cnrm.fr/projects/evaltools/wiki
+- **Local Documentation**: `~/download_evaltools/documentation_v1.0.9/index.html` (after installation)
+- **Examples**: `~/download_evaltools/simple_example_v1.0.6/` (after installation)
 
 ### Manual PyFerret Installation for macOS / Apple Silicon
 
@@ -224,7 +640,7 @@ CONDA_SUBDIR=osx-64 conda create -n pyferret_env -c conda-forge pyferret ferret_
 **3. Configure QLC to Use the New Environment**
 The QLC scripts need to know where to find this new `pyferret` installation. You can achieve this by modifying the `qlc_C5.sh` script to activate the environment.
 
-Open the file `$HOME/qlc/sh/qlc_C5.sh` and add the following lines near the top, after `source $FUNCTIONS`:
+Open the file `$HOME/qlc/bin/qlc_C5.sh` and add the following lines near the top, after `source $FUNCTIONS`:
 
 ```bash
 # ... after 'source $FUNCTIONS'
@@ -240,7 +656,7 @@ fi
 ### MARS Data Retrieval
 The `qlc_A1.sh` script is responsible for retrieving data from the ECMWF MARS archive. It uses a mapping system to associate the experiment prefix with a MARS `class`. 
 
-By default, the script is configured for `nl` (Netherlands), `be` (Belgium), and `rd` (Research Department) experiments. If you are working with data from other classes (e.g., `fr` for France, `de` for Germany), you will need to manually edit `$HOME/qlc/sh/qlc_A1.sh` and uncomment / edit the corresponding `XCLASS` line to ensure data is retrieved correctly.
+By default, the script is configured for `nl` (Netherlands), `be` (Belgium), and `rd` (Research Department) experiments. If you are working with data from other classes (e.g., `fr` for France, `de` for Germany), you will need to manually edit `$HOME/qlc/bin/qlc_A1.sh` and uncomment / edit the corresponding `XCLASS` line to ensure data is retrieved correctly.
 
 ---
 

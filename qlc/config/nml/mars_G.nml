@@ -1,5 +1,5 @@
 # adopt to your needs, except for EXP, SDATE, EDATE, MYPATH, MYFILE, which will be auto-replaced
-# add your param_, ncvar_ and myvar_ to your $HOME/qlc/qlc.conf file
+# add your param_, ncvar_ and myvar_ to your $QLC_HOME/config/qlc.conf
 # param_G=("22.210")
 # ncvar_G=("aergn07")
 # myvar_G=("AW")
