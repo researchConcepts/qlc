@@ -109,8 +109,8 @@ discover_available_variables() {
             sort -u))
     else
         for name in "${mars_retrievals[@]}"; do
-            myvar_array_name="myvar_${name}[@]"
-            myvars=("${!myvar_array_name}")
+            # Use eval for safer indirect array expansion (works across bash versions)
+            eval "myvars=(\"\${myvar_${name}[@]}\")" 2>/dev/null || myvars=()
             
             for var_name in "${myvars[@]}"; do
                 if compgen -G "${ANALYSIS_DIRECTORY}/${exp1}/*_${var_name}.nc" > /dev/null; then

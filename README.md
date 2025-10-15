@@ -1,6 +1,6 @@
 # Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS
 
-> **⚠️ BETA RELEASE - v0.4.1**: This major release is currently under development and requires further testing. While the core functionality has been validated, some edge cases and platform-specific issues may exist. Please report any issues you encounter.
+> **⚠️ BETA RELEASE - v0.4.2**: This release includes critical bug fixes for PyPI distribution and cross-platform compatibility. While core functionality has been validated, platform-specific testing is ongoing. Please report any issues you encounter.
 
 **Quick Look Content (QLC)** is a powerful, command-line driven suite for model–observation comparisons, designed to automate the evaluation of climate and air quality model data. It is optimized for use with CAMS (Copernicus Atmospheric Monitoring Service) datasets but is flexible enough for general use cases.
 
@@ -9,6 +9,55 @@ The suite streamlines the entire post-processing workflow, from data retrieval a
 | Package | Status |
 |---------|--------|
 | [rc-qlc on PyPI](https://pypi.org/project/rc-qlc/) | ![PyPI](https://img.shields.io/pypi/v/rc-qlc?color=blue) |
+
+---
+
+## What's New in v0.4.2 (Beta)
+
+**Critical Bug Fixes for PyPI Distribution**
+
+This patch release resolves several critical issues that prevented v0.4.1 from working correctly when installed via PyPI:
+
+### Fixed Issues
+
+1. **Missing Package Modules** (Critical)
+   - Added missing `qlc/py/__init__.py` that prevented Python from recognizing the compiled modules package
+   - Added `statistics2.py` module (renamed from `statistics` to avoid Python stdlib conflict)
+   - Added `extract_stations.py` module for station filtering functionality
+   - **Impact**: v0.4.1 PyPI users got `ModuleNotFoundError: No module named 'qlc.py.statistics2'`
+
+2. **ATOS/HPC Bash Compatibility** (Critical)
+   - Fixed bash array expansion in `qlc_D1.sh` that failed on older bash versions
+   - Changed from indirect expansion `${!var[@]}` to eval-based expansion for better compatibility
+   - **Impact**: ATOS users got `bad substitution` error and script termination
+
+3. **NumPy Version Conflicts**
+   - Constrained numpy to `>=1.21.0,<2.0` to prevent conflicts with scipy, netCDF4, and other scientific packages
+   - **Impact**: Installing netCDF4 automatically upgraded to numpy 2.x, breaking scipy and other dependencies
+
+4. **macOS Library Compatibility Issues**
+   - Added comprehensive troubleshooting guide for Pillow/libtiff errors on macOS
+   - Documented netCDF4/HDF5 symbol resolution issues
+   - Provided solutions for system library version mismatches
+
+### Installation Notes
+
+- **macOS users**: If you encounter library errors (libtiff, HDF5), see the Troubleshooting section
+- **HPC users**: On systems like ATOS, use system modules for compiled dependencies (numpy, netCDF4, scipy) rather than pip installing them
+
+### Upgrade Instructions
+
+```bash
+pip install --upgrade rc-qlc
+```
+
+If you encounter issues after upgrading, clean reinstall:
+
+```bash
+pip uninstall rc-qlc -y
+pip install rc-qlc
+qlc-install --mode test  # or --mode cams
+```
 
 ---
 
@@ -661,6 +710,52 @@ By default, the script is configured for `nl` (Netherlands), `be` (Belgium), and
 ---
 
 ## Troubleshooting
+
+### Pillow/PIL ImportError on macOS (libtiff Library Missing)
+
+**Symptom**: You see an error like:
+```
+ImportError: dlopen(...PIL/_imaging.cpython-310-darwin.so, 0x0002): 
+Library not loaded: /opt/homebrew/opt/libtiff/lib/libtiff.5.dylib
+```
+
+**Root Cause**: This occurs when Pillow (PIL) binary wheels were built against a specific version of `libtiff` that doesn't match your system's installed version, or when system libraries are missing. This is common on macOS after Homebrew updates or fresh installations.
+
+**Solution 1: Install/Update System Libraries** (Recommended)
+```bash
+# Install libtiff via Homebrew
+brew install libtiff
+
+# If libtiff is already installed but a different version, create a symlink
+# First check what version you have
+ls -la /opt/homebrew/opt/libtiff/lib/
+
+# If you have libtiff.6.dylib but Pillow needs libtiff.5.dylib:
+cd /opt/homebrew/opt/libtiff/lib/
+ln -s libtiff.6.dylib libtiff.5.dylib
+```
+
+**Solution 2: Reinstall Pillow** (Alternative)
+```bash
+# Reinstall Pillow to rebuild against your current system libraries
+pip uninstall Pillow -y
+pip install --no-cache-dir --force-reinstall Pillow
+```
+
+**Solution 3: Use Conda Environment** (Most Reliable for macOS)
+```bash
+# Create a conda environment with all dependencies
+conda create -n qlc-user python=3.10 -y
+conda activate qlc-user
+conda install -c conda-forge matplotlib pillow libtiff -y
+pip install rc-qlc
+qlc-install --mode test
+```
+
+**Verification**:
+```bash
+python -c "from PIL import Image; print('Pillow OK')"
+```
 
 ### macOS "Permission Denied" or Quarantine Issues
 
