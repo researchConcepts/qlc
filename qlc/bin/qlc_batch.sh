@@ -1,6 +1,41 @@
 #!/bin/bash -e
 umask 0022
 
+# ============================================================================
+# QLC Batch Job Submission for HPC Systems
+# ============================================================================
+# Part of QLC (Quick Look Content) v1.0.1-beta
+# An Automated Model-Observation Comparison Suite Optimized for CAMS
+#
+# Documentation:
+#   https://docs.researchconcepts.io/qlc/latest/
+#
+# Description:
+#   Submits QLC workflow as batch jobs to HPC systems (SLURM, PBS, LSF).
+#   Automatically detects batch system and generates appropriate job scripts.
+#   Supports automatic two-job workflow (data retrieval + processing) with
+#   intelligent dependency management.
+#
+# Entry Point:
+#   This script is called via the 'sqlc' command (Python entry point)
+#   Users run: sqlc <exp1> [exp2 ...] <start_date> <end_date> <workflow>
+#   Example:   sqlc 9191 0001 2025-11-01 2025-11-03 aifs
+#
+# Features:
+#   - Automatic batch system detection (SLURM, PBS, LSF)
+#   - Two-stage job workflow with dependencies
+#   - Parallel MARS data retrieval
+#   - Intelligent job status checking
+#   - Same argument syntax as interactive 'qlc' command
+#
+# Usage:
+#   Called automatically via 'sqlc' command - Do not call directly
+#   For help: sqlc -h
+#
+# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
+# ============================================================================
+
 SCRIPT="$0"
 
 # --- Start: Environment Setup ---
@@ -18,18 +53,74 @@ PYTHON_BIN_DIR=$(dirname "$PYTHON_CMD")
 
 # Prepend this directory to the PATH for this script and all subscripts.
 export PATH="$PYTHON_BIN_DIR:$PATH"
+
+# --- Start: QLC Environment Detection and Activation ---
+# Detect and activate QLC virtual environment with HPC module support
+# This replaces manual environment setup and ensures consistent behavior
+
+# Determine environment mode from arguments or environment
+QLC_MODE="auto"
+if [[ "$*" =~ --dev ]] || [[ "$*" =~ -dev ]]; then
+    QLC_MODE="dev"
+elif [[ "$*" =~ --prod ]] || [[ "$*" =~ -prod ]]; then
+    QLC_MODE="prod"
+elif [[ "$*" =~ --version=([0-9.]+) ]]; then
+    QLC_MODE="${BASH_REMATCH[1]}"
+elif [[ "$*" =~ --version\ ([0-9.]+) ]]; then
+    QLC_MODE="${BASH_REMATCH[1]}"
+fi
+
+# Source common functions for environment setup
+# Try multiple locations for the common functions file
+COMMON_FUNCTIONS=""
+
+# Get the directory where this script is located
+SCRIPT_DIR="$(dirname "$(readlink -f "$0" 2>/dev/null || echo "$0")")"
+
+# Try to find the common functions in standard locations
+for location in \
+    "${QLC_HOME:-$HOME/qlc}/bin/qlc_common_functions.sh" \
+    "$HOME/qlc/bin/qlc_common_functions.sh"; do
+    if [ -f "$location" ]; then
+        COMMON_FUNCTIONS="$location"
+        break
+    fi
+done
+
+if [ -n "$COMMON_FUNCTIONS" ]; then
+    source "$COMMON_FUNCTIONS"
+    
+    # Log start banner first
+    log "________________________________________________________________________________________"
+    log "Start $SCRIPT (SLURM Batch Submission) at $(date)"
+    log "----------------------------------------------------------------------------------------"
+    
+    # Setup complete QLC environment
+    if setup_qlc_complete "$QLC_MODE" "true"; then
+        log "[QLC Batch]" "Environment setup completed successfully"
+    else
+        log "[QLC Batch]" "Warning: Environment setup had issues, continuing..."
+    fi
+else
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] [QLC Batch] ERROR: Common functions not found, cannot continue"
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] [QLC Batch] Searched locations:"
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] [QLC Batch]   - ${QLC_HOME:-$HOME/qlc}/bin/qlc_common_functions.sh"
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] [QLC Batch]   - $HOME/qlc/bin/qlc_common_functions.sh"
+    exit 1
+fi
+# --- End: QLC Environment Detection and Activation ---
 # --- End: Environment Setup ---
 
 # --- Start: QLC Runtime Detection ---
 # Detect QLC runtime directory with priority:
 # 1. QLC_HOME environment variable (explicit override)
-# 2. Auto-detection based on conda environment
-# 3. Default to ~/qlc (production)
+# 2. Auto-detection for development (checks VIRTUAL_ENV path for qlc-dev)
+# 3. Default to ~/qlc (production with venv)
 if [ -n "$QLC_HOME" ]; then
-  echo "[QLC] Using explicit QLC_HOME: $QLC_HOME"
+  log "[QLC]" "Using explicit QLC_HOME: $QLC_HOME"
   QLCHOME="$QLC_HOME"
-elif [ -n "$CONDA_DEFAULT_ENV" ] && [[ "$CONDA_DEFAULT_ENV" == *"qlc-dev"* ]]; then
-  echo "[QLC-DEV] Auto-detected development environment"
+elif [ -n "$VIRTUAL_ENV" ] && [[ "$VIRTUAL_ENV" == *"qlc-dev"* ]]; then
+  log "[QLC-DEV]" "Auto-detected development environment"
   QLCHOME="$HOME/qlc-dev-run"
 else
   QLCHOME="$HOME/qlc"
@@ -37,8 +128,8 @@ fi
 
 # Verify runtime exists
 if [ ! -d "$QLCHOME" ]; then
-  echo "[ERROR] QLC runtime directory not found: $QLCHOME"
-  echo "[ERROR] Please run: qlc-install --mode test (or --mode dev)"
+  log "[QLC Batch]" "ERROR: QLC runtime directory not found: $QLCHOME"
+  log "[QLC Batch]" "ERROR: Please run: qlc-install --mode test (or --mode dev)"
   exit 1
 fi
 
@@ -49,73 +140,55 @@ export QLCHOME
 # ----------------------------------------------------------------------------------------
 # Check if help is needed first (before loading config)
 # ----------------------------------------------------------------------------------------
-if [ $# -eq 0 ]; then
-  echo "________________________________________________________________________________________"
-  echo "SQLC - QLC Batch Submission to SLURM Scheduler"
-  echo "----------------------------------------------------------------------------------------"
+if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "========================================================================================"
+  echo "SQLC - QLC Batch Submission (HPC/SLURM)"
+  echo "========================================================================================"
   echo ""
   echo "Usage:"
-  echo "  sqlc <exp1> [exp2 ...] <start_date> <end_date> [config]"
+  echo "  sqlc <exp1> [exp2 ...] <start_date> <end_date> <workflow> [options]"
   echo ""
   echo "Arguments:"
-  echo "  <exp1> [exp2 ...]  One or more experiment identifiers (minimum 1)"
-  echo "  <start_date>       Start date in YYYY-MM-DD format"
-  echo "  <end_date>         End date in YYYY-MM-DD format"
-  echo "  [config]           Configuration option (default: 'default')"
+  echo "  <exp1> [exp2 ...]  One or more experiment identifiers"
+  echo "  <start_date>       Start date (YYYY-MM-DD)"
+  echo "  <end_date>         End date (YYYY-MM-DD)"
+  echo "  <workflow>         Workflow name: aifs, eac5, evaltools, mars, pyferret, qpy, test"
   echo ""
-  echo "Configuration Options:"
-  echo "  Each subdirectory in ~/qlc/config can be used as a config option:"
+  echo "Common Options:"
+  echo "  --obs-only         Analyze observations only"
+  echo "  --mod-only         Analyze model results only"
+  echo "  -class=xx          Override MARS class (e.g., -class=nl)"
+  echo "  -vars=<spec>       Variable specification (e.g., -vars=\"go3,NH3,PM2.5\")"
+  echo "  -region=<code>     Region override (e.g., -region=EU)"
   echo ""
-  echo "  default (or mars)  MARS data retrieval only"
-  echo "  qpy                qlc-py collocation & time series plots"
-  echo "  evaltools          Advanced statistics with Taylor diagrams"
-  echo "  eac5               EAC5/CAMS reanalysis analysis (K1 namelist)"
-  echo "  pyferret           PyFerret visualization integration"
-  echo "  ver0d              Ver0D processing (ATOS/IDL-based)"
+  echo "Quick Examples:"
+  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 test"
+  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 test -obs-only -region=EU"
+  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -vars=\"go3,nh3\""
+  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -param=210073,210203 -myvar=PM2p5,O3 -levtype=sfc,pl"
   echo ""
-  echo "Multi-Experiment Support:"
-  echo "  SQLC supports any number of experiments (N >= 1):"
-  echo "  - Single:  sqlc exp1 2018-12-01 2018-12-21 qpy"
-  echo "  - Two:     sqlc exp1 exp2 2018-12-01 2018-12-21 qpy"
-  echo "  - Three+:  sqlc exp1 exp2 exp3 2018-12-01 2018-12-21 qpy"
+  echo "Variable Search:"
+  echo "  qlc-vars search O3"
+  echo "  qlc-vars info O3"
   echo ""
-  echo "Examples:"
-  echo "  # Submit qlc-py collocation job (auto-retrieves data if needed)"
-  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 qpy"
+  echo "Check Job Status:"
+  echo "  squeue -u \$USER"
   echo ""
-  echo "  # Submit three-experiment evaltools evaluation"
-  echo "  sqlc exp1 exp2 exp3 2018-12-01 2018-12-21 evaltools"
+  echo "View Results:"
+  echo "  ls -lrth ~/qlc/Results        # GRIB data (MARS download)"
+  echo "  ls -lrth ~/qlc/Analysis       # NetCDF processed data"
+  echo "  ls -lrth ~/qlc/Plots          # Generated plots"
+  echo "  ls -lrth ~/qlc/Presentations  # PDF reports"
   echo ""
-  echo "  # Submit EAC5 reanalysis job (K1 namelist: 10 variables)"
-  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 eac5"
+  echo "For more information:"
+  echo "  Quick Start    : ~/qlc/doc/QuickStart.md"
+  echo "  Documentation  : https://docs.researchconcepts.io/qlc"
+  echo "  Getting Started: https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/"
   echo ""
-  echo "  # MARS retrieval + processing (two-job dependent workflow)"
-  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 mars"
-  echo "  (Job 1: Retrieves data only, Job 2: Processes data after retrieval)"
-  echo ""
-  echo "  # Submit PyFerret visualization job"
-  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 pyferret"
-  echo ""
-  echo "  # Submit Ver0D processing job"
-  echo "  sqlc b2ro b2rn 2018-12-01 2018-12-21 ver0d"
-  echo ""
-  echo "Data Retrieval Behavior:"
-  echo "  - Non-mars configs: Auto-retrieve data if qlc_A1.sh is active"
-  echo "    (checks data_retrieval flag; only retrieves if needed)"
-  echo "  - 'mars' config: Retrieves data ONLY, no analysis/processing"
-  echo "  - Data based on MARS namelist (e.g., mars_K1_sfc.nml) and"
-  echo "    parameter mapping (e.g., K1_sfc in MARS_RETRIEVALS)"
-  echo ""
-  echo "MARS Two-Job Workflow:"
-  echo "  When using 'mars' config, sqlc creates two dependent jobs:"
-  echo "  1. MARS retrieval (runs: qlc exp1 exp2 date1 date2 mars)"
-  echo "  2. Processing with default config (runs after #1 completes)"
-  echo "  3. Email notification sent to \$USER@ecmwf.int on completion"
-  echo ""
-  echo "Related Commands:"
-  echo "  qlc       Interactive QLC execution (no batch submission)"
-  echo "  squeue    Check your SLURM job queue status"
-  echo "________________________________________________________________________________________"
+  echo "BETA RELEASE: Under development, requires further testing."
+  echo "© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved."
+  echo "Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>"
+  echo "========================================================================================"
   exit 0
 fi
 
@@ -129,9 +202,20 @@ is_date() {
   [[ "$1" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
 }
 
-# Parse arguments from the end to handle variable number of experiments
-args=("$@")
-num_args=$#
+# Parse arguments and extract options (like -class=)
+# First pass: filter out options and build clean args array
+args=()
+class_option=""
+for arg in "$@"; do
+  if [[ "$arg" == -class=* ]]; then
+    class_option="$arg"
+    echo "[$(date +"%Y-%m-%d %H:%M:%S")] Class override option: $class_option"
+  else
+    args+=("$arg")
+  fi
+done
+
+num_args=${#args[@]}
 
 # Determine if last argument is a config name (not a date)
 if [ $num_args -ge 5 ] && ! is_date "${args[$((num_args-1))]}"; then
@@ -152,19 +236,14 @@ elif [ $num_args -ge 4 ]; then
   USER_DIR="default"
 else
   echo "Error: Insufficient arguments"
-  echo "Usage: sqlc exp1 [exp2 ...] startDate endDate [config]"
+  echo "Usage: sqlc exp1 [exp2 ...] startDate endDate [config] [-class=xx|xx,yy,...]"
   echo "Run 'sqlc' without arguments for detailed help."
   exit 1
 fi
 
-# Override USER_DIR for mars option
-if [ "$config_arg" == "mars" ]; then
-  USER_DIR="default"
-fi
-
 # User specific configuration file
 QLC_DIR="$QLCHOME"
-CONFIG_DIR="$QLC_DIR/config/$USER_DIR"
+CONFIG_DIR="$QLC_DIR/config/workflows/$USER_DIR"
 CONFIG_FILE="$CONFIG_DIR/qlc_$USER_DIR.conf"
 
 # Source the configuration file and automatically export all defined variables
@@ -180,10 +259,6 @@ set +a
  log  "Start ${SCRIPT} at `date`"
  log  "----------------------------------------------------------------------------------------"
  log  "Purpose: Submit QLC batch job to SLURM scheduler"
-#log  "----------------------------------------------------------------------------------------"
-#log  "Copyright (c) 2021-2025 ResearchConcepts io GmbH. All Rights Reserved.                  "
-#log  "Questions / comments to: Swen M. Metzger <sm@researchconcepts.io>                       "
- log  "----------------------------------------------------------------------------------------"
  log  "----------------------------------------------------------------------------------------"
 
 # Validate dates
@@ -205,53 +280,408 @@ log "  Experiments: ${experiments[*]} (${#experiments[@]} total)"
 log "  Start date: $start_date"
 log "  End date: $end_date"
 log "  Config: ${config_arg:-default}"
+
+# Provide guidance if no config specified
+if [ -z "$config_arg" ]; then
+  log ""
+  log "========================================================================================"
+  log "No workflow configuration specified"
+  log "========================================================================================"
+  log ""
+  log "Quick examples:"
+  log "  sqlc b2ro b2rn 2018-12-01 2018-12-21 mars      # retrieval only"
+  log "  sqlc b2ro b2rn 2018-12-01 2018-12-21 test      # Test analysis"
+  log "  sqlc b2ro b2rn 2018-12-01 2018-12-21 qpy       # Station analysis"
+  log "  sqlc b2ro b2rn 2018-12-01 2018-12-21 eac5      # Production analysis"
+  log ""
+  log "For detailed help:"
+  log "  Quick Start:   cat $HOME/qlc/doc/QuickStart.md"
+  log "  Online Docs:   https://docs.researchconcepts.io/qlc/latest/"
+  log "  Usage Guide:   https://docs.researchconcepts.io/qlc/latest/user-guide/usage/"
+  log "========================================================================================"
+  exit 0
+fi
+
 log "----------------------------------------------------------------------------------------"
 
-# Build the command line to pass all arguments
-all_args="$@"
+# Build the command line to pass all arguments (experiments, dates, config, class_option)
+all_args="${experiments[*]} $start_date $end_date"
+[ -n "$config_arg" ] && all_args="$all_args $config_arg"
+[ -n "$class_option" ] && all_args="$all_args $class_option"
+
+# Determine if two-job workflow is needed
+# If workflow contains both A1-MARS (data retrieval) and processing scripts,
+# create two dependent jobs. Let qlc_main.sh handle the smart logic.
+needs_two_jobs=false
+data_already_complete=false
+
+if [[ " ${SUBSCRIPT_NAMES[*]} " =~ " A1-MARS " ]] && [ ${#SUBSCRIPT_NAMES[@]} -gt 1 ]; then
+  # Workflow has A1-MARS + processing scripts
+  # Check if data is already complete (all .flag files exist)
+  log "Workflow contains A1-MARS + processing scripts"
+  log "Checking if MARS data is already complete..."
+  
+  # Get variables from Python wrapper (same logic as qlc_main.sh)
+  load_variable_registry
+  parse_variable_and_mars_options "$@"
+  required_vars=()
+  while IFS= read -r var; do
+    required_vars+=("$var")
+  done < <(get_required_mars_variables)
+  
+  # Convert dates to compact format
+  sDate="${start_date//[-:]/}"
+  eDate="${end_date//[-:]/}"
+  mDate="$sDate-$eDate"
+  
+  # Check if all completion flags exist
+  all_complete=true
+  for exp in "${experiments[@]}"; do
+    for var_name in "${required_vars[@]}"; do
+      completion_flag="$MARS_RETRIEVAL_DIRECTORY/$exp/data_retrieved_${exp}_${mDate}_${var_name}.flag"
+      if [ ! -f "$completion_flag" ]; then
+        all_complete=false
+        break 2
+      fi
+    done
+  done
+  
+  if [ "$all_complete" = true ]; then
+    log "All MARS data already present - using single-job workflow"
+    data_already_complete=true
+  else
+    log "MARS data incomplete - using two-job workflow"
+    log "  Job 1: Runs qlc (may submit MARS jobs, exits after A1-MARS)"
+    log "  Job 2: Runs qlc again (depends on Job 1, processes data)"
+    needs_two_jobs=true
+  fi
+else
+  log "Single-job workflow (no A1-MARS in workflow)"
+fi
 
 # Generate batch script
-if [ "$config_arg" == "mars" ]; then
-  # For MARS config: create two scripts - retrieval job and processing job
+if [ "$needs_two_jobs" = true ]; then
+  # Two-job workflow: retrieval → processing
   jobid='${SLURM_JOB_ID}'
   
-  # Create the processing job script (Job 2)
+  # Create the processing job script (Job 2) - runs after MARS jobs complete (via SLURM dependency)
   cat > $QLC_DIR/run/qlc_processing.sh$$<<EOF
-#!/bin/ksh -e
-#SBATCH --job-name=qlc_processing
-#SBATCH --output=log-processing-%J.out
-#SBATCH --error=err-processing-%J.out
-#SBATCH --mail-type=END,FAIL
+#!/bin/bash -e
+#SBATCH --job-name=qlc_processing_${config_arg}
+#SBATCH --output=log-qlc-processing-%J.out
+#SBATCH --error=err-qlc-processing-%J.out
+#SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=$USER@ecmwf.int
-qlc ${experiments[*]} $start_date $end_date
+#SBATCH --export=ALL
+
+# QLC Processing Job - starts after all MARS retrieval jobs complete
+# SLURM dependency ensures this only runs when all MARS jobs finish successfully
+
+echo "========================================================================================"
+echo "QLC Processing Job Started: \$(date)"
+echo "========================================================================================"
+echo "Job ID: \$SLURM_JOB_ID"
+echo "Node: \$SLURMD_NODENAME"
+echo "Workflow: $config_arg"
+echo " "
+
+# Activate QLC venv
+if [ -f "\$HOME/venv/qlc/bin/activate" ]; then
+    source "\$HOME/venv/qlc/bin/activate"
+    echo "Activated venv: \$HOME/venv/qlc"
+else
+    echo "Warning: venv not found at \$HOME/venv/qlc"
+fi
+
+# Source common functions for environment setup
+if [ -f "\$HOME/qlc/bin/qlc_common_functions.sh" ]; then
+    source "\$HOME/qlc/bin/qlc_common_functions.sh"
+    setup_qlc_complete "auto" "true" || echo "Environment setup had warnings (continuing)"
+fi
+
+echo "========================================================================================"
+echo "All MARS retrieval jobs completed successfully"
+echo "Starting QLC processing: \$(date)"
+echo "Command: qlc $all_args"
+echo "========================================================================================"
+
+set +e  # Disable exit-on-error for qlc command
+qlc $all_args
+qlc_exit_code=\$?
+set -e  # Re-enable exit-on-error
+
+if [ \$qlc_exit_code -eq 0 ]; then
+    echo "========================================================================================"
+    echo "QLC Processing Job Completed Successfully: \$(date)"
+    echo "All processing tasks finished without errors"
+    echo "========================================================================================"
+else
+    echo "========================================================================================"
+    echo "QLC Processing Job Failed: \$(date)"
+    echo "Exit code: \$qlc_exit_code"
+    echo "========================================================================================"
+    exit \$qlc_exit_code
+fi
 EOF
   
-  # Create the MARS retrieval job script (Job 1) that submits Job 2
+  # Create the data retrieval job script (Job 1) that submits Job 2 after completion
   cat > $QLC_DIR/run/qlc_batch.sh$$<<EOF
-#!/bin/ksh -e
-#SBATCH --job-name=qlc_mars_retrieval
-#SBATCH --output=log-retrieval-%J.out
-#SBATCH --error=err-retrieval-%J.out
+#!/bin/bash -e
+#SBATCH --job-name=qlc_retrieval_${config_arg}
+#SBATCH --output=log-qlc-retrieval-%J.out
+#SBATCH --error=err-qlc-retrieval-%J.out
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=$USER@ecmwf.int
 #SBATCH --export=ALL
+
+# QLC Data Retrieval Job - submits MARS retrieval requests
+# This job runs qlc_main.sh with A1-MARS script, which submits MARS jobs to the queue
+# After submission, this job completes and hands over to the processing job
+
+echo "========================================================================================"
+echo "QLC Data Retrieval Job Started: \$(date)"
+echo "========================================================================================"
+echo "Job ID: \${jobid}"
+echo "Node: \$SLURMD_NODENAME"
+echo "Workflow: $config_arg"
+echo "Purpose: Submit MARS retrieval jobs to the queue"
+echo " "
+
+# Activate QLC venv
+if [ -f "\$HOME/venv/qlc/bin/activate" ]; then
+    source "\$HOME/venv/qlc/bin/activate"
+    echo "Activated venv: \$HOME/venv/qlc"
+else
+    echo "Warning: venv not found at \$HOME/venv/qlc"
+fi
+
+# Source common functions for environment setup
+if [ -f "\$HOME/qlc/bin/qlc_common_functions.sh" ]; then
+    source "\$HOME/qlc/bin/qlc_common_functions.sh"
+    setup_qlc_complete "auto" "true" || echo "Environment setup had warnings (continuing)"
+fi
+
+echo "========================================================================================"
+echo "Submitting MARS retrieval jobs..."
+echo "Command: qlc $all_args"
+echo "========================================================================================"
+
+set +e  # Disable exit-on-error for qlc command
 qlc $all_args
-echo "MARS retrieval job ID: \${jobid}"
-sbatch --dependency=afterok:\${jobid} $QLC_DIR/run/qlc_processing.sh$$
+qlc_exit_code=\$?
+set -e  # Re-enable exit-on-error
+
+if [ \$qlc_exit_code -eq 0 ]; then
+    echo "========================================================================================"
+    echo "QLC Data Retrieval Job Completed Successfully: \$(date)"
+    echo "========================================================================================"
+    echo "Retrieval job ID: \${jobid}"
+    
+    # Check if A1-MARS was skipped because data was already present
+    if [ "\${QLC_A1_MARS_SKIPPED}" == "1" ]; then
+        echo "Status: MARS data was already present - all subscripts have been processed"
+        echo " "
+        echo "A1-MARS was skipped and remaining subscripts (B1-CONV, B2-PREP, etc.) completed"
+        echo "No processing job needed - workflow is complete"
+        echo "========================================================================================"
+        exit 0
+    fi
+    
+    # Check if A1-MARS ran but submitted zero jobs (all data already present)
+    if [ "\${QLC_A1_MARS_NO_JOBS}" == "1" ]; then
+        echo "Status: A1-MARS completed - no new MARS jobs needed (all data already present)"
+        echo " "
+        echo "All required MARS data files were already retrieved"
+        echo "Submitting processing job immediately (no dependency needed)"
+        echo "========================================================================================"
+        
+        # Submit processing job without dependencies
+        if processing_output=\$(sbatch $QLC_DIR/run/qlc_processing.sh$$ 2>&1); then
+            processing_job_id=\$(echo "\$processing_output" | awk '{print \$NF}')
+            echo "Processing job submitted: \$processing_job_id"
+            echo " "
+            echo "Processing job will start immediately and run remaining subscripts"
+            echo "(B1-CONV, B2-PREP, D1-ANAL, E1-ECOL, E2-EVAL, Z1-XPDF, etc.)"
+            echo "========================================================================================"
+            exit 0
+        else
+            echo "ERROR: Failed to submit processing job: \$processing_output"
+            exit 1
+        fi
+    fi
+    
+    echo "Status: All MARS retrieval jobs have been submitted to the queue"
+    echo " "
+    
+    # Collect all MARS job IDs from .id files (consistent with .flag/.download naming)
+    # Note: .id files for completed jobs are cleaned up in qlc_A1-MARS.sh
+    # Extract experiments from command line args (first N non-date, non-config args)
+    exp_args=($all_args)
+    exp_list=""
+    for arg in "\${exp_args[@]}"; do
+        # Skip dates (contain hyphens and numbers) and known config names
+        if [[ "\$arg" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}\$ ]] || [[ "\$arg" == "test" ]] || [[ "\$arg" == "dev" ]]; then
+            continue
+        fi
+        exp_list="\$exp_list \$arg"
+    done
+    
+    echo "Experiments being processed: \$exp_list"
+    
+    mars_job_ids=""
+    job_id_files=""
+    # Only search in experiment directories being processed
+    for exp in \$exp_list; do
+        exp_dir="\$HOME/qlc/Results/\$exp"
+        if [ -d "\$exp_dir" ]; then
+            exp_id_files=\$(ls -1 "\$exp_dir"/data_retrieved_*.id 2>/dev/null || echo "")
+            if [ -n "\$exp_id_files" ]; then
+                job_id_files="\$job_id_files \$exp_id_files"
+            fi
+        fi
+    done
+    
+    if [ -z "\$job_id_files" ]; then
+        echo "WARNING: No MARS job ID files found in experiment directories"
+        echo "Experiments searched: \$exp_list"
+        echo "This may indicate no MARS jobs were submitted"
+        echo "Submitting processing job without dependencies (will use flag checking)"
+        dependency_arg=""
+    else
+        echo "Collecting MARS job IDs from .id files:"
+        id_count=0
+        for id_file in \$job_id_files; do
+            job_id=\$(cat "\$id_file" 2>/dev/null | tr -d '[:space:]')
+            if [ -n "\$job_id" ]; then
+                id_count=\$((id_count + 1))
+                if [ -z "\$mars_job_ids" ]; then
+                    mars_job_ids="\$job_id"
+                else
+                    mars_job_ids="\${mars_job_ids}:\${job_id}"
+                fi
+                echo "  [\$id_count] \$(basename \$id_file): \$job_id"
+            fi
+        done
+        
+        if [ -n "\$mars_job_ids" ]; then
+            echo " "
+            echo "Total MARS jobs collected: \$id_count"
+            echo "SLURM dependency string: afterok:\$mars_job_ids"
+            dependency_arg="--dependency=afterok:\$mars_job_ids"
+        else
+            echo "WARNING: No valid MARS job IDs found in .id files"
+            dependency_arg=""
+        fi
+    fi
+    
+    echo " "
+    echo "Submitting dependent processing job..."
+    if [ -n "\$dependency_arg" ]; then
+        echo "Dependency: \$dependency_arg"
+        if processing_output=\$(sbatch \$dependency_arg $QLC_DIR/run/qlc_processing.sh$$ 2>&1); then
+            processing_job_id=\$(echo "\$processing_output" | awk '{print \$NF}')
+            echo "Processing job submitted: \$processing_job_id"
+        else
+            echo "ERROR: Failed to submit processing job: \$processing_output"
+            exit 1
+        fi
+    else
+        echo "No dependency (processing job will check flags)"
+        if processing_output=\$(sbatch $QLC_DIR/run/qlc_processing.sh$$ 2>&1); then
+            processing_job_id=\$(echo "\$processing_output" | awk '{print \$NF}')
+            echo "Processing job submitted: \$processing_job_id"
+        else
+            echo "ERROR: Failed to submit processing job: \$processing_output"
+            exit 1
+        fi
+    fi
+    
+    echo " "
+    echo "Processing job submitted successfully: \$processing_job_id"
+    echo "Processing job will start when:"
+    if [ -n "\$dependency_arg" ]; then
+        echo "  - All MARS retrieval jobs complete successfully (SLURM dependency)"
+    else
+        echo "  - Immediately (no MARS jobs or fallback to flag checking)"
+    fi
+    echo "  - Then run remaining qlc subscripts (B1-CONV, B2-PREP, D1-ANAL, etc.)"
+    echo "========================================================================================"
+    exit 0  # Exit successfully after submitting processing job
+else
+    echo "========================================================================================"
+    echo "QLC Data Retrieval Job Failed: \$(date)"
+    echo "========================================================================================"
+    echo "Exit code: \$qlc_exit_code"
+    echo "Processing job will NOT be submitted due to retrieval job failure"
+    echo "Please check the output above for error details"
+    echo "========================================================================================"
+    exit \$qlc_exit_code
+fi
 EOF
 else
-  # For other configs: single job with email notification
+  # Single-job workflow: all processing in one job
   cat > $QLC_DIR/run/qlc_batch.sh$$<<EOF
-#!/bin/ksh -e
-#SBATCH --job-name=qlc_${config_arg:-default}
-#SBATCH --output=log-%J.out
-#SBATCH --error=err-%J.out
-#SBATCH --mail-type=END,FAIL
+#!/bin/bash -e
+#SBATCH --job-name=qlc_processing_${config_arg:-workflow}
+#SBATCH --output=log-qlc-%J.out
+#SBATCH --error=err-qlc-%J.out
+#SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=$USER@ecmwf.int
+#SBATCH --export=ALL
+
+# QLC Batch Job - single workflow execution
+# Either data is already present, or only processing/analysis is needed
+
+echo "QLC Batch Job Started: \$(date)"
+echo "Job ID: \$SLURM_JOB_ID"
+echo "Node: \$SLURMD_NODENAME"
+echo "Workflow: $config_arg"
+
+# Activate QLC venv
+if [ -f "\$HOME/venv/qlc/bin/activate" ]; then
+    source "\$HOME/venv/qlc/bin/activate"
+    echo "Activated venv: \$HOME/venv/qlc"
+else
+    echo "Warning: venv not found at \$HOME/venv/qlc"
+fi
+
+# Source common functions for environment setup
+if [ -f "\$HOME/qlc/bin/qlc_common_functions.sh" ]; then
+    source "\$HOME/qlc/bin/qlc_common_functions.sh"
+    setup_qlc_complete "auto" "true" || echo "Environment setup had warnings (continuing)"
+fi
+
+echo "Command: qlc $all_args"
+set +e  # Disable exit-on-error for qlc command
 qlc $all_args
+qlc_exit_code=\$?
+set -e  # Re-enable exit-on-error
+
+if [ \$qlc_exit_code -eq 0 ]; then
+    echo "QLC Batch Job Completed Successfully: \$(date)"
+    echo "All tasks finished without errors"
+else
+    echo "QLC Batch Job Failed: \$(date)"
+    echo "Exit code: \$qlc_exit_code"
+    exit \$qlc_exit_code
+fi
 EOF
 fi
 
-log "Submitting batch job: $QLC_DIR/run/qlc_batch.sh$$"
+if [ "$needs_two_jobs" = true ]; then
+  log "Submitting two-job workflow: retrieval → processing"
+  log "Retrieval job: $QLC_DIR/run/qlc_batch.sh$$"
+elif [ "$data_already_complete" = true ]; then
+  log "Submitting single-job workflow (data already complete)"
+  log "Processing job: $QLC_DIR/run/qlc_batch.sh$$"
+else
+  log "Submitting single-job workflow (no MARS retrieval needed)"
+  log "Batch job: $QLC_DIR/run/qlc_batch.sh$$"
+fi
+
 sbatch $QLC_DIR/run/qlc_batch.sh$$
+log " "
+log "Queue status:"
 squeue -u "$USER"
 
 log  "________________________________________________________________________________________"

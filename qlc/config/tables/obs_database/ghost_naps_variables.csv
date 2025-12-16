@@ -1,0 +1,43 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,O3,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,NO,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,NO2,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+SO2,SO2,nmol mol-1,time,latitude,longitude,unknown,sulphur dioxide
+CO,CO,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+CH4,Methane,nmol mol-1,time,latitude,longitude,unknown,methane
+ACETYLENE,Acetylene,pmol mol-1,time,latitude,longitude,unknown,acetylene
+ETHENE,Ethylene,pmol mol-1,time,latitude,longitude,unknown,ethene
+ACETALDEHYDE,Acetaldehyde,,time,latitude,longitude,unknown,acetaldehyde
+ETHANE,Ethane,pmol mol-1,time,latitude,longitude,unknown,ethane
+PROPENE,Propylene,pmol mol-1,time,latitude,longitude,unknown,propene
+PROPANE,Propane,pmol mol-1,time,latitude,longitude,unknown,propane
+1-BUTENE,1-Butene/Isobutene,pmol mol-1,time,latitude,longitude,unknown,1-butene
+ISOBUTANE,Isobutane,pmol mol-1,time,latitude,longitude,unknown,isobutane
+ISOPRENE,Isoprene,pmol mol-1,time,latitude,longitude,unknown,isoprene
+N-PENTANE,Pentane,pmol mol-1,time,latitude,longitude,unknown,n-pentane
+BENZENE,Benzene,pmol mol-1,time,latitude,longitude,unknown,benzene
+N-HEXANE,Hexane,pmol mol-1,time,latitude,longitude,unknown,n-hexane
+TOLUENE,Toluene,pmol mol-1,time,latitude,longitude,unknown,toluene
+M-P-XYLENE,m and p-Xylene,pmol mol-1,time,latitude,longitude,unknown,m-p-xylene
+NH3,Ammonia,nmol mol-1,time,latitude,longitude,unknown,ammonia
+HNO3,Nitric Acid,nmol mol-1,time,latitude,longitude,unknown,nitric acid
+HCHO,Formaldehyde,nmol mol-1,time,latitude,longitude,unknown,formaldehyde
+C,TC(corr),ug m-3,time,latitude,longitude,unknown,total particulate carbon
+EC,EC(corr),ug m-3,time,latitude,longitude,unknown,total particulate elemental carbon
+K+,Potassium,ug m-3,time,latitude,longitude,unknown,total particulate potassium
+MSA,MSA,ug m-3,time,latitude,longitude,unknown,total particulate methanesulfonic acid
+NH4+,Ammonium,ug m-3,time,latitude,longitude,unknown,total particulate ammonium
+NO3_ion,Nitrate,ug m-3,time,latitude,longitude,unknown,total particulate nitrate
+OC,OC(corr),ug m-3,time,latitude,longitude,unknown,total particulate organic carbon
+SO4_ion,Sulphate,ug m-3,time,latitude,longitude,unknown,total particulate sulphate
+V,Vanadium (V),ng m-3,time,latitude,longitude,unknown,total particulate vanadium
+PM10,PM10,ug m-3,time,latitude,longitude,unknown,PM10 mass
+PM10_C,TC(corr),ug m-3,time,latitude,longitude,unknown,PM10 carbon
+PM10_EC,EC(corr),ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
+PM10_K+,Potassium,ug m-3,time,latitude,longitude,unknown,PM10 potassium
+PM10_MSA,MSA,ug m-3,time,latitude,longitude,unknown,PM10 methanesulfonic acid
+PM10_NH4+,Ammonium,ug m-3,time,latitude,longitude,unknown,PM10 ammonium
+PM10_NO3-,Nitrate,ug m-3,time,latitude,longitude,unknown,PM10 nitrate
+PM10_OC,OC(corr),ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
+PM10_SO4--,Sulphate,ug m-3,time,latitude,longitude,unknown,PM10 sulphate
+PM10_V,Vanadium (V),ng m-3,time,latitude,longitude,unknown,PM10 vanadium

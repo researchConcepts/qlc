@@ -1,0 +1,16 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+SO2,SO2_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Sulphur Dioxide
+SO4,SO4_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Sulphate
+SO4_as,SO4_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Sulphate (accumulation mode)
+NO3,NO3_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Nitrate
+NO3_as,NO3_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Nitrate (accumulation mode)
+HNO3,HNO3_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Nitric Acid
+TNO3,TNO3_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Total Nitrate
+NH4,NH4_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Ammonium
+NH4_as,NH4_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Ammonium (accumulation mode)
+Ca,CA_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Calcium
+Na,NA_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Sodium
+Mg,MG_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Magnesium
+K,K_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Potassium
+Cl,CL_CONC,ug/m3,DATEON,LATITUDE,LONGITUDE,unknown,Chloride
+

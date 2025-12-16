@@ -1,0 +1,11 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,OZONE,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,NO,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,NO2_TRUE,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+CO,CO,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+NH3,NH3,nmol mol-1,time,latitude,longitude,unknown,ammonia
+K+,K,ug m-3,time,latitude,longitude,unknown,total particulate potassium
+NH4+,TNH4,ug m-3,time,latitude,longitude,unknown,total particulate ammonium
+NO3_ion,TNO3,ug m-3,time,latitude,longitude,unknown,total particulate nitrate
+SO4_ion,TSO4,ug m-3,time,latitude,longitude,unknown,total particulate sulphate
+TEMP_2M,TEMP_2M,K,time,latitude,longitude,unknown,2m air temperature

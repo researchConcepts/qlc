@@ -1,36 +1,38 @@
-# QLC module package init
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+QLC CLI Module: Command-Line Interface Entry Points
+
+Part of QLC (Quick Look Content) v1.0.1-beta
+An Automated Model-Observation Comparison Suite Optimized for CAMS
+
+Documentation:
+    https://docs.researchconcepts.io/qlc/latest/
+
+Description:
+    Provides Python entry points for QLC command-line tools including
+    qlc (main workflow), qlc-py (standalone), and sqlc (batch submission).
+    Handles argument parsing and shell script execution.
+
+Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
+"""
+
 import os
 import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
 
-def detect_qlc_runtime():
-    """
-    Detects which QLC runtime to use based on environment.
-    Priority:
-    1. QLC_HOME environment variable (explicit override)
-    2. Auto-detection based on conda environment
-    3. Default to ~/qlc
-    """
-    # Priority 1: Explicit override
-    if 'QLC_HOME' in os.environ:
-        qlc_home = os.environ['QLC_HOME']
-        return qlc_home, "explicit"
-    
-    # Priority 2: Auto-detect from conda environment
-    conda_env = os.environ.get('CONDA_DEFAULT_ENV', '')
-    bin_dir = str(Path(sys.executable).parent)
-    
-    if 'qlc-dev' in conda_env or 'qlc-dev' in bin_dir:
-        # Development environment detected
-        qlc_home = str(Path.home() / "qlc-dev-run")
-        if Path(qlc_home).exists():
-            return qlc_home, "conda-dev"
-    
-    # Priority 3: Default to production
-    qlc_home = str(Path.home() / "qlc")
-    return qlc_home, "default"
+# Import Cythonizable core functions
+from qlc.py.qlc_wrapper import (
+    detect_qlc_runtime,
+    get_compatible_bash,
+    extract_qlc_arguments,
+    prepare_mars_requests,
+    build_bash_command_args
+)
+
 
 def run_shell_driver():
     """
@@ -52,8 +54,6 @@ def run_shell_driver():
                 install_type = "PyPI (User)"
             elif 'site-packages' in str(qlc_pkg_path):
                 install_type = "PyPI (System)"
-            elif '.conda' in str(qlc_pkg_path) or 'conda' in str(qlc_pkg_path):
-                install_type = "Development (Conda)"
             else:
                 install_type = "Development (Local)"
             
@@ -61,14 +61,17 @@ def run_shell_driver():
             qlc_home, detection_method = detect_qlc_runtime()
             
             print(f"QLC (Quick Look Content) version {__version__} BETA [{install_type}]")
+            print("An Automated Model-Observation Comparison Suite Optimized for CAMS datasets")
+            print("")
             print(f"Release date: {__release_date__}")
             print(f"Runtime: {qlc_home} ({detection_method})")
             print(f"Package: {qlc_pkg_path}")
-            print("An Automated Model-Observation Comparison Suite")
-            print("Optimized for CAMS datasets")
+            print("Documentation: https://docs.researchconcepts.io/qlc/latest")
+            print("               https://github.com/researchconcepts/qlc")
             print("")
-            print("⚠️  BETA RELEASE: Under development, requires further testing")
-            print("© ResearchConcepts io GmbH")
+            print("BETA RELEASE: Under development, requires further testing.")
+            print("© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.")
+            print("Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>")
             sys.exit(0)
         except ImportError:
             print("QLC version information not available")
@@ -76,98 +79,59 @@ def run_shell_driver():
     
     if '--help' in sys.argv or '-h' in sys.argv:
         print("""
-QLC (Quick Look Content) - An Automated Model-Observation Comparison Suite
-Optimized for CAMS datasets
-
-⚠️  BETA RELEASE: Under development, requires further testing
+========================================================================================
+QLC - Interactive QLC Execution
+========================================================================================
 
 Usage:
-  qlc <exp1> [exp2 ...] <start_date> <end_date> [config]
-  qlc --version | -V
-  qlc --help | -h
+  qlc <exp1> [exp2 ...] <start_date> <end_date> <workflow> [options]
 
 Arguments:
-  <exp1> [exp2 ...]  One or more experiment identifiers (minimum 1)
-  <start_date>       Start date in YYYY-MM-DD format
-  <end_date>         End date in YYYY-MM-DD format
-  [config]           Configuration option (see below)
+  <exp1> [exp2 ...]  One or more experiment identifiers
+  <start_date>       Start date (YYYY-MM-DD)
+  <end_date>         End date (YYYY-MM-DD)
+  <workflow>         Workflow name: aifs, eac5, evaltools, mars, pyferret, qpy, test
 
-Configuration Options:
-  Each subdirectory in ~/qlc/config can be used as a config option:
-  
-  default (or mars)  MARS data retrieval only (default if not specified)
-  qpy                qlc-py collocation & time series plots
-  evaltools          Advanced statistics with Taylor diagrams
-  eac5               EAC5/CAMS reanalysis analysis (K1 namelist)
-  pyferret           PyFerret visualization integration
-  ver0d              Ver0D processing (ATOS/IDL-based)
+Common Options:
+  --obs-only         Analyze observations only
+  --mod-only         Analyze model results only
+  -class=xx          Override MARS class (e.g., -class=nl)
+  -vars=<spec>       Variable specification (e.g., -vars="go3,NH3,PM2.5")
+  -region=<code>     Region override (e.g., -region=EU)
 
-Multi-Experiment Support:
-  QLC supports comparing any number of experiments (N >= 1):
-  - Single:  qlc exp1 2018-12-01 2018-12-21 qpy
-  - Two:     qlc exp1 exp2 2018-12-01 2018-12-21 qpy
-  - Three+:  qlc exp1 exp2 exp3 2018-12-01 2018-12-21 qpy
+Quick Examples:
+  qlc b2ro b2rn 2018-12-01 2018-12-21 test
+  qlc b2ro b2rn 2018-12-01 2018-12-21 test -obs-only -region=EU
+  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -vars="go3,nh3"
+  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -param=210073,210203 -myvar=PM2p5,O3 -levtype=sfc,pl
 
-Multi-Region Support:
-  Configure MULTI_REGION_MODE=true in config files to process
-  multiple regions (EU, US, Asia) in a single run with region-specific
-  observation networks and variable sets.
+Variable Search:
+  qlc-vars search O3
+  qlc-vars info O3
 
-Options:
-  --version, -V    Show version and installation information
-  --help, -h       Show this help message
+View Results:
+  ls -lrth ~/qlc/Results        # GRIB data (MARS download)
+  ls -lrth ~/qlc/Analysis       # NetCDF processed data
+  ls -lrth ~/qlc/Plots          # Generated plots
+  ls -lrth ~/qlc/Presentations  # PDF reports
 
-Examples:
-  # Two experiments with qlc-py collocation and time series
-  qlc b2ro b2rn 2018-12-01 2018-12-21 qpy
+For batch submission (HPC/SLURM), use: sqlc
 
-  # Three experiments with evaltools statistics and Taylor diagrams
-  qlc exp1 exp2 exp3 2018-12-01 2018-12-21 evaltools
+For more information:
+  Quick Start    : ~/qlc/doc/QuickStart.md
+  Documentation  : https://docs.researchconcepts.io/qlc
+  Getting Started: https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/
 
-  # EAC5 reanalysis validation (K1 namelist: 10 variables)
-  qlc b2ro b2rn 2018-12-01 2018-12-21 eac5
-
-  # Multi-experiment comparison with evaltools
-  qlc exp1 exp2 exp3 2018-12-01 2018-12-21 evaltools
-
-  # PyFerret visualization
-  qlc b2ro b2rn 2018-12-01 2018-12-21 pyferret
-
-  # Ver0D processing (ATOS/IDL-based)
-  qlc b2ro b2rn 2018-12-01 2018-12-21 ver0d
-
-  # MARS data retrieval only (no analysis/processing)
-  qlc b2ro b2rn 2018-12-01 2018-12-21 mars
-
-Data Retrieval:
-  QLC automatically handles data retrieval based on active subscripts:
-  - If qlc_A1.sh is active: automatically retrieves missing data
-  - Checks data_retrieval flag in Results directory
-  - Only submits retrieval if data missing or not in progress
-  - 'mars' config: retrieves data ONLY, skips all analysis
-  - Other configs: retrieve data if needed, then process
-
-  Data retrieved based on MARS namelist (e.g., mars_K1_sfc.nml)
-  and parameter mapping (e.g., K1_sfc in MARS_RETRIEVALS)
-
-Related Commands:
-  qlc-py                  Standalone Python processing engine
-  qlc-extract-stations    Extract and filter observation stations
-  qlc-install             Install/setup QLC runtime environment
-  sqlc                    Submit QLC job to SLURM batch scheduler
-
-Documentation:
-  Usage Guide:    ~/qlc/doc/USAGE.md
-  Installation:   ~/qlc/doc/INSTALL_DEV.md
-  Contributing:   ~/qlc/doc/CONTRIBUTING.md
-  Online:         https://pypi.org/project/rc-qlc/
-  Online:         https://github.com/researchConcepts/qlc
+BETA RELEASE: Under development, requires further testing.
+© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
+========================================================================================
         """)
         sys.exit(0)
     
-    # Correctly locate the 'sh' directory relative to the package installation
-    sh_dir = os.path.join(os.path.dirname(__file__), '..', 'sh')
-    script = os.path.join(sh_dir, "qlc_main.sh")
+    # Correctly locate the 'bin' directory relative to the package installation
+    bin_dir = os.path.join(os.path.dirname(__file__), '..', 'bin')
+    script = os.path.join(bin_dir, "qlc_main.sh")
 
     # Determine QLC runtime directory using intelligent detection
     qlc_home_str, detection_method = detect_qlc_runtime()
@@ -175,17 +139,39 @@ Documentation:
     os.makedirs(log_dir, exist_ok=True)
     
     # Log which runtime is being used (only in verbose mode or for dev)
-    if detection_method == "conda-dev":
-        print(f"[QLC-DEV] Using development runtime: {qlc_home_str}")
+    timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if detection_method == "dev":
+        print(f"[{timestamp_str}] [QLC-DEV] Using development runtime: {qlc_home_str}")
 
     # Create a timestamped log file for the shell script's output
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file_path = os.path.join(log_dir, f"qlc_shell_main_{timestamp}.log")
-    print(f"[QLC Wrapper] Logging shell script output to: {log_file_path}")
+    print(f"[{timestamp_str}] [QLC] Logging shell script output to: {log_file_path}")
 
     try:
-        # Use a list of strings for Popen
-        command = [str(script)] + sys.argv[1:]
+        # Get compatible bash (prefers venv bash, falls back to system bash >= 3.2)
+        bash_path, bash_version, bash_source = get_compatible_bash()
+        
+        # Always log which bash is being used
+        timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{timestamp_str}] [QLC] Using bash: {bash_version} ({bash_source})")
+        
+        # Inform user if using system bash (optional upgrade available)
+        if bash_source == "system":
+            print(f"[INFO] For best compatibility, install QLC-managed bash: qlc-install-tools --install-bash")
+        
+        # Extract arguments for Python-side processing
+        args = extract_qlc_arguments(sys.argv)
+        
+        # Prepare MARS requests (if applicable)
+        prepare_mars_requests(qlc_home_str, args)
+        
+        # Build bash-compatible command line arguments
+        # This converts named arguments (--exp_ids=, --start_date=, etc.) to positional format
+        bash_args = build_bash_command_args(args, sys.argv)
+        
+        # Execute bash script with bash-compatible arguments
+        command = [bash_path, str(script)] + bash_args
         
         with open(log_file_path, 'w', encoding='utf-8') as log_file:
             process = subprocess.Popen(
@@ -193,7 +179,7 @@ Documentation:
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 text=True,
-                bufsize=1, # Line-buffered
+                bufsize=1,  # Line-buffered
                 universal_newlines=True
             )
             
@@ -218,14 +204,24 @@ Documentation:
         sys.exit(1)
 
 
+def run_python_driver():
+    """
+    Alias for qlc-py command (backwards compatibility).
+    The previous name was 'qlc-python', now it's 'qlc-py'.
+    This function redirects to the main qlc-py entry point.
+    """
+    from qlc.cli.qlc_py_main import main
+    main()
+
+
 def run_batch_driver():
     """
     Finds and executes qlc_batch.sh, capturing its output for logging.
     This acts as the entry point for the 'sqlc' command.
     """
     try:
-        sh_dir = Path(__file__).resolve().parent.parent / "sh"
-        script_path = sh_dir / "qlc_batch.sh"
+        bin_dir = Path(__file__).resolve().parent.parent / "bin"
+        script_path = bin_dir / "qlc_batch.sh"
         if not script_path.is_file():
             print(f"[ERROR] Batch script not found at: {script_path}", file=sys.stderr)
             sys.exit(1)
@@ -239,10 +235,33 @@ def run_batch_driver():
         log_dir.mkdir(parents=True, exist_ok=True)
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_file_path = log_dir / f"sqlc_shell_main_{timestamp}.log"
-        print(f"[QLC Batch Wrapper] Logging shell script output to: {log_file_path}")
+        print(f"[{timestamp_str}] [QLC Batch] Logging shell script output to: {log_file_path}")
 
-        command = [str(script_path)] + sys.argv[1:]
+        # Get compatible bash (prefers venv bash, falls back to system bash >= 3.2)
+        bash_path, bash_version, bash_source = get_compatible_bash()
+        
+        # Always log which bash is being used
+        timestamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print(f"[{timestamp_str}] [QLC] Using bash: {bash_version} ({bash_source})")
+        
+        # Inform user if using system bash (optional upgrade available)
+        if bash_source == "system":
+            print(f"[INFO] For best compatibility, install QLC-managed bash: qlc-install-tools --install-bash")
+        
+        # Extract arguments for Python-side processing (same as qlc command)
+        args = extract_qlc_arguments(sys.argv)
+        
+        # Prepare MARS requests (if applicable) and set environment variables
+        # This propagates CLI overrides (--region, --station_selection, etc.) to bash scripts
+        prepare_mars_requests(qlc_home_str, args)
+        
+        # Build bash-compatible command line arguments
+        # This converts named arguments (--exp_ids=, --start_date=, etc.) to positional format
+        bash_args = build_bash_command_args(args, sys.argv)
+        
+        command = [bash_path, str(script_path)] + bash_args
         
         with open(log_file_path, 'w', encoding='utf-8') as log_file:
             process = subprocess.Popen(

@@ -14,10 +14,10 @@
 %Font to: default professionalfonts serif structurebold structureitalicserif structuresmallcapsserif
 \usepackage{graphicx}
 \usepackage{epstopdf}
-\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{%
- convert #1 \OutputFile         
-}
-\AppendGraphicsExtensions{.gif}
+%\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{%
+% convert #1 \OutputFile         
+%}
+%\AppendGraphicsExtensions{.gif}
 %\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{convert gif:#1 png:\OutputFile}
 %\epstopdfDeclareGraphicsRule{.gif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .gif`.png}
 %\AppendGraphicsExtensions{.gif}
@@ -42,13 +42,25 @@
 \usepackage{lscape}
 \usepackage{xr}
 \usepackage{booktabs}
-\pdfminorversion=5 
-\pdfcompresslevel=9
-\pdfobjcompresslevel=2
+% PDF compression settings (engine-specific)
+% Note: Commented out for cross-platform compatibility between TeX Live versions
+% These are optimization settings that may cause issues with different pdfTeX versions
+% PDF generation works fine without explicit compression settings
+%\ifx\pdftexversion\undefined
+%  % XeLaTeX commands
+%  \special{pdf:minorversion=5}
+%  \special{pdf:compresslevel=9}
+%  \special{pdf:objcompresslevel=2}
+%\else
+%  % pdfLaTeX commands (syntax changed in TeX Live 2025+)
+%  \pdfminorversion=5 
+%  \pdfcompresslevel=9
+%  \pdfobjcompresslevel=2
+%\fi
 %===============================================================================
 %===============================================================================
 \newcommand\mytext{XTEAM-XXUSR \hfill \insertpagenumber}
-%\newcommand\mytext{Swen Metzger, ResearchConcepts io GmbH\hfill \insertpagenumber}
+%\newcommand\mytext{qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>\hfill \insertpagenumber}
 \makeatother
 \setbeamertemplate{footline}
 {%
@@ -95,7 +107,7 @@
 %\section{Simulations}
 %\input{./Simulations}
 %===============================================================================
-\section{Results}
+%\section{Results}
 \input{./CAMS_PLOTS.tex}
 %===============================================================================
 %\section{Summary}

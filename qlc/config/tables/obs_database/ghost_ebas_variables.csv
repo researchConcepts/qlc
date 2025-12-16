@@ -1,0 +1,90 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,ozone,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,nitrogen_monoxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,nitrogen_dioxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+SO2,sulphur_dioxide,nmol mol-1,time,latitude,longitude,unknown,sulphur dioxide
+CO,carbon_monoxide,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+CH4,methane,nmol mol-1,time,latitude,longitude,unknown,methane
+ACETYLENE,ethyne,pmol mol-1,time,latitude,longitude,unknown,acetylene
+GLYOXAL,ethanedial,,time,latitude,longitude,unknown,glyoxal
+ETHENE,ethene,pmol mol-1,time,latitude,longitude,unknown,ethene
+ACETALDEHYDE,ethanal,,time,latitude,longitude,unknown,acetaldehyde
+ETHANE,ethane,pmol mol-1,time,latitude,longitude,unknown,ethane
+ETHANOL,ethanol,,time,latitude,longitude,unknown,ethanol
+PROPENE,propene,pmol mol-1,time,latitude,longitude,unknown,propene
+PROPANE,propane,pmol mol-1,time,latitude,longitude,unknown,propane
+1-BUTENE,1-butene,pmol mol-1,time,latitude,longitude,unknown,1-butene
+ISOBUTANE,2-methylpropane,pmol mol-1,time,latitude,longitude,unknown,isobutane
+ISOPRENE,isoprene,pmol mol-1,time,latitude,longitude,unknown,isoprene
+N-PENTANE,n-pentane,pmol mol-1,time,latitude,longitude,unknown,n-pentane
+BENZENE,benzene,pmol mol-1,time,latitude,longitude,unknown,benzene
+N-HEXANE,n-hexane,pmol mol-1,time,latitude,longitude,unknown,n-hexane
+TOLUENE,toluene,pmol mol-1,time,latitude,longitude,unknown,toluene
+M-P-XYLENE,m-p-xylene,pmol mol-1,time,latitude,longitude,unknown,m-p-xylene
+M-XYLENE,m-xylene,pmol mol-1,time,latitude,longitude,unknown,m-xylene
+P-XYLENE,p-xylene,pmol mol-1,time,latitude,longitude,unknown,p-xylene
+O-XYLENE,o-xylene,pmol mol-1,time,latitude,longitude,unknown,o-xylene
+MONOTERPENES,monoterpenes,pmol mol-1,time,latitude,longitude,unknown,monoterpenes
+VOC,voc_complete,nmol mol-1,time,latitude,longitude,unknown,total volatile organic compounds
+NH3,ammonia,nmol mol-1,time,latitude,longitude,unknown,ammonia
+HNO3,nitric_acid,nmol mol-1,time,latitude,longitude,unknown,nitric acid
+HCHO,methanal,nmol mol-1,time,latitude,longitude,unknown,formaldehyde
+BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,total particulate black carbon
+C,total_carbon,ug m-3,time,latitude,longitude,unknown,total particulate carbon
+EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,total particulate elemental carbon
+K+,potassium,ug m-3,time,latitude,longitude,unknown,total particulate potassium
+MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,total particulate methanesulfonic acid
+NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,total particulate ammonium
+NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,total particulate ammonium nitrate
+NO3_ion,nitrate,ug m-3,time,latitude,longitude,unknown,total particulate nitrate
+OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,total particulate organic carbon
+SO4_ion,sulphate_total,ug m-3,time,latitude,longitude,unknown,total particulate sulphate
+SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,total particulate sulphate: non-sea salt
+SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,total particulate sulphate: sea salt
+V,vanadium,ng m-3,time,latitude,longitude,unknown,total particulate vanadium
+PM10,pm10_mass,ug m-3,time,latitude,longitude,unknown,PM10 mass
+PM10_BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,PM10 black carbon
+PM10_C,total_carbon,ug m-3,time,latitude,longitude,unknown,PM10 carbon
+PM10_EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
+PM10_K+,potassium,ug m-3,time,latitude,longitude,unknown,PM10 potassium
+PM10_MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,PM10 methanesulfonic acid
+PM10_NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,PM10 ammonium
+PM10_NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,PM10 ammonium nitrate
+PM10_NO3-,nitrate,ug m-3,time,latitude,longitude,unknown,PM10 nitrate
+PM10_OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
+PM10_SO4--,sulphate_total,ug m-3,time,latitude,longitude,unknown,PM10 sulphate
+PM10_SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,PM10 sulphate : non-sea salt
+PM10_SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,PM10 sulphate : sea salt
+PM10_V,vanadium,ng m-3,time,latitude,longitude,unknown,PM10 vanadium
+PM1,pm1_mass,ug m-3,time,latitude,longitude,unknown,PM1 mass
+PM1_BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,PM1 black carbon
+PM1_C,total_carbon,ug m-3,time,latitude,longitude,unknown,PM1 carbon
+PM1_EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,PM1 elemental carbon
+PM1_K+,potassium,ug m-3,time,latitude,longitude,unknown,PM1 potassium
+PM1_MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,PM1 methanesulfonic acid
+PM1_NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,PM1 ammonium
+PM1_NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,PM1 ammonium nitrate
+PM1_NO3_ion,nitrate,ug m-3,time,latitude,longitude,unknown,PM1 nitrate
+PM1_OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,PM1 organic carbon
+PM1_SO4_ion,sulphate_total,ug m-3,time,latitude,longitude,unknown,PM1 sulphate
+PM1_SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,PM1 sulphate : non-sea salt
+PM1_SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,PM1 sulphate : sea salt
+PM1_V,vanadium,ng m-3,time,latitude,longitude,unknown,PM1 vanadium
+K+_PREC,potassium,mg l-1,time,latitude,longitude,unknown,potassium in precipitaton
+MSA_PREC,methanesulfonic_acid,mg l-1,time,latitude,longitude,unknown,methanesulfonic acid in precipitaton
+NH4+_PREC,ammonium,mg l-1,time,latitude,longitude,unknown,ammonium in precipitaton
+NH4NO3_PREC,ammonium_nitrate,mg l-1,time,latitude,longitude,unknown,ammonium nitrate in precipitaton
+NO3-_PREC,nitrate,mg l-1,time,latitude,longitude,unknown,nitrate in precipitaton
+SO4--_PREC,sulphate_total,mg l-1,time,latitude,longitude,unknown,sulphate in precipitaton
+SO4--_NSS_PREC,sulphate_corrected,mg l-1,time,latitude,longitude,unknown,sulphate: non-sea salt in precipitaton
+SO4--_SS_PREC,sulphate_seasalt,mg l-1,time,latitude,longitude,unknown,sulphate: sea salt in precipitaton
+V_PREC,vanadium,ug l-1,time,latitude,longitude,unknown,vanadium in precipitaton
+K+_WETDEP,potassium,ug m-2 min-1,time,latitude,longitude,unknown,potassium wet deposition flux
+MSA_WETDEP,methanesulfonic_acid,ug m-2 min-1,time,latitude,longitude,unknown,methanesulfonic acid wet deposition flux
+NH4+_WETDEP,ammonium,ug m-2 min-1,time,latitude,longitude,unknown,ammonium wet deposition flux
+NH4NO3_WETDEP,ammonium_nitrate,ug m-2 min-1,time,latitude,longitude,unknown,ammonium nitrate wet deposition flux
+NO3-_WETDEP,nitrate,ug m-2 min-1,time,latitude,longitude,unknown,nitrate wet deposition flux
+SO4--_WETDEP,sulphate_total,ug m-2 min-1,time,latitude,longitude,unknown,sulphate wet deposition flux
+SO4--_NSS_WETDEP,sulphate_corrected,ug m-2 min-1,time,latitude,longitude,unknown,sulphate: non-sea salt wet deposition flux
+SO4--_SS_WETDEP,sulphate_seasalt,ug m-2 min-1,time,latitude,longitude,unknown,sulphate: sea salt wet deposition flux
+V_WETDEP,vanadium,ng m-2 min-1,time,latitude,longitude,unknown,vanadium wet deposition flux

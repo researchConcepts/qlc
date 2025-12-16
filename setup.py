@@ -1,4 +1,16 @@
 # setup.py
+"""
+Robust setup script for QLC.
+
+Part of QLC (Quick Look Content) v1.0.1-beta
+An Automated Model-Observation Comparison Suite Optimized for CAMS
+
+Documentation:
+    https://docs.researchconcepts.io/qlc/latest/
+
+Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
+"""
 try:
     import tomllib  # Python 3.11+
 except ModuleNotFoundError:
@@ -12,6 +24,8 @@ import platform
 from Cython.Build import cythonize
 
 from setuptools.command.build_py import build_py as _build_py
+from setuptools.command.build_ext import build_ext as _build_ext
+import os
 
 import shutil
 
@@ -52,6 +66,44 @@ class CustomBuildPyCommand(_build_py):
                         ignore=ignore
                     )
 
+class CustomBuildExtCommand(_build_ext):
+    """Custom build_ext with configurable optimization level.
+    
+    Set QLC_DEBUG_BUILD=1 environment variable for fast debug builds (-O0).
+    Otherwise, uses -O3 optimization for production builds.
+    
+    Examples:
+        # Fast debug build (no optimization):
+        QLC_DEBUG_BUILD=1 pip install -e .
+        
+        # Production build (maximum optimization):
+        pip install -e .
+    """
+    def build_extensions(self):
+        # Check if debug build is requested via environment variable
+        debug_build = os.environ.get('QLC_DEBUG_BUILD', '0') == '1'
+        opt_flag = '-O0' if debug_build else '-O3'
+        build_mode = "debug (fast compilation)" if debug_build else "production (optimized)"
+        
+        print(f"[BUILD] Build mode: {build_mode}")
+        print(f"[BUILD] Optimization flag: {opt_flag}")
+        
+        for ext in self.extensions:
+            # Get current compile args
+            compile_args = list(ext.extra_compile_args or [])
+            
+            # Remove any existing -O flags to avoid conflicts
+            compile_args = [arg for arg in compile_args if not arg.startswith('-O')]
+            
+            # Add appropriate optimization flag
+            compile_args.append(opt_flag)
+            ext.extra_compile_args = compile_args
+            
+            print(f"[BUILD] Extension {ext.name}: compiling with {opt_flag}")
+        
+        # Call parent build_extensions
+        _build_ext.build_extensions(self)
+
 # --- Helper functions ---
 
 
@@ -91,7 +143,12 @@ py_files_to_compile = [
     and p.name != "__main__.py"
 ]
 
-print(f"[BUILD] Compiling {len(py_files_to_compile)} files with aggressive optimization")
+# Check build mode from environment
+debug_build = os.environ.get('QLC_DEBUG_BUILD', '0') == '1'
+build_mode = "debug mode (fast -O0)" if debug_build else "production mode (optimized -O3)"
+print(f"[BUILD] Compiling {len(py_files_to_compile)} files in {build_mode}")
+if debug_build:
+    print("[BUILD] Tip: Unset QLC_DEBUG_BUILD for optimized production builds")
 
 # Print build environment for debugging ABI mismatches
 try:
@@ -105,13 +162,19 @@ except Exception as _e:
     _np_includes = []
     print(f"[BUILD-ENV] NumPy not importable during build: {_e}")
 
-# Define Cython extensions with aggressive optimization
+# Define Cython extensions
+# NOTE: Optimization level controlled by QLC_DEBUG_BUILD environment variable
+# QLC_DEBUG_BUILD=1 -> -O0 (fast compilation for debugging)
+# QLC_DEBUG_BUILD=0 or unset -> -O3 (maximum optimization for production)
+opt_flag = '-O0' if debug_build else '-O3'
 extensions = cythonize(
     [
         Extension(
             "qlc.py." + f.stem,
             [str(f)],
             include_dirs=_np_includes,
+            # Optimization flag will be enforced by CustomBuildExtCommand
+            extra_compile_args=[opt_flag],
         )
         for f in py_files_to_compile
     ],
@@ -144,11 +207,9 @@ setup(
 
 
     cmdclass={
-        "build_py": CustomBuildPyCommand
+        "build_py": CustomBuildPyCommand,
+        "build_ext": CustomBuildExtCommand
     },
 
-    classifiers=[
-        "Programming Language :: Python :: 3",
-        "Operating System :: Unix"
-    ],
+    # Classifiers moved to pyproject.toml to avoid setuptools warnings
 )

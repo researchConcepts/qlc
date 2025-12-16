@@ -1,0 +1,11 @@
+number,name,long_name,gribod550
+1,SS,Sea-salt,208.210
+2,DU,Desert-dust,209.210
+3,OM,Organic-matter,210.210
+4,BC,Black-carbon,211.210
+5,SU,Sulfates,212.210
+6,NI,Nitrates,250.210
+7,AM,Ammonium,251.210
+8,SOA,SecOrg,226.215
+9,VFA,VolcAsh,243.210
+10,VSU,VolcSulfates,244.210

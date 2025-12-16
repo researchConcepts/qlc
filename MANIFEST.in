@@ -24,8 +24,15 @@ recursive-include qlc/py *.so
 recursive-include qlc/py __init__.py
 
 # Prune other directories
-prune qlc/examples
-prune qlc/sh/ToDo
+prune qlc/bin/ToDo
+
+# Include examples directory (needed for test mode)
+recursive-include qlc/examples *
+
+# Include all shell scripts and tools from bin directory
+recursive-include qlc/bin *.sh
+recursive-include qlc/bin/tex_template *
+recursive-include qlc/bin/tools *
 
 # Exclude common unwanted files
 global-exclude *.pyc

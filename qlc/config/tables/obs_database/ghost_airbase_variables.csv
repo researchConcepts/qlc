@@ -1,0 +1,58 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,Ozone (air),nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,Nitrogen monoxide (air),nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,Nitrogen dioxide (air),nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+SO2,Sulphur dioxide (air),nmol mol-1,time,latitude,longitude,unknown,sulphur dioxide
+CO,Carbon monoxide (air),nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+CH4,Methane (air),nmol mol-1,time,latitude,longitude,unknown,methane
+ACETYLENE,Ethyne (Acetylene) (air),pmol mol-1,time,latitude,longitude,unknown,acetylene
+GLYOXAL,ethanedial (air),,time,latitude,longitude,unknown,glyoxal
+ETHENE,Ethene (Ethylene) (air),pmol mol-1,time,latitude,longitude,unknown,ethene
+ACETALDEHYDE,ethanal (air),,time,latitude,longitude,unknown,acetaldehyde
+ETHANE,Ethane (air),pmol mol-1,time,latitude,longitude,unknown,ethane
+PROPENE,Propene (air),pmol mol-1,time,latitude,longitude,unknown,propene
+PROPANE,Propane (air),pmol mol-1,time,latitude,longitude,unknown,propane
+1-BUTENE,1-Butene (air),pmol mol-1,time,latitude,longitude,unknown,1-butene
+ISOBUTANE,i-Butane (2-methylpropane) (air),pmol mol-1,time,latitude,longitude,unknown,isobutane
+ISOPRENE,Isoprene (air),pmol mol-1,time,latitude,longitude,unknown,isoprene
+N-PENTANE,n-Pentane (air),pmol mol-1,time,latitude,longitude,unknown,n-pentane
+BENZENE,Benzene (air),pmol mol-1,time,latitude,longitude,unknown,benzene
+N-HEXANE,n-Hexane (air),pmol mol-1,time,latitude,longitude,unknown,n-hexane
+TOLUENE,Toluene (air),pmol mol-1,time,latitude,longitude,unknown,toluene
+XYLENE,Xylene (air),pmol mol-1,time,latitude,longitude,unknown,xylene
+M-P-XYLENE,"m,p-Xylene (air)",pmol mol-1,time,latitude,longitude,unknown,m-p-xylene
+M-XYLENE,m-Xylene (air),pmol mol-1,time,latitude,longitude,unknown,m-xylene
+P-XYLENE,p-Xylene (air),pmol mol-1,time,latitude,longitude,unknown,p-xylene
+O-XYLENE,o-Xylene (air),pmol mol-1,time,latitude,longitude,unknown,o-xylene
+VOC,Total volatile organic compounds (air),nmol mol-1,time,latitude,longitude,unknown,total volatile organic compounds
+NMHC,Total non-methane hydrocarbons (air),nmol mol-1,time,latitude,longitude,unknown,total non-methane hydrocarbons
+NH3,Ammonia (air),nmol mol-1,time,latitude,longitude,unknown,ammonia
+HNO3,Gaseous nitric acid (air),nmol mol-1,time,latitude,longitude,unknown,nitric acid
+PAN,Peroxyacetyl nitrate (air),nmol mol-1,time,latitude,longitude,unknown,peroxyacetyl nitrate
+HCHO,Formaldehyde (air),nmol mol-1,time,latitude,longitude,unknown,formaldehyde
+HF,Hydrogen fluoride (air),nmol mol-1,time,latitude,longitude,unknown,hydrofluoric acid
+H2S,Hydrogen sulphide (air),nmol mol-1,time,latitude,longitude,unknown,hydrogen sulphide
+BC,black_carbon (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate black carbon
+EC,Elemental carbon (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate elemental carbon
+K+,potassium (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate potassium
+NH4+,Particulate ammonium (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate ammonium
+NO3_ion,Particulate nitrate (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate nitrate
+OC,Organic carbon (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate organic carbon
+SO4_ion,Particulate sulphate (aerosol),ug m-3,time,latitude,longitude,unknown,total particulate sulphate
+V,Vanadium (aerosol),ng m-3,time,latitude,longitude,unknown,total particulate vanadium
+PM10,Particulate matter < 10 µm (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 mass
+PM10_BC,black_carbon in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 black carbon
+PM10_EC,Elemental carbon in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
+PM10_K+,potassium in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 potassium
+PM10_NH4+,Ammonium in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 ammonium
+PM10_NO3-,Nitrate in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 nitrate
+PM10_OC,Organic carbon in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
+PM10_SO4--,sulphate in PM10 (aerosol),ug m-3,time,latitude,longitude,unknown,PM10 sulphate
+PM10_V,Vanedium in PM10 (aerosol),ng m-3,time,latitude,longitude,unknown,PM10 vanadium
+PM1,Particulate matter < 1 µm (aerosol),ug m-3,time,latitude,longitude,unknown,PM1 mass
+K+_PREC,potassium (precip),mg l-1,time,latitude,longitude,unknown,potassium in precipitaton
+NH4+_PREC,ammonium (precip),mg l-1,time,latitude,longitude,unknown,ammonium in precipitaton
+NO3-_PREC,nitrate (precip),mg l-1,time,latitude,longitude,unknown,nitrate in precipitaton
+SO4--_PREC,sulphate (precip),mg l-1,time,latitude,longitude,unknown,sulphate in precipitaton
+SO4--_NSS_PREC,sulphate_corrected (precip),mg l-1,time,latitude,longitude,unknown,sulphate: non-sea salt in precipitaton
+V_PREC,vanadium (precip),ug l-1,time,latitude,longitude,unknown,vanadium in precipitaton

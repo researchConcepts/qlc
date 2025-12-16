@@ -1,0 +1,32 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,Ozone,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,Nitric oxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,Nitrogen dioxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+CO,Carbon monoxide,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+ACETYLENE,ethyne,pmol mol-1,time,latitude,longitude,unknown,acetylene
+ETHENE,ethene,pmol mol-1,time,latitude,longitude,unknown,ethene
+ETHANE,ethane,pmol mol-1,time,latitude,longitude,unknown,ethane
+PROPENE,propene,pmol mol-1,time,latitude,longitude,unknown,propene
+PROPANE,propane,pmol mol-1,time,latitude,longitude,unknown,propane
+1-BUTENE,1-butene,pmol mol-1,time,latitude,longitude,unknown,1-butene
+ISOBUTANE,iso-butane,pmol mol-1,time,latitude,longitude,unknown,isobutane
+ISOPRENE,isoprene,pmol mol-1,time,latitude,longitude,unknown,isoprene
+N-PENTANE,n-pentane,pmol mol-1,time,latitude,longitude,unknown,n-pentane
+BENZENE,benzene,pmol mol-1,time,latitude,longitude,unknown,benzene
+N-HEXANE,n-hexane,pmol mol-1,time,latitude,longitude,unknown,n-hexane
+TOLUENE,toluene,pmol mol-1,time,latitude,longitude,unknown,toluene
+NH3,gaseous ammonia,nmol mol-1,time,latitude,longitude,unknown,ammonia
+BC,Black carbon,ug m-3,time,latitude,longitude,unknown,total particulate black carbon
+V,V,ng m-3,time,latitude,longitude,unknown,total particulate vanadium
+PM10,PM10 particulate matter (Hourly measured),ug m-3,time,latitude,longitude,unknown,PM10 mass
+PM10_C,Total Carbon-PM10,ug m-3,time,latitude,longitude,unknown,PM10 carbon
+PM10_EC,Elemental Carbon by reflectance-PM10,ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
+PM10_K+,Potassium aerosol - PM10,ug m-3,time,latitude,longitude,unknown,PM10 potassium
+PM10_NH4+,Ammonium aerosol - PM10,ug m-3,time,latitude,longitude,unknown,PM10 ammonium
+PM10_NO3-,Particulate nitrate - PM10,ug m-3,time,latitude,longitude,unknown,PM10 nitrate
+PM10_OC,Organic Carbon by reflectance-PM10,ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
+PM10_SO4--,Sulphate aerosol - PM10,ug m-3,time,latitude,longitude,unknown,PM10 sulphate
+PM1_NH4+,Ammonium aerosol - PM1,ug m-3,time,latitude,longitude,unknown,PM1 ammonium
+PM1_NO3_ion,Nitrate aerosol - PM1,ug m-3,time,latitude,longitude,unknown,PM1 nitrate
+PM1_OC,Organic Carbon - PM1,ug m-3,time,latitude,longitude,unknown,PM1 organic carbon
+PM1_SO4_ion,Sulphate aerosol - PM1,ug m-3,time,latitude,longitude,unknown,PM1 sulphate

@@ -1,0 +1,29 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+PM2.5,PM2.5,kg/m3,time,lat,lon,plev,Particulate Matter 2.5 micrometers
+PM10,PM10,kg/m3,time,lat,lon,plev,Particulate Matter 10 micrometers
+PM1,PM1,kg/m3,time,lat,lon,plev,Particulate Matter 1 micrometer
+N,N,ug/m3,time,lat,lon,plev,Aerosol Number
+N_ks,N_ks,N/m3,time,lat,lon,plev,Aerosol Number (Aitken mode)
+N_as,N_as,N/m3,time,lat,lon,plev,Aerosol Number (accumulation mode)
+N_cs,N_cs,N/m3,time,lat,lon,plev,Aerosol Number (coarse mode)
+SO4,SO4,kg/kg,time,lat,lon,plev,Sulphate
+SO4_ks,SO4_ks,kg/kg,time,lat,lon,plev,Sulphate (Aitken mode)
+SO4_as,SO4_as,kg/kg,time,lat,lon,plev,Sulphate (accumulation mode)
+SO4_cs,SO4_cs,kg/kg,time,lat,lon,plev,Sulphate (coarse mode)
+NH3,NH3,kg/kg,time,lat,lon,plev,Ammonia
+NH4,NH4,kg/kg,time,lat,lon,plev,Ammonium
+NH4_ks,NH4_ks,kg/kg,time,lat,lon,plev,Ammonium (Aitken mode)
+NH4_as,NH4_as,kg/kg,time,lat,lon,plev,Ammonium (accumulation mode)
+NH4_cs,NH4_cs,kg/kg,time,lat,lon,plev,Ammonium (coarse mode)
+NO3,NO3a,kg/kg,time,lat,lon,plev,Nitrate (fine mode)
+NO3_ks,NO3_ks,kg/kg,time,lat,lon,plev,Nitrate (Aitken mode)
+NO3_as,NO3_as,kg/kg,time,lat,lon,plev,Nitrate (accumulation mode)
+NO3_cs,NO3_cs,kg/kg,time,lat,lon,plev,Nitrate (coarse mode)
+NO3a,NO3a,kg/kg,time,lat,lon,plev,Nitrate (fine mode a)
+NO3b,NO3b,kg/kg,time,lat,lon,plev,Nitrate (fine mode b)
+HNO3,HNO3,kg/kg,time,lat,lon,plev,Nitric Acid
+NO2,NO2,kg/kg,time,lat,lon,plev,Nitrogen Dioxide
+SO2,SO2,kg/kg,time,lat,lon,plev,Sulphur Dioxide
+CO,CO,kg/kg,time,lat,lon,plev,Carbon Monoxide
+O3,O3,kg/kg,time,lat,lon,plev,Ozone
+

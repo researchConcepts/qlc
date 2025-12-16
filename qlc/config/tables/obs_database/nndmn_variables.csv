@@ -1,0 +1,16 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+NH3,Con_NH3,ug/m3,Date,LATITUDE,LONGITUDE,unknown,Ammonia concentration
+NO2,Con_NO2,ug/m3,Date,LATITUDE,LONGITUDE,unknown,Nitrogen dioxide concentration
+HNO3,Con_HNO3,ug/m3,Date,LATITUDE,LONGITUDE,unknown,Nitric acid concentration
+pNH4,Con_pNH4,ug/m3,Date,LATITUDE,LONGITUDE,unknown,Particulate ammonium concentration
+pNO3,Con_pNO3,ug/m3,Date,LATITUDE,LONGITUDE,unknown,Particulate nitrate concentration
+NH3_ddep,DDEP_NH3,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Ammonia dry deposition
+NO2_ddep,DDEP_NO2,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Nitrogen dioxide dry deposition
+HNO3_ddep,DDEP_HNO3,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Nitric acid dry deposition
+pNH4_ddep,DDEP_pNH4,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Particulate ammonium dry deposition
+pNO3_ddep,DDEP_pNO3,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Particulate nitrate dry deposition
+NH4N_conc,Con_NH4-N,mg/L,Date,LATITUDE,LONGITUDE,unknown,Ammonium-nitrogen concentration in precipitation
+NO3N_conc,Con_NO3N,mg/L,Date,LATITUDE,LONGITUDE,unknown,Nitrate-nitrogen concentration in precipitation
+NH4N_bdep,BDEP_NH4-N,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Ammonium-nitrogen bulk deposition
+NO3N_bdep,BDEP_NO3N,kg/ha,Date,LATITUDE,LONGITUDE,unknown,Nitrate-nitrogen bulk deposition
+

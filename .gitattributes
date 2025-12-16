@@ -10,17 +10,18 @@
 /qlc-dev/               export-ignore
 /dev/                   export-ignore
 /tests/                 export-ignore
-/dev/                   export-ignore
 
 # 2. Build artifacts and intermediate files
 /build/                 export-ignore
-/dist/                  export-ignore
+/dist*/                 export-ignore
 *.egg-info/             export-ignore
 __pycache__/            export-ignore
 *.pyc                   export-ignore
 *.pyo                   export-ignore
 *.pyd                   export-ignore
 *.c                     export-ignore
+.qlc_verify_env/        export-ignore
+.c*ignore               export-ignore
 
 # 3. OS-specific and temporary files
 .DS_Store               export-ignore
@@ -28,6 +29,6 @@ __pycache__/            export-ignore
 *~                      export-ignore
 
 # 4. QLC-specific exclusions
-/qlc/sh/ToDo/           export-ignore
+/qlc/*/ToDo/            export-ignore
 /qlc/py/*.py            export-ignore
 /qlc/plugin/            export-ignore

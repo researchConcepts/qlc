@@ -6,6 +6,10 @@
 # Part of QLC (Quick Look Content) v1.0.1-beta
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
+# IMPORTANT: This script installs QLC from PyPI (https://pypi.org/project/rc-qlc/)
+#            using 'pip install rc-qlc' into a safe virtual environment.
+#            For testing, it can also install from a local wheel file.
+#
 # Documentation:
 #   https://docs.researchconcepts.io/qlc/latest/getting-started/installation/
 #
@@ -14,25 +18,29 @@
 #   Provides automatic environment detection, Python 3.10+ setup, virtual
 #   environment creation, package installation, and runtime configuration.
 #
-# Repository: https://github.com/researchConcepts/qlc
-# PyPI Package: https://pypi.org/project/rc-qlc/
+#   Repository: https://github.com/researchConcepts/qlc
+#   PyPI Package: https://pypi.org/project/rc-qlc/
 #
 # Usage:
-#   # Install from PyPI (production)
-#   bash qlc_install.sh --mode test
-#   bash qlc_install.sh --mode cams
-#   bash qlc_install.sh --mode dev
-#
-#   # Install from local wheel (testing)
-#   bash qlc_install.sh --mode test --wheel /path/to/rc_qlc-0.4.3-*.whl
-#
-# Or via curl (PyPI only):
+# - One-Line Installation
+#   Install QLC from PyPI in test mode for evaluation and testing
 #   curl -sSL https://raw.githubusercontent.com/researchConcepts/qlc/main/qlc/bin/tools/qlc_install.sh | bash -s -- --mode test
+#
+# - Or Download First
+#   Download the installer and run it locally
+#   curl -O https://raw.githubusercontent.com/researchConcepts/qlc/main/qlc/bin/tools/qlc_install.sh
+#
+# - Installation Modes
+#   bash qlc_install.sh --mode test # Testing and evaluation (recommended for first-time users)
+#   bash qlc_install.sh --mode cams # Operational CAMS environment (requires HPC access)
+#   bash qlc_install.sh --mode dev  # Development and parallel testing
+#
+# - Install from local wheel (development / testing)
+#   bash qlc_install.sh --mode test --wheel /path/to/rc_qlc-1.0.1b0-*.whl
 #
 # Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
-#
 
 set -e  # Exit on error
 
@@ -89,23 +97,54 @@ QLC Standalone Installer v${SCRIPT_VERSION}
 
 Usage: $0 [OPTIONS]
 
-Required:
+Required (choose one):
   --mode <mode>         Installation mode: test, cams, dev
+  --test                Install in test mode (equivalent to --mode test)
+  --cams                Install in cams mode (equivalent to --mode cams)
+  --dev                 Install in dev mode (equivalent to --mode dev)
 
 Optional:
   --version <version>   Specific QLC version to install (default: latest)
   --wheel <path>        Path to local wheel file (for testing, default: PyPI)
   --qlc-only            Reinstall only QLC package, skip dependencies (fast dev testing)
-  --tools <tools>       Auto-install tools: evaltools, pyferret, all (default: none)
+  --tools <tools>       Auto-install tools: essential, evaltools, pyferret, all (default: none)
   --venv-name <name>    Custom virtual environment name
   --python <path>       Path to Python 3.10+ executable
   --force               Force reinstallation even if QLC exists
   --skip-venv-check     Skip virtual environment safety checks
   -h, --help            Show this help message
 
+Installation Path Configuration (HPC/ATOS):
+  QLC installation base:
+    \$PERM/qlc_pypi (if \$PERM is set) or \$HOME/qlc_pypi (default)
+  
+  Essential tools (--tools essential):
+    - cdo, ncdump, xelatex, pyferret: via module load (preferred) or system
+    - evaltools: installed with NumPy 2.x compatibility
+    - cartopy: Natural Earth data pre-downloaded
+  
+  Data directory mapping:
+    CAMS mode (shared across versions):
+      ~/qlc/Results       -> \$SCRATCH/qlc_pypi/Results
+      ~/qlc/Analysis      -> \$HPCPERM/qlc_pypi/Analysis
+      ~/qlc/Plots         -> \$PERM/qlc_pypi/Plots
+      ~/qlc/Presentations -> \$PERM/qlc_pypi/Presentations
+    
+    Test/Dev modes (isolated per version):
+      Data directories created within version directory
+      Example: \$PERM/qlc_pypi/v1.0.1b0/test/data/Results
+
+  To override default HPC storage paths (optional):
+    export PERM="/perm/\$USER"           # Installation base + data storage
+    export HPCPERM="/ec/res4/hpcperm/\$USER"  # Analysis data storage
+    export SCRATCH="/ec/res4/scratch/\$USER"  # Results data storage
+
+  A stable symlink will always be created: \$HOME/qlc -> installation base
+
 Examples:
-  # Basic installation from PyPI
+  # Basic installation from PyPI (both syntaxes work)
   $0 --mode test
+  $0 --test
 
   # Install specific version from PyPI
   $0 --mode test --version 0.4.1
@@ -113,10 +152,15 @@ Examples:
   # Install from local wheel (for testing)
   $0 --mode test --wheel /path/to/rc_qlc-0.4.3-cp310-cp310-macosx_10_9_universal2.whl
 
-  # Install with auto-install of evaltools
+  # Install with essential tools (recommended)
+  # Includes: cdo, ncdump, xelatex, evaltools, pyferret, cartopy downloads
+  # Prefers module load for cdo, ncdump, xelatex, pyferret where available
+  $0 --mode test --tools essential
+
+  # Install evaltools only
   $0 --mode test --tools evaltools
 
-  # Install with all tools (evaltools + pyferret)
+  # Install all tools (cdo, ncdump, evaltools, pyferret, cartopy downloads, pyferret, xelatex)
   $0 --mode test --tools all
 
   # Install from wheel with all tools
@@ -129,7 +173,12 @@ Examples:
   $0 --mode dev --venv-name my-qlc-dev
 
   # Install using specific Python
-  $0 --mode test --python /usr/bin/python3.11
+  $0 --mode test --python /usr/bin/python3.10
+
+  # HPC installation with proper paths (both syntaxes work)
+  export PERM="/perm/\$USER"
+  $0 --mode cams --tools essential
+  $0 --cams --tools essential
 
 Installation Modes:
   test    - Standalone mode with bundled example data (recommended for testing)
@@ -146,6 +195,18 @@ while [[ $# -gt 0 ]]; do
         --mode)
             MODE="$2"
             shift 2
+            ;;
+        --test)
+            MODE="test"
+            shift
+            ;;
+        --cams)
+            MODE="cams"
+            shift
+            ;;
+        --dev)
+            MODE="dev"
+            shift
             ;;
         --version)
             VERSION="$2"
@@ -235,9 +296,9 @@ fi
 
 # Validate tools parameter if provided
 if [[ -n "$TOOLS" ]]; then
-    if [[ ! "$TOOLS" =~ ^(evaltools|pyferret|all)$ ]]; then
+    if [[ ! "$TOOLS" =~ ^(essential|evaltools|pyferret|all)$ ]]; then
         print_error "Invalid tools option: $TOOLS"
-        print_error "Tools must be one of: evaltools, pyferret, all"
+        print_error "Tools must be one of: essential, evaltools, pyferret, all"
         exit 1
     fi
 fi
@@ -637,33 +698,7 @@ try:
     # Get package info
     package_spec = sys.argv[1]
     
-    # Download package info without installing
-    result = subprocess.run(
-        [sys.executable, '-m', 'pip', 'download', '--no-deps', '--no-binary', ':all:', package_spec],
-        capture_output=True, text=True, timeout=30
-    )
-    
-    if result.returncode != 0:
-        # Fallback: try to get info from wheel
-        result = subprocess.run(
-            [sys.executable, '-m', 'pip', 'show', 'rc-qlc'],
-            capture_output=True, text=True, timeout=10
-        )
-        if result.returncode == 0:
-            # Extract requires from installed package
-            for line in result.stdout.split('\n'):
-                if line.startswith('Requires:'):
-                    deps_str = line.split(':', 1)[1].strip()
-                    deps = [d.strip() for d in deps_str.split(',') if d.strip()]
-                    filtered_deps = []
-                    for dep in deps:
-                        pkg_name = re.split(r'[>=<\[]', dep)[0].strip()
-                        if pkg_name.lower() not in EXCLUDE_PACKAGES:
-                            filtered_deps.append(dep)
-                    print(' '.join(f"'{d}'" for d in filtered_deps))
-                    sys.exit(0)
-    
-    # If we have a wheel file, extract from it
+    # If we have a wheel file, extract metadata directly without copying
     if package_spec.endswith('.whl'):
         import zipfile
         import json
@@ -686,6 +721,32 @@ try:
                 
                 print(' '.join(f"'{d}'" for d in dependencies))
                 sys.exit(0)
+    
+    # For PyPI packages, download package info without installing
+    result = subprocess.run(
+        [sys.executable, '-m', 'pip', 'download', '--no-deps', '--no-binary', ':all:', package_spec],
+        capture_output=True, text=True, timeout=30
+    )
+    
+    if result.returncode != 0:
+        # Fallback: try to get info from already installed package
+        result = subprocess.run(
+            [sys.executable, '-m', 'pip', 'show', 'rc-qlc'],
+            capture_output=True, text=True, timeout=10
+        )
+        if result.returncode == 0:
+            # Extract requires from installed package
+            for line in result.stdout.split('\n'):
+                if line.startswith('Requires:'):
+                    deps_str = line.split(':', 1)[1].strip()
+                    deps = [d.strip() for d in deps_str.split(',') if d.strip()]
+                    filtered_deps = []
+                    for dep in deps:
+                        pkg_name = re.split(r'[>=<\[]', dep)[0].strip()
+                        if pkg_name.lower() not in EXCLUDE_PACKAGES:
+                            filtered_deps.append(dep)
+                    print(' '.join(f"'{d}'" for d in filtered_deps))
+                    sys.exit(0)
     
     # Fallback: use hardcoded essential dependencies (from pyproject.toml v0.4.3)
     print("'numpy>=1.21.0,<2.0' 'pandas>=1.5.0,<3.0' 'matplotlib>=3.5.0,<4.0' 'seaborn>=0.11.0,<1.0' 'xarray>=2022.6.0,<2025.0' 'netCDF4>=1.7.3,<1.8.0' 'h5py>=3.15.1,<3.16.0' 'h5netcdf>=1.7.2,<1.8.0' 'dask[complete]>=2022.6.0,<2025.0' 'scipy>=1.9.0,<2.0' 'cartopy>=0.21.0,<1.0' 'tqdm>=4.64.0,<5.0' 'adjustText>=0.7.0,<0.8.0' 'cftime>=1.6.0,<2.0' 'bottleneck>=1.3.0,<2.0' 'pytinytex>=0.1.0' 'cdo>=1.6.0' 'tomli>=2.0.0'")
@@ -761,8 +822,8 @@ source "$VENV_PATH/bin/activate"
 
 # Set up QLC aliases
 alias cdp='cd \${PERM:-\$HOME}'
-alias cdq='cd \$HOME/qlc'
-alias cdr='cd \$HOME/qlc/run'
+alias cdq='cd \$HOME/qlc'  # Always use $HOME/qlc (stable symlink)
+alias cdr='cd \$HOME/qlc/run'  # Always use $HOME/qlc/run (via stable symlink)
 
 # Display QLC information
 echo "QLC Environment Activated"
@@ -807,14 +868,23 @@ print_completion() {
     echo "   qlc --version"
     echo "   qlc --help"
     echo ""
-    echo "3. Start using QLC:"
+    echo "3. Check tool availability (optional):"
+    echo "   qlc-install-tools --check"
+    echo ""
+    echo "4. Install evaltools if needed (optional):"
+    echo "   qlc-install-tools --install-evaltools"
+    echo ""
+    echo "5. Start using QLC:"
     echo "   cd ~/qlc/run"
     echo "   qlc b2ro b2rn 2018-12-01 2018-12-21 test"
     echo ""
     echo "  Batch mode (HPC/SLURM):"
     echo "    sqlc b2ro b2rn 2018-12-01 2018-12-21 test"
     echo ""
-    echo "For more information, see: ~/qlc/doc/README.md"
+    echo "For more information:"
+    echo "  Quick Start:   ~/qlc/doc/QuickStart.md"
+    echo "  Documentation: https://docs.researchconcepts.io/qlc"
+    echo "  Getting Started: https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/"
     echo ""
     print_success "Happy analyzing!"
 }
@@ -837,9 +907,33 @@ install_tools() {
     fi
     
     case "$TOOLS" in
+        essential)
+            print_info "Installing essential tools..."
+            print_info "Essential includes: cdo, ncdump, xelatex, evaltools, pyferret, cartopy"
+            print_info "Preferring module load for: cdo, ncdump, xelatex, pyferret"
+            echo ""
+            
+            print_info "Installing evaltools with NumPy 2.x compatibility..."
+            print_info "Running: qlc-install-tools --install-evaltools"
+            if qlc-install-tools --install-evaltools; then
+                print_success "Evaltools installed successfully"
+            else
+                print_warning "Evaltools installation had issues (may need manual setup)"
+            fi
+            
+            print_info ""
+            print_info "System tools (cdo, ncdump, xelatex, pyferret) will be detected from:"
+            print_info "  1. Module system (module load) - preferred on HPC"
+            print_info "  2. System installation - fallback"
+            print_info ""
+            print_info "NOTE: Cartopy Natural Earth data is PRE-DOWNLOADED during installation setup"
+            print_info "      This happens automatically - NO runtime downloads will occur"
+            print_info ""
+            print_info "After installation, run 'qlc-install-tools --check' to verify all tools"
+            ;;
         evaltools)
-            print_info "Installing evaltools..."
-            if qlc-install-extras --evaltools; then
+            print_info "Installing evaltools with NumPy 2.x compatibility..."
+            if qlc-install-tools --install-evaltools; then
                 print_success "Evaltools installed successfully"
             else
                 print_warning "Evaltools installation had issues (may need manual setup)"
@@ -847,7 +941,7 @@ install_tools() {
             ;;
         xelatex)
             print_info "Installing xelatex..."
-            if qlc-install-extras --xelatex; then
+            if qlc-install-tools --install-xelatex; then
                 print_success "xelatex installed successfully"
             else
                 print_warning "xelatex installation had issues (may need manual setup)"
@@ -862,10 +956,10 @@ install_tools() {
             fi
             ;;
         all)
-            print_info "Installing all tools (evaltools + xelatex)..."
+            print_info "Installing all tools (evaltools)..."
             
-            print_info "Installing evaltools..."
-            if qlc-install-extras --evaltools; then
+            print_info "Installing evaltools with NumPy 2.x compatibility..."
+            if qlc-install-tools --install-evaltools; then
                 print_success "Evaltools installed successfully"
             else
                 print_warning "Evaltools installation had issues (may need manual setup)"
@@ -882,8 +976,8 @@ install_tools() {
         all2)
             print_info "Installing all tools (evaltools + xelatex + pyferret)..."
             
-            print_info "Installing evaltools..."
-            if qlc-install-extras --evaltools; then
+            print_info "Installing evaltools with NumPy 2.x compatibility..."
+            if qlc-install-tools --install-evaltools; then
                 print_success "Evaltools installed successfully"
             else
                 print_warning "Evaltools installation had issues (may need manual setup)"

@@ -1,0 +1,35 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+PM1,PM1_density,ug/m3,time,latitude,longitude,unknown,Particulate Matter 1 micrometer
+PM2.5,PM2.5_density,ug/m3,time,latitude,longitude,unknown,Particulate Matter 2.5 micrometers
+PM10,PM10_density,ug/m3,time,latitude,longitude,unknown,Particulate Matter 10 micrometers
+NO2,nitrogen_dioxide_density,ug/m3,time,latitude,longitude,unknown,Nitrogen Dioxide
+SO2,sulphur_dioxide_density,ug/m3,time,latitude,longitude,unknown,Sulphur Dioxide
+SO4,dry_aerosol_sulphate_corrected_density,ug/m3,time,latitude,longitude,unknown,Sulphate
+SO4_as,dry_aerosol_sulphate_corrected_density,ug/m3,time,latitude,longitude,unknown,Sulphate (accumulation mode)
+SO42m,dry_aerosol_sulphate_corrected_density,ug/m3,time,latitude,longitude,unknown,Sulphate ion
+SO2_mf,sulphur_dioxide_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Sulphur Dioxide mole fraction
+HNO3,nitric_acid_density,ug/m3,time,latitude,longitude,unknown,Nitric Acid
+NO3,dry_aerosol_nitrate_density,ug/m3,time,latitude,longitude,unknown,Nitrate
+NO3_as,dry_aerosol_nitrate_density,ug/m3,time,latitude,longitude,unknown,Nitrate (accumulation mode)
+NO3m,dry_aerosol_nitrate_density,ug/m3,time,latitude,longitude,unknown,Nitrate ion
+NH3,ammonia_density,ug/m3,time,latitude,longitude,unknown,Ammonia
+NH4,dry_aerosol_ammonium_density,ug/m3,time,latitude,longitude,unknown,Ammonium
+NH4_as,dry_aerosol_ammonium_density,ug/m3,time,latitude,longitude,unknown,Ammonium (accumulation mode)
+NH4p,dry_aerosol_ammonium_density,ug/m3,time,latitude,longitude,unknown,Ammonium ion
+NH3_mf,ammonia_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Ammonia mole fraction
+NO,nitrogen_monoxide_density,ug/m3,time,latitude,longitude,unknown,Nitrogen Monoxide
+NO_mf,nitrogen_monoxide_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Nitrogen Monoxide mole fraction
+NO2_mf,nitrogen_dioxide_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Nitrogen Dioxide mole fraction
+NOx,NOx_as_nitrogen_density,ug N/m3,time,latitude,longitude,unknown,Nitrogen Oxides
+NOx_mf,NOx_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Nitrogen Oxides mole fraction
+O3,ozone_density,ug/m3,time,latitude,longitude,unknown,Ozone
+O3_mf,ozone_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Ozone mole fraction
+CO,carbon_monoxide_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Carbon Monoxide
+CO_mf,carbon_monoxide_mole_fraction,nmol/mol,time,latitude,longitude,unknown,Carbon Monoxide mole fraction
+Pressure,pressure,hPa,time,latitude,longitude,unknown,Atmospheric Pressure
+Temperature,temperature,K,time,latitude,longitude,unknown,Temperature
+AOD_550,aerosol_optical_depth_550nm,,time,latitude,longitude,unknown,Aerosol Optical Depth at 550nm
+PM2.5_EC,PM2.5_elemental_carbon_as_carbon_density,ug C/m3,time,latitude,longitude,unknown,PM2.5 Elemental Carbon
+PM2.5_OC,PM2.5_organic_carbon_as_carbon_density,ug C/m3,time,latitude,longitude,unknown,PM2.5 Organic Carbon
+PM10_TC,PM10_total_carbon_as_carbon_density,ug C/m3,time,latitude,longitude,unknown,PM10 Total Carbon
+

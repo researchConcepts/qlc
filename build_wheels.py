@@ -2,11 +2,21 @@
 """
 Robust wheel build script for QLC.
 
-- Uses a specified Python interpreter (or current) to create a clean build venv
-- Installs pypa/build and friends
-- Builds wheels with isolated PEP 517 (respects pyproject and oldest-supported-numpy)
-- Prints environment details for traceability
-- Optionally checks the wheel with twine and verifies imports in a temp venv
+Part of QLC (Quick Look Content) v1.0.1-beta
+An Automated Model-Observation Comparison Suite Optimized for CAMS
+
+Documentation:
+    https://docs.researchconcepts.io/qlc/latest/
+
+Description:
+    Uses a specified Python interpreter (or current) to create a clean build venv
+    Installs pypa/build and friends
+    Builds wheels with isolated PEP 517 (respects pyproject and oldest-supported-numpy)
+    Prints environment details for traceability
+    Optionally checks the wheel with twine and verifies imports in a temp venv
+
+Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
 import argparse

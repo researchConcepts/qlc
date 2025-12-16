@@ -1,10 +1,25 @@
 #!/bin/bash
-# Test script to verify qlc_evaltools.conf properly loads base configuration
+
+# ============================================================================
+# QLC Configuration Loading Test
+# ============================================================================
+# Part of QLC (Quick Look Content) v1.0.1-beta
+# An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
-#log  "----------------------------------------------------------------------------------------"
-#log  "Copyright (c) 2021-2025 ResearchConcepts io GmbH. All Rights Reserved.                  "
-#log  "Questions / comments to: Swen M. Metzger <sm@researchconcepts.io>                       "
-#log  "----------------------------------------------------------------------------------------"
+# Documentation:
+#   https://docs.researchconcepts.io/qlc/latest/user-guide/configuration/
+#
+# Description:
+#   Test script to verify that workflow configurations properly load and
+#   inherit from the base qlc.conf configuration. Useful for debugging
+#   configuration issues.
+#
+# Usage:
+#   bash $HOME/qlc/bin/tools/qlc_test_config_loading.sh
+#
+# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
+# ============================================================================
 #
 echo "=========================================="
 echo "Testing Config Loading for evaltools task"
@@ -59,13 +74,44 @@ echo "  EVALTOOLS_REGION=$EVALTOOLS_REGION"
 
 echo ""
 echo "=========================================="
-echo "Variable Mappings:"
+echo "Variable Mappings (LEGACY - for reference):"
 echo "=========================================="
-for name in "${MARS_RETRIEVALS[@]}"; do
-    myvar_array_name="myvar_${name}[@]"
-    myvars=("${!myvar_array_name}")
-    echo "  $name: ${myvars[@]}"
-done
+echo "NOTE: This tests legacy MARS_RETRIEVALS syntax."
+echo "      New workflows should use Variable Registry System."
+echo ""
+if [ ${#MARS_RETRIEVALS[@]} -gt 0 ]; then
+    for name in "${MARS_RETRIEVALS[@]}"; do
+        # Check if this is a legacy namelist name
+        if [[ "$name" =~ ^[A-Z][0-9]+_(sfc|pl|ml)$ ]] || [[ "$name" =~ ^[A-Z]$ ]]; then
+            echo "  $name (LEGACY format)"
+            myvar_array_name="myvar_${name}[@]"
+            if compgen -v | grep -q "^myvar_${name}$"; then
+                myvars=("${!myvar_array_name}")
+                echo "    Variables: ${myvars[@]}"
+            else
+                echo "    WARNING: myvar_${name} array not defined"
+            fi
+        else
+            echo "  $name (NEW format - registry variable or group)"
+        fi
+    done
+else
+    echo "  (No MARS_RETRIEVALS defined)"
+fi
+
+echo ""
+echo "=========================================="
+echo "New Variable Registry System:"
+echo "=========================================="
+echo "The new system uses:"
+echo "  - Individual variables: PM2p5_sfc, O3_pl, etc."
+echo "  - Variable groups: @EAC5_SFC, @EAC5_PL, etc."
+echo "  - Expert mode: -param=X -myvar=Y -levtype=Z"
+echo ""
+echo "For details, see:"
+echo "  ~/qlc/config/variables_registry.conf"
+echo "  ~/qlc/doc/QuickStart.md"
+echo "  https://docs.researchconcepts.io/qlc/latest/"
 
 echo ""
 echo "=========================================="

@@ -8,7 +8,7 @@ env/
 venv/
 .venv/
 *.egg-info/
-dist/
+dist*/
 build/
 
 # Build artifacts and local environments
@@ -16,6 +16,7 @@ build/
 dist/
 build/
 .qlc_verify_env/
+.c*ignore
 
 # Cython
 *.c
@@ -35,6 +36,7 @@ build/
 
 # QLC specific
 qlc/sh/ToDo/
+qlc/bin/ToDo/
 qlc/plugin/
 
 # Private development directory

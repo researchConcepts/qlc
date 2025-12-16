@@ -1,0 +1,8 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+PM2.5,PM2.5,ug/m3,time,latitude,longitude,unknown,Particulate Matter 2.5 micrometers
+PM10,PM10,ug/m3,time,latitude,longitude,unknown,Particulate Matter 10 micrometers
+O3,O3,ug/m3,time,latitude,longitude,unknown,Ozone
+NO2,NO2,ug/m3,time,latitude,longitude,unknown,Nitrogen Dioxide
+SO2,SO2,ug/m3,time,latitude,longitude,unknown,Sulphur Dioxide
+CO,CO,ug/m3,time,latitude,longitude,unknown,Carbon Monoxide
+

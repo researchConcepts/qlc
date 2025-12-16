@@ -1,0 +1,3 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+NH3,NH3,ug/m3,startDate,LATITUDE,LONGITUDE,unknown,Ammonia mass
+NH3_conc,CONC,ug/m3,startDate,LATITUDE,LONGITUDE,unknown,Ammonia concentration

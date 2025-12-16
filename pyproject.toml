@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rc-qlc"
-version = "0.4.2"
+version = "1.0.1-beta"
 license = { text = "MIT" }
 description = "Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS [BETA]"
 authors = [
@@ -12,40 +12,85 @@ authors = [
 ]
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.10"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: Unix"
+]
 
 dependencies = [
-  "numpy>=1.21.0,<2.0",
-  "pandas",
-  "matplotlib",
-  "seaborn",
-  "xarray",
-  "netCDF4",
-  "dask[complete]",
-  "scipy",
-  "cartopy",
-  "tqdm",
-  "adjustText",
-  "cftime",
-  "bottleneck",
-  "tomli; python_version < '3.11'"
+  "numpy>=1.21.0,<2.0",  # Keep numpy 1.x for stability (numpy 2.x can cause issues)
+  "pandas>=1.5.0,<3.0",
+  "matplotlib>=3.5.0,<4.0",
+  "seaborn>=0.11.0,<1.0",
+  "xarray>=2022.6.0,<2025.0",  # Keep original constraint
+  "netCDF4>=1.7.3,<1.8.0",  # Allow patch versions but not major
+  "h5py>=3.15.1,<3.16.0",  # Allow patch versions but not major
+  "h5netcdf>=1.7.2,<1.8.0",  # Allow patch versions but not major
+  "dask[complete]>=2022.6.0,<2025.0",  # Keep original constraint
+  "scipy>=1.9.0,<2.0",
+  "cartopy>=0.21.0,<1.0",
+  "tqdm>=4.64.0,<5.0",
+  "adjustText>=0.7.0,<0.8.0",  # Keep original constraint for stability
+  "cftime>=1.6.0,<2.0",
+  "bottleneck>=1.3.0,<2.0",
+  "pytinytex>=0.1.0",
+  "torch>=1.9.0",
+  "torchvision>=0.10.0",
+  "tinycio>=0.8.0",
+  "scikit-fmm>=0.0.12",
+  "cdo>=1.6.0",  # Climate Data Operators - critical for grb2nc conversion
+  "cfgrib>=0.9.10",  # GRIB file reading support
+  "eccodes",  # ECMWF GRIB library Python bindings
+  "tomli>=2.0.0; python_version < '3.11'"  # Use tomli for Python < 3.11, tomllib built-in for 3.11+
 ]
 
 [project.optional-dependencies]
 build = ["tomli", "pyproject-hooks", "twine"]
-test = ["pytest"]
-dev = ["tomli", "pyproject-hooks", "keyring", "readme-renderer", "requests", "requests-toolbelt", "rfc3986", "rich", "urllib3", "twine"]
-cams = []
-# Note: evaltools and pyferret must be installed separately - not available via PyPI
-# evaltools: Manual download required from https://redmine.umr-cnrm.fr/ - see qlc/doc/EVALTOOLS.md
-# pyferret: Install via conda-forge or as module on HPC systems - see installation documentation
+# Optional tools that can be installed in venv (fallback when modules not available)
+# Note: Core dependencies include CDO, cartopy, cfgrib, and eccodes
+# Note: NetCDF command-line utilities (ncdump, ncgen) are not available via pip - use system modules
+# Note: XeLaTeX is not available via pip - use system package managers
+tools = [
+  "tinytex",  # LaTeX distribution for PDF generation (fallback when system texlive not available)
+]
+# Complete installation with all optional components
+complete = [
+  "rc-qlc[tools]",  # All tools + integrated extras
+]
+# All-in-one installation (includes tools installer)
+all = [
+  "rc-qlc[tools]",  # TinyTeX + tools installer
+]
+
+# Enhanced installation modes with automatic setup
+# These trigger post-install hooks for automatic environment and runtime setup
+test = [
+  "rc-qlc[tools]",  # Include tools for test mode
+]
+cams = [
+  "rc-qlc[tools]",  # Include tools for cams mode
+]
+dev = [
+  "rc-qlc[tools]",  # Include tools for dev mode
+]
+
+# Note: evaltools and pyferret are installed separately via qlc-install-extras (not available on PyPI)
+# evaltools: qlc-install-extras --evaltools (automatic download and installation)
+# pyferret: qlc-install-extras --pyferret (conda-forge or system module)
+# cfgrib: Now included in core dependencies (automatic installation)
 
 [project.scripts]
 qlc = "qlc.cli:run_shell_driver"
 qlc-py = "qlc.cli.qlc_py_main:main"
 qlc-python = "qlc.cli:run_python_driver"
 sqlc = "qlc.cli:run_batch_driver"
-qlc-install = "qlc.cli.installer:main"
+qlc-install = "qlc.cli.qlc_installer:main"
 qlc-extract-stations = "qlc.py.extract_stations:main"
+qlc-install-extras = "qlc.cli.qlc_install_extras:main"
+qlc-install-tools = "qlc.cli.qlc_install_tools:main"
+qlc-fix-dependencies = "qlc.cli.qlc_fix_dependencies:main"
+qlc-fix-evaltools = "qlc.cli.qlc_fix_evaltools:main"
+qlc-vars = "qlc.py.qlc_vars:main"
 
 [tool.setuptools]
 include-package-data = true

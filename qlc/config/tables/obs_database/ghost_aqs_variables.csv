@@ -1,0 +1,44 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,44201,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,42601,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,42602,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+SO2,42401,nmol mol-1,time,latitude,longitude,unknown,sulphur dioxide
+CO,42101,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+CH4,43201,nmol mol-1,time,latitude,longitude,unknown,methane
+ETHENE,43203,pmol mol-1,time,latitude,longitude,unknown,ethene
+ETHANE,43202,pmol mol-1,time,latitude,longitude,unknown,ethane
+PROPENE,43205,pmol mol-1,time,latitude,longitude,unknown,propene
+PROPANE,43204,pmol mol-1,time,latitude,longitude,unknown,propane
+ISOPRENE,43243,pmol mol-1,time,latitude,longitude,unknown,isoprene
+BENZENE,45201,pmol mol-1,time,latitude,longitude,unknown,benzene
+TOLUENE,45202,pmol mol-1,time,latitude,longitude,unknown,toluene
+NMVOC,43102,nmol mol-1,time,latitude,longitude,unknown,total non-methane volatile organic compounds
+VOC,43104,nmol mol-1,time,latitude,longitude,unknown,total volatile organic compounds
+HC,43101,nmol mol-1,time,latitude,longitude,unknown,total hydrocarbons
+NH3,42604,nmol mol-1,time,latitude,longitude,unknown,ammonia
+HNO3,42305,nmol mol-1,time,latitude,longitude,unknown,nitric acid
+PAN,44301,nmol mol-1,time,latitude,longitude,unknown,peroxyacetyl nitrate
+HCHO,43502,nmol mol-1,time,latitude,longitude,unknown,formaldehyde
+HF,42303,nmol mol-1,time,latitude,longitude,unknown,hydrofluoric acid
+H2S,42402,nmol mol-1,time,latitude,longitude,unknown,hydrogen sulphide
+K+,12180,ug m-3,time,latitude,longitude,unknown,total particulate potassium
+NH4+,12301,ug m-3,time,latitude,longitude,unknown,total particulate ammonium
+NO3_ion,12306,ug m-3,time,latitude,longitude,unknown,total particulate nitrate
+SO4_ion,12403,ug m-3,time,latitude,longitude,unknown,total particulate sulphate
+V,12164,ng m-3,time,latitude,longitude,unknown,total particulate vanadium
+PM10,81102,ug m-3,time,latitude,longitude,unknown,PM10 mass
+PM10_BC,85313,ug m-3,time,latitude,longitude,unknown,PM10 black carbon
+PM10_C,82116,ug m-3,time,latitude,longitude,unknown,PM10 carbon
+PM10_EC,82307,ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
+PM10_K+,82180,ug m-3,time,latitude,longitude,unknown,PM10 potassium
+PM10_NH4+,82301,ug m-3,time,latitude,longitude,unknown,PM10 ammonium
+PM10_NO3-,82306,ug m-3,time,latitude,longitude,unknown,PM10 nitrate
+PM10_OC,82305,ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
+PM10_SO4--,82403,ug m-3,time,latitude,longitude,unknown,PM10 sulphate
+PM10_V,82164,ng m-3,time,latitude,longitude,unknown,PM10 vanadium
+PM1,87111,ug m-3,time,latitude,longitude,unknown,PM1 mass
+K+_PREC,65312,mg l-1,time,latitude,longitude,unknown,potassium in precipitaton
+NH4+_PREC,65318,mg l-1,time,latitude,longitude,unknown,ammonium in precipitaton
+NO3-_PREC,65321,mg l-1,time,latitude,longitude,unknown,nitrate in precipitaton
+SO4--_PREC,65322,mg l-1,time,latitude,longitude,unknown,sulphate in precipitaton
+V_PREC,65164,ug l-1,time,latitude,longitude,unknown,vanadium in precipitaton

@@ -1,0 +1,11 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+O3,06,nmol mol-1,time,latitude,longitude,unknown,ozone
+NO,02,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
+NO2,03,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
+CO,05,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
+CH4,08,nmol mol-1,time,latitude,longitude,unknown,methane
+NMHC,07,nmol mol-1,time,latitude,longitude,unknown,total non-methane hydrocarbons
+HC,09,nmol mol-1,time,latitude,longitude,unknown,total hydrocarbons
+HF,44,nmol mol-1,time,latitude,longitude,unknown,hydrofluoric acid
+H2S,45,nmol mol-1,time,latitude,longitude,unknown,hydrogen sulphide
+PM10,10,ug m-3,time,latitude,longitude,unknown,PM10 mass

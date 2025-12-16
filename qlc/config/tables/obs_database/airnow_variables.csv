@@ -1,0 +1,21 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+Pressure,BARPR,millibar,time,latitude,longitude,unknown,Barometric Pressure
+BC,BC,ug/m3,time,latitude,longitude,unknown,Black Carbon
+CO,CO,ppm,time,latitude,longitude,unknown,Carbon Monoxide
+NO,NO,ppb,time,latitude,longitude,unknown,Nitrogen Monoxide
+NO2,NO2,ppb,time,latitude,longitude,unknown,Nitrogen Dioxide
+NO2Y,NO2Y,ppb,time,latitude,longitude,unknown,NO2 + NOy
+NOX,NOX,ppb,time,latitude,longitude,unknown,Nitrogen Oxides
+NOY,NOY,ppb,time,latitude,longitude,unknown,Total Reactive Nitrogen
+O3,OZONE,ppb,time,latitude,longitude,unknown,Ozone
+PM10,PM10,ug/m3,time,latitude,longitude,unknown,Particulate Matter 10 micrometers
+PM2.5,PM2.5,ug/m3,time,latitude,longitude,unknown,Particulate Matter 2.5 micrometers
+Precipitation,PRECIP,mm,time,latitude,longitude,unknown,Precipitation
+RH,RHUM,%,time,latitude,longitude,unknown,Relative Humidity
+SO2,SO2,ppb,time,latitude,longitude,unknown,Sulphur Dioxide
+SolarRadiation,SRAD,W/m2,time,latitude,longitude,unknown,Solar Radiation
+Temperature,TEMP,C,time,latitude,longitude,unknown,Temperature
+UV_Aethalometer,UV-AETH,ug/m3,time,latitude,longitude,unknown,UV Aethalometer BC
+WindDirection,WD,degrees,time,latitude,longitude,unknown,Wind Direction
+WindSpeed,WS,m/s,time,latitude,longitude,unknown,Wind Speed
+
