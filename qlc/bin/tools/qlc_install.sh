@@ -436,20 +436,20 @@ find_python() {
             )
         fi
         
-        # Add standard search paths
+        # Add standard search paths (prioritize 3.10 over 3.11)
         python_paths+=(
-            "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
-            "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
             "/Library/Frameworks/Python.framework/Versions/3.10/bin/python3"
-            "/opt/homebrew/bin/python3.12"
-            "/opt/homebrew/bin/python3.11"
+            "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
             "/opt/homebrew/bin/python3.10"
-            "/usr/local/bin/python3.12"
-            "/usr/local/bin/python3.11"
+            "/opt/homebrew/bin/python3.11"
             "/usr/local/bin/python3.10"
-            "python3.12"
-            "python3.11"
+            "/usr/local/bin/python3.11"
             "python3.10"
+            "python3.11"
+            "/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
+            "/opt/homebrew/bin/python3.12"
+            "/usr/local/bin/python3.12"
+            "python3.12"
             "python3"
         )
     elif [[ "$PLATFORM" == "linux" ]]; then
@@ -468,8 +468,8 @@ find_python() {
                     fi
                 fi
                 
-                # Try to load Python 3.10+
-                for py_version in 3.12 3.11 3.10; do
+                # Try to load Python 3.10 or 3.11 (prioritize 3.10)
+                for py_version in 3.10 3.11; do
                     if module load python3/${py_version} 2>/dev/null; then
                         print_success "Loaded Python module: python3/${py_version}"
                         PYTHON_CMD="python3"
@@ -490,25 +490,25 @@ find_python() {
             )
         fi
         
-        # Add standard search paths
+        # Add standard search paths (prioritize 3.10 over 3.11)
         python_paths+=(
-            "python3.12"
-            "python3.11"
             "python3.10"
-            "/usr/bin/python3.12"
-            "/usr/bin/python3.11"
+            "python3.11"
             "/usr/bin/python3.10"
+            "/usr/bin/python3.11"
+            "python3.12"
+            "/usr/bin/python3.12"
             "python3"
         )
     elif [[ "$PLATFORM" == "windows" ]]; then
         python_paths=(
-            "python3.12"
-            "python3.11"
             "python3.10"
-            "python"
-            "py -3.12"
-            "py -3.11"
+            "python3.11"
             "py -3.10"
+            "py -3.11"
+            "python3.12"
+            "py -3.12"
+            "python"
         )
     fi
     
