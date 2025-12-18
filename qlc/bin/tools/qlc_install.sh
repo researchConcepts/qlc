@@ -676,6 +676,12 @@ install_qlc() {
         pip_flags="--force-reinstall --no-deps"
     fi
     
+    # Add --pre flag for PyPI installations without specific version to include pre-releases
+    if [[ -z "$WHEEL" ]] && [[ -z "$VERSION" ]]; then
+        pip_flags="$pip_flags --pre"
+        print_info "Including pre-release versions (beta, rc, etc.)"
+    fi
+    
     # Install QLC
     if [[ "$IS_HPC" == true ]]; then
         # HPC-specific installation: avoid CUDA packages by installing deps separately
@@ -697,6 +703,7 @@ EXCLUDE_PACKAGES = {'torch', 'torchvision', 'tinycio', 'scikit-fmm'}
 try:
     # Get package info
     package_spec = sys.argv[1]
+    use_pre = sys.argv[2] if len(sys.argv) > 2 else 'false'
     
     # If we have a wheel file, extract metadata directly without copying
     if package_spec.endswith('.whl'):
@@ -723,8 +730,12 @@ try:
                 sys.exit(0)
     
     # For PyPI packages, download package info without installing
+    pip_cmd = [sys.executable, '-m', 'pip', 'download', '--no-deps', '--no-binary', ':all:']
+    if use_pre == 'true':
+        pip_cmd.append('--pre')
+    pip_cmd.append(package_spec)
     result = subprocess.run(
-        [sys.executable, '-m', 'pip', 'download', '--no-deps', '--no-binary', ':all:', package_spec],
+        pip_cmd,
         capture_output=True, text=True, timeout=30
     )
     
@@ -757,7 +768,12 @@ except Exception as e:
 PYTHON_SCRIPT
         
         # Extract dependencies
-        deps_to_install=$(python "$temp_deps_script" "$package_spec")
+        # Pass 'true' if we're using --pre flag for pre-releases
+        use_pre_flag="false"
+        if [[ -z "$WHEEL" ]] && [[ -z "$VERSION" ]]; then
+            use_pre_flag="true"
+        fi
+        deps_to_install=$(python "$temp_deps_script" "$package_spec" "$use_pre_flag")
         rm -f "$temp_deps_script"
         
         print_info "Installing essential dependencies (excluding CUDA-heavy packages)..."
