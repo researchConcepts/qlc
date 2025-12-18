@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rc-qlc"
-version = "1.0.1-beta"
+version = "1.0.2-beta"
 license = { text = "MIT" }
 description = "Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS [BETA]"
 authors = [
