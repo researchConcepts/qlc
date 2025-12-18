@@ -394,9 +394,9 @@ check_current_environment() {
     fi
 }
 
-# Find suitable Python 3.10+
+# Find suitable Python 3.10 or 3.11
 find_python() {
-    print_info "Searching for Python 3.10+..."
+    print_info "Searching for Python 3.10 or 3.11..."
     
     # If user specified Python, use that
     if [[ -n "$PYTHON_CMD" ]]; then
@@ -409,11 +409,15 @@ find_python() {
         local major=$(echo $version | cut -d. -f1)
         local minor=$(echo $version | cut -d. -f2)
         
-        if [[ $major -eq 3 ]] && [[ $minor -ge 10 ]]; then
+        if [[ $major -eq 3 ]] && [[ $minor -ge 10 ]] && [[ $minor -le 11 ]]; then
             print_success "Using specified Python: $PYTHON_CMD (version $version)"
             return 0
+        elif [[ $major -eq 3 ]] && [[ $minor -ge 12 ]]; then
+            print_error "Specified Python version $version is not supported (need 3.10 or 3.11)"
+            print_error "Python 3.12+ is not supported (no compatible wheel available)"
+            exit 1
         else
-            print_error "Specified Python version $version is too old (need 3.10+)"
+            print_error "Specified Python version $version is too old (need 3.10 or 3.11)"
             exit 1
         fi
     fi
@@ -508,9 +512,11 @@ find_python() {
         )
     fi
     
-    # Search for Python 3.10+
-    local best_python=""
-    local best_version="0.0.0"
+    # Search for Python 3.10 or 3.11 ONLY
+    local found_312plus=""
+    local found_312plus_version=""
+    local found_older=""
+    local found_older_version=""
     
     for python_path in "${python_paths[@]}"; do
         if command -v $python_path &> /dev/null; then
@@ -518,30 +524,42 @@ find_python() {
             local major=$(echo $version | cut -d. -f1)
             local minor=$(echo $version | cut -d. -f2)
             
-            if [[ $major -eq 3 ]] && [[ $minor -ge 10 ]]; then
+            if [[ $major -eq 3 ]] && [[ $minor -ge 10 ]] && [[ $minor -le 11 ]]; then
+                # Found Python 3.10 or 3.11 - this is what we need
                 PYTHON_CMD=$python_path
-                if [[ $minor -ge 12 ]]; then
-                    print_warning "Python 3.12+ detected - QLC tested with Python 3.10-3.11"
-                    print_warning "Python 3.12 may have compatibility issues"
-                fi
-                print_success "Found Python 3.10+: $python_path (version $version)"
+                print_success "Found Python 3.10-3.11: $python_path (version $version)"
                 return 0
-            elif [[ $major -eq 3 ]] && [[ "$version" > "$best_version" ]]; then
-                best_python=$python_path
-                best_version=$version
+            elif [[ $major -eq 3 ]] && [[ $minor -ge 12 ]]; then
+                # Track Python 3.12+ for error message
+                if [[ -z "$found_312plus" ]]; then
+                    found_312plus=$python_path
+                    found_312plus_version=$version
+                fi
+            elif [[ $major -eq 3 ]] && [[ $minor -lt 10 ]]; then
+                # Track older Python for error message
+                if [[ -z "$found_older" ]]; then
+                    found_older=$python_path
+                    found_older_version=$version
+                fi
             fi
         fi
     done
     
-    # If we found Python 3.x but not 3.10+
-    if [[ -n "$best_python" ]]; then
-        print_error "Found Python $best_version but QLC requires Python 3.10+"
+    # No Python 3.10-3.11 found - provide specific error message
+    if [[ -n "$found_312plus" ]]; then
+        print_error "Found Python $found_312plus_version but QLC requires Python 3.10 or 3.11"
+        print_error "Python 3.12+ is not supported (no compatible wheel available)"
+        print_installation_guidance
+        exit 1
+    elif [[ -n "$found_older" ]]; then
+        print_error "Found Python $found_older_version but QLC requires Python 3.10 or 3.11"
         print_error "Installation cannot proceed with older Python versions"
         print_installation_guidance
         exit 1
     fi
     
     print_error "No suitable Python executable found"
+    print_error "QLC requires Python 3.10 or 3.11"
     print_installation_guidance
     exit 1
 }
@@ -549,13 +567,15 @@ find_python() {
 # Print installation guidance
 print_installation_guidance() {
     echo ""
-    print_info "Python 3.10+ Installation Guide:"
+    print_info "Python 3.10 or 3.11 Installation Guide:"
+    echo ""
+    print_warning "QLC requires Python 3.10 or 3.11 (not 3.12+)"
     echo ""
     
     case "$PLATFORM" in
         macos)
             echo "macOS:"
-            echo "  1. Official installer: https://www.python.org/downloads/"
+            echo "  1. Official installer: https://www.python.org/downloads/ (select 3.10 or 3.11)"
             echo "  2. Homebrew: brew install python@3.11"
             echo "  3. pyenv: pyenv install 3.11.0"
             ;;
@@ -567,13 +587,13 @@ print_installation_guidance() {
             else
                 echo "Linux:"
                 echo "  1. Package manager: sudo apt install python3.11"
-                echo "  2. Official installer: https://www.python.org/downloads/"
+                echo "  2. Official installer: https://www.python.org/downloads/ (select 3.10 or 3.11)"
                 echo "  3. pyenv: curl https://pyenv.run | bash"
             fi
             ;;
         windows)
             echo "Windows:"
-            echo "  1. Official installer: https://www.python.org/downloads/"
+            echo "  1. Official installer: https://www.python.org/downloads/ (select 3.10 or 3.11)"
             echo "  2. Microsoft Store: Search for 'Python 3.11'"
             echo "  3. Chocolatey: choco install python311"
             ;;
