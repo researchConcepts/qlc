@@ -717,8 +717,11 @@ import sys
 import subprocess
 import re
 
-# Packages to exclude (CUDA-heavy or unused)
-EXCLUDE_PACKAGES = {'torch', 'torchvision', 'tinycio', 'scikit-fmm'}
+# Packages to exclude on HPC
+# torch, torchvision, tinycio, scikit-fmm: CUDA-heavy, not needed for HPC
+# eccodes: Already provided by ecmwf-toolbox module on HPC (no pip install needed)
+# cfgrib: Will be installed via pip (uses eccodes from loaded module)
+EXCLUDE_PACKAGES = {'torch', 'torchvision', 'tinycio', 'scikit-fmm', 'eccodes'}
 
 try:
     # Get package info

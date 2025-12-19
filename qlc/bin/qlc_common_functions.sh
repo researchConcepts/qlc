@@ -655,7 +655,7 @@ setup_eccodes() {
   if command_exists module; then
     log "Attempting to load eccodes module..."
     # Try common module names for eccodes
-    for eccodes_module in "eccodes" "eccodes/2.31.0" "eccodes/2.30.0" "grib_api"; do
+    for eccodes_module in "ecmwf-toolbox/2025.10.1.0" "ecmwf-toolbox" "eccodes" "eccodes/2.31.0" "eccodes/2.30.0" "grib_api"; do
       if module load "$eccodes_module" 2>/dev/null; then
         log "Successfully loaded module: $eccodes_module"
         if command_exists "grib_ls"; then
