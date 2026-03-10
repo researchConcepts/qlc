@@ -1,0 +1,17 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+absae440-675aero,absae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for absorption aerosol optical depth
+absae440-870bc,absae440-870bc,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 870nm for black carbon absorption aerosol optical depth
+absae675-870aero,absae675-870aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 675nm and 870nm for absorption aerosol optical depth
+absod440bc,absod440bc,unitless,time,latitude,longitude,unknown,black carbon absorption aerosol optical depth at 440nm
+absod440brc,absod440brc,unitless,time,latitude,longitude,unknown,brown carbon absorption aerosol optical depth at 440nm
+absod550aero,absod550aero,unitless,time,latitude,longitude,unknown,absorption aerosol optical depth at 550nm
+absod870aero,absod870aero,unitless,time,latitude,longitude,unknown,absorption aerosol optical depth at 870nm
+abswdaeaero,abswdaeaero,unitless,time,latitude,longitude,unknown,wavelength dependence of the absorption aerosol optical depth angstrom exponent
+extae440-675aero,extae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for extinction aerosol optical depth
+extod550aero,extod550aero,unitless,time,latitude,longitude,unknown,extinction aerosol optical depth at 550nm
+lsae440-675aero,lsae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for scattering aerosol optical depth
+od550aero,od550aero,unitless,time,latitude,longitude,unknown,aerosol optical depth at 550nm
+sca550aero,sca550aero,unitless,time,latitude,longitude,unknown,single scattering albedo at 550nm
+scaae440-675aero,scaae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for single scattering albedo
+schusterbc_brc,schusterbc_brc,unitless,time,latitude,longitude,unknown,"Schuster filter for removing black and brown carbon aerosols, by taking the mean of the imaginary part of the refractive indices at 675, 870 and 1020nm"
+schusterss,schusterss,unitless,time,latitude,longitude,unknown,"Schuster filter for removing sea salt aerosols, by subtracting the single scattering albedo at 440nm from that at 675nm"

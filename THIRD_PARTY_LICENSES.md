@@ -33,8 +33,9 @@ Bowdalo, D. R., Mozaffar, A., Witt, M. L. I., Arteta, J., Bañón, G., Bennouna,
 
 QLC provides convenience tools to organize GHOST data for air quality model evaluation:
 
-- `qlc/bin/tools/qlc_extract_ghost_data.py` - Python extraction script
-- `qlc/bin/tools/qlc_extract_all_ghost_networks.sh` - Batch extraction script
+- `qlc/bin/tools/qlc_extract_all_ghost_networks.sh` - Batch extraction for all GHOST networks
+- `qlc/bin/tools/qlc_extract_all_station_metadata.sh` - Station metadata extraction (all networks)
+- `qlc/bin/tools/qlc_generate_all_station_locations.sh` - Station location file generation
 
 **Important Notes**:
 1. These tools are part of QLC (MIT License) and are NOT part of the GHOST project
@@ -71,7 +72,7 @@ If you use QLC with GHOST data in your research, please cite both:
 ### 1. QLC Tool
 
 ```
-QLC (Quick Look Content) v1.0.1-beta, 2025,
+QLC (Quick Look Content) v1.0.2, 2026,
 An Automated Model-Observation Comparison Suite Optimized for CAMS,
 qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>,
 ResearchConcepts io GmbH, https://docs.researchconcepts.io/qlc/
@@ -155,9 +156,11 @@ QLC integrates PyFerret for advanced 3D visualization and analysis:
 QLC also supports processing data from:
 
 - **AirNow** (US EPA real-time air quality)
-- **EBAS** (European monitoring)
+- **EBAS** (European monitoring, daily and hourly)
 - **AirBase** (European air quality database)
 - **AMoN, CastNet, NNDMN** (US observation networks)
+- **Brazil INMET** (National meteorological stations)
+- **Brazil AQ / São Paulo CETESB** (Brazilian air quality networks)
 
 Each data source has its own license and citation requirements. Please consult the respective data providers for licensing details.
 
@@ -183,5 +186,5 @@ For questions about:
 
 ---
 
-**Last Updated**: December 14, 2025
+**Last Updated**: March 2026
 

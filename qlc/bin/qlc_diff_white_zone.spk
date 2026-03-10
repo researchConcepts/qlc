@@ -1,0 +1,35 @@
+! PyFerret custom palette for difference plots with configurable white zone
+! Blue for negative differences, white near zero, red for positive differences
+! This palette is designed for percentage differences with white zone control
+!
+! Format: percent red green blue
+! percent: 0-100 (position in color scale)
+! red, green, blue: 0-100 (RGB values)
+!
+! Blue gradient for large negative differences
+  0   0  0 100   ! Dark blue at most negative
+ 10  20 20 100   ! Medium blue
+ 20  40 60 100   ! Light blue
+ 30  60 80 100   ! Very light blue
+ 40  80 90 100   ! Pale blue
+!
+! Transition to white for small negative differences
+ 45  90 95 100   ! Near white
+ 48  95 98 100   ! Almost white
+!
+! White zone (narrow band around zero)
+ 49  98 98  98   ! White
+ 50 100 100 100   ! Pure white at zero
+ 51  98  98  98   ! White
+!
+! Transition to red for small positive differences
+ 52 100  98  95   ! Almost white
+ 55 100  95  90   ! Near white
+!
+! Red gradient for large positive differences
+ 60 100  80  60   ! Pale red
+ 70 100  60  40   ! Very light red
+ 80 100  60  20   ! Light red
+ 90 100  20  20   ! Medium red
+100 100   0   0   ! Dark red at most positive
+

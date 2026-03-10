@@ -12,7 +12,7 @@
 # ============================================================================
 # QLC Extract All GHOST Networks
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -27,7 +27,7 @@
 # Usage:
 #   bash $HOME/qlc/bin/tools/qlc_extract_all_ghost_networks.sh
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 #==============================================================================
 # GHOST Data Citation (REQUIRED when using GHOST data):
@@ -273,9 +273,9 @@ if [ "$RUN_UNZIP" = true ]; then
     unzip -q "${MAIN_ZIP}" -d "${TEMP_EXTRACT}" 2>&1 | tee -a "$LOG_FILE"
     
     if [ $? -eq 0 ]; then
-        echo "  ✓ SUCCESS: Extracted main archive"                              | tee -a "$LOG_FILE"
+        echo "  SUCCESS: Extracted main archive"                              | tee -a "$LOG_FILE"
     else
-        echo "  ✗ FAILED: Could not extract main archive"                       | tee -a "$LOG_FILE"
+        echo "  FAILED: Could not extract main archive"                       | tee -a "$LOG_FILE"
         exit 1
     fi
     
@@ -294,10 +294,10 @@ if [ "$RUN_UNZIP" = true ]; then
         # Move extracted content to SOURCE_DIR
         if [ -d "${TEMP_EXTRACT}/Networks" ]; then
             mv "${TEMP_EXTRACT}/Networks"/* "${SOURCE_DIR}/" 2>/dev/null || true
-            echo "  ✓ Found Networks directory, moved to ${SOURCE_DIR}"         | tee -a "$LOG_FILE"
+            echo "  Found Networks directory, moved to ${SOURCE_DIR}"         | tee -a "$LOG_FILE"
         else
             mv "${TEMP_EXTRACT}"/* "${SOURCE_DIR}/" 2>/dev/null || true
-            echo "  ✓ Moved extracted content to ${SOURCE_DIR}"                 | tee -a "$LOG_FILE"
+            echo "  Moved extracted content to ${SOURCE_DIR}"                 | tee -a "$LOG_FILE"
         fi
     else
         # Extract each network ZIP file
@@ -309,10 +309,10 @@ if [ "$RUN_UNZIP" = true ]; then
             unzip -q "${network_zip}" -d "${SOURCE_DIR}" 2>&1 | tee -a "$LOG_FILE"
             
             if [ $? -eq 0 ]; then
-                echo "    ✓ SUCCESS: ${network_name}"                           | tee -a "$LOG_FILE"
+                echo "    SUCCESS: ${network_name}"                           | tee -a "$LOG_FILE"
                 ((network_count++))
             else
-                echo "    ✗ FAILED: ${network_name}"                            | tee -a "$LOG_FILE"
+                echo "    FAILED: ${network_name}"                            | tee -a "$LOG_FILE"
             fi
         done
         
@@ -398,7 +398,7 @@ extract_network() {
     echo "========================================"                             | tee -a "$LOG_FILE"
     
     # Build command with --force if enabled
-    CMD="python3 ${BIN_DIR}/qlc_extract_ghost_data.py \
+    CMD="qlc-extract-ghost-data \
         --source ${SOURCE_DIR} \
         --network ${network} \
         --frequencies ${FREQUENCY} \
@@ -413,9 +413,9 @@ extract_network() {
     
     local status=$?
     if [ $status -eq 0 ]; then
-        echo "✓ SUCCESS: ${network}"                                            | tee -a "$LOG_FILE"
+        echo "SUCCESS: ${network}"                                            | tee -a "$LOG_FILE"
     else
-        echo "✗ FAILED: ${network} (exit code: $status)"                        | tee -a "$LOG_FILE"
+        echo "FAILED: ${network} (exit code: $status)"                        | tee -a "$LOG_FILE"
     fi
     
     # Show size
@@ -524,13 +524,13 @@ echo "WORKFLOW COMPLETE"                                                        
 echo "========================================================================" | tee -a "$LOG_FILE"
 echo "Steps completed:"                                                         | tee -a "$LOG_FILE"
 if [ "$RUN_DOWNLOAD" = true ]; then
-    echo "  ✓ Download from Zenodo"                                             | tee -a "$LOG_FILE"
+    echo "  Download from Zenodo"                                             | tee -a "$LOG_FILE"
 fi
 if [ "$RUN_UNZIP" = true ]; then
-    echo "  ✓ Extract ZIP archives"                                             | tee -a "$LOG_FILE"
+    echo "  Extract ZIP archives"                                             | tee -a "$LOG_FILE"
 fi
 if [ "$RUN_EXTRACT" = true ]; then
-    echo "  ✓ Extract GHOST networks"                                           | tee -a "$LOG_FILE"
+    echo "  Extract GHOST networks"                                           | tee -a "$LOG_FILE"
 fi
 echo ""                                                                         | tee -a "$LOG_FILE"
 

@@ -1,0 +1,219 @@
+# Site ID, Site Name, Latitude, Longitude, Altitude (m)
+AdelaideSite7_P-D,Adelaide Site 7,-34.725067,138.656483,30.0
+AdelaideSite7_P-S,Adelaide Site 7,-34.725067,138.656483,30.0
+AmityUnivGurgaon_P-D,Amity Univ Gurgaon,28.317329,76.916031,285.0
+AmityUnivGurgaon_P-S,Amity Univ Gurgaon,28.317329,76.916031,285.0
+BMKGJakarta_P-D,Bmkg Jakarta,-6.155239,106.841197,35.0
+BMKGJakarta_P-S,Bmkg Jakarta,-6.155239,106.841197,35.0
+Bandung_P-D,Bandung,-6.888417,107.610000,826.0
+Bandung_P-S,Bandung,-6.888417,107.610000,826.0
+Bangkok_P-D,Bangkok,13.749100,100.517700,57.1
+Bangkok_P-S,Bangkok,13.749100,100.517700,57.1
+Barcelona_P-D,Barcelona,41.389250,2.112060,125.0
+Barcelona_P-S,Barcelona,41.389250,2.112060,125.0
+Bayfordbury_P-D,Bayfordbury,51.776320,-0.096240,75.0
+Bayfordbury_P-S,Bayfordbury,51.776320,-0.096240,75.0
+Beijing-CAMS_P-D,Beijing-Cams,39.933330,116.316670,106.0
+Beijing-CAMS_P-S,Beijing-Cams,39.933330,116.316670,106.0
+BeijingPKU_P-D,Beijing Pku,39.992000,116.310200,53.0
+BeijingPKU_P-S,Beijing Pku,39.992000,116.310200,53.0
+BeijingRADI_P-D,Beijing Radi,40.004800,116.378600,59.0
+BeijingRADI_P-S,Beijing Radi,40.004800,116.378600,59.0
+Beijing_P-D,Beijing,39.976890,116.381370,92.0
+Beijing_P-S,Beijing,39.976890,116.381370,92.0
+Belsk_P-D,Belsk,51.836667,20.791667,190.0
+Belsk_P-S,Belsk,51.836667,20.791667,190.0
+BerlinFUB_P-D,Berlin Fub,52.457500,13.310333,80.0
+BerlinFUB_P-S,Berlin Fub,52.457500,13.310333,80.0
+Billerica_P-D,Billerica,42.528347,-71.268619,82.0
+Billerica_P-S,Billerica,42.528347,-71.268619,82.0
+Brussels_P-D,Brussels,50.783332,4.350000,120.0
+Brussels_P-S,Brussels,50.783332,4.350000,120.0
+Burjassot_P-D,Burjassot,39.507000,-0.420200,104.0
+Burjassot_P-S,Burjassot,39.507000,-0.420200,104.0
+CCNY_P-D,Ccny,40.821313,-73.949036,100.0
+CCNY_P-S,Ccny,40.821313,-73.949036,100.0
+CEILAP-BA_P-D,Ceilap-Ba,-34.555425,-58.506411,26.0
+CEILAP-BA_P-S,Ceilap-Ba,-34.555425,-58.506411,26.0
+CLUJUBB_P-D,Cluj Ubb,46.768333,23.551389,405.0
+CLUJUBB_P-S,Cluj Ubb,46.768333,23.551389,405.0
+Cabauw_P-D,Cabauw,51.971000,4.927000,-0.7
+Cabauw_P-S,Cabauw,51.971000,4.927000,-0.7
+CabodaRoca_P-D,Cabo Da Roca,38.781722,-9.497667,136.0
+CabodaRoca_P-S,Cabo Da Roca,38.781722,-9.497667,136.0
+CairoEMA2_P-D,Cairo Ema 2,30.080767,31.290067,70.0
+CairoEMA2_P-S,Cairo Ema 2,30.080767,31.290067,70.0
+CalTech_P-D,Caltech,34.136730,-118.126167,260.0
+CalTech_P-S,Caltech,34.136730,-118.126167,260.0
+CampusUSACH_P-D,Campus Usach,-33.449900,-70.681567,550.0
+CampusUSACH_P-S,Campus Usach,-33.449900,-70.681567,550.0
+CapeFugueiStation_P-D,Cape Fuguei Station,25.297452,121.537859,40.0
+CapeFugueiStation_P-S,Cape Fuguei Station,25.297452,121.537859,40.0
+Chen-KungUniv_P-D,Chen-Kung Univ,22.993419,120.204664,50.0
+Chen-KungUniv_P-S,Chen-Kung Univ,22.993419,120.204664,50.0
+ChibaUniversity_P-D,Chiba University,35.624700,140.103800,60.0
+ChibaUniversity_P-S,Chiba University,35.624700,140.103800,60.0
+DEWAResearchCentre_P-D,Dewa Researchcentre,24.766847,55.369125,86.8
+DEWAResearchCentre_P-S,Dewa Researchcentre,24.766847,55.369125,86.8
+DRAGONDenverLaCasa_P-D,Dragon Denverlacasa,39.779490,-105.005180,1601.0
+DRAGONDenverLaCasa_P-S,Dragon Denverlacasa,39.779490,-105.005180,1601.0
+DRAGONHankukUFS_P-D,Dragon Hankuk Ufs,37.338830,127.265820,167.0
+DakarBelair_P-D,Dakar Belair,14.701700,-17.425600,15.0
+DakarBelair_P-S,Dakar Belair,14.701700,-17.425600,15.0
+DenverLaCasa_P-D,Denver Lacasa,39.779490,-105.005180,1601.0
+DenverLaCasa_P-S,Denver Lacasa,39.779490,-105.005180,1601.0
+DhakaUniversity_P-D,Dhaka University,23.728390,90.398190,34.0
+DhakaUniversity_P-S,Dhaka University,23.728390,90.398190,34.0
+DurbanUKZN_P-D,Durban Ukzn,-29.817233,30.944011,205.0
+DurbanUKZN_P-S,Durban Ukzn,-29.817233,30.944011,205.0
+EPA-NCU_P-D,Epa-Ncu,24.967533,121.185483,144.0
+EPA-NCU_P-S,Epa-Ncu,24.967533,121.185483,144.0
+EastMallingMO_P-D,Eastmalling Mo,51.290000,0.440000,33.0
+EastMallingMO_P-S,Eastmalling Mo,51.290000,0.440000,33.0
+Edinburgh_P-D,Edinburgh,55.923967,-3.179150,97.5
+Edinburgh_P-S,Edinburgh,55.923967,-3.179150,97.5
+FZJ-JOYCE_P-D,Fzj-Joyce,50.908333,6.413056,111.0
+FZJ-JOYCE_P-S,Fzj-Joyce,50.908333,6.413056,111.0
+FugueiCape_P-D,Fuguei Cape,25.297452,121.537859,50.0
+Fukuoka_P-D,Fukuoka,33.524000,130.475000,30.0
+Fukuoka_P-S,Fukuoka,33.524000,130.475000,30.0
+GSFC_P-D,Gsfc,38.992500,-76.839833,87.0
+GSFC_P-S,Gsfc,38.992500,-76.839833,87.0
+GeorgiaTech_P-D,Georgia Tech,33.780202,-84.399537,294.0
+GeorgiaTech_P-S,Georgia Tech,33.780202,-84.399537,294.0
+GrizzlyBay_P-S,Grizzly Bay,38.108167,-122.056208,4.0
+GwangjuGIST_P-D,Gwangju Gist,35.228278,126.843139,52.0
+GwangjuGIST_P-S,Gwangju Gist,35.228278,126.843139,52.0
+Hamburg_P-D,Hamburg,53.568333,9.973333,120.0
+Hamburg_P-S,Hamburg,53.568333,9.973333,120.0
+HankukUFS_P-D,Hankuk Ufs,37.338830,127.265820,167.0
+HankukUFS_P-S,Hankuk Ufs,37.338830,127.265820,167.0
+HelsinkiLighthouse_P-S,Helsinki Lighthouse,59.948970,24.926360,20.0
+Helsinki_P-D,Helsinki,60.203733,24.960650,52.8
+Helsinki_P-S,Helsinki,60.203733,24.960650,52.8
+HokkaidoUniversity_P-D,Hokkaido University,43.075500,141.340700,59.0
+HokkaidoUniversity_P-S,Hokkaido University,43.075500,141.340700,59.0
+HongKongSheung_P-D,Hong Kong Sheung,22.483300,114.116600,40.0
+HongKongSheung_P-S,Hong Kong Sheung,22.483300,114.116600,40.0
+Kaohsiung_P-D,Kaohsiung,22.675621,120.292171,15.0
+Kaohsiung_P-S,Kaohsiung,22.675621,120.292171,15.0
+Karachi_P-D,Karachi,24.945740,67.135940,49.0
+Karachi_P-S,Karachi,24.945740,67.135940,49.0
+KarunyaUniversity_P-D,Karunya University,10.935300,76.744100,478.0
+KarunyaUniversity_P-S,Karunya University,10.935300,76.744100,478.0
+KemigawaOffshore_P-S,Kemigawa Offshore,35.610833,140.023330,8.2
+KeyBiscayne_P-D,Key Biscayne,25.731966,-80.163330,10.0
+KeyBiscayne_P-S,Key Biscayne,25.731966,-80.163330,10.0
+KuwaitUniversity_P-D,Kuwait University,29.325000,47.971000,42.0
+KuwaitUniversity_P-S,Kuwait University,29.325000,47.971000,42.0
+LaJolla_P-D,La Jolla,32.868460,-117.251130,80.0
+LaJolla_P-S,La Jolla,32.868460,-117.251130,80.0
+Lahore_P-D,Lahore,31.479870,74.264060,209.0
+Lahore_P-S,Lahore,31.479870,74.264060,209.0
+LochLeven_P-D,Loch Leven,56.188030,-3.351650,110.9
+LochLeven_P-S,Loch Leven,56.188030,-3.351650,110.9
+MAXARFUTON_P-D,Maxar Futon,40.035560,-104.885000,1522.0
+MAXARFUTON_P-S,Maxar Futon,40.035560,-104.885000,1522.0
+Madrid_P-D,Madrid,40.451900,-3.723950,680.0
+Madrid_P-S,Madrid,40.451900,-3.723950,680.0
+MagureleInoe_P-D,Magurele Inoe,44.348292,26.030703,90.0
+MagureleInoe_P-S,Magurele Inoe,44.348292,26.030703,90.0
+Mainz_P-D,Mainz,49.999000,8.300000,150.0
+Mainz_P-S,Mainz,49.999000,8.300000,150.0
+ManilaObservatory_P-D,Manila Observatory,14.635250,121.077840,63.0
+ManilaObservatory_P-S,Manila Observatory,14.635250,121.077840,63.0
+MasdarInstitute_P-D,Masdar Institute,24.441600,54.616600,4.0
+MasdarInstitute_P-S,Masdar Institute,24.441600,54.616600,4.0
+Medellin_P-D,Medellin,6.260672,-75.577914,1471.0
+Medellin_P-S,Medellin,6.260672,-75.577914,1471.0
+MeridaMEDA_P-D,Merida Meda,20.983900,-89.645200,25.0
+MeridaMEDA_P-S,Merida Meda,20.983900,-89.645200,25.0
+MexicoCity_P-D,Mexico City,19.333611,-99.181667,2268.0
+Modena_P-D,Modena,44.631667,10.945278,56.0
+Modena_P-S,Modena,44.631667,10.945278,56.0
+MontevideoFING_P-D,Montevideo Fing,-34.918167,-56.166767,71.0
+MontevideoFING_P-S,Montevideo Fing,-34.918167,-56.166767,71.0
+MoscowMSUMO_P-D,Moscow Msu Mo,55.706947,37.522019,192.0
+MoscowMSUMO_P-S,Moscow Msu Mo,55.706947,37.522019,192.0
+MountWilson_P-D,Mount Wilson,34.224700,-118.055900,1710.0
+MountWilson_P-S,Mount Wilson,34.224700,-118.055900,1710.0
+MunichUniversity_P-D,Munich University,48.148000,11.573000,533.0
+MunichUniversity_P-S,Munich University,48.148000,11.573000,533.0
+NASAAmes_P-D,Nasa Ames,37.419986,-122.056969,10.0
+NASAAmes_P-S,Nasa Ames,37.419986,-122.056969,10.0
+NCUTaiwan_P-D,Ncu Taiwan,24.967662,121.187508,171.0
+NEONCVALLA_P-D,Neon Cvalla,40.160630,-105.167250,1539.0
+NEONCVALLA_P-S,Neon Cvalla,40.160630,-105.167250,1539.0
+NEONSERC_P-D,Neon Serc,38.890117,-76.560017,9.8
+NEONSERC_P-S,Neon Serc,38.890117,-76.560017,9.8
+NGHIADO_P-D,Nghia Do,21.047780,105.799640,40.0
+NGHIADO_P-S,Nghia Do,21.047780,105.799640,40.0
+NapoliCeSMA_P-D,Napoli Cesma,40.836842,14.306567,50.0
+NapoliCeSMA_P-S,Napoli Cesma,40.836842,14.306567,50.0
+Osaka_P-D,Osaka,34.650933,135.590633,50.0
+Osaka_P-S,Osaka,34.650933,135.590633,50.0
+Palaiseau_P-D,Palaiseau,48.711600,2.215000,156.0
+Palaiseau_P-S,Palaiseau,48.711600,2.215000,156.0
+Paris_P-D,Paris,48.846797,2.355508,50.0
+Paris_P-S,Paris,48.846797,2.355508,50.0
+Peterhof_P-D,Peterhof,59.881000,29.826000,58.0
+Peterhof_P-S,Peterhof,59.881000,29.826000,58.0
+Pune_P-D,Pune,18.537255,73.805491,595.0
+Pune_P-S,Pune,18.537255,73.805491,595.0
+QuitoUSFQ_P-D,Quito Usfq,-0.196244,-78.435589,2414.0
+QuitoUSFQ_P-S,Quito Usfq,-0.196244,-78.435589,2414.0
+RhylMO_P-D,Rhyl Mo,53.259290,-3.508590,77.0
+RhylMO_P-S,Rhyl Mo,53.259290,-3.508590,77.0
+RomeLaSapienza_P-D,Rome La Sapienza,41.901695,12.515773,75.0
+RomeLaSapienza_P-S,Rome La Sapienza,41.901695,12.515773,75.0
+RomeTorVergata_P-D,Rome Tor Vergata,41.839550,12.647333,130.0
+RomeTorVergata_P-S,Rome Tor Vergata,41.839550,12.647333,130.0
+SERC_P-D,Serc,38.888901,-76.555795,36.5
+SERC_P-S,Serc,38.888901,-76.555795,36.5
+SP-EACH_P-D,Sp-Each,-23.481630,-46.499670,754.0
+SP-EACH_P-S,Sp-Each,-23.481630,-46.499670,754.0
+SantaMonicaColg_P-D,Santa Monica Colg,34.016850,-118.471130,55.0
+SantaMonicaColg_P-S,Santa Monica Colg,34.016850,-118.471130,55.0
+SantiagoBeauchef2_P-D,Santiago Beauchef 2,-33.457222,-70.661666,560.0
+SantiagoBeauchef2_P-S,Santiago Beauchef 2,-33.457222,-70.661666,560.0
+SantiagoBeauchef_P-D,Santiago Beauchef,-33.457222,-70.661666,560.0
+SantiagoBeauchef_P-S,Santiago Beauchef,-33.457222,-70.661666,560.0
+SaoPaulo_P-D,Sao Paulo,-23.561500,-46.734983,786.0
+SaoPaulo_P-S,Sao Paulo,-23.561500,-46.734983,786.0
+SeoulSNU_P-D,Seoul Snu,37.458056,126.951111,116.0
+SeoulSNU_P-S,Seoul Snu,37.458056,126.951111,116.0
+SigmaSpaceCorp_P-D,Sigma Space Corp,38.953000,-76.836472,44.8
+SigmaSpaceCorp_P-S,Sigma Space Corp,38.953000,-76.836472,44.8
+SimonstownIMT_P-D,Simonstown Imt,-34.192720,18.445670,27.0
+SimonstownIMT_P-S,Simonstown Imt,-34.192720,18.445670,27.0
+Singapore_P-D,Singapore,1.297667,103.780383,30.0
+Singapore_P-S,Singapore,1.297667,103.780383,30.0
+TableMountain_P-D,Table Mountain,40.125000,-105.237000,1689.0
+TableMountain_P-S,Table Mountain,40.125000,-105.237000,1689.0
+TaipeiCWB_P-D,Taipei Cwb,25.014683,121.538370,26.0
+TaipeiCWB_P-S,Taipei Cwb,25.014683,121.538370,26.0
+Toronto_P-D,Toronto,43.790000,-79.470000,186.0
+Toronto_P-S,Toronto,43.790000,-79.470000,186.0
+TunisCarthage_P-D,Tunis Carthage,36.838719,10.199781,10.0
+TunisCarthage_P-S,Tunis Carthage,36.838719,10.199781,10.0
+UACJUNAMORS_P-D,Uacj Unam Ors,31.743333,-106.431667,1127.0
+UACJUNAMORS_P-S,Uacj Unam Ors,31.743333,-106.431667,1127.0
+UEMMaputo_P-D,Uem Maputo,-25.949667,32.598833,59.2
+UEMMaputo_P-S,Uem Maputo,-25.949667,32.598833,59.2
+UMBC_P-D,Umbc,39.254628,-76.709353,79.0
+UMBC_P-S,Umbc,39.254628,-76.709353,79.0
+UNC-Palmira_P-D,Unc-Palmira,3.512295,-76.307610,1065.2
+UnivofHouston_P-D,Univ Of Houston,29.717700,-95.341600,65.0
+UnivofHouston_P-S,Univ Of Houston,29.717700,-95.341600,65.0
+ViennaBOKU_P-D,Vienna Boku,48.237861,16.331611,266.0
+ViennaBOKU_P-S,Vienna Boku,48.237861,16.331611,266.0
+ViennaUNIVIE_P-D,Vienna Univie,48.221667,16.355833,225.0
+ViennaUNIVIE_P-S,Vienna Univie,48.221667,16.355833,225.0
+WarsawUW_P-D,Warsaw Uw,52.210932,20.982636,117.0
+WarsawUW_P-S,Warsaw Uw,52.210932,20.982636,117.0
+WeizmannInstitute_P-D,Weizmann Institute,31.907235,34.810531,73.0
+WeizmannInstitute_P-S,Weizmann Institute,31.907235,34.810531,73.0
+Xitun_P-D,Xitun,24.162200,120.616900,91.0
+Xitun_P-S,Xitun,24.162200,120.616900,91.0
+YonseiUniversity_P-D,Yonsei University,37.564430,126.934790,97.0
+YonseiUniversity_P-S,Yonsei University,37.564430,126.934790,97.0

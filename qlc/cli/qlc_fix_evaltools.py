@@ -3,7 +3,7 @@
 """
 QLC Evaltools Compatibility Patch: NumPy 2.x Support
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -22,7 +22,7 @@ Background:
 Usage:
     qlc-fix-evaltools [--dry-run] [--force]
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -39,13 +39,13 @@ def log(message: str, level: str = "INFO") -> None:
     """Simple logging function."""
     timestamp = ""
     if level == "ERROR":
-        prefix = "✗"
+        prefix = "ERROR"
     elif level == "WARN":
         prefix = "WARNING"
     elif level == "SUCCESS":
-        prefix = "✓"
+        prefix = "SUCCESS"
     else:
-        prefix = "→"
+        prefix = "INFO"
     print(f"[{level}] {prefix} {message}")
 
 

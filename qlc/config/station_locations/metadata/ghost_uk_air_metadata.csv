@@ -1,0 +1,43 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+594,nan,51.151352,-0.70461,89.0,nan
+GB0002R,Eskdalemuir,55.31531,-3.206111,259.0,rural
+GB0003R,Goonhilly,50.050611,-5.181545,108.0,rural
+GB0015R,Strathvaich,57.734456,-4.776583,270.0,rural
+GB0047R,Bure Marshes,52.692369,1.45262,3.0,rural
+GB0054R,Glensaugh,56.907222,-2.559444,242.0,rural
+GB0058R,Moorhouse,54.690133,-2.376928,570.0,rural
+GB0126R,Rothamsted,51.8061,-0.36045,130.0,rural
+GB0138R,Hillsborough,54.4525,-6.08334,120.0,rural
+GB0151R,Wardlow Hay Cop,53.261715,-1.735789,350.0,rural
+GB0160R,Allt Amharcaidh,57.124167,-3.856667,366.0,rural
+GB0197R,Llyn Llydaw,53.074525,-4.034731,490.0,rural
+GB1049A,Forsinard Rspb,58.359874,-3.89346,70.0,rural
+GB1076R,Ainsdale Dunes And Sands,53.587784,-3.075684,9.0,rural
+GB1078R,Ingleborough,54.193454,-2.35222,374.0,rural
+GB1080R,Monks Wood,52.400993,-0.238398,43.0,rural
+GB1081R,River Etherow,53.48653,-1.81445,450.0,rural
+GB1082R,Stiperstones,52.581223,-2.945132,418.0,rural
+GB1083R,Thorganby,53.875684,-0.970738,8.0,rural
+GB1084R,Fenns Whixall And Bettisfield Mosses,52.92538,-2.756233,88.0,rural
+GB1373R,Loch Dee,55.071756,-4.400907,230.0,rural
+GB1378R,Bannisdale Beck,54.409225,-2.724521,277.0,rural
+GB1411A,Braunton Burrows,51.107744,-4.210945,9.0,rural
+GB1412A,Dersingham Bog,52.830781,0.484647,12.0,rural
+GB1413A,Finglandrigg Woods,54.901774,-3.138586,10.0,rural
+GB1414A,Lindisfarne,55.683299,-1.843109,5.0,rural
+GB1415A,Saltfleetby-Theddlethorpe Dunes,53.403499,0.210022,3.0,rural
+GB1416A,Malham Tarn,54.099835,-2.16374,390.0,rural
+GB1417A,Roudsea Wood  Mosses,54.236155,-3.026079,14.0,rural
+UKA00103,Flatford Mill,51.9562,1.02668,5.0,rural
+UKA00110,Preston Montford,52.724311,-2.841579,70.0,rural
+UKA00113,Tycanol Wood,51.993801,-4.778895,205.0,rural
+UKA00114,nan,54.431308,-2.748991,249.0,nan
+UKA00123,Whiteadder,55.860033,-2.541875,250.0,rural
+UKA00173,Pumlumon,52.453809,-3.731754,390.0,rural
+UKA00180,Polloch,56.759708,-5.613202,30.0,rural
+UKA00239,Balquhidder 2,56.356229,-4.356985,130.0,rural
+UKA00383,Beaghs Burn,55.086709,-6.174419,252.0,rural
+UKA00504,Percys Cross,55.235677,-2.186631,170.0,rural
+UKA00505,Ystradffin,52.109214,-3.771879,179.0,rural
+UKA00550,Driby 2,53.248057,0.081391,48.0,rural
+UKA00657,Crai Reservoir 2,51.885449,-3.619594,310.0,rural

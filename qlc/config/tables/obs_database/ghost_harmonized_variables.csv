@@ -1,0 +1,51 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+absae370-950,absae370-950,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 950 nm for total particulate absorption
+absae440-675aero,absae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for absorption aerosol optical depth
+absco370,absco370,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 370nm
+absco470,absco470,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 470nm
+absco520,absco520,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 520nm
+absco528,absco528,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 528nm
+absco880,absco880,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 880nm
+absod550aero,absod550aero,unitless,time,latitude,longitude,unknown,absorption aerosol optical depth at 550nm
+asy525,asy525,unitless,time,latitude,longitude,unknown,total particulate asymmetry factor at 525nm
+extae440-675aero,extae440-675aero,unitless,time,latitude,longitude,unknown,angstrom exponent between 440nm and 675nm for extinction aerosol optical depth
+extod550aero,extod550aero,unitless,time,latitude,longitude,unknown,extinction aerosol optical depth at 550nm
+lbsco450,lbsco450,Mm-1,time,latitude,longitude,unknown,total particulate aerosol light backscattering coefficient at 450nm
+lbsco550,lbsco550,Mm-1,time,latitude,longitude,unknown,total particulate aerosol light backscattering coefficient at 550nm
+lbsf450,lbsf450,unitless,time,latitude,longitude,unknown,total particulate aerosol light backscattering fraction at 450nm
+lbsf550,lbsf550,unitless,time,latitude,longitude,unknown,total particulate aerosol light backscattering fraction at 550nm
+lsae450-700,lsae450-700,unitless,time,latitude,longitude,unknown,angstrom exponent between 450 and 700 nm for total particulate scattering
+pm10absae370-950,pm10absae370-950,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 950 nm for PM10 absorption
+pm10absco370,pm10absco370,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 370nm
+pm10absco470,pm10absco470,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 470nm
+pm10absco520,pm10absco520,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 520nm
+pm10absco528,pm10absco528,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 528nm
+pm10absco637,pm10absco637,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 637nm
+pm10absco880,pm10absco880,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 880nm
+pm10asy525,pm10asy525,unitless,time,latitude,longitude,unknown,PM10 asymmetry factor at 525nm
+pm10lbsco450,pm10lbsco450,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light backscattering coefficient at 450nm
+pm10lsco450,pm10lsco450,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light scattering coefficient at 450nm
+pm1absae467-652,pm1absae467-652,unitless,time,latitude,longitude,unknown,angstrom exponent between 467 and 652 nm for PM1 absorption
+pm1absae467-660,pm1absae467-660,unitless,time,latitude,longitude,unknown,angstrom exponent between 467 and 660 nm for PM1 absorption
+pm1absco652,pm1absco652,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 652nm
+pm1absco660,pm1absco660,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 660nm
+pm1lsco450,pm1lsco450,Mm-1,time,latitude,longitude,unknown,PM1 aerosol light scattering coefficient at 450nm
+pm1lsco550,pm1lsco550,Mm-1,time,latitude,longitude,unknown,PM1 aerosol light scattering coefficient at 550nm
+pm2p5absae370-880,pm2p5absae370-880,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 880 nm for PM2.5 absorption
+pm2p5absco467,pm2p5absco467,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol absorption coefficient at 467nm
+pm2p5absco590,pm2p5absco590,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol absorption coefficient at 590nm
+pm2p5asy525,pm2p5asy525,unitless,time,latitude,longitude,unknown,PM2.5 asymmetry factor at 525nm
+pm2p5lbsco525,pm2p5lbsco525,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol light backscattering coefficient at 525nm
+pm2p5lbsf550,pm2p5lbsf550,unitless,time,latitude,longitude,unknown,PM2.5 aerosol light backscattering fraction at 550nm
+precal,precal,ug l-1,time,latitude,longitude,unknown,aluminium in precipitation
+precbap,precbap,ug l-1,time,latitude,longitude,unknown,benzo[a]pyrene in precipitation
+precpo4,precpo4,mg l-1,time,latitude,longitude,unknown,phosphate in precipitation
+sca590,sca590,unitless,time,latitude,longitude,unknown,total particulate single scattering albedo at 590nm
+wetf,wetf,ng m-2 min-1,time,latitude,longitude,unknown,flouride wet deposition flux
+wetfe,wetfe,ng m-2 min-1,time,latitude,longitude,unknown,iron wet deposition flux
+wetk,wetk,ug m-2 min-1,time,latitude,longitude,unknown,potassium wet deposition flux
+wetmn,wetmn,ng m-2 min-1,time,latitude,longitude,unknown,manganese wet deposition flux
+wetna,wetna,ug m-2 min-1,time,latitude,longitude,unknown,sodium wet deposition flux
+wetnh4,wetnh4,ug m-2 min-1,time,latitude,longitude,unknown,ammonium wet deposition flux
+wetni,wetni,ng m-2 min-1,time,latitude,longitude,unknown,nickel wet deposition flux
+wetso4,wetso4,ug m-2 min-1,time,latitude,longitude,unknown,sulphate wet deposition flux

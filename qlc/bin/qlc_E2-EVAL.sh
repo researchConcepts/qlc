@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC E2-EVAL: Evaltools Statistical Analysis and Plotting
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -23,7 +23,7 @@
 #   Called automatically by qlc_main.sh - Do not call directly
 #   For help: qlc -h
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -464,13 +464,13 @@ run_aqtool() {
     
     if [ $plot_found -eq 1 ]; then
         local file_count=${#created_files[@]}
-        log "  ✓ Created ${plot_type} plot(s) (${file_count} file(s)):"
+        log "  Created ${plot_type} plot(s) (${file_count} file(s)):"
         for plot_file in "${created_files[@]}"; do
             log "    - $(basename "$plot_file")"
         done
         return 0
     else
-        log "  ✗ Error: Plot generation failed for ${plot_type}"
+        log "  ERROR Error: Plot generation failed for ${plot_type}"
         return 1
     fi
 }
@@ -502,7 +502,7 @@ generate_plots_for_region() {
     log "Cleaning up old evaltools plots from ${region_hpath}..."
     if [ -d "$region_hpath" ]; then
         rm -f "${region_hpath}"/qlc_E2_evaltools_*.${PLOTEXTENSION} 2>/dev/null
-        log "✓ Removed old evaltools plots"
+        log "Removed old evaltools plots"
     else
         log "Creating plot directory: ${region_hpath}"
         mkdir -p "$region_hpath"
@@ -597,7 +597,7 @@ except Exception as e:
             if [ "$series_type" = "hourly" ]; then
                 ENABLE_DIURNAL_CYCLE=1
                 ENABLE_TIME_SCORES=1
-                log "  ✓ Hourly data detected - all plots enabled"
+                log "  Hourly data detected - all plots enabled"
             elif [ "$series_type" = "daily" ]; then
                 ENABLE_DIURNAL_CYCLE=0
                 ENABLE_TIME_SCORES=0
@@ -829,7 +829,7 @@ except Exception as e:
 
         # Variable summary
         log ""
-        log "✓ Completed evaltools plots for ${var} (${region_name})"
+        log "Completed evaltools plots for ${var} (${region_name})"
         if [ "$has_forecast_steps" = "false" ]; then
             log "  Note: time_scores plots skipped (require forecast step dimension from GRIB)"
         fi
@@ -981,7 +981,7 @@ EOF
     
     # Summary - count all E2-EVAL plot files (any extension)
     plot_count=$(find "${region_hpath}" -name "${EVALUATION_PREFIX}_${region_name}_*" -type f \( -name "*.png" -o -name "*.pdf" -o -name "*.svg" -o -name "*.jpg" -o -name "*.jpeg" \) 2>/dev/null | wc -l | tr -d ' ')
-    log "✓ Created ${plot_count} evaltools plot(s) for region ${region_name}"
+    log "Created ${plot_count} evaltools plot(s) for region ${region_name}"
     
     log "Completed region: ${region_name}"
     return 0

@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC C1-GLOB: Global 3D Analysis with PyFerret
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -28,7 +28,7 @@
 #   Called automatically by qlc_main.sh - Do not call directly
 #   For help: qlc -h
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -195,6 +195,69 @@ if [ -n "${TEX_PLOTS_PER_PAGE:-}" ]; then
 else
     TEX_PLOTS_PER_PAGE=6  # Default: all 6 plots on one page (backward compatible)
     log "TeX layout: ${TEX_PLOTS_PER_PAGE} plots per page (default)"
+fi
+
+# Parse DIFF_MODE configuration (controls how differences are calculated)
+# Options: "absolute" or "percent"
+if [ -n "${DIFF_MODE:-}" ]; then
+    DIFF_MODE=$(echo "${DIFF_MODE}" | xargs | tr '[:upper:]' '[:lower:]')
+    case "${DIFF_MODE}" in
+        absolute|percent)
+            log "Difference mode: ${DIFF_MODE}"
+            ;;
+        *)
+            log "Warning: Invalid DIFF_MODE=${DIFF_MODE}, using default (absolute)"
+            DIFF_MODE="absolute"
+            ;;
+    esac
+else
+    DIFF_MODE="absolute"  # Default: absolute differences
+    log "Difference mode: ${DIFF_MODE} (default)"
+fi
+
+# Parse DIFF_PALETTE configuration (color palette for difference plots)
+# Options: white_centered, blue_red, no_green_centered, etc.
+if [ -n "${DIFF_PALETTE:-}" ]; then
+    DIFF_PALETTE=$(echo "${DIFF_PALETTE}" | xargs)
+    log "Difference palette: ${DIFF_PALETTE}"
+else
+    DIFF_PALETTE="blue_red"  # Default: better visibility than white_centered
+    log "Difference palette: ${DIFF_PALETTE} (default)"
+fi
+
+# Parse DIFF_PERCENT_RANGE configuration (symmetric range for percent differences)
+# Default: 50 (shows -50% to +50%)
+if [ -n "${DIFF_PERCENT_RANGE:-}" ]; then
+    DIFF_PERCENT_RANGE=$(echo "${DIFF_PERCENT_RANGE}" | xargs)
+    log "Percentage difference range: ±${DIFF_PERCENT_RANGE}%"
+else
+    DIFF_PERCENT_RANGE="50"  # Default: ±50%
+    log "Percentage difference range: ±${DIFF_PERCENT_RANGE}% (default)"
+fi
+
+# Parse DIFF_PERCENT_STEP configuration (contour step for percent differences)
+# Default: 5 (contour lines every 5%)
+if [ -n "${DIFF_PERCENT_STEP:-}" ]; then
+    DIFF_PERCENT_STEP=$(echo "${DIFF_PERCENT_STEP}" | xargs)
+    log "Percentage difference step: ${DIFF_PERCENT_STEP}%"
+else
+    DIFF_PERCENT_STEP="5"  # Default: 5%
+    log "Percentage difference step: ${DIFF_PERCENT_STEP}% (default)"
+fi
+
+# Parse DIFF_WHITE_ZONE configuration (white/neutral zone around zero)
+# Default: 5 (shows white for -5% to +5%)
+# Only effective with white_centered palette
+if [ -n "${DIFF_WHITE_ZONE:-}" ]; then
+    DIFF_WHITE_ZONE=$(echo "${DIFF_WHITE_ZONE}" | xargs)
+    if [ "${DIFF_WHITE_ZONE}" == "0" ]; then
+        log "White zone disabled (full color gradient)"
+    else
+        log "White zone: ±${DIFF_WHITE_ZONE}% (for white_centered palette)"
+    fi
+else
+    DIFF_WHITE_ZONE="5"  # Default: ±5%
+    log "White zone: ±${DIFF_WHITE_ZONE}% (for white_centered palette) (default)"
 fi
 
 # Set initial vertical range (will be updated dynamically per file based on levtype)
@@ -823,6 +886,83 @@ else
    #fill="shaded" # fill or shaded
     fill="fill"  # Default
 fi
+
+# Setup difference calculation expressions and titles based on DIFF_MODE
+if [ "${DIFF_MODE}" == "percent" ]; then
+    # Percentage difference: 100*(exp1-expN)/expN
+    # Note: PyFerret will handle division by zero gracefully (results in missing values)
+    diff_expr_template='100*(VAR1-VAR2)/VAR2'
+    diff_title_suffix="[%]"
+    # For log: use abs() to handle negative percentages (shows magnitude only)
+    diff_log_expr_template='log(abs(100*(VAR1-VAR2)/VAR2))'
+    diff_log_title_suffix="log(|%|)"
+    
+    # Configure LEVELS for regular (non-log) plots
+    # Use simple symmetric range with configured step size
+    pct_range="${DIFF_PERCENT_RANGE}"
+    pct_step="${DIFF_PERCENT_STEP}"
+    LEVELS_DIFF="/LEVELS=\"(-${pct_range},${pct_range},${pct_step})\""
+    
+    # For log plots: auto-scale (don't use white_centered palette)
+    LEVELS_DIFF_LOG=""
+else
+    # Absolute difference: exp1-expN
+    # Note: Log of differences requires handling negatives with abs()
+    diff_expr_template='VAR1-VAR2'
+    diff_title_suffix=""
+    diff_log_expr_template='log(abs(VAR1-VAR2))'
+    diff_log_title_suffix="log(|diff|)"
+    LEVELS_DIFF=""  # Auto-scale for absolute differences
+    LEVELS_DIFF_LOG=""
+fi
+
+# Map palette names to PyFerret palette specifications
+# PyFerret built-in palettes: rainbow, no_green, no_green_centered, etc.
+# Custom palette: our blue-white-red with narrow white zone
+case "${DIFF_PALETTE}" in
+    custom)
+        # Use our custom palette file (only for percent mode, non-log plots)
+        custom_palette_file="${SCRIPTS_PATH}/qlc_diff_white_zone.spk"
+        if [ -f "${custom_palette_file}" ]; then
+            ferret_diff_palette="/PALETTE=${custom_palette_file}"
+            log "Using custom difference palette: ${custom_palette_file}"
+        else
+            log "Warning: Custom palette file not found, falling back to no_green_centered"
+            ferret_diff_palette="/PALETTE=no_green_centered"
+        fi
+        ;;
+    no_green_centered)
+        ferret_diff_palette="/PALETTE=no_green_centered"
+        ;;
+    no_green)
+        ferret_diff_palette="/PALETTE=no_green"
+        ;;
+    rainbow)
+        ferret_diff_palette="/PALETTE=rainbow"
+        ;;
+    white_centered)
+        ferret_diff_palette="/PALETTE=white_centered"
+        ;;
+    *)
+        # Try to use as-is (user might specify custom palette file path)
+        if [ -f "${DIFF_PALETTE}" ]; then
+            ferret_diff_palette="/PALETTE=${DIFF_PALETTE}"
+        else
+            ferret_diff_palette="/PALETTE=${DIFF_PALETTE}"
+        fi
+        ;;
+esac
+
+# For log plots, always use rainbow (log of differences are always positive)
+# Centered/diverging palettes don't make sense for log scale
+ferret_diff_palette_log="/PALETTE=rainbow"
+log "Log plots will use rainbow palette (diverging palettes not suitable for log scale)"
+
+log "Difference calculation: ${diff_expr_template}"
+log "Difference palette (PyFerret): ${ferret_diff_palette}"
+if [ -n "${LEVELS_DIFF}" ]; then
+    log "Difference LEVELS: ${LEVELS_DIFF}"
+fi
 # Generate PyFerret scripts based on levtype
 # Skip vertical structure scripts for surface data or single-level data
 if [ "$levtype" != "sfc" ] && [ -n "${nlev}" ] && [ "${nlev}" -gt 1 ]; then
@@ -862,6 +1002,17 @@ EOF
 
 # Generate diff scripts only if multiple experiments (expN is not empty)
 if [ -n "$expN" ] && [ "$exp1" != "$expN" ]; then
+	# Build difference expressions for this plot type
+	var1_expr="${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	var2_expr="${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	diff_expr=$(echo "${diff_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	diff_log_expr=$(echo "${diff_log_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	
+	# Extract palette name/path for PyFerret
+	# Remove /PALETTE= prefix to get just the palette spec
+	pal_spec="${ferret_diff_palette#/PALETTE=}"
+	pal_log_spec="${ferret_diff_palette_log#/PALETTE=}"
+	
 cat > ${tfile}_burden_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
 use ${ifile_current}
@@ -873,22 +1024,16 @@ SET VAR/BAD=-9.e+33 ${pvar}
 PPL AXLSZE,0.14,0.14
 PPL LABSET 0.18,0.18,0.18,0.18 ! character heights for labels
 PPL SHASET 0 100 100 100 ! white for 0% LEVEL
-!let pal="/PALETTE=rainbow"
-!let pal="/PALETTE=rain_cmyk"
-!let pal="/PALETTE=no_green_centered"
-let pal="/PALETTE=white_centered"
 let lon="-180:180"
 let lat="-90:90"
 let tim="@AVE"
 let lev="@SUM"
 let var="${facB}${pvar}"
-${fill} ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
-!${CONTOUR}                                                                       (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
+${fill} /PALETTE="${pal_spec}" ${LEVELS_DIFF} /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var} ${diff_title_suffix}" ${diff_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_burden_diff.$ext
   FRAME/file=${tfile}_burden_diff.$ext
 !SPAWN ls -l ${tfile}_burden_diff.$ext
-${fill}  ${pal}  /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
-!${CONTOUR}                                                                             (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
+${fill} /PALETTE="${pal_log_spec}" ${LEVELS_DIFF_LOG} /title="Burden: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var}) ${diff_log_title_suffix}" ${diff_log_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_burden_log_diff.$ext
   FRAME/file=${tfile}_burden_log_diff.$ext
 !SPAWN ls -l ${tfile}_burden_log_diff.$ext
@@ -932,6 +1077,16 @@ EOF
 
 # Generate zonal diff scripts only if multiple experiments
 if [ -n "$expN" ] && [ "$exp1" != "$expN" ]; then
+	# Build difference expressions for this plot type
+	var1_expr="${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	var2_expr="${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	diff_expr=$(echo "${diff_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	diff_log_expr=$(echo "${diff_log_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	
+	# Extract palette spec
+	pal_spec="${ferret_diff_palette#/PALETTE=}"
+	pal_log_spec="${ferret_diff_palette_log#/PALETTE=}"
+	
 cat > ${tfile}_zonal_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
 use ${ifile_current}
@@ -943,22 +1098,18 @@ PPL AXLSZE,0.14,0.14
 PPL LABSET 0.18,0.18,0.18,0.18 ! character heights for labels
 PPL SHASET 0 100 100 100 ! white for 0% LEVEL
 SET VAR/BAD=-9.e+33 ${pvar}
-!let pal="/PALETTE=rainbow"
-!let pal="/PALETTE=rain_cmyk"
-!let pal="/PALETTE=no_green_centered"
-let pal="/PALETTE=white_centered"
 let lon="-180:180@AVE"
 let lat="-90:90"
 let tim="@AVE"
 let lev="1:${plev}"
 let var="${facZ}${pvar}"
-fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
-${CONTOUR}                                                                           (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
+fill /PALETTE="${pal_spec}" ${LEVELS_DIFF} /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var} ${diff_title_suffix}" ${diff_expr};go land
+${CONTOUR}                                                                           (${diff_expr})
 ! FRAME/TRANSPARENT/file=${tfile}_zonal_diff.$ext
   FRAME/file=${tfile}_zonal_diff.$ext
 !SPAWN ls -l ${tfile}_zonal_diff.$ext
-fill  ${pal}  /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
-${CONTOUR}                                                                                (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
+fill /PALETTE="${pal_log_spec}" ${LEVELS_DIFF_LOG} /title="Zonal avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var}) ${diff_log_title_suffix}" ${diff_log_expr};go land
+${CONTOUR}                                                                                (${diff_log_expr})
 ! FRAME/TRANSPARENT/file=${tfile}_zonal_log_diff.$ext
   FRAME/file=${tfile}_zonal_log_diff.$ext
 !SPAWN ls -l ${tfile}_zonal_log_diff.$ext
@@ -1001,6 +1152,16 @@ EOF
 
 # Generate meridional diff scripts only if multiple experiments
 if [ -n "$expN" ] && [ "$exp1" != "$expN" ]; then
+	# Build difference expressions for this plot type
+	var1_expr="${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	var2_expr="${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	diff_expr=$(echo "${diff_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	diff_log_expr=$(echo "${diff_log_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	
+	# Extract palette spec
+	pal_spec="${ferret_diff_palette#/PALETTE=}"
+	pal_log_spec="${ferret_diff_palette_log#/PALETTE=}"
+	
 cat > ${tfile}_meridional_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
 use ${ifile_current}
@@ -1012,22 +1173,18 @@ SET VAR/BAD=-9.e+33 ${pvar}
 PPL AXLSZE,0.14,0.14
 PPL LABSET 0.18,0.18,0.18,0.18 ! character heights for labels
 PPL SHASET 0 100 100 100 ! white for 0% LEVEL
-!let pal="/PALETTE=rainbow"
-!let pal="/PALETTE=rain_cmyk"
-!let pal="/PALETTE=no_green_centered"
-let pal="/PALETTE=white_centered"
 let lon="-180:180"
 let lat="-90:90@AVE"
 let tim="@AVE"
 let lev="1:${plev}"
 let var="${facM}${pvar}"
-fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
-${CONTOUR}                                                                                (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
+fill /PALETTE="${pal_spec}" ${LEVELS_DIFF} /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var} ${diff_title_suffix}" ${diff_expr};go land
+${CONTOUR}                                                                                (${diff_expr})
 ! FRAME/TRANSPARENT/file=${tfile}_meridional_diff.$ext
   FRAME/file=${tfile}_meridional_diff.$ext
 !SPAWN ls -l ${tfile}_meridional_diff.$ext
-fill  ${pal}  /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
-${CONTOUR}                                                                                     (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
+fill /PALETTE="${pal_log_spec}" ${LEVELS_DIFF_LOG} /title="Meridional avg: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var}) ${diff_log_title_suffix}" ${diff_log_expr};go land
+${CONTOUR}                                                                                     (${diff_log_expr})
 ! FRAME/TRANSPARENT/file=${tfile}_meridional_log_diff.$ext
   FRAME/file=${tfile}_meridional_log_diff.$ext
 !SPAWN ls -l ${tfile}_meridional_log_diff.$ext
@@ -1074,6 +1231,16 @@ EOF
 
 # Generate surface diff scripts only if multiple experiments
 if [ -n "$expN" ] && [ "$exp1" != "$expN" ]; then
+	# Build difference expressions for this plot type
+	var1_expr="${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	var2_expr="${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]"
+	diff_expr=$(echo "${diff_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	diff_log_expr=$(echo "${diff_log_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	
+	# Extract palette spec
+	pal_spec="${ferret_diff_palette#/PALETTE=}"
+	pal_log_spec="${ferret_diff_palette_log#/PALETTE=}"
+	
 cat > ${tfile}_surface_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
 use ${ifile_current}
@@ -1085,22 +1252,16 @@ SET VAR/BAD=-9.e+33 ${pvar}
 PPL AXLSZE,0.14,0.14
 PPL LABSET 0.18,0.18,0.18,0.18 ! character heights for labels
 PPL SHASET 0 100 100 100 ! white for 0% LEVEL
-!let pal="/PALETTE=rainbow"
-!let pal="/PALETTE=rain_cmyk"
-!let pal="/PALETTE=no_green_centered"
-let pal="/PALETTE=white_centered"
 let lon="-180:180"
 let lat="-90:90"
 let tim="@AVE"
 let lev="${surface_lev}"
 let var="${facS}${pvar}"
-${fill}  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var}" ${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}];go land
-!${CONTOUR}                                                                         (${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}])
+${fill} /PALETTE="${pal_spec}" ${LEVELS_DIFF} /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var} ${diff_title_suffix}" ${diff_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_surface_diff.$ext
   FRAME/file=${tfile}_surface_diff.$ext
 !SPAWN ls -l ${tfile}_surface_diff.$ext
-${fill}  ${pal}  /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]);go land
-!${CONTOUR}                                                                              (log(${var}[d=1,x=${lon},y=${lat},k=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},k=${lev},l=${tim}]))
+${fill} /PALETTE="${pal_log_spec}" ${LEVELS_DIFF_LOG} /title="Surface: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var}) ${diff_log_title_suffix}" ${diff_log_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_surface_log_diff.$ext
   FRAME/file=${tfile}_surface_log_diff.$ext
 !SPAWN ls -l ${tfile}_surface_log_diff.$ext
@@ -1148,6 +1309,16 @@ EOF
 
 # Generate vertical range diff scripts only if multiple experiments
 if [ -n "$expN" ] && [ "$exp1" != "$expN" ]; then
+	# Build difference expressions for this plot type
+	var1_expr="${var}[d=1,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]"
+	var2_expr="${var}[d=2,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]"
+	diff_expr=$(echo "${diff_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	diff_log_expr=$(echo "${diff_log_expr_template}" | sed "s|VAR1|${var1_expr}|g" | sed "s|VAR2|${var2_expr}|g")
+	
+	# Extract palette spec
+	pal_spec="${ferret_diff_palette#/PALETTE=}"
+	pal_log_spec="${ferret_diff_palette_log#/PALETTE=}"
+	
 cat > ${tfile}_${vrange_name_lc}_1x1_diff.jnl <<EOF
 ! pyferret -nodisplay -script ferret_1x1.jnl
 use ${ifile_current}
@@ -1159,22 +1330,16 @@ SET VAR/BAD=-9.e+33 ${pvar}
 PPL AXLSZE,0.14,0.14
 PPL LABSET 0.18,0.18,0.18,0.18 ! character heights for labels
 PPL SHASET 0 100 100 100 ! white for 0% LEVEL
-!let pal="/PALETTE=rainbow"
-!let pal="/PALETTE=rain_cmyk"
-!let pal="/PALETTE=no_green_centered"
-let pal="/PALETTE=white_centered"
 let lon="-180:180"
 let lat="-90:90"
 let tim="@AVE"
 let lev="${ulev}@SUM"
 let var="${facU}${pvar}"
-${fill}  ${pal}  /title="${vrange_name}: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var}" ${var}[d=1,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}];go land
-!${CONTOUR}                                                                     (${var}[d=1,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}])
+${fill} /PALETTE="${pal_spec}" ${LEVELS_DIFF} /title="${vrange_name}: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: ${var} ${diff_title_suffix}" ${diff_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_${vrange_name_lc}_diff.$ext
   FRAME/file=${tfile}_${vrange_name_lc}_diff.$ext
 !SPAWN ls -l ${tfile}_${vrange_name_lc}_diff.$ext
-${fill}  ${pal}  /title="${vrange_name}: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var})" log(${var}[d=1,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]);go land
-!${CONTOUR}                                                                          (log(${var}[d=1,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]-${var}[d=2,x=${lon},y=${lat},${vcoord_spec}=${lev},l=${tim}]))
+${fill} /PALETTE="${pal_log_spec}" ${LEVELS_DIFF_LOG} /title="${vrange_name}: ${MODEL_RESOLUTION} - Diff: ${exp_label}-${ref_exp_label}: log(${var}) ${diff_log_title_suffix}" ${diff_log_expr};go land
 ! FRAME/TRANSPARENT/file=${tfile}_${vrange_name_lc}_log_diff.$ext
   FRAME/file=${tfile}_${vrange_name_lc}_log_diff.$ext
 !SPAWN ls -l ${tfile}_${vrange_name_lc}_log_diff.$ext
@@ -1357,9 +1522,10 @@ else
         #   - exp1, exp2, ..., exp(N-1): sort their files + reference files + diff files
         #   - expN (reference): skip (already included in other experiments' sorts)
         for curr_exp in "${experiments[@]}"; do
-            # Skip reference experiment in multi-experiment mode
-            # (its files are already sorted and included by non-reference experiments)
-            if [ -n "$expN" ] && [ "$curr_exp" == "$ref_exp" ]; then
+            # Skip reference experiment only in true multi-experiment mode (exp1 != expN).
+            # In single-experiment or self-comparison mode (exp1 == expN) the reference IS
+            # the only experiment, so it must be processed rather than skipped.
+            if [ -n "$expN" ] && [ "$exp1" != "$expN" ] && [ "$curr_exp" == "$ref_exp" ]; then
                 log "Skipping reference experiment ${ref_exp} (already included in sorted lists)"
                 continue
             fi

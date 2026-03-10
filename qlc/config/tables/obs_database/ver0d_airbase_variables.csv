@@ -1,0 +1,7 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+CO,CO,ug/m3,time,latitude,longitude,unknown,
+NO2,NO2,ug/m3,time,latitude,longitude,unknown,
+O3,O3,ug/m3,time,latitude,longitude,unknown,
+PM10,PM10,ug/m3,time,latitude,longitude,unknown,
+PM2.5,PM2.5,ug/m3,time,latitude,longitude,unknown,
+SO2,SO2,ug/m3,time,latitude,longitude,unknown,

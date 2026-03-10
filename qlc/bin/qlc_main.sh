@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Main Workflow Driver
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -17,7 +17,7 @@
 # Entry Point:
 #   This script is called via the 'qlc' command (Python entry point)
 #   Users run: qlc <exp1> [exp2 ...] <start_date> <end_date> <workflow>
-#   Example:   qlc 9191 0001 2025-11-01 2025-11-03 aifs
+#   Example:   qlc aifs1 aifs2 2025-11-01 2025-11-03 aifs
 #
 # Features:
 #   - Automatic environment detection and activation
@@ -31,7 +31,7 @@
 #   Called automatically via 'qlc' command - Do not call directly
 #   For help: qlc -h
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -74,7 +74,7 @@ if [ -f "${QLC_HOME:-$HOME/qlc}/bin/qlc_common_functions.sh" ]; then
     # Log start banner first (moved up for consistent logging)
     SCRIPT="$0"
     log "________________________________________________________________________________________"
-    log "QLC v1.0.1-beta: Quick Look Content for CAMS/IFS Analysis"
+    log "QLC v1.0.2: Quick Look Content for CAMS/IFS Analysis"
     log "________________________________________________________________________________________"
     log "Start ${SCRIPT} at $(date)"
     log "System: ${MOST} on ${myOS} / ${ARCH} - User: ${CUSR}"
@@ -82,7 +82,7 @@ if [ -f "${QLC_HOME:-$HOME/qlc}/bin/qlc_common_functions.sh" ]; then
     log "Documentation: https://docs.researchconcepts.io/qlc/latest/"
     log "QLC uses subscripts defined in workflow configuration"
     log "----------------------------------------------------------------------------------------"
-    log "Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.                  "
+    log "Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.                  "
     log "Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>       "
     log "----------------------------------------------------------------------------------------"
     
@@ -192,8 +192,8 @@ parse_qlc_arguments "${args[@]}" || {
   log "Usage: qlc [exp1] [expN ...] <start_date> <end_date> [config] [-class=xx|xx,yy,...] [options]"
   log "   or: qlc <start_date> <end_date> [config]  (obs-only mode)"
   log "Examples:"
-  log "  qlc 9191 0001 2025-11-01 2025-11-03 aifs         # Two experiments"
-  log "  qlc 9191 None 2025-11-01 2025-11-03 aifs         # Single experiment"
+  log "  qlc aifs1 aifs2 2025-11-01 2025-11-03 aifs         # Two experiments"
+  log "  qlc aifs1 None 2025-11-01 2025-11-03 aifs         # Single experiment"
   log "  qlc None None 2025-11-01 2025-11-03 aifs         # Obs-only mode"
   log "  qlc None 2025-11-01 2025-11-03 aifs              # Obs-only mode (single None)"
   log "  qlc 2025-11-01 2025-11-03 aifs                   # Obs-only mode (no None)"
@@ -203,6 +203,12 @@ parse_qlc_arguments "${args[@]}" || {
 # parse_qlc_arguments sets: experiments (array), sDat, eDat, config_arg, exp1, expN
 start_date="$sDat"
 end_date="$eDat"
+
+# Echo all raw command line inputs first (positional + optional args logged above by
+# parse_qlc_arguments for Python-handled options like --myvar=, --param=, etc.)
+for param in "$@"; do
+  log "Command line input: $param"
+done
 
 # Log parsed arguments
 log "Parsed arguments:"
@@ -232,21 +238,40 @@ if [ -z "$config_arg" ]; then
   log "  <workflow>         Workflow name: aifs, eac5, evaltools, mars, pyferret, qpy, test"
   log ""
   log "Common Options:"
-  log "  --obs-only         Analyze observations only"
-  log "  --mod-only         Analyze model results only"
-  log "  -class=xx          Override MARS class (e.g., -class=nl)"
-  log "  -vars=<spec>       Variable specification (e.g., -vars=\"go3,NH3,PM2.5\")"
-  log "  -region=<code>     Region override (e.g., -region=EU)"
+  log "  --obs-only              Analyze observations only (no MARS retrieval)"
+  log "  --mod-only              Analyze model results only"
+  log "  -class=xx[,yy]          Override MARS class per experiment (e.g., -class=nl,nl)"
+  log "  --myvar=<spec>          Variable spec override (see format below)"
+  log "  --network=<net>[,<net>] Station network(s) to activate (overrides ACTIVE_REGIONS)"
+  log "  --region=<code>         Map region override (e.g., --region=EU)"
+  log "  --user=<name>           Use group/display name instead of Unix username"
+  log ""
+  log "Variable Spec Format (new in v1.0.2):"
+  log "  \"DisplayName|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]\""
+  log "  Operators: * / + -   applied at load time on model or obs side"
+  log "  unitFAC: explicit scale factor (alternative to automatic unit conversion)"
+  log "  Use for variables not in the built-in table, custom diagnostics, or quick tests."
+  log "  A single --myvar= applies the same spec across all active regions in one run."
+  log ""
+  log "  Examples:"
+  log "    \"O3|go3|O3|ug/m3\"               O3: automatic kg/kg -> ug/m3"
+  log "    \"PM2.5|pm2p5|PM2.5|ug/m3\"       PM2.5: automatic kg/m3 -> ug/m3 (preferred)"
+  log "    \"T2m|2t|temp|degC\"              T2m: automatic K -> degC"
+  log "    \"MyVar|myvar,*,0.001|obs|N/A\"   custom: scale model by 0.001, no unit label"
+  log "    \"MyVar|myvar|obs|unit,1e3\"       custom: unitFAC=1e3, unit label kept"
+  log "  Multiple variables: separate with ';' inside the quoted string."
   log ""
   log "Quick Examples:"
-  log "  qlc b2ro b2rn 2018-12-01 2018-12-21 test"
-  log "  qlc b2ro b2rn 2018-12-01 2018-12-21 test -obs-only -region=EU"
-  log "  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -vars=\"go3,nh3\""
-  log "  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -param=210073,210203 -myvar=PM2p5,O3 -levtype=sfc,pl" 
+  log "  qlc exp1 exp2 2018-12-01 2018-12-21 test"
+  log "  qlc exp1 exp2 2018-12-01 2018-12-21 test --obs-only --region=EU"
+  log "  qlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,nl --myvar=\"O3|go3|O3|ug/m3\""
+  log "  qlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,nl --network=EU_AIRBASE,China_AQ"
+  log "  qlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,nl --param=210073,210203 --myvar=\"PM2.5|pm2p5|PM2.5|ug/m3;O3|go3|O3|ug/m3\""
   log ""
   log "Variable Search:"
-  log "  qlc-vars search O3"
-  log "  qlc-vars info O3"
+  log "  qlc-vars search PM2.5          # find by name pattern"
+  log "  qlc-vars info sfc_O3           # detailed metadata + GRIB parameters"
+  log "  qlc-vars list --source ifs     # list all IFS variables"
   log ""
   log "View Results:"
   log "  ls -lrth ~/qlc/Results        # GRIB data (MARS download)"
@@ -261,7 +286,7 @@ if [ -z "$config_arg" ]; then
   log "  Documentation  : https://docs.researchconcepts.io/qlc"
   log "  Getting Started: https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/"
   log ""
-  log "© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved."
+  log "© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved."
   log "========================================================================================"
   exit 0
 fi
@@ -326,14 +351,26 @@ if [ $# -eq 0 ]; then
   log  "Options:"
   log  "  -class=xx          Override MARS class for all experiments (e.g., -class=nl)"
   log  "  -class=xx,yy,zz    Override MARS class per experiment (must match count)"
-  log  "  -vars=var1,var2    Override MARS variables to retrieve (e.g., -vars=PM2p5_sfc,O3_pl)"
-  log  "  -vars=@GROUP       Use variable groups (e.g., -vars=@EAC5_SFC,@EAC5_PL)"
+  log  "  -vars=var1,var2    MARS retrieval: override variable groups (e.g., -vars=PM2p5_sfc,O3_pl)"
+  log  "  -vars=@GROUP       MARS retrieval: use variable groups (e.g., -vars=@EAC5_SFC,@EAC5_PL)"
   log  "  -nml=nml1,nml2     Legacy namelist override (backward compatible)"
   log  "  -scripts=S1,S2,... Override workflow scripts (e.g., -scripts=A1-MARS,B1-CONV,B2-PREP)"
   log  " "
-  log  "Expert Mode (direct parameter specification):"
+  log  "Station Analysis / qlc-py Options (qpy, evaltools):"
+  log  "  --myvar=\"spec\"      Obs-mod variable mapping spec (pipe format, new in v1.0.2):"
+  log  "                       \"DisplayName|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]\""
+  log  "                       Operators: * / + -   applied at load time on model or obs side"
+  log  "                       Enables user-defined unit conversion for any variable (incl. custom)."
+  log  "                       Applied across all active regions in one run."
+  log  "  --network=net[,net] Station network(s) to activate (overrides ACTIVE_REGIONS)"
+  log  "  --region=code       Map region override (overrides REGION_*_PLOT_REGION)"
+  log  "  --user=name         Use group/display name instead of Unix username"
+  log  " "
+  log  "Expert Mode (direct GRIB parameter specification):"
   log  "  -param=p1,p2,...   GRIB parameter codes (e.g., -param=72.210,73.210)"
-  log  "  -myvar=v1,v2,...   User variable names (e.g., -myvar=PM1,PM2p5)"
+  log  "  -myvar=v1;v2,...   Display names when paired with -param= (e.g., -myvar=PM2.5;PM10)"
+  log  "                     Or standalone with GRIB code: -myvar=PM2.5,210073;O3,210203"
+  log  "                     (Note: different from --myvar= pipe format used in qpy/evaltools)"
   log  "  -levtype=t1,t2,... Level types: sfc,pl,ml (single or per-var, e.g., -levtype=sfc)"
   log  "  -ncvar=n1,n2,...   NetCDF var names (optional, defaults to 'unknown' for auto-detect)"
   log  " "
@@ -363,45 +400,47 @@ if [ $# -eq 0 ]; then
   log  " "
   log  "Examples:"
   log  "  # Show available configurations"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21"
   log  " "
   log  "  # Data retrieval with GRIB / NetCDF"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 mars"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 mars"
   log  " "
   log  "  # Quick test analysis"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 test"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 test"
   log  " "
   log  "  # Station analysis with qlc-py"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 qpy"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 qpy"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 qpy --myvar=\"O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3\""
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 qpy --myvar=\"MyVar|myvar,*,0.001|obs|N/A\" --network=EU_AIRBASE"
   log  " "
   log  "  # Advanced statistics with evaltools"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 evaltools"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 evaltools"
   log  " "
   log  "  # 3D analysis with PyFerret"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 pyferret"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 pyferret"
   log  " "
   log  "  # Production analysis (comprehensive)"
-  log  "  qlc b2ro b2rn 2018-12-01 2018-12-21 eac5"
+  log  "  qlc exp1 exp2 2018-12-01 2018-12-21 eac5"
   log  " "
   log  "  # Override MARS class"
-  log  "  qlc b11s b11x b11r 2019-01-01 2019-12-31 eac5 -class=de"
+  log  "  qlc exp1 exp2 exp3 2019-01-01 2019-12-31 eac5 -class=de"
   log  " "
   log  "  # Override variables (new registry system)"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -vars=PM2p5_sfc,O3_pl"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC,@EAC5_PL"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -vars=PM2p5_sfc,O3_pl"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC,@EAC5_PL"
   log  " "
   log  "  # Override MARS parameters"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC -grid=0.5/0.5 -step=0/to/48/by/6"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC -grid=0.5/0.5 -step=0/to/48/by/6"
   log  " "
   log  "  # Expert mode (direct parameter specification)"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -param=72.210,73.210 -myvar=PM1,PM2p5 -levtype=sfc"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -param=999.210 -myvar=NEW_VAR -levtype=pl -grid=0.5/0.5"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -param=72.210,73.210 -myvar=PM2.5;PM10"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -param=999.210 -myvar=NEW_VAR -levtype=pl -grid=0.5/0.5"
   log  " "
   log  "  # Expert mode with registry variables (additive)"
-  log  "  qlc b2ro b2rn 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC -param=999.210 -myvar=TEST -levtype=sfc"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -vars=@EAC5_SFC -param=999.210 -myvar=TEST -levtype=sfc"
   log  " "
   log  "  # Combined overrides"
-  log  "  qlc b11s b11x 2019-01-01 2019-12-31 eac5 -vars=PM2p5_sfc,O3_sfc -class=de,rd -grid=0.25/0.25"
+  log  "  qlc exp1 exp2 2019-01-01 2019-12-31 eac5 -vars=PM2p5_sfc,O3_sfc -class=de,rd -grid=0.25/0.25"
   log  " "
   log  "Data Retrieval Behavior:"
   log  "  - Auto-retrieves data if workflow includes A1 script"
@@ -414,8 +453,8 @@ if [ $# -eq 0 ]; then
   log  "For batch submission, use: sqlc <exp1> [exp2 ...] <dates> [config]"
   log  "For help: qlc --help (or just 'qlc' without arguments in Python wrapper)"
   log  " "
-  log  "BETA RELEASE: Under development, requires further testing."
-  log  "© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved."
+  log  "See: https://docs.researchconcepts.io/qlc/latest/reference/changelog"
+  log  "© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved."
   log  "Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>"
   log  "Documentation     : https://docs.researchconcepts.io/qlc/latest"
   log  "________________________________________________________________________________________"
@@ -423,11 +462,6 @@ if [ $# -eq 0 ]; then
   log  "________________________________________________________________________________________"
   exit 0
 fi
-
-# Loop through the provided parameters
-for param in "$@"; do
-  log  "Command line input: $param"
-done
 
 # Check if the configuration file exists
 if [ -f "$CONFIG_FILE" ]; then
@@ -460,11 +494,16 @@ if [ -z "${SUBSCRIPT_NAMES[*]}" ]; then
   exit 1
 fi
 
-# Apply -scripts= override if provided
+# Apply -scripts= override if provided.
+# qlc_main.sh scans $@ directly for -scripts= (single-dash, bash-visible args).
+# --scripts= (double-dash) is filtered out by Python and propagated via QLC_CLI_SCRIPTS instead.
 if [ -n "$scripts_option" ]; then
   scripts_spec="${scripts_option#-scripts=}"
   IFS=',' read -ra SUBSCRIPT_NAMES <<< "$scripts_spec"
   log "Workflow scripts overridden via command line: ${SUBSCRIPT_NAMES[*]}"
+elif [ -n "${QLC_CLI_SCRIPTS:-}" ]; then
+  IFS=',' read -ra SUBSCRIPT_NAMES <<< "${QLC_CLI_SCRIPTS}"
+  log "Workflow scripts overridden via --scripts=: ${SUBSCRIPT_NAMES[*]}"
 fi
 
 # Create working directory if not existent
@@ -532,8 +571,10 @@ for name in "${SUBSCRIPT_NAMES[@]}"; do
   fi
 
   if [ -f "$SCRIPTS_PATH/$script_name" ]; then
-    # Build subscript arguments: pass through cleaned args and all options
-    subscript_args=("${experiments[@]}" "$start_date" "$end_date")
+    # Build subscript arguments: use experiments_original so that experiment IDs are
+    # forwarded to subscripts for directory naming even in obs-only / mod-only mode,
+    # where experiments[] is cleared for processing but experiments_original[] is kept.
+    subscript_args=("${experiments_original[@]}" "$start_date" "$end_date")
     [ -n "$config_arg" ] && subscript_args+=("$config_arg")
     [ -n "$class_option" ] && subscript_args+=("$class_option")
     [ -n "$vars_option" ] && subscript_args+=("$vars_option")
@@ -560,12 +601,23 @@ for name in "${SUBSCRIPT_NAMES[@]}"; do
       eDate="${end_date//[-:]/}"
       mDate="$sDate-$eDate"
       
-      # Load variables for post-A1 check
-      load_variable_registry
-      parse_variable_and_mars_options "$@"
-      while IFS= read -r var; do
-        a1_mars_check_retrievals+=("$var")
-      done < <(get_required_mars_variables)
+      # Load variables for post-A1 check.
+      # When QLC_CLI_MYVAR is set we use the variable names directly — they are plain
+      # display names (e.g. pl_NH4_as) that the Python registry cannot resolve without
+      # an accompanying GRIB code, so calling expand_variable_spec on them would fail.
+      if [ -n "${QLC_CLI_MYVAR:-}" ]; then
+        IFS=';' read -ra MARS_RETRIEVALS <<< "${QLC_CLI_MYVAR}"
+        log "Post-A1 check: using CLI variable override (${#MARS_RETRIEVALS[@]} var(s)): ${MARS_RETRIEVALS[*]}"
+        for _cli_var in "${MARS_RETRIEVALS[@]}"; do
+          a1_mars_check_retrievals+=("$_cli_var")
+        done
+      else
+        load_variable_registry
+        parse_variable_and_mars_options "$@"
+        while IFS= read -r var; do
+          a1_mars_check_retrievals+=("$var")
+        done < <(get_required_mars_variables)
+      fi
       
       log "Checking retrieval status for ${#a1_mars_check_retrievals[@]} variable(s)"
       

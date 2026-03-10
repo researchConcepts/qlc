@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Evaltools Installation Script
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -21,7 +21,7 @@
 # Usage:
 #   bash $HOME/qlc/bin/tools/qlc_install_evaltools.sh
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 

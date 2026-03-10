@@ -3,7 +3,7 @@
 """
 QLC Tools Installer and Checker: System Tool Management
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -24,7 +24,7 @@ Usage:
     qlc-install-tools --install-pyferret     # Install PyFerret standalone
     qlc-install-tools --install-cartopy      # Download Cartopy Natural Earth data
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -473,40 +473,40 @@ def check_tools() -> dict:
     log("\n[QLC Required Tools]")
     for tool in ["bash"]:
         if tools[tool]["available"]:
-            status = f"✓ Available"
+            status = f"Available"
             version = f" ({tools[tool]['version']})" if tools[tool]['version'] else ""
             source = f" via {tools[tool]['source']}" if tools[tool]['source'] else ""
             log(f"  {tool}: {status}{version}{source}")
         else:
-            log(f"  {tool}: ✗ Missing - Install with: qlc-install-tools --install-bash")
+            log(f"  {tool}: ERROR Missing - Install with: qlc-install-tools --install-bash")
     
     # Core Tools
     log("\n[Core Tools]")
     for tool in ["cdo", "ncdump", "ncgen", "xelatex"]:
         if tools[tool]["available"]:
-            status = f"✓ Available"
+            status = f"Available"
             version = f" ({tools[tool]['version']})" if tools[tool]['version'] else ""
             source = f" via {tools[tool]['source']}" if tools[tool]['source'] else ""
             log(f"  {tool}: {status}{version}{source}")
         else:
-            log(f"  {tool}: ✗ Missing")
+            log(f"  {tool}: ERROR Missing")
     
     # Plotting tools
     log("\n[Plotting Tools]")
     for tool in ["pyferret", "evaltools"]:
         if tools[tool]["available"]:
-            status = f"✓ Available"
+            status = f"Available"
             version = f" ({tools[tool]['version']})" if tools[tool]['version'] else ""
             source = f" via {tools[tool]['source']}" if tools[tool]['source'] else ""
             location = f" at {tools[tool]['location']}" if tools[tool]['location'] else ""
             log(f"  {tool}: {status}{version}{source}{location}")
         else:
-            log(f"  {tool}: ✗ Missing")
+            log(f"  {tool}: ERROR Missing")
     
     # Module system info
     modules = check_module_system()
     if modules["module_system"]:
-        log(f"\n[Module System] ✓ Available")
+        log(f"\n[Module System] Available")
         available_modules = []
         for module in ["python3", "texlive", "ferret", "cdo", "netcdf"]:
             if modules[module]:
@@ -516,7 +516,7 @@ def check_tools() -> dict:
         else:
             log(f"  No QLC-relevant modules found")
     else:
-        log(f"\n[Module System] ✗ Not available (using system packages)")
+        log(f"\n[Module System] ERROR Not available (using system packages)")
     
     return tools
 

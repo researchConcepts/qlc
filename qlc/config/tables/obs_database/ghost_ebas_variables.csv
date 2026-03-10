@@ -1,90 +1,51 @@
 variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
-O3,ozone,nmol mol-1,time,latitude,longitude,unknown,ozone
-NO,nitrogen_monoxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen monoxide
-NO2,nitrogen_dioxide,nmol mol-1,time,latitude,longitude,unknown,nitrogen dioxide
-SO2,sulphur_dioxide,nmol mol-1,time,latitude,longitude,unknown,sulphur dioxide
-CO,carbon_monoxide,nmol mol-1,time,latitude,longitude,unknown,carbon monoxide
-CH4,methane,nmol mol-1,time,latitude,longitude,unknown,methane
-ACETYLENE,ethyne,pmol mol-1,time,latitude,longitude,unknown,acetylene
-GLYOXAL,ethanedial,,time,latitude,longitude,unknown,glyoxal
-ETHENE,ethene,pmol mol-1,time,latitude,longitude,unknown,ethene
-ACETALDEHYDE,ethanal,,time,latitude,longitude,unknown,acetaldehyde
-ETHANE,ethane,pmol mol-1,time,latitude,longitude,unknown,ethane
-ETHANOL,ethanol,,time,latitude,longitude,unknown,ethanol
-PROPENE,propene,pmol mol-1,time,latitude,longitude,unknown,propene
-PROPANE,propane,pmol mol-1,time,latitude,longitude,unknown,propane
-1-BUTENE,1-butene,pmol mol-1,time,latitude,longitude,unknown,1-butene
-ISOBUTANE,2-methylpropane,pmol mol-1,time,latitude,longitude,unknown,isobutane
-ISOPRENE,isoprene,pmol mol-1,time,latitude,longitude,unknown,isoprene
-N-PENTANE,n-pentane,pmol mol-1,time,latitude,longitude,unknown,n-pentane
-BENZENE,benzene,pmol mol-1,time,latitude,longitude,unknown,benzene
-N-HEXANE,n-hexane,pmol mol-1,time,latitude,longitude,unknown,n-hexane
-TOLUENE,toluene,pmol mol-1,time,latitude,longitude,unknown,toluene
-M-P-XYLENE,m-p-xylene,pmol mol-1,time,latitude,longitude,unknown,m-p-xylene
-M-XYLENE,m-xylene,pmol mol-1,time,latitude,longitude,unknown,m-xylene
-P-XYLENE,p-xylene,pmol mol-1,time,latitude,longitude,unknown,p-xylene
-O-XYLENE,o-xylene,pmol mol-1,time,latitude,longitude,unknown,o-xylene
-MONOTERPENES,monoterpenes,pmol mol-1,time,latitude,longitude,unknown,monoterpenes
-VOC,voc_complete,nmol mol-1,time,latitude,longitude,unknown,total volatile organic compounds
-NH3,ammonia,nmol mol-1,time,latitude,longitude,unknown,ammonia
-HNO3,nitric_acid,nmol mol-1,time,latitude,longitude,unknown,nitric acid
-HCHO,methanal,nmol mol-1,time,latitude,longitude,unknown,formaldehyde
-BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,total particulate black carbon
-C,total_carbon,ug m-3,time,latitude,longitude,unknown,total particulate carbon
-EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,total particulate elemental carbon
-K+,potassium,ug m-3,time,latitude,longitude,unknown,total particulate potassium
-MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,total particulate methanesulfonic acid
-NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,total particulate ammonium
-NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,total particulate ammonium nitrate
-NO3_ion,nitrate,ug m-3,time,latitude,longitude,unknown,total particulate nitrate
-OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,total particulate organic carbon
-SO4_ion,sulphate_total,ug m-3,time,latitude,longitude,unknown,total particulate sulphate
-SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,total particulate sulphate: non-sea salt
-SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,total particulate sulphate: sea salt
-V,vanadium,ng m-3,time,latitude,longitude,unknown,total particulate vanadium
-PM10,pm10_mass,ug m-3,time,latitude,longitude,unknown,PM10 mass
-PM10_BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,PM10 black carbon
-PM10_C,total_carbon,ug m-3,time,latitude,longitude,unknown,PM10 carbon
-PM10_EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,PM10 elemental carbon
-PM10_K+,potassium,ug m-3,time,latitude,longitude,unknown,PM10 potassium
-PM10_MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,PM10 methanesulfonic acid
-PM10_NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,PM10 ammonium
-PM10_NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,PM10 ammonium nitrate
-PM10_NO3-,nitrate,ug m-3,time,latitude,longitude,unknown,PM10 nitrate
-PM10_OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,PM10 organic carbon
-PM10_SO4--,sulphate_total,ug m-3,time,latitude,longitude,unknown,PM10 sulphate
-PM10_SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,PM10 sulphate : non-sea salt
-PM10_SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,PM10 sulphate : sea salt
-PM10_V,vanadium,ng m-3,time,latitude,longitude,unknown,PM10 vanadium
-PM1,pm1_mass,ug m-3,time,latitude,longitude,unknown,PM1 mass
-PM1_BC,equivalent_black_carbon,ug m-3,time,latitude,longitude,unknown,PM1 black carbon
-PM1_C,total_carbon,ug m-3,time,latitude,longitude,unknown,PM1 carbon
-PM1_EC,elemental_carbon,ug m-3,time,latitude,longitude,unknown,PM1 elemental carbon
-PM1_K+,potassium,ug m-3,time,latitude,longitude,unknown,PM1 potassium
-PM1_MSA,methanesulfonic_acid,ug m-3,time,latitude,longitude,unknown,PM1 methanesulfonic acid
-PM1_NH4+,ammonium,ug m-3,time,latitude,longitude,unknown,PM1 ammonium
-PM1_NH4NO3,ammonium_nitrate,ug m-3,time,latitude,longitude,unknown,PM1 ammonium nitrate
-PM1_NO3_ion,nitrate,ug m-3,time,latitude,longitude,unknown,PM1 nitrate
-PM1_OC,organic_carbon,ug m-3,time,latitude,longitude,unknown,PM1 organic carbon
-PM1_SO4_ion,sulphate_total,ug m-3,time,latitude,longitude,unknown,PM1 sulphate
-PM1_SO4--_NSS,sulphate_corrected,ug m-3,time,latitude,longitude,unknown,PM1 sulphate : non-sea salt
-PM1_SO4--_SS,sulphate_seasalt,ug m-3,time,latitude,longitude,unknown,PM1 sulphate : sea salt
-PM1_V,vanadium,ng m-3,time,latitude,longitude,unknown,PM1 vanadium
-K+_PREC,potassium,mg l-1,time,latitude,longitude,unknown,potassium in precipitaton
-MSA_PREC,methanesulfonic_acid,mg l-1,time,latitude,longitude,unknown,methanesulfonic acid in precipitaton
-NH4+_PREC,ammonium,mg l-1,time,latitude,longitude,unknown,ammonium in precipitaton
-NH4NO3_PREC,ammonium_nitrate,mg l-1,time,latitude,longitude,unknown,ammonium nitrate in precipitaton
-NO3-_PREC,nitrate,mg l-1,time,latitude,longitude,unknown,nitrate in precipitaton
-SO4--_PREC,sulphate_total,mg l-1,time,latitude,longitude,unknown,sulphate in precipitaton
-SO4--_NSS_PREC,sulphate_corrected,mg l-1,time,latitude,longitude,unknown,sulphate: non-sea salt in precipitaton
-SO4--_SS_PREC,sulphate_seasalt,mg l-1,time,latitude,longitude,unknown,sulphate: sea salt in precipitaton
-V_PREC,vanadium,ug l-1,time,latitude,longitude,unknown,vanadium in precipitaton
-K+_WETDEP,potassium,ug m-2 min-1,time,latitude,longitude,unknown,potassium wet deposition flux
-MSA_WETDEP,methanesulfonic_acid,ug m-2 min-1,time,latitude,longitude,unknown,methanesulfonic acid wet deposition flux
-NH4+_WETDEP,ammonium,ug m-2 min-1,time,latitude,longitude,unknown,ammonium wet deposition flux
-NH4NO3_WETDEP,ammonium_nitrate,ug m-2 min-1,time,latitude,longitude,unknown,ammonium nitrate wet deposition flux
-NO3-_WETDEP,nitrate,ug m-2 min-1,time,latitude,longitude,unknown,nitrate wet deposition flux
-SO4--_WETDEP,sulphate_total,ug m-2 min-1,time,latitude,longitude,unknown,sulphate wet deposition flux
-SO4--_NSS_WETDEP,sulphate_corrected,ug m-2 min-1,time,latitude,longitude,unknown,sulphate: non-sea salt wet deposition flux
-SO4--_SS_WETDEP,sulphate_seasalt,ug m-2 min-1,time,latitude,longitude,unknown,sulphate: sea salt wet deposition flux
-V_WETDEP,vanadium,ng m-2 min-1,time,latitude,longitude,unknown,vanadium wet deposition flux
+absae370-950,absae370-950,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 950 nm for total particulate absorption
+absco370,absco370,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 370nm
+absco470,absco470,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 470nm
+absco520,absco520,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 520nm
+absco528,absco528,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 528nm
+absco637,absco637,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 637nm
+absco652,absco652,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 652nm
+absco880,absco880,Mm-1,time,latitude,longitude,unknown,total particulate aerosol absorption coefficient at 880nm
+asy525,asy525,unitless,time,latitude,longitude,unknown,total particulate asymmetry factor at 525nm
+lbsco450,lbsco450,Mm-1,time,latitude,longitude,unknown,total particulate aerosol light backscattering coefficient at 450nm
+lbsco550,lbsco550,Mm-1,time,latitude,longitude,unknown,total particulate aerosol light backscattering coefficient at 550nm
+lbsf450,lbsf450,unitless,time,latitude,longitude,unknown,total particulate aerosol light backscattering fraction at 450nm
+lbsf550,lbsf550,unitless,time,latitude,longitude,unknown,total particulate aerosol light backscattering fraction at 550nm
+lsae450-700,lsae450-700,unitless,time,latitude,longitude,unknown,angstrom exponent between 450 and 700 nm for total particulate scattering
+pm10absae370-950,pm10absae370-950,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 950 nm for PM10 absorption
+pm10absco370,pm10absco370,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 370nm
+pm10absco470,pm10absco470,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 470nm
+pm10absco520,pm10absco520,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 520nm
+pm10absco522,pm10absco522,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 522nm
+pm10absco528,pm10absco528,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 528nm
+pm10absco880,pm10absco880,Mm-1,time,latitude,longitude,unknown,PM10 aerosol absorption coefficient at 880nm
+pm10lbsco450,pm10lbsco450,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light backscattering coefficient at 450nm
+pm10lbsco550,pm10lbsco550,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light backscattering coefficient at 550nm
+pm10lbsf550,pm10lbsf550,unitless,time,latitude,longitude,unknown,PM10 aerosol light backscattering fraction at 550nm
+pm10lsco450,pm10lsco450,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light scattering coefficient at 450nm
+pm10lsco550,pm10lsco550,Mm-1,time,latitude,longitude,unknown,PM10 aerosol light scattering coefficient at 550nm
+pm1absae467-652,pm1absae467-652,unitless,time,latitude,longitude,unknown,angstrom exponent between 467 and 652 nm for PM1 absorption
+pm1absae467-660,pm1absae467-660,unitless,time,latitude,longitude,unknown,angstrom exponent between 467 and 660 nm for PM1 absorption
+pm1absco370,pm1absco370,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 370nm
+pm1absco470,pm1absco470,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 470nm
+pm1absco652,pm1absco652,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 652nm
+pm1absco660,pm1absco660,Mm-1,time,latitude,longitude,unknown,PM1 aerosol absorption coefficient at 660nm
+pm1lbsco450,pm1lbsco450,Mm-1,time,latitude,longitude,unknown,PM1 aerosol light backscattering coefficient at 450nm
+pm1lsco450,pm1lsco450,Mm-1,time,latitude,longitude,unknown,PM1 aerosol light scattering coefficient at 450nm
+pm1lsco550,pm1lsco550,Mm-1,time,latitude,longitude,unknown,PM1 aerosol light scattering coefficient at 550nm
+pm2p5absae370-880,pm2p5absae370-880,unitless,time,latitude,longitude,unknown,angstrom exponent between 370 and 880 nm for PM2.5 absorption
+pm2p5absco467,pm2p5absco467,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol absorption coefficient at 467nm
+pm2p5absco590,pm2p5absco590,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol absorption coefficient at 590nm
+pm2p5absco670,pm2p5absco670,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol absorption coefficient at 670nm
+pm2p5lbsco700,pm2p5lbsco700,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol light backscattering coefficient at 700nm
+pm2p5lbsf450,pm2p5lbsf450,unitless,time,latitude,longitude,unknown,PM2.5 aerosol light backscattering fraction at 450nm
+pm2p5lbsf550,pm2p5lbsf550,unitless,time,latitude,longitude,unknown,PM2.5 aerosol light backscattering fraction at 550nm
+pm2p5lsco450,pm2p5lsco450,Mm-1,time,latitude,longitude,unknown,PM2.5 aerosol light scattering coefficient at 450nm
+precal,precal,ug l-1,time,latitude,longitude,unknown,aluminium in precipitation
+precpb,precpb,ug l-1,time,latitude,longitude,unknown,lead in precipitation
+wetk,wetk,ug m-2 min-1,time,latitude,longitude,unknown,potassium wet deposition flux
+wetna,wetna,ug m-2 min-1,time,latitude,longitude,unknown,sodium wet deposition flux
+wetnh4,wetnh4,ug m-2 min-1,time,latitude,longitude,unknown,ammonium wet deposition flux
+wetni,wetni,ng m-2 min-1,time,latitude,longitude,unknown,nickel wet deposition flux
+wetso4,wetso4,ug m-2 min-1,time,latitude,longitude,unknown,sulphate wet deposition flux

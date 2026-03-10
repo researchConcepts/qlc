@@ -3,7 +3,7 @@
 """
 QLC Main Controller: Master Orchestration for qlc-py
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -18,7 +18,7 @@ Usage:
     qlc-py --config=/path/to/config.json
     Called automatically by D1-ANAL script in qlc workflows
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -94,7 +94,8 @@ def load_config_with_defaults(config):
         "station_type": "concentration",
         "start_date": "2018-01-01",
         "end_date": "2018-01-31",
-        "variable": "",
+        "variable": "",  # Variable specification: "var" or "user_var:obs_var:unit_to" (e.g., "T2m:temp:degC")
+        "mod_type": "",  # Model data type: "mod", "mod_tavg", or "mod_ver0d" (empty = auto-detect from mod_path)
         "plot_type": "map,burden,scatter,zonal,meridional,taylor",
         "model_level": None,  # None = auto-detect surface (last level index), or specify 0-9 for explicit level
         "plot_region": "Globe",
@@ -114,7 +115,6 @@ def load_config_with_defaults(config):
         "show_station_timeseries_obs": False,  # Visualization: plot observation time series
         "show_station_timeseries_mod": False,  # Visualization: plot model time series
         "show_station_timeseries_com": False,  # Visualization: plot collocation comparison
-        "unit_to": "",  # Target unit for collocation results (applies to both obs and mod). If empty, uses observation unit. Examples: "ug/m3", "ppb", "ppm"
         "save_plot_format": "png",  # Plot output formats (comma-separated): png, jpg, jpeg, tif, tiff (raster), pdf, svg, eps (vector)
         "save_data_format": "csv",
         "read_data_format": "nc",
@@ -196,9 +196,6 @@ def run_single_config(config_entry, idx, total_configs):
         config = load_config_with_defaults(config_entry)
         validate_paths(config)
         log_input_availability(config)
-        
-        # Export variable metadata JSON (new in v1.0.1 beta)
-        export_variable_metadata_json(config)
         
         if not config.get("use_mod", False) and not config.get("use_obs", False):
             logging.warning("WARNING: Nothing to process: no model or observation input available. Skipping execution.")

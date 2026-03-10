@@ -4,7 +4,7 @@ umask 0022
 # ============================================================================
 # QLC Enhanced Installation Wrapper
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -18,7 +18,7 @@ umask 0022
 #   qlc-install-enhanced [package] [options]
 #   Example: qlc-install-enhanced rc-qlc[test]
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 #
@@ -82,7 +82,7 @@ if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   echo "Usage After Installation:"
   echo "  source ~/venv/qlc/bin/activate"
   echo "  qlc --help"
-  echo "  qlc b2ro b2rn 2018-12-01 2018-12-21 test"
+  echo "  qlc exp1 exp2 2018-12-01 2018-12-21 test"
   echo "________________________________________________________________________________________"
   exit 0
 fi

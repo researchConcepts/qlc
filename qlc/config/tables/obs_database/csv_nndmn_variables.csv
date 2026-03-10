@@ -1,0 +1,21 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+BDEP_NH4-N,BDEP_NH4-N,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,bulk deposition flux of NH4-N
+BDEP_NO3-N,BDEP_NO3-N,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,bulk deposition flux of NO3-N
+Con_HNO3,Con_HNO3,μg N m-3,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean air concentration of HNO3
+Con_NH3,Con_NH3,μg N m-3,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean air concentration of NH3
+Con_NH4-N,Con_NH4-N,mg N L-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly volume-weighted mean NH4-N concentration in bulk precipitation
+Con_NO2,Con_NO2,μg N m-3,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean air concentration of NO2
+Con_NO3-N,Con_NO3-N,mg N L-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly volume-weighted mean NO3-N concentration in bulk precipitation
+Con_pNH4+,Con_pNH4+,μg N m-3,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean air concentration of particulate NH4+
+Con_pNO3-,Con_pNO3-,μg N m-3,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean air concentration of particulate NO3-
+DDEP_HNO3,DDEP_HNO3,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,dry deposition flux of HNO3
+DDEP_NH3,DDEP_NH3,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,dry deposition flux of NH3
+DDEP_NO2,DDEP_NO2,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,dry deposition flux of NO2
+DDEP_pNH4+,DDEP_pNH4+,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,dry deposition flux of particulate NH4+
+DDEP_pNO3-,DDEP_pNO3-,kg N ha-1 month-1,time,LATITUDE,LONGITUDE,SITE_ID,dry deposition flux of particulate NO3-
+Precipitation,Precipitation,mm month-1,time,LATITUDE,LONGITUDE,SITE_ID,bulk precipitation
+Vd_HNO3,Vd_HNO3,cm s-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean dry deposition velocity of HNO3
+Vd_NH3,Vd_NH3,cm s-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean dry deposition velocity of NH3
+Vd_NO2,Vd_NO2,cm s-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean dry deposition velocity of NO2
+Vd_pNH4+,Vd_pNH4+,cm s-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean dry deposition velocity of particulate NH4+
+Vd_pNO3-,Vd_pNO3-,cm s-1,time,LATITUDE,LONGITUDE,SITE_ID,monthly mean dry deposition velocity of particulate NO3-

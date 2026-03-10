@@ -1,0 +1,201 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+AB08,Esther,51.6667,-110.2,707.0,nan
+AB13,Henry Kroeger,51.4242,-110.8325,779.0,rural-remote
+AB14,Genesee,53.3016,-114.2016,761.0,rural-remote
+AB33,Fort Mckay South,57.1491,-111.6426,273.0,nan
+AK00,Dutch Harbor,53.8454,-166.5048,58.0,rural-remote
+AK02,Juneau,58.5139,-134.7843,25.0,rural-remote
+AK04,Nome,64.5055,-165.396,15.0,rural-remote
+AK05,Glacier Bay National Park - Bartlett Cove,58.4566,-135.8674,2.0,rural-remote
+AK06,Gates Of The Arctic National Park - Bettles,66.906,-151.683,630.0,rural-remote
+AK96,Toolik Field Station,68.6257,-149.6069,730.0,nan
+AK98,Kodiak,57.7189,-152.5617,7.0,rural
+AK99,Ambler,67.0931,-157.8689,88.0,rural-remote
+AL02,Delta Elementary,30.7907,-87.8498,66.0,rural
+AL03,Centreville,32.9034,-87.2499,135.0,rural
+AL19,Birmingham,33.553,-86.8148,200.0,urban
+AL24,Bay Road,30.4746,-88.1411,6.0,rural
+AZ02,Sycamore Canyon,35.1406,-111.9692,2046.0,rural-remote
+BC06,Reifel Island,49.1,-123.17,1.0,nan
+BC16,Saturna Island,48.7753,-123.1281,196.0,rural-remote
+CA20,Yurok Tribe-Requa,41.5588,-124.0916,110.0,rural-remote
+CA72,San Jose,37.4276,-122.0624,1.0,urban
+CA75,Sequoia National Park-Giant Forest,36.5661,-118.778,1921.0,rural-remote
+CA94,Converse Flats,34.1938,-116.9131,1724.0,rural
+CA97,Covelo,39.8237,-123.2382,418.0,rural-remote
+CO13,Fort Collins,40.5923,-105.1414,1570.0,urban-suburban
+CO96,Molas Pass,37.75,-107.689,3248.0,rural-remote
+CO97,Buffalo Pass - Summit Lake,40.5383,-106.6766,3234.0,rural
+CO99,Mesa Verde National Park-Chapin Mesa,37.1979,-108.491,2162.0,rural-remote
+DE02,Lewes,38.7722,-75.0992,2.0,rural
+FL04,Andytown,26.1667,-80.5,5.0,rural
+FL05,Chassahowitzka National Wildlife Refuge,28.7486,-82.5551,3.0,rural
+FL11,Everglades National Park-Research Center,25.39,-80.68,2.0,rural-remote
+FL32,Orlando,28.5926,-81.1904,21.0,urban
+FL34,Everglades Nutrient Removal Project,26.6556,-80.3972,10.0,rural
+FL95,Everglades - South Palm Beach County,26.4303,-80.4739,2.0,rural-remote
+FL96,Pensacola,30.5499,-87.375,45.0,urban-suburban
+FL97,Everglades-Western Broward County,26.1714,-80.8222,4.0,rural-remote
+GA09,Okefenokee National Wildlife Refuge,30.7404,-82.1283,45.0,rural-remote
+GA22,Jefferson Street,33.7769,-84.4139,265.0,urban
+GA33,Sapelo Island,31.3961,-81.2811,3.0,rural-remote
+GA40,Yorkville,33.9282,-85.0451,395.0,rural
+HD01,Huejutla,21.1583,-98.3706,180.0,nan
+ID03,Craters Of The Moon National Monument,43.4605,-113.5551,1807.0,rural-remote
+ID98,Deer Flats,43.5528,-116.6436,774.0,urban-suburban
+ID99,Mccall,44.8913,-116.1047,1528.0,rural-remote
+IL11,Bondville,40.0528,-88.3719,212.0,urban-suburban
+IL63,Dixon Springs Agricultural Center,37.4356,-88.6719,161.0,rural-remote
+IN20,Roush Lake,40.8401,-85.4639,244.0,rural
+IN21,Clifty Falls State Park,38.7622,-85.4202,256.0,rural
+IN22,Southwest Purdue Agriculture Center,38.7408,-87.4855,134.0,rural
+IN26,Fort Harrison State Park,39.8583,-86.0208,260.0,urban
+IN28,Bloomington,39.1464,-86.6133,256.0,urban-suburban
+IN34,Indiana Dunes National Lakeshore,41.6318,-87.0881,208.0,urban-suburban
+KS03,Reserve,39.9792,-95.5681,265.0,rural
+KS04,West Mineral,37.2731,-94.94,274.0,rural
+KS05,Coffey County Lake,38.1992,-95.6646,337.0,rural-remote
+KS24,Glen Elder State Park,39.5136,-98.3403,456.0,rural-remote
+KS32,Lake Scott State Park,38.6717,-100.9164,863.0,rural-remote
+KS99,Cimarron National Grassland,37.1336,-101.8248,1021.0,rural-remote
+KY10,Mammoth Cave National Park-Houchin Meadow,37.1317,-86.148,236.0,rural
+LA05,Lake Charles,30.1746,-93.1717,5.0,urban-suburban
+LA10,Chase,32.097,-91.711,20.0,rural
+LA23,Alexandria,31.1698,-92.3971,16.0,rural
+LA28,Hammond,30.5031,-90.3769,9.0,urban-suburban
+MA01,North Atlantic Coastal Lab,41.9759,-70.0241,57.0,rural
+MA99,Amherst,42.3063,-72.5354,165.0,urban-suburban
+MD00,Smithsonian Environmental Research Center,38.889,-76.5558,20.0,urban-suburban
+MD08,Piney Reservoir,39.7053,-79.0122,769.0,rural
+MD99,Beltsville,39.028,-76.8171,46.0,urban
+ME00,Caribou,46.8675,-68.0134,191.0,rural
+ME02,Bridgton,44.1075,-70.7289,222.0,rural
+ME04,Carrabassett Valley,45.0803,-70.2118,259.0,rural-remote
+ME09,Greenville Station,45.4891,-69.6647,322.0,rural
+ME96,Casco Bay-Wolfe'S Neck Farm,43.8325,-70.0645,15.0,rural
+ME98,Acadia National Park-Mcfarland Hill,44.3772,-68.2608,150.0,rural
+MI09,Douglas Lake,45.5608,-84.6783,238.0,rural
+MI26,Kellogg Biological Station,42.4103,-85.3928,288.0,rural
+MI29,Peshawbestown,45.0289,-85.6292,209.0,rural
+MI31,Sterling Heights,42.597,-83.0076,187.0,urban
+MI48,Seney National Wildlife Refuge-Headquarters,46.2889,-85.9504,220.0,rural-remote
+MI52,Ann Arbor,42.4164,-83.9019,267.0,urban-suburban
+MN06,Leech Lake,47.158,-94.1509,1311.0,rural-remote
+MN16,Marcell Experimental Forest,47.5311,-93.4686,431.0,rural-remote
+MN18,Fernberg,47.9464,-91.4961,524.0,rural-remote
+MN22,Mille Lacs Band Of Ojibwe,46.2053,-93.7589,384.0,rural-remote
+MN23,Camp Ripley,46.2494,-94.4972,410.0,rural-remote
+MN27,Lamberton,44.237,-95.3011,367.0,rural-remote
+MN97,Grand Portage Band Of Chippewa,47.9641,-89.6517,2.0,nan
+MN98,Blaine,45.1407,-93.222,275.0,urban
+MO03,Ashland Wildlife Area,38.754,-92.1994,257.0,rural
+MO46,Mingo National Wildlife Refuge,36.9716,-90.1433,105.0,rural-remote
+MS12,Grand Bay Nerr,30.4294,-88.4277,2.0,rural
+MS22,Oak Grove,30.9849,-88.9321,100.0,rural-remote
+MT05,Glacier National Park-Fire Weather Station,48.5102,-113.997,964.0,rural-remote
+MT95,Badger Peak,45.6335,-106.5501,1312.0,rural-remote
+NB02,St. Andrews,45.0833,-67.0833,10.0,nan
+NC08,Waccamaw State Park,34.2592,-78.4777,10.0,rural-remote
+NC17,University Research Farm,36.0672,-79.7344,238.0,urban
+NC26,Candor,35.2632,-79.8365,198.0,rural
+NC42,Pettigrew State Park,35.7373,-76.5149,2.0,rural-remote
+ND01,Lostwood National Wildlife Refuge,48.6419,-102.4021,691.0,rural-remote
+NE15,Mead,41.1528,-96.4912,352.0,rural
+NE25,Winnebago,42.248,-96.474,360.0,rural-remote
+NE98,Santee,42.8292,-97.8541,443.0,rural-remote
+NE99,North Platte Agricultural Experiment Station,41.0592,-100.7464,919.0,rural
+NF09,Cormak,49.3214,-57.3931,172.0,rural-remote
+NF19,Stephenville,48.5614,-58.5656,62.0,rural
+NH00,Laconia,43.5,-71.5,181.0,rural
+NH02,Hubbard Brook,43.9433,-71.7029,250.0,rural
+NH05,New Castle,43.1667,-70.8667,10.0,urban-suburban
+NJ30,New Brunswick,40.4728,-74.4226,21.0,urban
+NM10,Caballo,33.0625,-107.2917,1280.0,rural
+NM97,Valles Caldera National Preserve,35.8584,-106.5214,2657.0,rural-remote
+NM98,Navajo Lake,36.8097,-107.6515,1972.0,rural-remote
+NS01,Kejimkujik National Park,44.4328,-65.2056,155.0,rural-remote
+NV02,Lesperance Ranch,41.5033,-117.4989,1388.0,rural-remote
+NV98,Reno,39.5111,-119.7186,1340.0,urban
+NV99,Gibb'S Ranch,41.5713,-115.2117,1849.0,rural-remote
+NY06,Bronx,40.868,-73.8782,68.0,urban
+NY20,Huntington Wildlife,43.9731,-74.2231,500.0,rural-remote
+NY43,Rochester,43.1463,-77.5482,136.0,urban
+NY68,Biscuit Brook,41.9936,-74.5031,634.0,rural-remote
+NY96,Cedar Beach-Southold,41.0347,-72.3891,1.0,rural
+NY99,West Point,41.3511,-74.0484,211.0,urban-suburban
+OA02,Puerto A'Ngel,15.65,-96.4833,110.0,nan
+OH02,Athens Super Site,39.3078,-82.1182,275.0,rural
+OH16,Northeast Ohio Regional Sewer District (Neorsd),41.5032,-81.6586,50.0,nan
+OH52,South Bass Island,41.6582,-82.827,177.0,rural
+OK01,Mcgee Creek,34.3154,-95.8893,195.0,rural-remote
+OK04,Lake Murray,34.1033,-97.0708,245.0,rural
+OK05,Hugo,34.0315,-95.5376,174.0,nan
+OK06,Wichita Mountains Nwr,34.7342,-98.7094,492.0,rural-remote
+OK15,Newkirk,36.9564,-97.0335,349.0,rural
+OK19,Pryor,36.2283,-95.25,188.0,rural
+OK22,Miami,36.895,-94.758,258.0,rural
+OK31,Copan,36.9081,-95.8823,255.0,rural
+OK97,Tuskahoma,34.6339,-95.2961,182.0,nan
+OK99,Stilwell,35.7508,-94.67,299.0,rural
+ON03,Dorset,45.2239,-78.9311,320.0,nan
+ON07,Egbert,44.2339,-79.7917,196.0,urban-suburban
+ON10,Burnt Island,45.8083,-82.95,184.0,nan
+ON11,Point Petre,43.8428,-77.1536,78.0,nan
+ON18,Experimental Lakes Area,49.6642,-93.7328,432.0,rural-remote
+ON99,Egbert Forest,44.2341,-79.7917,237.0,urban-suburban
+OR01,Beaverton,45.4704,-122.8151,81.0,urban
+OR10,H. J. Andrews Experimental Forest,44.2118,-122.256,443.0,rural-remote
+PA00,Arendtsville,39.9231,-77.3078,269.0,rural
+PA13,Allegheny Portage Railroad National Historic Site,40.457,-78.56,739.0,urban-suburban
+PA18,Young Woman'S Creek,41.4142,-77.6799,272.0,rural-remote
+PA19,Centralia,40.7987,-76.3381,485.0,rural
+PA21,Goddard State Park,41.4271,-80.1451,385.0,rural
+PA29,Kane Experimental Forest,41.5978,-78.7675,618.0,rural
+PA30,Erie,42.1558,-80.1134,177.0,urban-suburban
+PA37,Waynesburg,39.8161,-80.285,452.0,rural
+PA42,Leading Ridge,40.6575,-77.9397,287.0,rural
+PA47,Millersville,39.9909,-76.3856,84.0,urban-suburban
+PA52,Little Pine State Park,41.3639,-77.3561,228.0,rural-remote
+PA60,Valley Forge,40.1166,-75.8833,46.0,urban-suburban
+PA72,Milford,41.3273,-74.8199,212.0,rural
+PA90,Hills Creek State Park,41.8043,-77.1903,476.0,rural
+PQ04,St. Anicet,45.2,-74.0333,49.0,nan
+PQ05,Mingan,50.2667,-64.2333,11.0,nan
+PQ17,Chapais,49.8225,-74.9753,379.0,rural-remote
+PR20,El Verde,18.3206,-65.82,380.0,nan
+SC03,Savannah River,33.245,-81.6505,90.0,rural-remote
+SC05,Cape Romain National Wildlife Refuge,32.943,-79.6592,1.0,rural
+SC09,Alibi Hunt Club,33.2307,-80.3602,16.0,rural
+SC19,Congaree Swamp,33.8145,-80.7809,34.0,rural
+SD18,Eagle Butte,44.9931,-101.2403,742.0,rural-remote
+SK12,Bratt'S Lake Bsrn,50.2003,-104.7111,593.0,rural-remote
+SK27,Pinehouse,55.5121,-106.7245,404.0,rural-remote
+SK28,Flat Valley,54.2953,-109.2119,500.0,rural-remote
+TN11,Great Smoky Mountains National Park-Elkmont,35.6645,-83.5903,640.0,rural
+TN12,Great Smoky Mountains National Park-Clingmans Dome,35.5622,-83.4972,2015.0,rural-remote
+TX21,Longview,32.3786,-94.7117,103.0,rural
+TX50,Fort Worth,32.6932,-97.2496,212.0,urban
+UT97,Salt Lake City,40.7118,-111.9609,1297.0,urban
+VA08,Culpeper,38.4222,-78.1044,163.0,rural
+VA28,Shenandoah National Park-Big Meadows,38.5231,-78.4348,1072.0,rural
+VA98,Harcum,37.5312,-76.4928,13.0,rural
+VT99,Underhill,44.5283,-72.8684,399.0,rural
+WA03,Makah National Fish Hatchery,48.2892,-124.6519,6.0,rural-remote
+WA04,Confederated Tribes Of The Umatilla Indian Reservation,46.2026,-117.9539,693.0,nan
+WA18,Seattle/Noaa,47.6843,-122.2588,11.0,urban
+WI06,Uw Arboretum,43.041,-89.428,265.0,urban
+WI07,Horicon Marsh,43.466,-88.621,287.0,rural
+WI08,Brule River,46.7466,-91.6055,207.0,rural-remote
+WI09,Popple River,45.7964,-88.3994,421.0,rural-remote
+WI10,Potawatomi,45.5648,-88.8083,570.0,rural-remote
+WI22,Milwaukee,43.0752,-87.8843,206.0,urban
+WI31,Devil'S Lake,43.4352,-89.6801,389.0,rural
+WI32,Middle Village,44.9308,-88.755,319.0,rural-remote
+WI36,Trout Lake,46.0512,-89.6541,509.0,rural-remote
+WI92,Chequamegon Bay,46.583,-90.9676,194.0,nan
+WI99,Lake Geneva,42.5792,-88.5006,288.0,rural
+WV99,Canaan Valley Institute,39.1191,-79.4522,988.0,rural-remote
+WY06,Pinedale,42.929,-109.7875,2388.0,rural-remote
+WY07,Yellowstone National Park - Yellowstone Lake,44.5654,-110.4003,2468.0,rural-remote
+WY08,Yellowstone National Park-Tower Falls,44.9166,-110.4203,1912.0,rural-remote
+WY26,Roundtop Mountain,42.5299,-108.72,2534.0,rural-remote

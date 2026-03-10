@@ -1,0 +1,22 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+acprec,acprec,mm,time,latitude,longitude,unknown,liquid precipitation accumulation
+precca,precca,mg l-1,time,latitude,longitude,unknown,calcium in precipitation
+preccl,preccl,mg l-1,time,latitude,longitude,unknown,chloride in precipitation
+prech,prech,mg l-1,time,latitude,longitude,unknown,hydrogen in precipitation
+preck,preck,mg l-1,time,latitude,longitude,unknown,potassium in precipitation
+precmg,precmg,mg l-1,time,latitude,longitude,unknown,magnesium in precipitation
+precna,precna,mg l-1,time,latitude,longitude,unknown,sodium in precipitation
+precnh4,precnh4,mg l-1,time,latitude,longitude,unknown,ammonium in precipitation
+precno3,precno3,mg l-1,time,latitude,longitude,unknown,nitrate in precipitation
+precph,precph,unitless,time,latitude,longitude,unknown,pH of precipitation
+precpo4,precpo4,mg l-1,time,latitude,longitude,unknown,phosphate in precipitation
+precso4,precso4,mg l-1,time,latitude,longitude,unknown,sulphate in precipitation
+wetca,wetca,ug m-2 min-1,time,latitude,longitude,unknown,calcium wet deposition flux
+wetcl,wetcl,ug m-2 min-1,time,latitude,longitude,unknown,chloride wet deposition flux
+wetk,wetk,ug m-2 min-1,time,latitude,longitude,unknown,potassium wet deposition flux
+wetmg,wetmg,ug m-2 min-1,time,latitude,longitude,unknown,magnesium wet deposition flux
+wetna,wetna,ug m-2 min-1,time,latitude,longitude,unknown,sodium wet deposition flux
+wetnh4,wetnh4,ug m-2 min-1,time,latitude,longitude,unknown,ammonium wet deposition flux
+wetno3,wetno3,ug m-2 min-1,time,latitude,longitude,unknown,nitrate wet deposition flux
+wetpo4,wetpo4,ug m-2 min-1,time,latitude,longitude,unknown,phosphate wet deposition flux
+wetso4,wetso4,ug m-2 min-1,time,latitude,longitude,unknown,sulphate wet deposition flux

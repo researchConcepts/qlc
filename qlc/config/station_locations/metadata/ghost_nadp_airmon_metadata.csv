@@ -1,0 +1,13 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+DE02,Lewes,38.7722,-75.0992,2.0,nan
+DE99,Trap Pond State Park,38.4994,-75.4482,12.0,nan
+FL18,Tampa Bay,27.8933,-82.5383,2.0,nan
+FL98,South Lido,27.31,-82.57,1.0,nan
+IL11,Bondville,40.0528,-88.3719,212.0,nan
+MD15,Smith Island,37.9925,-76.0345,2.0,nan
+NY67,Ithaca,42.4014,-76.6589,503.0,nan
+OH09,Oxford,39.5309,-84.7238,284.0,nan
+PA15,Penn State,40.7883,-77.9458,393.0,nan
+TN00,Walker Branch Watershed,35.9614,-84.2872,341.0,nan
+VT99,Underhill,44.5283,-72.8684,399.0,nan
+WV99,Canaan Valley Institute,39.1191,-79.4522,988.0,nan

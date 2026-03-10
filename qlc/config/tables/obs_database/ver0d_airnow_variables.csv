@@ -1,0 +1,20 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+BARPR,BARPR,millibar,time,latitude,longitude,unknown,Barometric pressure
+BC,BC,ug/m3,time,latitude,longitude,unknown,BC (black carbon at 880 nm)
+CO,CO,ppm,time,latitude,longitude,unknown,"CO (carbon monoxide), conventional"
+NO,NO,ppb,time,latitude,longitude,unknown,NO (nitric oxide)
+NO2,NO2,ppb,time,latitude,longitude,unknown,"NO2 computed, NOx-NO"
+NO2Y,NO2Y,ppb,time,latitude,longitude,unknown,"NO2 computed, NOy-NO"
+NOX,NOX,ppb,time,latitude,longitude,unknown,NOx (nitrogen oxides)
+NOY,NOY,ppb,time,latitude,longitude,unknown,NOy (total reactive nitrogen)
+OZONE,OZONE,ppb,time,latitude,longitude,unknown,Ozone
+PM10,PM10,ug/m3,time,latitude,longitude,unknown,PM10 mass
+PM2.5,PM2.5,ug/m3,time,latitude,longitude,unknown,PM2.5 mass
+PRECIP,PRECIP,mm,time,latitude,longitude,unknown,Precipitation
+RHUM,RHUM,percent,time,latitude,longitude,unknown,Relative humidity
+SO2,SO2,ppb,time,latitude,longitude,unknown,"SO2 (sulfur dioxide), conventional"
+SRAD,SRAD,watts/m2,time,latitude,longitude,unknown,Solar radiation
+TEMP,TEMP,c,time,latitude,longitude,unknown,Ambient temperature
+UV-AETH,UV-AETH,ug/m3,time,latitude,longitude,unknown,UV-AETH (second channel of Aethalometer at 370nm)
+WD,WD,degrees,time,latitude,longitude,unknown,Wind direction
+WS,WS,m/s,time,latitude,longitude,unknown,Wind speed

@@ -1,0 +1,5 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+ABPMCAAB1BEA,Beaverlodge,55.19634,-119.39682,762.0,rural
+ABPMCAAB1COL,Cold Lake South,54.41401389,-110.2329389,556.0,urban
+ABPMCAAB1ELK,Elk Island National Park,53.68238,-112.86812,714.0,rural
+ABPMCAAB1FCW,Fort Chipewyan,58.70879,-111.17683,238.0,rural

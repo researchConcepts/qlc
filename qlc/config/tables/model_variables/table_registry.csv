@@ -1,0 +1,15 @@
+# Model Parameter Table Registry
+# Centralized definition of all available parameter tables
+# Format: table_key,table_file,table_class,fallback_key,description
+#
+# table_key: Internal identifier used in code
+# table_file: CSV filename in model_variables directory
+# table_class: Python class to instantiate
+# fallback_key: Table to search if variable not found (empty = no fallback)
+# description: Human-readable description
+#
+table_key,table_file,table_class,fallback_key,description
+ifs,ifs-param-db.csv,IFSParameterTable,,IFS standard parameter database (7398+ variables)
+ifs-hamm7,ifs-bins_hamm7ver1.1.csv,IFSCompoHAMM7Table,ifs,IFS-COMPO with HAMM7 aerosol binning (39 modal aerosol species)
+ifs-aer,ifs-types_aerver8.csv,IFSCompoAERTable,ifs,IFS-COMPO AER types (10 bulk aerosol types)
+

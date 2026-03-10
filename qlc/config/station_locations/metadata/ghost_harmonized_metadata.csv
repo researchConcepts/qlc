@@ -1,0 +1,2505 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+01,01 033 0028,34.6604,-87.776964,174.0,rural
+02,02 185 0042,70.24029,-148.235519,15.0,rural
+04,04 001 0012,35.077245,-109.770394,1755.0,rural
+06,Pinnacles Np - Southwest Of East Entrance Station,36.48324,-121.15688,317.0,rural
+08,08 103 0021,39.868861,-108.287343,1881.0,rural
+09,Shenipsit State Forest,41.976389,-72.388056,265.0,rural
+11,Mcmillan  Ncore-Pams,38.921847,-77.013178,50.0,urban-centre
+12,Site Moved Across Road From Beard Center To Behind Iori Research Bld,25.39122,-80.680819,1.0,rural
+13,South Dekalb,33.6878,-84.2905,308.0,urban-suburban
+15,15 003 0123,21.343228,-158.120865,7.0,rural
+16,Craters Of The Moon Nm & Pres - Visitor Center,43.460556,-113.562222,1815.0,rural
+17,Jardine Water Plant,41.895812,-87.607683,181.0,urban-centre
+18,18 173 0006,37.921156,-87.325283,144.0,rural
+21,21 183 1001,37.312823,-86.939994,165.0,rural
+22,Capitol,30.461981,-91.179219,14.0,urban-centre
+23,23 007 2001,44.501923,-70.228196,131.0,rural
+24,Lat/Long Point Is Of Sampling Inlet.................................,39.318611,-76.5825,49.0,urban-centre
+25,Lynn Water Treatment Plant,42.474642,-70.970816,52.0,urban-centre
+26,26 061 0101,48.10821,-88.607572,347.0,rural
+27,Voyageurs Np - Black Bay,48.587703,-93.172922,343.0,rural
+28,28 155 1001,33.6636,-89.0622,94.0,rural
+29,29 005 0001,39.741661,-94.858576,300.0,rural
+30,30 003 0012,45.059143,-106.817564,327.0,rural
+31,31 041 0001,41.501397,-99.301767,732.0,rural
+32,Great Basin Np - Maintenance Yard,39.00512,-114.21593,2058.0,rural
+33,33 007 0018,44.478391,-71.155354,384.0,nan
+34,Fort Lee Near Road,40.85355,-73.96618,87.0,urban-centre
+35,"Pueblo Of Jemez Tribal Trust Lands, Department Of Resource Protec-",35.615306,-106.725034,1707.0,rural
+36,36 021 0002,42.106929,-73.534266,177.0,rural
+37,37 119 0034,35.248754,-80.766181,239.0,urban-suburban
+38,38 055 0113,47.606672,-102.036837,555.0,rural
+39,39 129 0002,39.55534,-82.942124,220.0,urban-suburban
+40,Anadarko Pm2.5,35.111944,-98.252778,420.0,rural
+41,Ctclusi Radar Hill - Or,43.381944,-124.263889,83.0,rural
+42,Lawrenceville,40.46542,-79.960757,256.0,urban-suburban
+44,44 003 0003,41.732479,-71.424757,0.0,urban-suburban
+45,Parklane,34.093959,-80.962304,107.0,urban-suburban
+46,46 071 1001,43.746937,-101.941541,730.0,rural
+47,47 001 0001,36.018149,-84.175741,318.0,rural
+48,48 157 0003,29.415241,-95.653003,19.0,rural
+49,Arches Np,38.778311,-109.598176,1567.0,rural
+50,State Of Vermont District Court Parking Lot,43.608056,-72.982778,165.0,urban-centre
+51,Shenandoah Np - Dickey Ridge,38.857336,-78.200556,610.0,rural
+53,53 009 0012,48.097313,-123.426853,125.0,urban-suburban
+55,East Of Cty Trk G & South Of Philhauer Rd,42.566403,-89.005388,244.0,rural
+56,Collocated Tsp Site Relocated To Antelope Site #6 (56-009-0851),43.491636,-105.33415,0.0,rural
+594,nan,51.151352,-0.70461,89.0,nan
+78,"Cruz Bay, St John U.S. Virgin Islands",18.334399,-64.795972,80.0,rural
+AAOT,Aaot,45.3139,12.5083,10.0,nan
+AAUET,Aau Et,9.019167,38.747778,2370.0,nan
+AB08,Esther,51.6667,-110.2,707.0,nan
+AB13,Henry Kroeger,51.4242,-110.8325,779.0,rural-remote
+AB14,Genesee,53.3016,-114.2016,761.0,rural-remote
+AB32,Fort Mackay,57.1894,-111.6406,265.0,nan
+AB33,Fort Mckay South,57.1491,-111.6426,273.0,nan
+AB34,Stony Mountain,55.6214,-111.1727,673.0,nan
+AB35,Elk Island,53.6824,-112.868,711.0,rural-remote
+AB36,Wapasu,57.2592,-111.0386,491.0,rural-remote
+ABPMCAAB1BEA,Beaverlodge,55.19634,-119.39682,762.0,rural
+ABPMCAAB1COL,Cold Lake South,54.41401389,-110.2329389,556.0,urban
+ABPMCAAB1ELK,Elk Island National Park,53.68238,-112.86812,714.0,rural
+ABPMCAAB1FCW,Fort Chipewyan,58.70879,-111.17683,238.0,rural
+ABT147,Abington,41.84046,-72.010368,202.0,urban
+AG01,Laurenti-Mar,-30.9501,-62.8244,83.0,nan
+AGOUFOU,"Agoufou, Mali",15.3333333,-1.4833333,300.0,rural
+AK00,Dutch Harbor,53.8454,-166.5048,58.0,rural-remote
+AK01,Poker Creek,65.155,-147.491,230.0,rural-remote
+AK02,Juneau,58.5139,-134.7843,25.0,rural-remote
+AK03,Denali National Park,63.7232,-148.9676,661.0,rural-remote
+AK04,Nome,64.5055,-165.396,15.0,rural-remote
+AK05,Glacier Bay National Park - Bartlett Cove,58.4566,-135.8674,2.0,rural-remote
+AK06,Gates Of The Arctic National Park - Bettles,66.906,-151.683,630.0,rural-remote
+AK96,Toolik Field Station,68.6257,-149.6069,730.0,nan
+AK97,Katmai National Park - King Salmon,58.6794,-156.6664,50.0,rural-remote
+AK98,Kodiak,57.7189,-152.5617,7.0,rural
+AK99,Ambler,67.0931,-157.8689,88.0,rural-remote
+AL02,Delta Elementary,30.7907,-87.8498,66.0,rural
+AL03,Centreville,32.9034,-87.2499,135.0,rural
+AL10,Black Belt Research & Extension Center,32.4583,-87.2422,58.0,rural-remote
+AL19,Birmingham,33.553,-86.8148,200.0,urban
+AL24,Bay Road,30.4746,-88.1411,6.0,rural
+AL99,Sand Mountain Research & Extension Center,34.2886,-85.9699,349.0,rural
+ALH157,Alhambra,38.869,-89.6228,164.0,rural
+ALH257,Alhambra Collocated,38.869001,-89.622815,164.0,rural
+ALK,nan,57.4396,27.0354,197.0,nan
+AMY,Anmyeon-Do,36.5385,126.33,46.0,nan
+ANA115,Ann Arbor,42.416636,-83.90218,266.0,rural
+AOEBaotou,Aoe Baotou,40.8517,109.6288,1314.0,nan
+AR02,Warren 2Wsw,33.605,-92.0972,76.0,rural
+AR03,Caddo Valley,34.1795,-93.0992,71.0,rural
+AR16,Buffalo National River-Buffalo Point,36.0842,-92.5868,311.0,rural-remote
+AR27,Fayetteville,36.1011,-94.1737,381.0,urban-suburban
+ARE128,Arendtsville,39.923241,-77.307863,266.0,rural
+ARE228,Arendtsville Collocated,39.923241,-77.307863,266.0,rural
+ARIAKETOWER,Ariake Tower,33.103617,130.27195,15.0,nan
+ARMAscensionIs,Arm Ascension Is,-7.966964,-14.349806,341.0,nan
+ARMCordoba,Arm Cordoba,-32.12641,-64.72837,1141.0,nan
+ARMDarwin,Arm Darwin,-12.425,130.891,29.899999618530273,nan
+ARMGanIsland,Arm Gan Island,-0.690597,73.149896,1.0,nan
+ARMGothic,Arm Gothic,38.956,-106.988,2894.0,nan
+ARMGraciosa,Arm Graciosa,39.09109,-28.02917,15.199999809265137,nan
+ARMHighlandsMA,Arm Highlands Ma,42.030478,-70.049317,47.853599548339844,nan
+ARMHyytialaFinland,Arm Hyytialafinland,61.843536,24.287847,179.0,nan
+ARMLaPorte,Arm Laporte,29.669,-95.059,7.0,nan
+ARMMacquarieIs,Arm Macquarie Is,-54.499561,158.934581,3.5999999046325684,nan
+ARMManacapuru,Arm Manacapuru,-3.212972,-60.598056,49.9900016784668,nan
+ARMMcMurdo,Arm Mcmurdo,-77.848889,166.729722,73.0,nan
+ARMNainital,Arm Nainital,29.35883,79.45827,1943.0,nan
+ARMOliktokAK,Arm Oliktok Ak,70.4995,-149.88,2.0,nan
+ARMSGP,Arm Sgp,36.605175,-97.485619,319.0,nan
+ARMWAIS,Arm Wais,-79.470556,-112.083333,1799.0,nan
+AS01,Samoa,-14.2525,-170.5633,82.0,nan
+ASIMalindi,Asi Malindi,-2.996,40.1945,12.0,nan
+AT0001R,Kittsee,48.083333,17.066667,140.0,urban-suburban
+AT0002R,Illmitz,47.7666664124,16.7666664124,117.0,rural
+AT0003R,Achenkirch,47.55,11.716667,960.0,rural
+AT0004R,St. Koloman,47.65,13.2,851.0,rural
+AT0005R,Vorhegg,46.677778,12.972222,1020.0,rural
+AT0034G,Sonnblick,47.05407,12.95794,3116.0,rural
+AT0048R,Zoebelboden,47.838611,14.441389,899.0,rural
+ATHENS-NOA,Athens-Noa,37.9721,23.718,130.0,nan
+ATHENSNTUA,Athens Ntua,37.977036,23.783088,215.0,nan
+AU0002G,Kennaook / Cape Grim Baseline Air Pollution Station,-40.68222,144.68834,94.0,rural
+AZ01,Tombstone,31.7089,-110.0572,1398.0,rural-remote
+AZ02,Sycamore Canyon,35.1406,-111.9692,2046.0,rural-remote
+AZ03,Grand Canyon National Park-Hopi Point,36.0586,-112.184,2071.0,rural-remote
+AZ06,Organ Pipe Cactus National Monument,31.9492,-112.802,501.0,rural-remote
+AZ97,Petrified Forest National Park-Rainbow Forest,34.8224,-109.8925,1707.0,rural-remote
+AZ98,Chiricahua,32.0097,-109.3889,1570.0,rural-remote
+AZ99,Oliver Knoll,33.0708,-109.866,1176.0,rural-remote
+Abisko,Abisko,68.35,18.817,390.0,nan
+AbracosHill,Abracos Hill,-10.76,-62.358333,259.0,nan
+AbuAlBukhoosh,Abu Al Bukhoosh,25.495,53.145833,24.5,nan
+AbuDhabi,Abu Dhabi,24.476111,54.328889,7.0,nan
+AdelaideSite7,Adelaide Site 7,-34.725067,138.656483,30.0,nan
+AgiaMarinaXyliatou,Agiamarina Xyliatou,35.038,33.0577,521.0,nan
+Agoufou,Agoufou,15.3454,-1.479117,305.0,nan
+AguasEmendadas,Aguas Emendadas,-15.58175,-47.6563,988.0,nan
+AireAdour,Aire Adour,43.7,0.25,80.0,nan
+AlAin,Al Ain,24.242167,55.705167,283.0,nan
+AlDhafra,Al Dhafra,24.254278,54.549667,40.0,nan
+AlKhaznah,Al Khaznah,24.158611,55.100556,192.0,nan
+AlQlaa,Al Qlaa,24.133333,53.033333,5.0,nan
+AlbanyOregon,Albany Oregon,44.583332,-123.066666,67.0,nan
+AlbergueUGR,Albergue Ugr,37.095598,-3.386989,2501.0,nan
+Alboran,Alboran,35.939625,-3.35297,15.0,nan
+Albuquerque,Albuquerque,35.051672,-106.535836,1645.0,nan
+AlkaliLake,Alkali Lake,37.8588,-117.382,1468.0,nan
+AltaFloresta,Alta Floresta,-9.871339,-56.104453,277.0,nan
+AltaFlorestaIF,Alta Floresta If,-9.908354,-56.064393,288.0,nan
+AmazonATTOTower,Amazon Atto Tower,-2.144117,-58.999867,210.0,nan
+AmericanSamoa,American Samoa,-14.2472,-170.5644,76.0,nan
+Ames,Ames,42.021361,-93.774778,338.0,nan
+AmityUnivGurgaon,Amity Univ Gurgaon,28.317329,76.916031,285.0,nan
+AmsterdamIsland,Amsterdam Island,-37.799544,77.571946,49.0,nan
+AmsterdamRuisdael,Amsterdam Ruisdael,52.334336,4.866967,57.0,nan
+Andenes,Andenes,69.278333,16.008611,379.0,nan
+AndrosIsland,Andros Island,24.7,-77.8,7.0,nan
+Angiola,Angiola,35.947,-119.538,43.0,nan
+Anmyon,Anmyon,36.538537,126.330194,47.0,nan
+AntarcticaDomeC,Antarcticadomec,-75.099953,123.331299,3269.0,nan
+AntikytheraNOA,Antikythera Noa,35.86099,23.30982,193.0,nan
+AppalachianState,Appalachian State,36.2146,-81.6938,1080.0,nan
+AppledoreIsland,Appledore Island,42.987064,-70.615361,35.0,nan
+ApulianTavoliere,Apulian Tavoliere,41.46084,15.5016,90.0,nan
+ArasdelosOlmos,Aras De Los Olmos,39.945,-1.1016,1280.0,nan
+Arcachon,Arcachon,44.663528,-1.163222,11.0,nan
+Arica,Arica,-18.471667,-70.313333,25.0,nan
+Ariquiums,Ariquiums,-9.916667,-63.033332,142.0,nan
+Arizona,Arizona,32.442001,-110.788002,2791.0,nan
+AscensionIsland,Ascension Island,-7.976389,-14.414722,30.0,nan
+AsuncionAirport,Asuncion Airport,-25.235809,-57.514727,83.0,nan
+AubiereLAMP,Aubiere Lamp,45.76096,3.111072,423.0,nan
+Autilla,Autilla,41.997222,-4.603056,873.0,nan
+Avignon,Avignon,43.93275,4.878067,32.0,nan
+Azores,Azores,38.53,-28.63,50.0,nan
+BA0006R,Ivan Sedlo,43.766667,18.033333,970.0,rural
+BAMBEY,"Bambey, Senegal",14.7,-16.466666,31.0,rural
+BANIZOUMBOU,"Banizoumbou, Niger",13.3,2.366667,220.0,rural
+BC06,Reifel Island,49.1,-123.17,1.0,nan
+BC16,Saturna Island,48.7753,-123.1281,196.0,rural-remote
+BC22,Haul Road Station,54.0294,-128.7019,10.0,rural
+BC23,Lakelse Lake,54.3772,-128.5775,111.0,rural
+BC24,Port Edward,54.2226,-130.2696,80.0,rural
+BE0001R,Offagne,49.877778,5.203611,430.0,urban-suburban
+BE0003R,Brugge,51.25,3.2,10.0,urban-suburban
+BE0004R,Knokke,51.36,3.333333,0.0,urban-suburban
+BE0007R,Tmnt09 Vielsalm,50.304003,6.001271,1007.9400024414062,rural
+BE0013R,Houtem,51.01628,2.58232,2.0,rural
+BE0014R,Koksijde,51.12092,2.65854,4.0,rural
+BFT142,Beaufort,34.884668,-76.620666,5.0,rural
+BG0001R,Beo Moussala,42.166667,23.583333,2925.0,rural
+BM01,Tudor Hill,32.2647,-64.8789,21.0,nan
+BMKGGAWPALU,Bmkg Gaw Palu,-1.6503,120.1829,1370.0,nan
+BMKGJakarta,Bmkg Jakarta,-6.155239,106.841197,35.0,nan
+BO0001R,Mount Chacaltaya,-16.2000007629,-68.0999984741,5320.0,rural
+BONDVILLE,Bondville,40.053333,-88.371944,212.0,nan
+BORDEAUX,Bordeaux,44.788028,-0.579167,40.0,nan
+BSRNBAOBoulder,Bsrn Bao Boulder,40.045183,-105.006033,1604.0,nan
+BY0004R,Vysokoe,52.333333,23.433333,163.0,rural
+BacGiang,Bac Giang,21.291416,106.225472,15.0,nan
+BacLieu,Bac Lieu,9.28,105.73,10.0,nan
+BachLongVy,Bach Long Vy,20.133321,107.733339,5.0,nan
+BackGardenGZ,Backgarden Gz,23.296,113.021,16.0,nan
+Badajoz,Badajoz,38.882808,-7.01082,186.0,nan
+Baengnyeong,Baengnyeong,37.966111,124.630278,136.0,nan
+BahiaBlanca,Bahia Blanca,-39.148333,-61.721667,15.0,nan
+Bahrain,Bahrain,26.20805,50.609267,25.0,nan
+Bakersfield,Bakersfield,35.331506,-119.000008,108.0,nan
+Balbina,Balbina,-1.916983,-59.4868,80.0,nan
+Bambey-ISRA,Bambey-Isra,14.708567,-16.476733,30.0,nan
+Bamboo,Bamboo,25.186711,121.535266,1050.0,nan
+Bandung,Bandung,-6.888417,107.61,826.0,nan
+Baneasa,Baneasa,44.511333,26.077806,127.0,nan
+Bangkok,Bangkok,13.7491,100.5177,57.099998474121094,nan
+Banizoumbou,Banizoumbou,13.54693,2.66519,274.0,nan
+Banqiao,Banqiao,24.997757,121.442497,16.0,nan
+Barbados,Barbados,13.148575,-59.624122,112.0,nan
+BarbadosSALTRACE,Barbados Saltrace,13.148513,-59.624839,110.0,nan
+Barcelona,Barcelona,41.38925,2.11206,125.0,nan
+Bareilly,Bareilly,28.38996,79.43696,169.0,nan
+BariUniversity,Bari University,41.108327,16.883983,12.0,nan
+Barnaul,Barnaul,53.341667,83.772222,202.0,nan
+Barrow,Barrow,71.3122,-156.665,8.0,nan
+Bayfordbury,Bayfordbury,51.77632,-0.09624,75.0,nan
+Beijing,Beijing,39.97689,116.38137,92.0,nan
+Beijing-CAMS,Beijing-Cams,39.93333,116.31667,106.0,nan
+BeijingPKU,Beijing Pku,39.992,116.3102,53.0,nan
+BeijingRADI,Beijing Radi,40.0048,116.3786,59.0,nan
+Belsk,Belsk,51.836667,20.791667,190.0,nan
+Belterra,Belterra,-2.648483,-54.95165,132.0,nan
+BenSalem,Ben Salem,35.55055,9.914003,130.0,nan
+BerlinFRIE,Berlin Frie,52.5075,13.398,128.0,nan
+BerlinFUB,Berlin Fub,52.4575,13.310333,80.0,nan
+Bermuda,Bermuda,32.37,-64.696111,10.0,nan
+Bethlehem,Bethlehem,-28.248333,28.333333,1709.0,nan
+Bhola,Bhola,22.226675,90.756415,7.0,nan
+BidiBahn,Bidi Bahn,14.06,-2.45,291.0,nan
+Bidur,Bidur,27.8955,85.140096,576.0,nan
+BigMeadows,Big Meadows,38.521944,-78.436111,1082.0,nan
+Biggs,Biggs,39.450001,-121.73333,29.0,nan
+Billerica,Billerica,42.528347,-71.268619,82.0,nan
+Birdsville,Birdsville,-25.89893,139.34596,46.5,nan
+Birkenes,Birkenes,58.38845,8.25231,230.0,nan
+BlackForestAMF,Black Forest Amf,48.54005,8.396867,511.0,nan
+Blida,Blida,36.508333,2.880556,230.0,nan
+BlythNOAH,Blyth Noah,55.146399,-1.420859,19.0,nan
+Bolzano,Bolzano,46.4569,11.33,262.0,nan
+Bonanza,Bonanza,-21.825556,19.590278,1382.0,nan
+BonanzaCreek,Bonanza Creek,64.742805,-148.316269,353.0,nan
+Bondoukoui,Bondoukoui,11.85,-3.75,349.0,nan
+BordjBadjiMokhtar,Bordj Badji Mokhtar,21.38,0.92,420.0,nan
+Boulder,Boulder,39.991466,-105.260832,1659.0,nan
+BoydCountyMS,Boyd County Ms,38.427461,-82.700033,207.0,nan
+Bozeman,Bozeman,45.662204,-111.045013,1507.0,nan
+Braccagni,Braccagni,42.827746,11.079531,7.0,nan
+Bragansa,Bragansa,-0.834,-46.641,55.0,nan
+Brasilia,Brasilia,-15.917,-47.900002,1100.0,nan
+BrasiliaSONDA,Brasilia Sonda,-15.60129,-47.71348,992.0,nan
+BrattsLake,Bratts Lake,50.204238,-104.713013,586.7000122070312,nan
+BrestMF,Brest Mf,48.444565,-4.411855,101.0,nan
+Brisbane-UniofQLD,Brisbane-Uni Of Qld,-27.497083,153.013611,42.0,nan
+BrnoAirport,Brno Airport,49.15647,16.68333,238.0,nan
+Brookhaven,Brookhaven,40.866,-72.8847,37.0,nan
+Brussels,Brussels,50.783332,4.35,120.0,nan
+Bucarest,Bucarest,44.45,26.525,44.0,nan
+BucharestInoe,Bucharest Inoe,44.348311,26.02805,89.0,nan
+Buesum,Buesum,54.13225,8.878797,7.0,nan
+Bujumbura,Bujumbura,-3.38,29.383833,863.0,nan
+BukitKototabang,Bukit Kototabang,-0.20194,100.31805,864.5,nan
+BureOPE,Bure Ope,48.5625,5.505,393.0,nan
+Burjassot,Burjassot,39.507,-0.4202,104.0,nan
+Burtonsville,Burtonsville,39.093714,-76.949881,140.0,nan
+Bushland,Bushland,35.18678,-102.09384,1168.0,nan
+CA0011R,Egbert,44.231006,-79.783839,255.0,rural
+CA0100R,Whistler Mountain,50.059299469,-122.957603455,2182.0,rural
+CA0101R,Sable Island,43.933,-60.017,4.0,rural
+CA0102R,East Trout Lake,54.353743,-104.986864,500.0,rural
+CA0420G,Alert,82.4991455078,-62.3415260315,2182.0,rural
+CA20,Yurok Tribe-Requa,41.5588,-124.0916,110.0,rural-remote
+CA28,Kings River Experimental Watershed,37.0592,-119.1822,2000.0,rural-remote
+CA34,Bishop,37.3708,-118.3664,1252.0,rural
+CA42,Tanbark Flat,34.2071,-117.7618,853.0,urban-suburban
+CA45,Hopland,39.0045,-123.086,253.0,rural-remote
+CA50,Sagehen Creek,39.4315,-120.2397,1931.0,rural
+CA66,Pinnacles National Park-Bear Valley,36.4834,-121.157,317.0,rural-remote
+CA67,Joshua Tree National Park-Black Rock,34.0695,-116.3889,1239.0,rural
+CA68,Palomar Mountain,33.3089,-116.8539,1695.0,rural
+CA72,San Jose,37.4276,-122.0624,1.0,urban
+CA75,Sequoia National Park-Giant Forest,36.5661,-118.778,1921.0,rural-remote
+CA76,Montague,41.7662,-122.4798,799.0,rural
+CA85,Channel Islands National Park,34.0158,-119.3619,49.0,rural-remote
+CA88,Davis,38.5357,-121.7762,18.0,urban-suburban
+CA94,Converse Flats,34.1938,-116.9131,1724.0,rural
+CA95,Death Valley National Park-Cow Creek,36.589,-116.978,125.0,rural-remote
+CA96,Lassen Volcanic National Park-Manzanita Lake,40.539,-121.5772,1754.0,rural-remote
+CA97,Covelo,39.8237,-123.2382,418.0,rural-remote
+CA98,Chuchupate Ranger Station,34.8061,-119.0114,1614.0,rural
+CA99,Yosemite National Park-Hodgdon Meadow,37.7961,-119.8581,1393.0,rural-remote
+CAN1,Lethbridge,49.6369,-112.7878,913.0,nan
+CAN2,Mount Forest,43.9914,-80.7461,410.0,nan
+CAN3,Kejimkujik National Park,44.4328,-65.2056,152.0,nan
+CAN4,Sutton,45.0761,-72.6756,244.0,nan
+CAN5,Frelighsburg,45.041,-72.8581,195.0,rural
+CAN6,Frelighsburg - Intercomparison,45.0503,-72.8617,195.0,rural
+CAPMCAAB1EST,Esther,51.66978,-110.20656,702.0,rural
+CAPMCAAB1JOU,Joussard,55.34037,-115.89567,676.0,rural
+CAPMCAAB2EST,Esther - Duplicate Sampler,51.66978,-110.20656,702.0,rural
+CAPMCABC1SAT,Saturna,48.77503,-123.12753,184.0,rural
+CAPMCAMB1ISL,Island Lake,53.86667,-94.67222,245.0,rural
+CAPMCAMB1MCC,Mccreary,50.70944,-99.52778,335.0,rural
+CAPMCANB1HAB,Harcourt - B,46.49681,-65.26452,45.0,rural
+CAPMCANB1HAR,Harcourt,46.48417,-65.25833,45.0,rural
+CAPMCANB2HAR,Harcourt - Duplicate Sampler,46.48417,-65.25833,45.0,rural
+CAPMCANL1BAY,Bay D'Espoir,47.99167,-55.81417,190.0,rural
+CAPMCANL1COR,Cormack,49.26222,-57.45583,120.0,rural
+CAPMCANL1GOS,Goose Bay,53.306,-60.36314,26.0,rural
+CAPMCANL2BAB,Bay D'Espoir - B,47.98957,-55.8177,167.0,rural
+CAPMCANL2COR,Cormack - B,49.32361,-57.39583,145.0,rural
+CAPMCANL2GOB,Goose Bay - B (Happy Valley),53.29028,-60.3875,39.0,rural
+CAPMCANS1JAC,Jackson,45.59325,-63.83369,99.0,rural
+CAPMCANS1KEB,Kejimkujik National Park - B,44.40298,-65.20274,128.0,rural
+CAPMCANS1KEJ,Kejimkujik National Park,44.43244,-65.20264,159.0,rural
+CAPMCANS1SBK,Sherbrooke,45.15934,-61.97048,94.0,rural
+CAPMCANS2KEJ,Kejimkujik National Park - Duplicate Sampler,44.43244,-65.20264,159.0,rural
+CAPMCANT1SNA,Snare Rapids,63.50844,-116.00792,246.0,rural
+CAPMCANT1WBP,Wood Buffalo National Park,60.14653,-113.6377,284.0,rural
+CAPMCAON1ALG,Algoma,47.03367,-84.37897,411.0,rural
+CAPMCAON1BNT,Burnt Island,45.80806,-82.95111,182.0,rural
+CAPMCAON1BON,Bonner Lake,49.38553,-82.12125,242.0,rural
+CAPMCAON1CHA,Chalk River,46.06242,-77.40453,190.0,rural
+CAPMCAON1DOR,Dorset,45.22361,-78.93056,320.0,rural
+CAPMCAON1EGB,Egbert,44.23406,-79.79172,206.0,rural
+CAPMCAON1ELA,Experimental Lakes Area,49.66408,-93.73277,437.0,rural
+CAPMCAON1KNG,Kinghurst Forest Reserve,44.33169,-80.90933,313.0,rural
+CAPMCAON1LLC,Longlac,49.74892,-86.71328,243.0,rural
+CAPMCAON1LON,Longwoods,42.88356,-81.48025,239.0,rural
+CAPMCAON1MTR,Marten River,46.67119,-79.91925,300.0,rural
+CAPMCAON1PCK,Pickle Lake,51.45972,-90.19861,370.0,rural
+CAPMCAON1PKL,Pickle Lake - B,51.44814,-90.21786,391.0,rural
+CAPMCAON1PNT,Point Petre,43.84278,-77.15361,78.0,rural
+CAPMCAON1PRI,Priceville,44.16806,-80.66111,475.0,rural
+CAPMCAON1SPR,Sprucedale,45.42397,-79.48614,330.0,rural
+CAPMCAON1WAR,Warsaw Caves Conservation Authority,44.46294,-78.13019,243.0,rural
+CAPMCAON1WPT,Westport,44.63861,-76.37,148.0,rural
+CAPMCAON2BON,Bonner Lake  - Duplicate Sampler,49.38553,-82.12125,242.0,rural
+CAPMCAON2EGB,Egbert - Duplicate Sampler,44.23406,-79.79172,206.0,rural
+CAPMCAON2PRI,Priceville - Duplicate Sampler,44.16806,-80.66111,475.0,rural
+CAPMCAPQ1CPS,Chapais,49.82236,-74.97547,377.0,rural
+CAPMCAPQ1FRE,Frelighsburg,45.05006,-72.86161,190.0,rural
+CAPMCAPQ1LED,Lake Édouard,47.68039,-72.44489,426.0,rural
+CAPMCAPQ1LGR,La Grande-4,53.75722,-73.675,300.0,rural
+CAPMCAPQ1MIN,Mingan,50.27147,-64.22625,6.0,rural
+CAPMCAPQ1MTM,Montmorency,47.31667,-71.15,640.0,rural
+CAPMCAPQ1NIT,Nitchequon,53.2,-70.9,550.0,rural
+CAPMCAPQ1PCA,Port Cartier,50.14028,-67.135,152.0,rural
+CAPMCAPQ1SUT,Sutton,45.07639,-72.67639,243.0,rural
+CAPMCAPQ2SUT,Sutton - Duplicate Sampler,45.07639,-72.67639,243.0,rural
+CAPMCAQC1CPS,Chapais,49.82236,-74.97547,377.0,rural
+CAPMCAQC1FRB,Frelighsburg - B,45.04097,-72.85814,235.0,rural
+CAPMCAQC1FRE,Frelighsburg,45.05006,-72.86161,190.0,rural
+CAPMCAQC1LED,Lake Édouard,47.68039,-72.44489,426.0,rural
+CAPMCAQC1LGR,La Grande-4,53.75722,-73.675,300.0,rural
+CAPMCAQC1MIN,Mingan,50.27147,-64.22625,6.0,rural
+CAPMCASK1BRA,Bratt'S Lake,50.20081,-104.71072,592.0,rural
+CAPMCASK1CLF,Cluff Lake,58.35931,-109.60097,339.0,rural
+CAPMCASK1CRE,Cree Lake,57.35043,-107.13335,499.0,rural
+CAPMCASK1FLV,Flat Valley,54.29464,-109.20921,506.0,rural
+CAPMCASK1FLX,Flat Valley--Experimental,54.29131,-109.22067,506.0,rural
+CAPMCASK1IFL,Island Falls,55.52889,-102.34503,310.0,rural
+CAPMCASK1PHL,Pinehouse Lake,55.51217,-106.72453,404.0,rural
+CAPMUSPA1PEN,Pennsylvania State University,40.78883,-77.94556,396.0,rural
+CARTEL,Cartel,45.379754,-71.93133,251.0,nan
+CARTSITE,Cart Site,36.60667,-97.48639,318.0,nan
+CASLEO,Casleo,-31.798815,-69.295685,2485.0,nan
+CATUCBamenda,Catuc Bamenda,5.9491,10.1563,1293.0,nan
+CBBT,Cbbt,37.03665,-76.0766,20.0,nan
+CCNY,Ccny,40.821313,-73.949036,100.0,nan
+CDR119,Cedar Creek,38.879503,-80.847677,240.0,rural
+CEILAP-BA,Ceilap-Ba,-34.555425,-58.506411,26.0,nan
+CEILAP-Bariloche,Ceilap-Bariloche,-41.146944,-71.163333,840.0,nan
+CEILAP-Comodoro,Ceilap-Comodoro,-45.792153,-67.462875,49.0,nan
+CEILAP-Neuquen,Ceilap-Neuquen,-38.95222,-68.13666,271.0,nan
+CEILAP-RG,Ceilap-Rg,-51.600503,-69.31925,19.0,nan
+CEILAP-UTN,Ceilap-Utn,-34.659722,-58.468611,27.0,nan
+CENER,Cener,42.816424,-1.602187,471.0,nan
+CH0001G,Jungfraujoch,46.5475,7.985,3578.0,rural
+CH0002R,Payerne,46.813056,6.9444722,489.0,rural
+CH0003R,Tänikon,47.479722,8.904722,539.0,urban-suburban
+CH0004R,Chaumont,47.049722,6.979444,1137.0,rural
+CH0005R,Rigi,47.0674167,8.4633333,1031.0,rural
+CH0013R,Delemont,47.366667,7.35,420.0,urban-suburban
+CH0014R,Oeschberg,47.133333,7.616667,484.0,urban-suburban
+CH0015R,Einsiedeln,47.133333,8.75,886.0,urban-suburban
+CH0016R,Magadino,46.166667,8.883333,190.0,urban-suburban
+CHA467,Chiricahua Nm,32.009405,-109.389058,1570.0,rural
+CL0001R,El Tololo,-30.17254,-70.79923,2220.0,rural
+CLUJUBB,Cluj Ubb,46.768333,23.551389,405.0,nan
+CN0001B,Tie Shan Ping,29.633333,104.683333,450.0,rural
+CN0002R,Lei Gong Shan,26.366667,108.183333,1630.0,rural
+CN0003R,Cai Jia Tang,27.916667,112.433333,450.0,urban-suburban
+CN0004B,Liu Xi He,23.55,113.583333,500.0,urban-centre
+CN0005R,Liu Chong Guan,26.633333,106.716667,1320.0,urban-suburban
+CNA001,Chongqing Guanyinqiao,29.575555555555557,106.52916666666667,262.0,urban
+CNA002,Nanshan,29.55,106.63333333333334,570.0,rural-regional
+CNA003,Chongqing,29.625,106.50944444444444,317.0,urban
+CNA004,Chongqing,29.828333333333333,106.3786111111111,871.0,rural-regional
+CNA005,Xi'An,34.2425,108.95277777777778,415.0,urban
+CNA006,Xi’An Weishuiyuan,34.36666666666667,108.85,366.0,rural-regional
+CNA007,Xi'An,33.85166666666667,108.81444444444445,1837.0,rural-remote
+CNA008,Xiamen,24.47972222222222,118.16305555555556,39.0,urban
+CNA009,Xiamen,24.85638888888889,118.04861111111111,530.0,rural-remote
+CNA010,Zhuhai,22.272777777777776,113.52944444444444,29.0,urban
+CNA011,Zhuhai,22.206666666666667,113.51666666666667,18.0,urban
+CNA013,Wuzhishan,18.836388888888887,109.49055555555556,958.0,rural-remote
+CNA014,Lijiang,27.22722222222222,100.24666666666667,3410.0,rural-remote
+CND125,Candor,35.26333,-79.83754,172.0,rural
+CO00,Alamosa,37.4421,-105.868,2285.0,rural
+CO01,Las Animas Fish Hatchery,38.1177,-103.316,1226.0,rural-remote
+CO02,Niwot Saddle,40.0547,-105.5891,3520.0,rural-remote
+CO08,Four Mile Park,39.4025,-107.3454,2502.0,rural
+CO09,Kawuneechee Meadow,40.2603,-105.8292,2633.0,rural-remote
+CO10,Gothic,38.9561,-106.986,2915.0,rural-remote
+CO13,Fort Collins,40.5923,-105.1414,1570.0,urban-suburban
+CO15,Sand Spring,40.5077,-107.7025,1998.0,rural
+CO18,Ripple Creek Pass,40.0851,-107.3118,2929.0,rural-remote
+CO19,Rocky Mountain National Park-Beaver Meadows,40.3639,-105.581,2477.0,rural
+CO21,Manitou,39.1008,-105.0933,2362.0,rural
+CO22,Pawnee,40.806,-104.756,1641.0,rural-remote
+CO80,Akron 4E,40.1552,-103.1417,1364.0,nan
+CO81,Missile Site Park,40.4288,-104.8617,1510.0,nan
+CO82,Orchard,40.3199,-104.1598,1365.0,nan
+CO83,Timnath,40.5194,-104.96,1474.0,nan
+CO89,Rocky Mountain National Park-Loch Vale,40.2878,-105.6628,3159.0,rural-remote
+CO90,Niwot Ridge-Southeast,40.0367,-105.544,3015.0,rural-remote
+CO91,Wolf Creek Pass,37.4686,-106.787,3287.0,rural-remote
+CO92,Sunlight Peak,39.4264,-107.3799,3218.0,rural
+CO93,Buffalo Pass - Dry Lake,40.5347,-106.7811,2538.0,rural
+CO94,Sugarloaf,39.9939,-105.48,2524.0,rural
+CO95,Engineer Mountain Guard Station,37.6597,-107.7992,2758.0,rural-remote
+CO96,Molas Pass,37.75,-107.689,3248.0,rural-remote
+CO97,Buffalo Pass - Summit Lake,40.5383,-106.6766,3234.0,rural
+CO98,Rocky Mountain National Park-Loch Vale,40.2878,-105.6628,3159.0,rural-remote
+CO99,Mesa Verde National Park-Chapin Mesa,37.1979,-108.491,2162.0,rural-remote
+COVE,Cove,36.9,-75.71,37.0,nan
+COVESEAPRISM,Cove Seaprism,36.9,-75.71,24.0,nan
+CRPSMMalindi,Crpsm Malindi,-2.996,40.1945,12.0,nan
+CT15,Abington,41.84,-72.0101,209.0,rural
+CTH110,Connecticut Hill,42.400875,-76.653516,511.0,rural
+CUIABA-MIRANDA,Cuiaba-Miranda,-15.73091,-56.07086,210.0,nan
+CUT-TEPAK,Cut-Tepak,34.674806,33.04275,22.0,nan
+CY0002R,Agia Marina Xyliatou / Cyprus Atmospheric Observatory,35.0381,33.0578,532.0,rural
+CZ0001R,Svratouch,49.735084444,16.034196944,735.0,urban-suburban
+CZ0003R,Kosetice (Naok),49.573394,15.080278,535.0,rural
+CZ0004B,Prague-Suchdol,50.126389,14.384648,277.0,urban-suburban
+CZ0005R,Churanov,49.066667,13.6,1118.0,rural
+CZ0006B,Ústí N.L.-Mesto,50.66109,14.04029,218.0,urban-centre
+Cabauw,Cabauw,51.971,4.927,-0.699999988079071,nan
+CaboRaso,Cabo Raso,38.70937,-9.48587,20.0,nan
+CabodaRoca,Cabo Da Roca,38.781722,-9.497667,136.0,nan
+Caceres,Caceres,39.478583,-6.343467,397.0,nan
+CachoeiraPaulista,Cachoeira Paulista,-22.689,-45.006,574.0,nan
+CaillouelCOBIACC,Caillouel Cobiacc,49.619914,3.12681,53.0,nan
+CairoEMA,Cairo Ema,30.080767,31.290067,70.0,nan
+CairoEMA2,Cairo Ema 2,30.080767,31.290067,70.0,nan
+CairoUniversity,Cairo University,30.026167,31.207317,50.0,nan
+CalTech,Caltech,34.13673,-118.126167,260.0,nan
+CaldwellParishHS,Caldwell Parish Hs,32.060303,-92.096277,50.0,nan
+CalernOCA,Calern Oca,43.752207,6.923153,1270.0,nan
+Calhau,Calhau,16.863889,-24.867222,40.0,nan
+CalipsoRidgely,Calipso Ridgely,38.94863,-75.8815,15.0,nan
+CalipsoZion,Calipso Zion,39.932389,-76.199,120.0,nan
+Camaguey,Camaguey,21.4223,-77.8499,122.0,nan
+CamborneMO,Camborne Mo,50.21782,-5.32656,87.0,nan
+CampoGrande,Campo Grande,-20.45,-54.616667,551.0,nan
+CampoGrandeSONDA,Campo Grande Sonda,-20.438617,-54.538742,677.0,nan
+CampusUSACH,Campus Usach,-33.4499,-70.681567,550.0,nan
+Canberra,Canberra,-35.2713,149.1111,600.0,nan
+CapeFugueiStation,Cape Fuguei Station,25.297452,121.537859,40.0,nan
+CapeRomain,Cape Romain,32.941,-79.6572,4.0,nan
+CapeSanJuan,Cape San Juan,18.3845,-65.6199,15.0,nan
+CapelDewi,Capel Dewi,52.424804,-4.004613,48.0,nan
+CapoVerde,Capo Verde,16.7325,-22.935499,60.0,nan
+Carloforte,Carloforte,39.139908,8.309875,15.0,nan
+Carlsbad,Carlsbad,32.368833,-104.233167,967.0,nan
+CarmelValley,Carmel Valley,36.4021,-121.6464,340.0,nan
+Carpentras,Carpentras,44.083333,5.058333,107.0,nan
+CartSite,Cart Site,36.60667,-97.48639,318.0,nan
+CasablancaPlatform,Casablanca Platform,40.717,1.358,35.0,nan
+CascadeAirport,Cascade Airport,44.495286,-116.016825,1447.0,nan
+Catalina,Catalina,32.456511,-110.879547,935.0,nan
+CerroPoyos,Cerro Poyos,37.108869,-3.487261,1809.0,nan
+Chachoengsao,Chachoengsao,13.5,101.45,60.0,nan
+Chapais,Chapais,49.822433,-74.9754,373.44000244140625,nan
+CheboguePoint,Chebogue Point,43.747,-66.123,18.0,nan
+Chen-KungUniv,Chen-Kung Univ,22.993419,120.204664,50.0,nan
+Chequamegon,Chequamegon,45.933333,-90.25,485.0,nan
+Cheritan,Cheritan,37.289478,-75.971778,5.0,nan
+ChesapeakeBay,Chesapeake Bay,39.12351,-76.3489,30.0,nan
+ChiangDao,Chiang Dao,19.454722,98.9609,450.0,nan
+ChiangMai,Chiang Mai,18.813333,98.986944,324.0,nan
+ChiangMaiMetSta,Chiang Mai Met Sta,18.771125,98.972467,312.0,nan
+Chiayi,Chiayi,23.495975,120.495975,62.0,nan
+ChibaUniversity,Chiba University,35.6247,140.1038,60.0,nan
+Chilbolton,Chilbolton,51.14446,-1.43698,88.0,nan
+ChinaLake,China Lake,35.6741,-117.744533,704.0,nan
+Chinhae,Chinhae,35.1558,128.652433,69.0,nan
+Chulalongkorn,Chulalongkorn,13.736111,100.530278,115.0,nan
+Churchill,Churchill,58.736,-93.818167,10.0,nan
+ClermontFerrand,Clermont Ferrand,45.772435,2.964332,1461.0,nan
+CliffCreek1,Cliff Creek 1,45.108708,-114.843318,1351.0,nan
+CliffCreek2,Cliff Creek 2,45.115091,-114.843248,1552.0,nan
+CliffCreek3,Cliff Creek 3,45.115417,-114.836824,1727.0,nan
+CliffCreek4,Cliff Creek 4,45.123432,-114.83938,2024.0,nan
+CliffCreek5,Cliff Creek 5,45.129928,-114.846827,2068.0,nan
+CliffCreek6,Cliff Creek 6,45.144171,-114.845318,2232.0,nan
+CoconutIsland,Coconut Island,21.4329,-157.789717,2.0,nan
+ColdLake,Cold Lake,54.417,-110.283,539.0,nan
+Coleambally,Coleambally,-34.8101,146.0644,127.0,nan
+ColumbiaSC,Columbia Sc,34.022803,-81.036333,104.19999694824219,nan
+Concepcion,Concepcion,-16.138167,-62.028,500.0,nan
+Corcoran,Corcoran,36.10343,-119.5661,110.0,nan
+Cordoba-CETT,Cordoba-Cett,-31.524075,-64.463682,730.0,nan
+CorkUCC,Cork Ucc,51.89241,-8.493762,40.0,nan
+Coruna,Coruna,43.363,-8.4208,67.0,nan
+Creteil,Creteil,48.7885,2.442783,57.0,nan
+CroisicUTLN,Croisic Utln,47.293606,-2.5134,6.0,nan
+CrozetIsland,Crozet Island,-46.434806,51.850361,221.0,nan
+Cuiaba,Cuiaba,-15.555244,-56.070214,234.0,nan
+DAHRA,"Dahra, Senegal",15.402778,-15.443333,40.0,rural
+DCP114,Deer Creek,39.635888,-83.260563,264.0,rural
+DE0001R,Westerland,54.925556,8.309722,1007.9400024414062,rural
+DE0002R,Waldhof,52.802222,10.759444,1007.9400024414062,rural
+DE0003R,Schauinsland,47.914722,7.908611,1007.9400024414062,urban-suburban
+DE0004R,Deuselbach,49.764722,7.051944,1007.9400024414062,urban-suburban
+DE0005R,Brotjacklriegel,48.819444,13.219167,1007.9400024414062,urban-suburban
+DE0006R,Arkona,54.683333,13.433333,42.0,urban-suburban
+DE0007R,Neuglobsow,53.141303,13.031662,62.0,urban-suburban
+DE0008R,Schmücke,50.65,10.766667,937.0,rural
+DE0009R,Zingst,54.4368,12.7249,1.0,rural
+DE0043G,Hohenpeissenberg,47.8014984131,11.009619,975.0,rural
+DE0044R,Melpitz,51.5255,12.9277,86.0,rural
+DE0054R,Zugspitze-Schneefernerhaus,47.4165,10.97964,2671.0,rural
+DE0055B,Leipzig,51.3525,12.4346,118.0,urban-suburban
+DE0056R,Bösel,52.998055,7.9425,40.0,urban-suburban
+DE0060G,Neumayer,-70.666,-8.266,42.0,rural
+DE0061B,Annaberg-Buchholz,50.571667,12.998889,545.0,urban-suburban
+DE0066K,Leipzig-Eisenbahnstrasse,51.345833,12.406389,120.0,urban-centre
+DE0067K,Leipzig-Mitte,51.344167,12.377222,111.0,urban-centre
+DE0068B,Leipzig-West,51.318056,12.2975,122.0,urban-suburban
+DE02,Lewes,38.7722,-75.0992,2.0,nan
+DE99,Trap Pond State Park,38.4994,-75.4482,12.0,nan
+DEWAResearchCentre,Dewa Researchcentre,24.766847,55.369125,86.80000305175781,nan
+DJOUGOU,"Djougou, Benin",9.65,1.7333333,430.0,rural
+DK0001R,Færøerne,62.03,-7.066667,210.0,rural
+DK0002R,Hanstholm,57.116667,8.6,46.0,urban-suburban
+DK0003R,Tange,56.353806,9.602278,13.0,rural
+DK0004R,Gniben,56.0,11.283333,0.0,urban-suburban
+DK0005R,Keldsnor,54.746495,10.73616,10.0,rural
+DK0006R,Dueodde,55.0,15.083333,10.0,rural
+DK0007R,Færøerne-Akraberg,61.4,-6.666667,90.0,rural
+DK0008R,Anholt,56.717306,11.520722,40.0,rural
+DK0012R,Risø,55.693888889,12.088611111,1.0,rural
+DK0020R,Pedersker,55.016944,14.945833,5.0,rural
+DK0022R,Sepstrup Sande,56.083109,9.420733,60.0,urban-suburban
+DK0025G,Summit,72.5800018311,-38.4799995422,3238.0,rural
+DK0031R,Ulborg,56.290424,8.427486,10.0,rural
+DMNMaineSoroa,Dmn Maine Soroa,13.216717,12.023067,350.0,nan
+DRAGONABERD,Dragon Aberd,39.515103,-76.16523,37.0,nan
+DRAGONANNEA,Dragon Annea,39.1647,-76.6247,30.0,nan
+DRAGONARNCC,Dragon Arncc,39.1589,-76.7208,50.0,nan
+DRAGONARNLS,Dragon Arnls,39.058488,-76.512926,12.0,nan
+DRAGONAldine,Dragon Aldine,29.901037,-95.326125,20.0,nan
+DRAGONAldino,Dragon Aldino,39.563433,-76.203932,127.0,nan
+DRAGONAnmyeon,Dragon Anmyeon,36.53863,126.33002,58.599998474121094,nan
+DRAGONArvin,Dragon Arvin,35.237959,-118.78781,158.0,nan
+DRAGONAuroraEast,Dragon Aurora East,39.63854,-104.56913,1802.0,nan
+DRAGONBATMR,Dragon Batmr,39.398913,-76.47555,65.0,nan
+DRAGONBLDND,Dragon Bldnd,39.258315,-76.519504,11.0,nan
+DRAGONBLLRT,Dragon Bllrt,39.389385,-76.578242,127.0,nan
+DRAGONBLTCC,Dragon Bltcc,39.362201,-76.688429,120.0,nan
+DRAGONBLTNR,Dragon Bltnr,39.2156,-76.6186,50.0,nan
+DRAGONBOWEM,Dragon Bowem,38.9747,-76.7506,40.0,nan
+DRAGONBTMDL,Dragon Btmdl,39.238826,-76.441601,5.0,nan
+DRAGONBainbridge,Dragon Bainbridge,39.606044,-76.074122,129.0,nan
+DRAGONBakersfield,Dragon Bakersfield,35.331506,-119.000008,50.0,nan
+DRAGONBelAir,Dragon Belair,39.500014,-76.263098,52.0,nan
+DRAGONBeltsville,Dragon Beltsville,39.054091,-76.877491,53.0,nan
+DRAGONBokjeong,Dragon Bokjeong,37.45699,127.13123,61.20000076293945,nan
+DRAGONBoulder,Dragon Boulder,39.991859,-105.261325,1660.0,nan
+DRAGONCLLGP,Dragon Cllgp,38.9911,-76.9086,65.0,nan
+DRAGONCLRST,Dragon Clrst,39.20541,-76.94445,140.0,nan
+DRAGONChannelView,Dragon Channel View,29.8025,-95.125556,10.0,nan
+DRAGONChatfieldPk,Dragon Chatfield Pk,39.5345,-105.070365,1676.0,nan
+DRAGONClinton,Dragon Clinton,29.733611,-95.2575,10.0,nan
+DRAGONClovis,Dragon Clovis,36.81931,-119.71639,90.0,nan
+DRAGONConroe,Dragon Conroe,30.350278,-95.425,72.0,nan
+DRAGONCorcoran,Dragon Corcoran,36.10222,-119.56583,55.0,nan
+DRAGONDeerPark,Dragon Deer Park,29.670046,-95.128485,10.0,nan
+DRAGONDenverLaCasa,Dragon Denverlacasa,39.77949,-105.00518,1601.0,nan
+DRAGONDrummond,Dragon Drummond,36.70556,-119.74139,90.0,nan
+DRAGONEDCMS,Dragon Edcms,38.922218,-76.560012,13.0,nan
+DRAGONELLCT,Dragon Ellct,39.2661,-76.861603,128.0,nan
+DRAGONEdgewood,Dragon Edgewood,39.409834,-76.296352,8.0,nan
+DRAGONEssex,Dragon Essex,39.310943,-76.474486,12.0,nan
+DRAGONFLLST,Dragon Fllst,39.522366,-76.413318,151.0,nan
+DRAGONFairHill,Dragon Fairhill,39.701435,-75.860059,117.0,nan
+DRAGONFortCollins,Dragon Fort Collins,40.592795,-105.14141,1572.0,nan
+DRAGONFukue,Dragon Fukue,32.752,128.682,80.0,nan
+DRAGONFukuoka,Dragon Fukuoka,33.524,130.475,30.0,nan
+DRAGONGalveston,Dragon Galveston,29.254474,-94.861289,1.0,nan
+DRAGONGalvestonDP,Dragon Galveston Dp,29.254474,-94.861289,1.0,nan
+DRAGONGangneungWNU,Dragon Gangneungwnu,37.771,128.867,60.0,nan
+DRAGONGarland,Dragon Garland,36.78537,-119.77302,100.0,nan
+DRAGONGuwol,Dragon Guwol,37.44967,126.72403,38.5,nan
+DRAGONGwangjuGIST,Dragon Gwangju Gist,35.228278,126.843139,52.0,nan
+DRAGONHakuba,Dragon Hakuba,36.700666,137.864134,703.0,nan
+DRAGONHanford,Dragon Hanford,36.31572,-119.64323,50.0,nan
+DRAGONHankukUFS,Dragon Hankuk Ufs,37.33883,127.26582,167.0,nan
+DRAGONHenties3,Dragon Henties 3,-22.184012,14.377948,30.0,nan
+DRAGONHenties4,Dragon Henties 4,-22.020377,14.345504,100.0,nan
+DRAGONHenties5,Dragon Henties 5,-22.091751,14.399573,90.0,nan
+DRAGONHenties6,Dragon Henties 6,-22.166736,14.430668,80.0,nan
+DRAGONIida,Dragon Iida,35.516667,137.842199,490.0,nan
+DRAGONIna,Dragon Ina,35.8475,137.96125,683.0,nan
+DRAGONJalanChainF,Dragon Jalan Chainf,5.400542,100.381339,8.0,nan
+DRAGONKampungBharu,Dragon Kampungbharu,5.341589,100.463158,10.0,nan
+DRAGONKentIsland,Dragon Kentisland,38.9793,-76.307864,4.0,nan
+DRAGONKobe,Dragon Kobe,34.72,135.291,20.0,nan
+DRAGONKofu,Dragon Kofu,35.678889,138.571534,314.0,nan
+DRAGONKohriyama,Dragon Kohriyama,37.361042,140.3829,230.0,nan
+DRAGONKongjuNU,Dragon Kongju Nu,36.470623,127.140023,73.0,nan
+DRAGONKonkukUniv,Dragon Konkuk Univ,37.54205,127.079774,40.0,nan
+DRAGONKoreaUniv,Dragon Korea Univ,37.58514,127.02507,65.4000015258789,nan
+DRAGONKunsanNU,Dragon Kunsan Nu,35.941072,126.683008,32.0,nan
+DRAGONKyoto,Dragon Kyoto,35.026,135.781,60.0,nan
+DRAGONKyungilUniv,Dragon Kyungil Univ,36.038648,128.788442,122.0,nan
+DRAGONLAUMD,Dragon Laumd,39.1428,-76.8592,112.0,nan
+DRAGONMEWRCentral,Dragon Mewr Central,1.310906,103.836486,50.0,nan
+DRAGONMNKTN,Dragon Mnktn,39.572926,-76.652318,182.0,nan
+DRAGONMaderaCity,Dragon Madera City,36.953162,-120.034418,78.0,nan
+DRAGONManvelCroix,Dragon Manvelcroix,29.520427,-95.392522,19.0,nan
+DRAGONMatsue,Dragon Matsue,35.48,133.01,10.0,nan
+DRAGONMatsumoto,Dragon Matsumoto,36.251487,137.977832,626.0,nan
+DRAGONMinowa,Dragon Minowa,35.915,137.980741,713.0,nan
+DRAGONMokpoNU,Dragon Mokpo Nu,34.91342,126.43736,26.0,nan
+DRAGONMtHappo,Dragon Mt Happo,36.696858,137.798126,1846.0,nan
+DRAGONMtHaruna,Dragon Mt Haruna,36.475441,138.877794,1359.0,nan
+DRAGONMtIkoma,Dragon Mt Ikoma,34.6798,135.678667,600.0,nan
+DRAGONMtKrigamine,Dragon Mt Krigamine,36.09806,138.168297,1674.0,nan
+DRAGONMtRokko,Dragon Mt Rokko,34.757,135.23,797.0,nan
+DRAGONNIER,Dragon Nier,37.56893,126.63971,26.899999618530273,nan
+DRAGONNREL-Golden,Dragon Nrel-Golden,39.743725,-105.17799,1833.0,nan
+DRAGONNWHarrisCO,Dragon Nw Harris Co,30.039444,-95.673889,51.0,nan
+DRAGONNara,Dragon Nara,34.688,135.828,80.0,nan
+DRAGONNishiharima,Dragon Nishiharima,35.026,134.336,420.0,nan
+DRAGONNiwotRidge,Dragon Niwot Ridge,40.031795,-105.533313,2886.0,nan
+DRAGONOLNES,Dragon Olnes,39.149148,-77.068267,180.0,nan
+DRAGONONNGS,Dragon Onngs,39.387756,-76.81912,177.0,nan
+DRAGONOmachi,Dragon Omachi,36.503,137.8514,751.0,nan
+DRAGONOsaka-North,Dragon Osaka-North,34.774,135.51,50.0,nan
+DRAGONOsaka-South,Dragon Osaka-South,34.5435,135.503867,30.0,nan
+DRAGONOsakaCenter,Dragon Osaka Center,34.668477,135.530894,30.0,nan
+DRAGONPATUX,Dragon Patux,38.827168,-76.70938,26.0,nan
+DRAGONPadonia,Dragon Padonia,39.462036,-76.631669,120.0,nan
+DRAGONPandanResrv,Dragon Pandan Resrv,1.318808,103.742362,2.0,nan
+DRAGONParlier,Dragon Parlier,36.59744,-119.50369,104.0,nan
+DRAGONPasadena,Dragon Pasadena,39.111638,-76.45544,17.0,nan
+DRAGONPayaTerubong,Dragon Payaterubong,5.375964,100.275847,30.0,nan
+DRAGONPermatangDL,Dragon Permatang Dl,5.277875,100.271253,13.0,nan
+DRAGONPineyOrchard,Dragon Pineyorchard,39.060781,-76.719202,59.0,nan
+DRAGONPlatteville,Dragon Platteville,40.182765,-104.7261,1523.0,nan
+DRAGONPondokUpeh,Dragon Pondok Upeh,5.33325,100.22661,16.0,nan
+DRAGONPusanNU,Dragon Pusan Nu,35.235354,129.082493,78.0,nan
+DRAGONPylesville,Dragon Pylesville,39.67515,-76.405349,158.0,nan
+DRAGONRockyFlats,Dragon Rocky Flats,39.912795,-105.188575,1803.0,nan
+DRAGONSPBRK,Dragon Spbrk,39.0581,-77.0058,110.0,nan
+DRAGONSanggye,Dragon Sanggye,37.65885,127.06845,35.0,nan
+DRAGONSeabrookPark,Dragon Seabrookpark,29.583047,-95.015544,4.0,nan
+DRAGONShafter,Dragon Shafter,35.50361,-119.2725,86.0,nan
+DRAGONSinjeong,Dragon Sinjeong,37.52341,126.85863,27.100000381469727,nan
+DRAGONSmithPoint,Dragon Smith Point,29.546244,-94.786969,1.0,nan
+DRAGONSoha,Dragon Soha,37.45213,126.8847,48.0,nan
+DRAGONStJohnsIs,Dragon St Johns Is,1.21795,103.849615,15.0,nan
+DRAGONSuwa,Dragon Suwa,36.045552,138.108754,766.0,nan
+DRAGONTakayama,Dragon Takayama,36.252778,137.3045,1296.0,nan
+DRAGONTemasekPoly,Dragon Temasek Poly,1.344821,103.930621,10.0,nan
+DRAGONTranquility,Dragon Tranquility,36.63434,-120.38234,43.0,nan
+DRAGONTsukuba,Dragon Tsukuba,36.050556,140.120278,30.0,nan
+DRAGONUHSugarland,Dragon Uh Sugarland,29.5741,-95.652,22.0,nan
+DRAGONUHWLiberty,Dragon Uh W Liberty,30.0583,-94.9781,24.0,nan
+DRAGONUMRLB,Dragon Umrlb,38.891262,-76.814106,44.0,nan
+DRAGONUiTM,Dragon Uitm,5.38313,100.41631,7.0,nan
+DRAGONWSTFD,Dragon Wstfd,39.301577,-76.946248,173.0,nan
+DRAGONWelch,Dragon Welch,39.63878,-105.13951,1743.0,nan
+DRAGONWeldCoTwr,Dragon Weld Co Twr,40.38636,-104.737445,1484.0,nan
+DRAGONWestHouston,Dragon West Houston,29.833056,-95.656944,34.0,nan
+DRAGONWileyFord,Dragon Wileyford,39.610446,-78.773648,217.0,nan
+DRAGONYishunITE,Dragon Yishun Ite,1.434638,103.844876,2.0,nan
+Dahkla,Dahkla,23.716667,-15.95,12.0,nan
+Dakar,Dakar,14.394167,-16.958611,21.0,nan
+DakarBelair,Dakar Belair,14.7017,-17.4256,15.0,nan
+Dalanzadgad,Dalanzadgad,43.577222,104.419167,1470.0,nan
+Dalma,Dalma,24.502222,52.331667,16.0,nan
+Darwin,Darwin,-12.424,130.8915,29.0,nan
+Davos,Davos,46.81281,9.84369,1589.0,nan
+Dayton,Dayton,39.775977,-84.109618,243.0,nan
+DeadSea,Dead Sea,31.1,35.45,-410.0,nan
+DebrzynaPULS,Debrzyna Puls,53.7825,16.592157,158.0,nan
+DenverLaCasa,Denver Lacasa,39.77949,-105.00518,1601.0,nan
+Dhabi,Dhabi,24.480556,54.382778,15.0,nan
+Dhadnah,Dhadnah,25.512817,56.324717,81.0,nan
+DhakaUniversity,Dhaka University,23.72839,90.39819,34.0,nan
+Dharwar,Dharwar,15.428611,74.988611,746.0,nan
+DibrugarhUniv,Dibrugarh Univ,27.45085,94.896889,119.0,nan
+DigitalGlobeCal,Digitalglobe Cal,40.13889,-105.13722,1539.239990234375,nan
+Dilar,Dilar,37.062981,-3.385925,2884.0,nan
+Djougou,Djougou,9.76007,1.59901,467.0,nan
+DoiAngKhang,Doi Ang Khang,19.93245,99.0454,1536.0,nan
+DoiInthanon,Doi Inthanon,18.59,98.485556,2565.0,nan
+DollySods,Dolly Sods,39.11,-79.43,1182.0,nan
+Donetsk,Donetsk,48.020833,37.809444,214.0,nan
+DongshaIsland,Dongsha Island,20.698556,116.728833,5.0,nan
+Douliu,Douliu,23.7117,120.5448,60.0,nan
+DryTortugas,Dry Tortugas,24.628056,-82.871944,3.0,nan
+DugwayUtah,Dugway Utah,40.101944,-113.21408,1313.68798828125,nan
+Dunedin,Dunedin,-45.863937,170.513644,43.0,nan
+Dunhuang,Dunhuang,40.03838,94.794,1381.0,nan
+DunhuangLZU,Dunhuang Lzu,40.49237,94.95503,1061.0,nan
+Dunkerque,Dunkerque,51.03535,2.368117,5.0,nan
+DurbanUKZN,Durban Ukzn,-29.817233,30.944011,205.0,nan
+Dushanbe,Dushanbe,38.553264,68.857911,821.0,nan
+ECCOE-Mann-Farm-SD,Eccoe-Mann-Farm-Sd,43.997131,-98.215017,393.0,nan
+EE0002R,Syrve,57.95,22.1,2.0,rural
+EE0009R,Lahemaa,59.5,25.9,32.0,rural
+EE0011R,Vilsandi,58.383333,21.816667,6.0,rural
+EOPACE1,Eopace1,36.182167,-75.75075,9.0,nan
+EPA-NCU,Epa-Ncu,24.967533,121.185483,144.0,nan
+EPA-ResTrianglePk,Epa-Res Triangle Pk,35.88,-78.87,109.0,nan
+ES0001R,San Pablo De Los Montes,39.54694,-4.35056,917.0,rural
+ES0002R,La Cartuja,37.2,-3.6,720.0,urban-suburban
+ES0003R,Roquetas,40.820556,0.491389,44.0,urban-suburban
+ES0004R,Logroño,42.457778,-2.503056,445.0,urban-suburban
+ES0005R,Noia,42.72056,-8.92361,683.0,rural
+ES0006R,Mahón,39.87528,4.31639,78.0,urban-suburban
+ES0007R,Víznar,37.23722,-3.53417,1230.0,rural
+ES0008R,Niembro,43.43917,-4.85,134.0,rural
+ES0009R,Campisabalos,41.27417,-3.1425,1360.0,rural
+ES0010R,Cabo De Creus,42.31917,3.31583,76.0,rural
+ES0011R,Barcarrota,38.47278,-6.92361,393.0,rural
+ES0012R,Zarra,39.08278,-1.10111,885.0,rural
+ES0013R,Penausende,41.23889,-5.8975,985.0,urban-suburban
+ES0014R,Els Torms,41.39389,0.73472,470.0,rural
+ES0015R,Risco Llamo,39.516667,-4.35,1241.0,rural
+ES0016R,O Saviñao,42.63472,-7.70472,506.0,urban-suburban
+ES0017R,Doñana,37.05194,-6.55528,35.0,rural
+ES0018G,Izana,28.309,-16.4994,2373.0,rural
+ES0019U,Barcelona (Palau Reial),41.387463,2.11532,115.0,urban-centre
+ES0020U,Granada,37.164,-3.605,680.0,urban-centre
+ES0021U,Madrid (Ciemat),40.456436,-3.725631,669.0,urban-suburban
+ES0022R,Montsec,42.05134,0.72956,1570.0,rural
+ES0100R,El Arenosillo,37.1,-6.733333,41.0,rural
+ES1778R,Montseny,41.766667,2.35,700.0,rural
+ETNA,Etna,37.6135,15.019433,736.0,nan
+ETNAVENA,Etna Vena,37.7905,15.1386,735.0,nan
+EVK2-CNR,Evk2-Cnr,27.95775,86.814936,5079.0,nan
+EastMallingMO,Eastmalling Mo,51.29,0.44,33.0,nan
+Easton-MDE,Easton-Mde,38.794972,-76.08425,4.5,nan
+EastonAirport,Easton Airport,38.80745,-76.07257,15.0,nan
+Edinburgh,Edinburgh,55.923967,-3.17915,97.5,nan
+Eforie,Eforie,44.075,28.632222,40.0,nan
+Egbert,Egbert,44.231543,-79.781414,264.0,nan
+EgbertX,Egbert X,44.231543,-79.781414,264.0,nan
+Eilat,Eilat,29.5025,34.9175,15.0,nan
+ElAlto-Altiplano,El Alto-Altiplano,-16.509972,-68.198583,4050.0,nan
+ElArenosillo,El Arenosillo,37.105,-6.733472,59.0,nan
+ElFarafra,El Farafra,27.058,27.990167,92.0,nan
+ElNidoAirport,El Nido Airport,11.2051,119.4135,4.0,nan
+ElRefugio,El Refugio,-14.766388,-62.034722,225.0,nan
+ElSegundo,El Segundo,33.9125,-118.3823,25.0,nan
+Elandsfontein,Elandsfontein,-26.245342,29.417572,1740.0,nan
+Epanomi,Epanomi,40.375,22.978,20.0,nan
+Erlin,Erlin,23.9253,120.4096,16.0,nan
+Ersa,Ersa,43.003669,9.359289,80.0,nan
+EscuderoStation,Escudero Station,-62.2015,-58.9657,33.0,nan
+EtoshaPan,Etosha Pan,-19.175017,15.914383,1131.0,nan
+Evora,Evora,38.567833,-7.9115,293.0,nan
+ExeterMO,Exeter Mo,50.728519,-3.475167,40.0,nan
+FI0001R,Jomala,60.183333,19.983333,7.0,urban-suburban
+FI0003R,Puumala,61.566667,28.066667,131.0,rural
+FI0004R,Ähtäri,62.533333,24.221667,162.0,rural
+FI0005R,Sodankylä,67.367917,26.632778,179.0,urban-suburban
+FI0006R,Kökar,59.916667,20.916667,10.0,rural
+FI0007R,Virolahti,60.516667,27.683333,8.0,rural
+FI0008R,Kevo,69.75,27.0,80.0,rural
+FI0009R,Utö,59.779167,21.377222,7.0,rural
+FI0017R,Virolahti Ii,60.526667,27.686111,4.0,rural
+FI0018R,Virolahti Iii,60.53002,27.66754,1007.9400024414062,rural
+FI0022R,Oulanka,66.320278,29.401667,310.0,rural
+FI0023R,Värriö,67.766667,29.583333,390.0,rural
+FI0036R,Pallas (Matorova),68.0,24.237222222,340.0,rural
+FI0050R,Hyytiälä,61.85,24.283333,181.0,rural
+FI0053R,Hailuoto Ii,65.0,24.694167,4.0,urban-suburban
+FI0065R,Jokioinen,60.82,23.5,106.0,urban-suburban
+FI0090R,Haapasaari,60.283333,27.2,15.0,rural
+FI0091R,Hailuoto,65.0,24.683333,4.0,urban-suburban
+FI0092R,Hietajärvi,63.166667,30.716667,173.0,rural
+FI0093R,Kotinen,61.233333,25.066667,158.0,rural
+FI0094R,Pesosjärvi,66.3,29.5,257.0,rural
+FI0095R,Vuoskojärvi,69.733333,26.95,147.0,rural
+FI0096G,Pallas (Sammaltunturi),67.973333333,24.116111111,565.0,rural
+FL00,Austin-Cary Forest,29.7603,-82.1989,46.0,rural
+FL03,Bradford Forest,29.9748,-82.1978,44.0,rural
+FL04,Andytown,26.1667,-80.5,5.0,rural
+FL05,Chassahowitzka National Wildlife Refuge,28.7486,-82.5551,3.0,rural
+FL11,Everglades National Park-Research Center,25.39,-80.68,2.0,rural-remote
+FL14,Quincy,30.5486,-84.6004,60.0,rural
+FL18,Tampa Bay,27.8933,-82.5383,2.0,nan
+FL23,Sumatra,30.1106,-84.9902,14.0,rural-remote
+FL32,Orlando,28.5926,-81.1904,21.0,urban
+FL34,Everglades Nutrient Removal Project,26.6556,-80.3972,10.0,rural
+FL41,Verna Well Field,27.3801,-82.2831,25.0,rural
+FL95,Everglades - South Palm Beach County,26.4303,-80.4739,2.0,rural-remote
+FL96,Pensacola,30.5499,-87.375,45.0,urban-suburban
+FL97,Everglades-Western Broward County,26.1714,-80.8222,4.0,rural-remote
+FL98,South Lido,27.31,-82.57,1.0,nan
+FL99,Kennedy Space Center,28.5428,-80.644,2.0,rural
+FLINFLON,Flin Flon,54.669998,-101.690002,305.0,nan
+FORTHCRETE,Forth Crete,35.332694,25.282417,20.0,nan
+FORTHRSLab,Forth Rslab,35.336147,25.132861,50.0,nan
+FR0001R,Vert-Le-Petit,48.533333,2.366667,1007.9400024414062,urban-suburban
+FR0003R,La Crouzille,46.133333,1.383333,1007.9400024414062,urban-suburban
+FR0005R,La Hague,49.616667,-1.833333,1007.9400024414062,urban-suburban
+FR0006R,Valduc,47.583333,4.866667,1007.9400024414062,urban-suburban
+FR0007R,Lodeve,43.7,3.333333,252.0,urban-suburban
+FR0008R,Donon,48.5,7.133333,775.0,rural
+FR0009R,Revin,49.9,4.633333,390.0,urban-suburban
+FR0010R,Morvan,47.266667,4.083333,620.0,urban-suburban
+FR0011R,Bonnevaux,46.816667,6.183333,836.0,urban-suburban
+FR0012R,Iraty,43.033333,-1.083333,1300.0,rural
+FR0013R,Peyrusse Vieille,43.616667,0.183333,200.0,rural
+FR0014R,Montandon,47.3,6.833333,836.0,urban-suburban
+FR0015R,La Tardière,46.65,-0.75,133.0,urban-suburban
+FR0016R,Le Casset,45.0,6.466667,1750.0,rural
+FR0017R,Montfranc,45.8,2.066667,810.0,rural
+FR0018R,La Coulonche,48.633333,-0.45,309.0,urban-suburban
+FR0019R,Pic Du Midi,42.936667,0.141944,2877.0,rural
+FR0020R,Sirta Atmospheric Research Observatory,48.7089,2.1487,162.0,urban-suburban
+FR0022R,Observatoire Perenne De L'Environnement,48.5622222222,5.50555555556,392.0,rural
+FR0023R,Saint-Nazaire-Le-Désert,44.569444444,5.278972222,605.0,rural
+FR0024R,Guipry,47.831888889,-1.836333333,29.450000762939453,urban-suburban
+FR0025R,Verneuil,46.814727778,2.610008333,182.0,rural
+FR0026R,La Réunion - Maïdo Atmospheric Observatory,-21.079449,55.383006,2160.0,rural
+FR0027U,Villeneuve D'Ascq,50.611017,3.14035,70.0,urban-suburban
+FR0028R,Kergoff,48.261977778,-2.943830556,307.0,rural
+FR0030R,Puy De Dôme,45.772223,2.964886,1465.0,rural
+FR0090R,Porspoder,48.516667,-4.75,50.0,urban-suburban
+FZJ-JOYCE,Fzj-Joyce,50.908333,6.413056,111.0,nan
+Fang,Fang,19.913397,99.206425,480.0,nan
+FarmingtonRSVP,Farmington Rsvp,36.797383,-108.479991,1641.0,nan
+Finokalia-FKL,Finokalia-Fkl,35.337712,25.669762,258.0,nan
+Fontainebleau,Fontainebleau,48.406667,2.680278,85.0,nan
+FortMcKay,Fort Mckay,57.1835,-111.64,267.0,nan
+FortMcMurray,Fort Mcmurray,56.752306,-111.476139,360.0,nan
+FowlersGap,Fowlers Gap,-31.0863,141.70082,181.0,nan
+FreiburgALU,Freiburg Alu,48.0011,7.8486,323.5,nan
+FrenchmanFlat,Frenchman Flat,36.80928,-115.93479,940.0,nan
+Fresno,Fresno,36.781733,-119.773167,97.0,nan
+Fresno2,Fresno 2,36.78537,-119.77302,100.0,nan
+Frioul,Frioul,43.266111,5.293333,40.0,nan
+FugueiCape,Fuguei Cape,25.297452,121.537859,50.0,nan
+Fukue,Fukue,32.752,128.682,80.0,nan
+Fukuoka,Fukuoka,33.524,130.475,30.0,nan
+GA09,Okefenokee National Wildlife Refuge,30.7404,-82.1283,45.0,rural-remote
+GA20,Bellville,32.0849,-81.9367,54.0,rural
+GA22,Jefferson Street,33.7769,-84.4139,265.0,urban
+GA23,Fort Frederica National Monument,31.2253,-81.3922,2.0,rural
+GA33,Sapelo Island,31.3961,-81.2811,3.0,rural-remote
+GA40,Yorkville,33.9282,-85.0451,395.0,rural
+GA41,Georgia Station,33.1805,-84.4103,267.0,rural
+GA50,Tifton Ars,31.4731,-83.5331,104.0,rural
+GA98,Skidaway,31.9958,-81.0185,3.0,urban-suburban
+GA99,Chula,31.5217,-83.5482,108.0,rural
+GB0001R,Cottered,51.966667,-0.1,139.0,urban-suburban
+GB0002R,Eskdalemuir,55.313056,-3.204167,243.0,rural
+GB0003R,Goonhilly,50.05,-5.183333,108.0,rural
+GB0004R,Stoke Ferry,52.566667,0.5,15.0,urban-suburban
+GB0005R,Ludlow,52.366667,-2.633333,190.0,urban-suburban
+GB0006R,Lough Navar,54.443056,-7.87,126.0,rural
+GB0007R,Barcombe Mills,50.866667,-0.033056,8.0,urban-suburban
+GB0012R,Pitlochry,56.716667,-3.766667,80.0,urban-suburban
+GB0013R,Yarner Wood,50.596389,-3.713056,119.0,rural
+GB0014R,High Muffles,54.334444,-0.8075,267.0,rural
+GB0015R,Strath Vaich Dam,57.734444,-4.774444,270.0,rural
+GB0016R,Glen Dye,56.9675,-2.588889,85.0,rural
+GB0017R,Heigham Holmes,52.716667,1.616667,12.0,urban-suburban
+GB0036R,Harwell,51.571078,-1.325283,137.0,urban-suburban
+GB0047R,Bure Marshes,52.692369,1.45262,3.0,rural
+GB0048R,Auchencorth Moss,55.79216,-3.2429,260.0,rural
+GB0054R,Glen Saugh,56.907222,-2.559167,85.0,rural
+GB0058R,Moorhouse,54.690133,-2.376928,570.0,rural
+GB0090R,East Ruston,52.8,1.466667,5.0,urban-suburban
+GB0091R,Banchory,57.076667,-2.534444,120.0,rural
+GB0092R,Chillerton,50.7,-1.3,35.0,urban-suburban
+GB0093R,Staxton Wold,54.183333,-0.433333,35.0,rural
+GB0094R,Lough Erne,54.4,-8.05,35.0,rural
+GB0095R,Driby,53.233333,0.066667,47.0,rural
+GB0096R,Chilton,51.566667,-1.316667,109.0,urban-suburban
+GB0126R,Rothamsted,51.8061,-0.36045,130.0,rural
+GB0138R,Hillsborough,54.4525,-6.08334,120.0,rural
+GB0151R,Wardlow Hay Cop,53.261715,-1.735789,350.0,rural
+GB0160R,Allt Amharcaidh,57.124167,-3.856667,366.0,rural
+GB0197R,Llyn Llydaw,53.074525,-4.034731,490.0,rural
+GB1049A,Forsinard Rspb,58.359874,-3.89346,70.0,rural
+GB1055R,Chilbolton Observatory,51.149617,-1.438228,78.0,rural
+GB1076R,Ainsdale Dunes And Sands,53.587784,-3.075684,9.0,rural
+GB1078R,Ingleborough,54.193454,-2.35222,374.0,rural
+GB1080R,Monks Wood,52.400993,-0.238398,43.0,rural
+GB1081R,River Etherow,53.48653,-1.81445,450.0,rural
+GB1082R,Stiperstones,52.581223,-2.945132,418.0,rural
+GB1083R,Thorganby,53.875684,-0.970738,8.0,rural
+GB1084R,Fenns Whixall And Bettisfield Mosses,52.92538,-2.756233,88.0,rural
+GB1373R,Loch Dee,55.071756,-4.400907,230.0,rural
+GB1378R,Bannisdale Beck,54.409225,-2.724521,277.0,rural
+GB1411A,Braunton Burrows,51.107744,-4.210945,9.0,rural
+GB1412A,Dersingham Bog,52.830781,0.484647,12.0,rural
+GB1413A,Finglandrigg Woods,54.901774,-3.138586,10.0,rural
+GB1414A,Lindisfarne,55.683299,-1.843109,5.0,rural
+GB1415A,Saltfleetby-Theddlethorpe Dunes,53.403499,0.210022,3.0,rural
+GB1416A,Malham Tarn,54.099835,-2.16374,390.0,rural
+GB1417A,Roudsea Wood  Mosses,54.236155,-3.026079,14.0,rural
+GISS,Giss,40.7977,-73.9599,50.0,nan
+GOAINDIA,Goa India,15.4525,73.806111,20.0,nan
+GOTSeaprism,Got Seaprism,9.2862,101.4123,10.0,nan
+GR0001R,Aliartos,38.366667,23.083333,110.0,urban-suburban
+GR0002R,Finokalia,35.3377990723,25.6693992615,150.0,rural
+GR0100B,Dem Athens,37.9949989319,23.8159999847,270.0,urban-centre
+GR0101R,Helmos Mountain,37.984265,22.196262,2314.0,rural
+GSFC,Gsfc,38.9925,-76.839833,87.0,nan
+GTH161,Gothic,38.95627,-106.98587,2915.0,rural
+GageochoStation,Gageocho Station,33.941991,124.592912,26.0,nan
+Gaithersburg,Gaithersburg,39.133335,-77.208336,139.0,nan
+GalataPlatform,Galata Platform,43.044624,28.19319,31.0,nan
+GandhiCollege,Gandhi College,25.871,84.127944,60.0,nan
+GangneungWNU,Gangneung Wnu,37.771,128.867,60.0,nan
+GeorgiaTech,Georgia Tech,33.780202,-84.399537,294.0,nan
+GirardotaColombia,Girardota Colombia,6.376324,-75.448979,1452.0,nan
+GlasgowMO,Glasgow Mo,55.9068,-4.53122,59.0,nan
+Gloria,Gloria,44.59997,29.35967,30.0,nan
+Gobabeb,Gobabeb,-23.561619,15.041058,405.0,nan
+Goldstone,Goldstone,35.233333,-116.791667,1100.0,nan
+Gorongosa,Gorongosa,-18.978417,34.35075,30.0,nan
+GosanNIMSSNU,Gosan Nims Snu,33.3001,126.2058,52.0,nan
+GosanSNU,Gosan Snu,33.292222,126.161667,72.0,nan
+Gotland,Gotland,57.916667,18.95,10.0,nan
+Gozo,Gozo,36.034139,14.264694,111.0,nan
+Graciosa,Graciosa,39.091111,-28.029722,15.239999771118164,nan
+Granada,Granada,37.164,-3.605,680.0,nan
+GrandForks,Grand Forks,47.91175,-97.32545,268.0,nan
+GraniteIsland,Granite Island,46.7208,-87.412,183.0,nan
+GrizzlyBay,Grizzly Bay,38.108167,-122.056208,4.0,nan
+Guadeloup,Guadeloup,16.22492,-61.528378,39.0,nan
+Guadiana-UGR,Guadiana-Ugr,37.910839,-3.228483,370.0,nan
+GualPahari,Gual Pahari,28.426086,77.15047,250.0,nan
+Guam,Guam,13.430617,144.800783,62.0,nan
+GustavDalenTower,Gustav Dalen Tower,58.59417,17.46683,25.0,nan
+GwangjuGIST,Gwangju Gist,35.228278,126.843139,52.0,nan
+HD01,Huejutla,21.1583,-98.3706,180.0,nan
+HESS,Hess,-23.273,16.502944,1818.0,nan
+HI00,Mauna Loa,19.5392,-155.5792,3399.0,rural-remote
+HI99,Hawaii Volcanoes National Park-Thurston,19.4194,-155.2403,1195.0,rural-remote
+HJAndrews,Hjandrews,44.238609,-122.223892,830.0,nan
+HOPE-Hambach,Hope-Hambach,50.8972,6.4639,110.0,nan
+HOPE-Inselhombroich,Hope-Inselhombroich,51.1514,6.6436,70.0,nan
+HOPE-Krauthausen,Hope-Krauthausen,50.8796,6.4145,100.0,nan
+HOPE-Melpitz,Hope-Melpitz,51.525525,12.927601,84.0,nan
+HOPE-RWTH-Aachen,Hope-Rwth-Aachen,50.7777,6.0606,230.0,nan
+HR0002R,Puntijarka,45.9,15.966667,988.0,rural
+HR0004R,Zavizan,44.816667,14.983333,1594.0,rural
+HU0001R,Kecskemét,46.965333,19.544889,125.0,rural
+HU0002R,K-Puszta,46.965333,19.544889,125.0,rural
+HU0003R,Farkasfa,46.91,16.32,313.0,rural
+HZR,Khuzhir,53.2,107.33,487.0,nan
+HadaEl-Sham,Hada El-Sham,21.802,39.7289,254.0,nan
+HainichUGOE,Hainich Ugoe,51.0792,10.4522,439.0,nan
+Halifax,Halifax,44.638,-63.594,65.0,nan
+Hamburg,Hamburg,53.568333,9.973333,120.0,nan
+Hamim,Hamim,22.966667,54.3,105.0,nan
+HamptonRoads,Hampton Roads,36.783333,-76.449997,10.0,nan
+HamptonUniversity,Hampton University,37.0204,-76.3365,12.119999885559082,nan
+Hangzhou-ZFU,Hangzhou-Zfu,30.257233,119.727417,42.0,nan
+HangzhouCity,Hangzhou City,30.289633,120.156917,30.0,nan
+HankukUFS,Hankuk Ufs,37.33883,127.26582,167.0,nan
+HartMillerIsland,Hart Miller Island,39.2419,-76.3628,5.0,nan
+HarvardForest,Harvard Forest,42.532,-72.188,339.0,nan
+Hefei,Hefei,31.904722,117.162222,36.0,nan
+Helgoland,Helgoland,54.177861,7.887361,33.0,nan
+Helsinki,Helsinki,60.203733,24.96065,52.79999923706055,nan
+HelsinkiLighthouse,Helsinki Lighthouse,59.94897,24.92636,20.0,nan
+Heng-Chun,Heng-Chun,22.054742,120.6995,25.0,nan
+HentiesBay,Henties Bay,-22.09506,14.25974,20.0,nan
+Hermosillo,Hermosillo,29.074722,-110.96,237.0,nan
+Herstmonceux,Herstmonceux,50.867517,0.334378,82.80000305175781,nan
+Hetauda,Hetauda,27.42835,85.030933,465.0,nan
+Highfield,Highfield,51.608,0.1745,42.099998474121094,nan
+HogIsland,Hog Island,37.453,-75.675,15.0,nan
+HohenpeissenbergDWD,Hohenpeissenbergdwd,47.8019,11.0119,989.6799926757812,nan
+HokkaidoUniversity,Hokkaido University,43.0755,141.3407,59.0,nan
+Homburi,Homburi,15.329167,-1.546667,280.0,nan
+HongKongHokTsui,Hong Kong Hok Tsui,22.2097,114.258,80.0,nan
+HongKongPolyU,Hong Kong Polyu,22.303333,114.179722,30.0,nan
+HongKongSheung,Hong Kong Sheung,22.4833,114.1166,40.0,nan
+Honolulu,Honolulu,21.3172,-157.8861,5.0,nan
+Hornsund,Hornsund,77.00148,15.54028,12.4399995803833,nan
+Howland,Howland,45.2041,-68.7402,120.0,nan
+HsinchuSciencePk,Hsinchu Science Pk,24.785068,121.001811,98.0,nan
+HuaHin,Hua Hin,12.634444,99.951111,1.0,nan
+Huambo,Huambo,-12.8679,15.7046,1670.0,nan
+Huancayo-IGP,Huancayo-Igp,-12.0402,-75.3209,3313.0,nan
+Huelva,Huelva,37.0163,-6.5687,25.0,nan
+Hyytiala,Hyytiala,61.846447,24.295892,191.0,nan
+IA08,Big Springs Fish Hatchery,42.9097,-91.47,229.0,rural-remote
+IA23,Mcnay Research Center,40.9631,-93.3925,320.0,rural
+IAOCA-KRSU,Iaoca-Krsu,42.46383,78.52895,1930.0,nan
+IASBS,Iasbs,36.705167,48.507111,1805.0,nan
+ICIPE-Mbita,Icipe-Mbita,-0.431525,34.206062,1152.0,nan
+ID02,Priest River Experimental Forest,48.3518,-116.8397,726.0,rural-remote
+ID03,Craters Of The Moon National Monument,43.4605,-113.5551,1807.0,rural-remote
+ID04,Headquarters,46.6278,-115.8194,969.0,rural-remote
+ID1013R,Bukit Kototabang,-0.202222,100.318056,845.0,rural
+ID11,Reynolds Creek,43.2049,-116.75,1200.0,rural-remote
+ID15,Smiths Ferry,44.2978,-116.0636,1442.0,rural-remote
+ID98,Deer Flats,43.5528,-116.6436,774.0,urban-suburban
+ID99,Mccall,44.8913,-116.1047,1528.0,rural-remote
+IDA001,Jakarta,-6.1561111111111115,106.84222222222222,7.0,urban
+IDA001A,Jakarta,6.1561111111111115,106.84222222222222,7.0,urban
+IDA002,Serpong,6.350555555555555,109.66777777777779,64.0,rural-regional
+IDA003,Kototabang,-0.20222222222222222,100.31805555555555,845.0,rural-remote
+IDA004,Bandung,6.894722222222222,107.58638888888889,753.0,urban
+IDA005,Maros,-4.997222222222223,119.57138888888889,1.0,rural-regional
+IDA006,Jembrana,-8.340833333333334,114.61722222222221,24.0,rural-regional
+IDA007,Lombok Barat,-8.636111111111111,116.17083333333333,52.0,rural-regional
+IE0001R,Valentia Observatory,51.939722,-10.244444,11.0,urban-suburban
+IE0002R,Turlough Hill,53.036667,-6.4,420.0,rural
+IE0003R,The Burren,53.0,-9.1,90.0,rural
+IE0004R,Ridge Of Capard,53.116667,-7.45,340.0,rural
+IE0005R,Oak Park,52.868611,-6.924722,59.0,urban-suburban
+IE0006R,Malin Head,55.375,-7.342778,23.0,urban-suburban
+IE0007R,Glenveagh,55.051944,-7.94,44.0,rural
+IE0009R,Johnstown Castle,52.298889,-6.510833,62.0,urban-suburban
+IE0031R,Mace Head,53.32583,-9.89944,5.0,rural
+IERCinzana,Ier Cinzana,13.278433,-5.933867,285.0,nan
+IHOP-Homestead,Ihop-Homestead,36.558333,-100.606183,850.0,nan
+IITDelhi,Iit Delhi,28.545,77.1926,15.0,nan
+IITKGPEXTKolkata,Iit Kgp Ext Kolkata,22.574,88.418,10.0,nan
+IL11,Bondville,40.0528,-88.3719,212.0,urban-suburban
+IL18,Shabbona,41.8414,-88.8511,265.0,rural
+IL19,Argonne,41.7011,-87.9953,229.0,urban
+IL35,Southern Illinois University,37.71,-89.2689,146.0,rural
+IL46,Alhambra,38.8689,-89.6219,164.0,rural
+IL47,Salem,38.6433,-88.9669,173.0,rural
+IL63,Dixon Springs Agricultural Center,37.4356,-88.6719,161.0,rural-remote
+IL78,Monmouth,40.9153,-90.627,229.0,nan
+IL99,Omega,38.71,-88.7492,153.0,rural-remote
+IMAAPotenza,Imaa Potenza,40.601254,15.7237,770.0,nan
+IMCOristano,Imc Oristano,39.91,8.5,10.0,nan
+IMPROVE-MammothCave,Improve-Mammothcave,37.1318,-86.1479,235.0,nan
+IMS-METU-ERDEMLI,Ims-Metu-Erdemli,36.565,34.255,3.0,nan
+IN1016R,Gual Pahari,28.427778,77.151389,320.0,urban-suburban
+IN20,Roush Lake,40.8401,-85.4639,244.0,rural
+IN21,Clifty Falls State Park,38.7622,-85.4202,256.0,rural
+IN22,Southwest Purdue Agriculture Center,38.7408,-87.4855,134.0,rural
+IN26,Fort Harrison State Park,39.8583,-86.0208,260.0,urban
+IN28,Bloomington,39.1464,-86.6133,256.0,urban-suburban
+IN34,Indiana Dunes National Lakeshore,41.6318,-87.0881,208.0,urban-suburban
+IN41,Agronomy Center For Research And Extension,40.4749,-86.9924,215.0,urban-suburban
+IS0001R,Rjupnahed,64.083333,-21.85,120.0,urban-suburban
+IS0002R,Irafoss,64.083333,-21.016667,66.0,rural
+IS0090R,Reykjavik,64.133333,-21.9,52.0,urban-centre
+IS0091R,Storhofdi,63.3998,-20.2884,118.0,rural
+ISDGMCNR,Isdgm Cnr,45.436981,12.331982,20.0,nan
+IT0001R,Montelibretti,42.105694,12.640139,48.0,urban-suburban
+IT0002R,Stelvio,46.35,10.383333,1415.0,rural
+IT0003R,Vallombrosa,43.733333,11.55,1000.0,urban-suburban
+IT0004R,Ispra,45.814556,8.635722,209.0,rural
+IT0005R,Arabba,46.516667,11.883333,2030.0,rural
+IT0009R,Monte Cimone,44.193205336,10.7014294564,2165.0,rural
+IT0014R,Capo Granitola,37.571111,12.659722,5.0,rural
+IT0015U,Lecce (Eco),40.3358,18.1245,36.0,urban-suburban
+IT0016R,Lamezia Terme,38.8763,16.2322,6.0,rural
+IT0017U,Lecce (University Of Salento),40.3349,18.1114,30.0,urban-suburban
+IT0022C,Isac Bologna Ii,44.523586,11.338474,54.0,urban-suburban
+IT0025U,Milano Pascal,45.4783439922,9.23144264384,118.0,urban-centre
+IasiLOASL,Iasi Loasl,47.193056,27.555556,175.0,nan
+IeodoStation,Ieodo Station,32.122953,125.182447,29.0,nan
+Ilorin,Ilorin,8.4841,4.6745,400.0,nan
+Inhaca,Inhaca,-26.040583,32.905,73.5,nan
+Iqaluit,Iqaluit,63.747575,-68.542997,15.0,nan
+IrbeLighthouse,Irbe Lighthouse,57.75092,21.72297,38.0,nan
+Irkutsk,Irkutsk,51.799797,103.086644,670.0,nan
+Ispra,Ispra,45.80305,8.6267,235.0,nan
+Issyk-Kul,Issyk-Kul,42.622778,76.983056,1650.0,nan
+Itajuba,Itajuba,-22.41325,-45.452389,856.0,nan
+Ittoqqortoormiit,Ittoqqortoormiit,70.4848,-21.9512,68.0,nan
+Izana,Izana,28.30932,-16.49906,2401.0,nan
+JDP,Jodhpur,26.3,73.0167,217.0,nan
+JGS,Jeju Gosan,33.18,126.12,52.0,nan
+JPA001,Rishiri,45.125,141.24166666666665,40.0,rural-remote
+JPA002,Ochiishi,43.161944444444444,145.4972222222222,49.0,rural-remote
+JPA003,Tappi,41.251666666666665,140.35027777777776,106.0,rural-remote
+JPA004,Sado-Seki,38.25055555555556,138.40027777777777,129.0,rural-remote
+JPA005,Happo,36.696666666666665,137.79805555555555,1850.0,rural-remote
+JPA006,Ijira,35.57055555555556,136.6975,140.0,rural-regional
+JPA007,Oki,36.28861111111111,133.185,90.0,rural-remote
+JPA008,Banryu,34.681666666666665,131.79972222222221,53.0,urban
+JPA009,Yusuhara,33.379444444444445,132.935,790.0,rural-remote
+JPA010,Hedo,26.866111111111113,128.2486111111111,60.0,rural-remote
+JPA011,Ogasawara,27.092222222222222,142.21722222222223,212.0,rural-remote
+JPA012,Tokyo,35.69166666666666,139.75277777777777,26.0,urban
+JPA013,Niigata-Maki,37.80916666666666,138.8525,47.0,rural-regional
+JPA014,Tsushima,34.24666666666667,129.28805555555556,390.0,rural-remote
+JabalHafeet,Jabal Hafeet,24.058217,55.776383,1059.0,nan
+Jabiru,Jabiru,-12.6607,132.8931,30.0,nan
+Jaipur,Jaipur,26.905817,75.806217,450.0,nan
+Jamari,Jamari,-9.19907,-63.068552,129.0,nan
+Jambi,Jambi,-1.632445,103.641563,30.0,nan
+JaruReserve,Jaru Reserve,-10.083333,-61.933333,162.0,nan
+JiParana,Ji Parana,-10.86,-61.799999,168.0,nan
+JiParanaSE,Ji Parana Se,-10.93425,-61.851517,218.0,nan
+JiParanaUNIR,Ji Parana Unir,-10.882212,-61.9686,175.0,nan
+Jingtai,Jingtai,37.333333,104.1,1583.0,nan
+Joberg,Joberg,-26.186133,28.029167,1736.0,nan
+Jomsom,Jomsom,28.778214,83.7142,2825.0,nan
+JonesERC,Joneserc,31.23083,-84.471111,50.0,nan
+JugBay,Jug Bay,38.766666,-76.778099,35.0,nan
+KAM,Kamenicki-Vis,43.4,22.35,813.0,nan
+KATIBOUGOU,"Katibougou, Mali",12.9333333,-7.5333333,290.0,rural
+KAUSTCampus,Kaust Campus,22.304833,39.102833,11.199999809265137,nan
+KE0001G,Mt. Kenya,-0.0622,37.2972,3678.0,rural
+KEMPTENUAS,Kempten Uas,47.715833,10.314133,718.0,nan
+KHA001,Phnom Penh,11.555000000000001,104.9388888888889,12.0,urban
+KITcubeKarlsruhe,Kitcube Karlsruhe,49.0933,8.4279,140.0,nan
+KITcubeMasada,Kitcube Masada,31.322547,35.372297,-350.0,nan
+KITcubeRottenburg,Kitcube Rottenburg,48.489074,8.955358,339.0,nan
+KITcubeSave,Kitcube Save,8.000928,2.427925,166.0,nan
+KONZAEDC,Konza Edc,39.102328,-96.6096,341.0,nan
+KORUSBaeksa,Korus Baeksa,37.41156,127.5691,64.0,nan
+KORUSDaegwallyeong,Korus Daegwallyeong,37.68712,128.75872,837.0,nan
+KORUSIksan,Korus Iksan,35.9622,127.0052,84.0,nan
+KORUSKyungpookNU,Korus Kyungpook Nu,35.889989,128.606416,65.0,nan
+KORUSMokpoNU,Korus Mokpo Nu,34.91342,126.43736,26.0,nan
+KORUSNIER,Korus Nier,37.56893,126.63971,26.899999618530273,nan
+KORUSOlympicPark,Korus Olympic Park,37.52165,127.12418,45.0,nan
+KORUSSongchon,Korus Songchon,37.33849,127.48946,90.0,nan
+KORUSTaehwa,Korus Taehwa,37.31248,127.31033,152.0,nan
+KORUSUNISTUlsan,Korus Unist Ulsan,35.5819,129.1897,106.0,nan
+KR0100R,Anmyeon-Do,36.5383338928,126.330001831,57.696998596191406,rural
+KR0101R,Gosan,33.293917,126.163111,72.0,rural
+KRA001,Kanghwa,37.70888888888889,126.27388888888889,60.0,rural-regional
+KRA002,Cheju(Kosan),33.29222222222222,126.16194444444444,37.0,rural-remote
+KRA003,Imsil,35.6025,127.18138888888889,217.0,rural-regional
+KS03,Reserve,39.9792,-95.5681,265.0,rural
+KS04,West Mineral,37.2731,-94.94,274.0,rural
+KS05,Coffey County Lake,38.1992,-95.6646,337.0,rural-remote
+KS07,Farlington Fish Hatchery,37.6511,-94.8036,281.0,rural-remote
+KS24,Glen Elder State Park,39.5136,-98.3403,456.0,rural-remote
+KS31,Konza Prairie,39.1022,-96.6092,350.0,rural
+KS32,Lake Scott State Park,38.6717,-100.9164,863.0,rural-remote
+KS97,Kickapoo Tribe - Powhattan,39.7603,-95.6358,367.0,rural
+KS99,Cimarron National Grassland,37.1336,-101.8248,1021.0,rural-remote
+KWZ,Caucasus Biospheric Reserve,43.68,40.2,465.0,nan
+KY03,Mackville,37.7047,-85.0489,293.0,rural
+KY10,Mammoth Cave National Park-Houchin Meadow,37.1317,-86.148,236.0,rural
+KY19,Cannons Lane,38.2288,-85.6545,177.0,urban
+KY22,Lilley Cornett Woods,37.0778,-82.9936,335.0,rural
+KY35,Clark State Fish Hatchery,38.1183,-83.5469,204.0,rural
+KY38,Land Between The Lakes,36.7906,-88.0672,181.0,rural-remote
+KY99,Mulberry Flat,36.9029,-88.0121,110.0,rural-remote
+Kaashidhoo,Kaashidhoo,4.965,73.466,10.0,nan
+Kaiping,Kaiping,22.3152,112.5386,51.0,nan
+Kaloma,Kaloma,-14.86,24.8275,1230.0,nan
+Kandahar,Kandahar,31.508611,65.847778,1007.0,nan
+Kangerlussuaq,Kangerlussuaq,66.9958,-50.6214,320.0,nan
+Kanpur,Kanpur,26.512778,80.231639,123.0,nan
+KanzelhoheObs,Kanzelhohe Obs,46.677232,13.901269,1526.0,nan
+Kaohsiung,Kaohsiung,22.675621,120.292171,15.0,nan
+Kapoho,Kapoho,19.516222,-154.810806,7.0,nan
+Karachi,Karachi,24.94574,67.13594,49.0,nan
+Karlsruhe,Karlsruhe,49.0933,8.4279,140.0,nan
+KarunyaUniversity,Karunya University,10.9353,76.7441,478.0,nan
+Kasama,Kasama,-10.21697,31.136159,1392.0,nan
+Kathmandu-Bode,Kathmandu-Bode,27.68,85.39,1297.0,nan
+KathmanduUniv,Kathmandu Univ,27.601067,85.538333,1510.0,nan
+Kejimkujik,Kejimkujik,44.383333,-65.2833,90.0,nan
+KelloggLTER,Kellogg Lter,42.407983,-85.371717,293.0,nan
+Kelowna,Kelowna,49.955333,-119.373,344.0,nan
+KelownaUAS,Kelowna Uas,49.941294,-119.400111,456.0,nan
+KemigawaOffshore,Kemigawa Offshore,35.610833,140.02333,8.199999809265137,nan
+KeyBiscayne,Key Biscayne,25.731966,-80.16333,10.0,nan
+KeyBiscayne2,Key Biscayne2,25.731966,-80.16333,0.0,nan
+Kibale,Kibale,0.56045,30.3575,1536.0,nan
+KirtlandAFB,Kirtland Afb,34.95081,-106.507403,1711.31201171875,nan
+KluaneLake,Kluane Lake,61.027,-138.41,773.0,nan
+Kobe,Kobe,34.72,135.291,20.0,nan
+KoforiduaANUC,Koforidua Anuc,6.109408,-0.302058,205.0,nan
+Kolfield,Kolfield,39.802223,-74.476387,50.0,nan
+Konza,Konza,39.0825,-96.559667,457.0,nan
+KoreaUniversity,Korea University,37.58514,127.02507,65.4000015258789,nan
+Krasnoyarsk,Krasnoyarsk,55.983333,92.766667,202.0,nan
+Kuching,Kuching,1.490556,110.348611,28.0,nan
+Kuopio,Kuopio,62.892414,27.633606,105.0,nan
+Kupang,Kupang,-10.139178,123.667097,30.0,nan
+Kuujjuarapik,Kuujjuarapik,55.28,-77.76,20.0,nan
+KuwaitUniversity,Kuwait University,29.325,47.971,42.0,nan
+KwajaleinAtoll,Kwajalein Atoll,8.84749,167.742808,2.0,nan
+KyanjinGompa,Kyanjin Gompa,28.211258,85.5663,3862.0,nan
+Kyiv,Kyiv,50.363611,30.496667,200.0,nan
+Kyiv-AO,Kyiv-Ao,50.4523,30.498,200.0,nan
+KyungilUniversity,Kyungil University,36.071667,128.82361,447.0,nan
+LA-TM,La-Tm,30.324,119.44,439.0,nan
+LA05,Lake Charles,30.1746,-93.1717,5.0,urban-suburban
+LA06,Hill Farm Research Station,32.7514,-93.0506,88.0,rural
+LA10,Chase,32.097,-91.711,20.0,rural
+LA12,Iberia Research Station,29.931,-91.7165,6.0,rural
+LA23,Alexandria,31.1698,-92.3971,16.0,rural
+LA28,Hammond,30.5031,-90.3769,9.0,urban-suburban
+LA30,Southeast Research Station,30.7819,-90.2021,77.0,rural
+LAA001,Vientiane,17.998055555555556,102.58222222222221,175.0,urban
+LAMTO,"Lamto, Côte D'Ivoire",6.216666,-5.033333,105.0,rural
+LAMTO-STATION,Lamto-Station,6.223517,-5.026617,105.0,nan
+LAN,Lin An,30.3,119.7333,139.0,nan
+LANAI,Lanai,20.82615,-156.985,133.0,nan
+LAQUILACoppito,Laquila Coppito,42.368386,13.350636,656.0,nan
+LFS,Long Feng Shan,44.7333,127.6,331.0,nan
+LISCO,Lisco,40.954517,-73.341767,12.0,nan
+LOSFIEROS98,Los Fieros 98,-14.556,-60.929,208.0,nan
+LT0003R,Nida,55.35,21.066667,17.0,rural
+LT0015R,Preila,55.3761111111,21.0305555556,5.0,rural
+LV0010R,Rucava,56.161944,21.173056,18.0,urban-suburban
+LV0016R,Zoseni,57.135278,25.905556,188.0,rural
+LV0025R,Kemeri,56.916667,23.466667,0.0,rural
+LYE145,Lye Brook,43.050884,-73.061334,725.0,rural
+LYK123,Lykens,40.916981,-82.998206,303.0,rural
+LaCrau,La Crau,43.5765,4.819,32.0,nan
+LaJolla,La Jolla,32.86846,-117.25113,80.0,nan
+LaLaguna,La Laguna,28.481944,-16.321111,568.0,nan
+LaPalma,La Palma,28.486667,-17.848611,630.0,nan
+LaParguera,La Parguera,17.97045,-67.045383,12.399999618530273,nan
+LaPaz,La Paz,-16.539,-68.066467,3439.0,nan
+Laegeren,Laegeren,47.478349,8.364352,763.0,nan
+Lahore,Lahore,31.47987,74.26406,209.0,nan
+LakeArgyle,Lake Argyle,-16.1081,128.7485,150.0,nan
+LakeErie,Lake Erie,41.8256,-83.1936,173.5,nan
+LakeLefroy,Lake Lefroy,-31.255,121.705,300.0,nan
+LakeOkeechobee,Lake Okeechobee,26.9017,-80.7892,9.0,nan
+LakeOkeechobeeN,Lake Okeechobee N,27.139117,-80.788803,10.0,nan
+LameziaTerme,Lamezia Terme,38.8764,16.2321,8.0,nan
+Lampedusa,Lampedusa,35.516667,12.631667,45.0,nan
+LanYuIsland,Lan Yu Island,22.037306,121.558111,348.0,nan
+Lanai,Lanai,20.735,-156.921667,20.0,nan
+LangtangBC,Langtang Bc,28.214431,85.609781,4901.0,nan
+Lannion,Lannion,48.730833,-3.461944,15.0,nan
+LanzhouCity,Lanzhou City,36.04805,103.8534,1516.0,nan
+LasCardes,Las Cardes,-30.250833,-71.257778,280.0,nan
+LeFauga,Le Fauga,43.38423,1.2846,193.0,nan
+Learmonth,Learmonth,-22.2407,114.0967,9.0,nan
+LecceUniversity,Lecce University,40.335111,18.111389,30.0,nan
+Leicester,Leicester,52.61931,-1.12231,89.0,nan
+Leipzig,Leipzig,51.3525,12.435278,125.0,nan
+LelandHS,Leland Hs,33.402128,-90.89285,37.0,nan
+LerwickMO,Lerwick Mo,60.139372,-1.185113,82.0,nan
+Lewis-ClarkIDUSA,Lewis-Clark Id Usa,46.413153,-117.02717,268.0,nan
+Liangning,Liangning,41.5118,122.7013,15.0,nan
+Lille,Lille,50.611667,3.141667,60.0,nan
+LingshanMountain,Lingshan Mountain,40.0537,115.4962,1653.0,nan
+LochLeven,Loch Leven,56.18803,-3.35165,110.94999694824219,nan
+Lochiel,Lochiel,49.028,-122.602,86.0,nan
+LoftusMO,Loftus Mo,54.5627,-0.861733,159.0,nan
+London-CDN,London-Cdn,43.008,-81.27,258.0,nan
+London-UCL-UAO,London-Ucl-Uao,51.52427,-0.131101,46.60499954223633,nan
+Longyearbyen,Longyearbyen,78.222833,15.649,30.0,nan
+Lopburi,Lopburi,15.266667,101.187361,49.279998779296875,nan
+LosAlamos,Los Alamos,35.873583,-106.326067,2290.0,nan
+LosFieros,Los Fieros,-14.55,-60.616667,734.0,nan
+LosLeonesAuger,Los Leones Auger,-35.495807,-69.449759,1385.0,nan
+LuangNamtha,Luang Namtha,20.9311,101.4162,557.0,nan
+Lubango,Lubango,-14.958,13.445,2047.0,nan
+Lucinda,Lucinda,-18.5198,146.3861,8.0,nan
+Lugansk,Lugansk,48.5704,39.36472,90.0,nan
+Lulin,Lulin,23.468611,120.873611,2868.0,nan
+Lumbini,Lumbini,27.49,83.28,110.0,nan
+LumbiniNorth,Lumbini North,27.503722,83.282133,89.0,nan
+LunarLake,Lunar Lake,38.390083,-115.988383,1749.0,nan
+MA01,North Atlantic Coastal Lab,41.9759,-70.0241,57.0,rural
+MA08,Quabbin Reservoir,42.3925,-72.3444,306.0,rural
+MA13,East,42.3845,-71.2146,190.0,urban
+MA14,Nantucket,41.2897,-70.1751,16.0,rural
+MA22,Boston University,42.3501,-71.1044,32.0,urban
+MA98,Arnold Arboretum,42.2953,-71.134,48.0,urban
+MA99,Amherst,42.3063,-72.5354,165.0,urban-suburban
+MAARCO,Maarco,24.700333,54.658833,10.0,nan
+MALE,Male,4.191667,73.529167,2.0,nan
+MAXARFUTON,Maxar Futon,40.03556,-104.885,1522.0,nan
+MCO-Hanimaadhoo,Mco-Hanimaadhoo,6.77635,73.183183,13.0,nan
+MD00,Smithsonian Environmental Research Center,38.889,-76.5558,20.0,urban-suburban
+MD0012R,Leova,46.5,28.266667,156.0,urban-suburban
+MD0013R,Leova Ii,46.4884,28.2835,166.0,urban-suburban
+MD03,White Rock Substation,39.4089,-76.9953,172.0,urban-suburban
+MD07,Catoctin Mountain Park,39.647,-77.4848,471.0,rural
+MD08,Piney Reservoir,39.7053,-79.0122,769.0,rural
+MD13,Wye,38.9131,-76.1525,6.0,rural
+MD15,Smith Island,37.9925,-76.0345,2.0,nan
+MD18,Assateague Island National Seashore-Woodcock,38.251,-75.1593,0.0,rural
+MD99,Beltsville,39.028,-76.8171,46.0,urban
+MDScienceCenter,Md Science Center,39.28123,-76.612052,15.0,nan
+ME00,Caribou,46.8675,-68.0134,191.0,rural
+ME0008R,Zabljak,43.15,19.133333,1450.0,urban-suburban
+ME02,Bridgton,44.1075,-70.7289,222.0,rural
+ME04,Carrabassett Valley,45.0803,-70.2118,259.0,rural-remote
+ME08,Gilead,44.4003,-71.0098,212.0,rural-remote
+ME09,Greenville Station,45.4891,-69.6647,322.0,rural
+ME94,Indian Township,45.2436,-67.6308,101.0,rural-remote
+ME95,Wolapomomqot Ciw Wocuk,45.3406,-67.9876,182.0,rural-remote
+ME96,Casco Bay-Wolfe'S Neck Farm,43.8325,-70.0645,15.0,rural
+ME97,Presque Isle,46.6964,-68.0332,165.0,rural
+ME98,Acadia National Park-Mcfarland Hill,44.3772,-68.2608,150.0,rural
+ME99,Acadia National Park-Paradise Hill,44.4083,-68.2461,37.0,rural
+MI09,Douglas Lake,45.5608,-84.6783,238.0,rural
+MI22,Houghton,47.2269,-88.6308,193.0,rural
+MI25,Isle Royale National Park-Windigo,47.9153,-89.1525,216.0,rural-remote
+MI26,Kellogg Biological Station,42.4103,-85.3928,288.0,rural
+MI29,Peshawbestown,45.0289,-85.6292,209.0,rural
+MI31,Sterling Heights,42.597,-83.0076,187.0,urban
+MI48,Seney National Wildlife Refuge-Headquarters,46.2889,-85.9504,220.0,rural-remote
+MI51,Unionville,43.6135,-83.3599,201.0,rural
+MI52,Ann Arbor,42.4164,-83.9019,267.0,urban-suburban
+MI53,Wellston,44.2242,-85.8186,292.0,rural-remote
+MI94,Riverside,46.464,-84.303,307.0,nan
+MI97,Isle Royale National Park-Wallace Lake,48.0575,-88.6342,201.0,rural-remote
+MI98,Raco,46.3723,-84.7434,272.0,rural-remote
+MI99,Chassell,47.1046,-88.5516,296.0,rural
+MISR-JPL,Misr-Jpl,34.199,-118.17439,367.0,nan
+MK0007R,Lazaropole,41.536111,20.69389,1332.0,rural
+MMA001,Yangon,16.864722222222223,96.15361111111112,21.0,urban
+MN01,Cedar Creek,45.4017,-93.2031,280.0,rural
+MN05,Fond Du Lac,46.7131,-92.5108,390.0,rural
+MN06,Leech Lake,47.158,-94.1509,1311.0,rural-remote
+MN08,Hovland,47.8471,-89.965,224.0,rural-remote
+MN16,Marcell Experimental Forest,47.5311,-93.4686,431.0,rural-remote
+MN18,Fernberg,47.9464,-91.4961,524.0,rural-remote
+MN22,Mille Lacs Band Of Ojibwe,46.2053,-93.7589,384.0,rural-remote
+MN23,Camp Ripley,46.2494,-94.4972,410.0,rural-remote
+MN27,Lamberton,44.237,-95.3011,367.0,rural-remote
+MN28,Grindstone Lake,46.1217,-93.0001,350.0,rural
+MN32,Voyageurs National Park-Sullivan Bay,48.4132,-92.8305,421.0,rural-remote
+MN97,Grand Portage Band Of Chippewa,47.9641,-89.6517,2.0,nan
+MN98,Blaine,45.1407,-93.222,275.0,urban
+MN99,Wolf Ridge,47.3841,-91.2067,361.0,rural-remote
+MNA001,Ulaanbaatar,47.89431666666667,106.88255277777778,1251.0,urban
+MNA002,Terelj,47.985458333333334,107.45844722222222,1550.0,rural-remote
+MO03,Ashland Wildlife Area,38.754,-92.1994,257.0,rural
+MO05,University Forest,36.9108,-90.3187,165.0,rural
+MO43,Tyson Research Center,38.5185,-90.5652,174.0,urban-suburban
+MO46,Mingo National Wildlife Refuge,36.9716,-90.1433,105.0,rural-remote
+MO50,Baker Observatory,37.3986,-93.0425,415.0,rural
+MS10,Clinton,32.3069,-90.3186,86.0,urban-suburban
+MS12,Grand Bay Nerr,30.4294,-88.4277,2.0,rural
+MS14,Meridian,32.3344,-88.745,89.0,rural
+MS19,Newton,32.3269,-89.2086,134.0,rural
+MS22,Oak Grove,30.9849,-88.9321,100.0,rural-remote
+MS30,Coffeeville,34.0025,-89.7993,134.0,rural-remote
+MS98,Chunky,32.3357,-88.9653,106.0,nan
+MT00,Little Bighorn Battlefield National Monument,45.5701,-107.438,962.0,rural-remote
+MT0001R,Giordan Lighthouse,36.0722,14.2184,167.0,rural
+MT05,Glacier National Park-Fire Weather Station,48.5102,-113.997,964.0,rural-remote
+MT07,Clancy,46.485,-112.0647,1448.0,rural
+MT13,Give Out Morgan,48.4886,-105.2083,806.0,rural-remote
+MT95,Badger Peak,45.6335,-106.5501,1312.0,rural-remote
+MT96,Poplar River,48.3149,-105.144,640.0,rural-remote
+MT97,Lost Trail Pass,45.692,-113.968,2401.0,rural-remote
+MT98,Havre - Northern Agricultural Research Center,48.5007,-109.798,819.0,rural
+MT99,Glacier National Park-St Mary Ranger Station,48.7411,-113.43,1391.0,rural-remote
+MVCO,Mvco,41.325,-70.5667,10.0,nan
+MY1053R,Danum Valley,4.983333,117.85,427.0,rural
+MYA001,Petaling Jaya,3.1019444444444444,101.64500000000001,58.599998474121094,urban
+MYA002,Tanah Rata,4.484166666666667,101.37138888888889,1545.0,rural-regional
+MYA003,Danum Valley,4.981388888888889,117.8436111111111,426.0,rural-remote
+MYA004,Kuching,1.4902777777777778,110.35249999999999,20.860000610351562,urban
+MYA005,Gunung Brinchang,4.522777777777778,101.38805555555557,1876.0,rural-regional
+Madrid,Madrid,40.4519,-3.72395,680.0,nan
+Maeson,Maeson,19.83046,99.17069,502.0,nan
+MaggieValley,Maggie Valley,35.519816,-83.09473,917.0,nan
+MagureleInoe,Magurele Inoe,44.348292,26.030703,90.0,nan
+MaidoOPAR,Maido Opar,-21.07985,55.383087,2160.0,nan
+Mainz,Mainz,49.999,8.3,150.0,nan
+Majadas,Majadas,39.955031,-5.775914,258.0,nan
+Makassar,Makassar,-4.99768,119.57227,16.0,nan
+Malaga,Malaga,36.715242,-4.478153,56.0,nan
+MaldivesGan,Maldives Gan,-0.6905,73.15,4.0,nan
+Manaus,Manaus,-2.59908,-60.03864,93.0,nan
+ManausEMBRAPA,Manaus Embrapa,-2.890528,-59.969778,115.0,nan
+ManchesterUoM,Manchester Uom,53.467374,-2.232006,94.0,nan
+MandalayMTU,Mandalay Mtu,21.972896,96.186136,104.0,nan
+ManilaObservatory,Manila Observatory,14.63525,121.07784,63.0,nan
+Manus,Manus,-2.06,147.425,4.0,nan
+Marambio,Marambio,-64.239996,-56.625244,200.0,nan
+MarbellaSanPedro,Marbella San Pedro,36.486309,-4.993439,100.0,nan
+Maricopa,Maricopa,33.069023,-111.972298,360.0,nan
+Marseille,Marseille,43.2824,5.383817,34.0,nan
+MarseilleATMO,Marseille Atmo,43.3059,5.395,65.0,nan
+Martova,Martova,49.936,36.953,120.0,nan
+MasdarInstitute,Masdar Institute,24.4416,54.6166,4.0,nan
+MasdarInstitute2,Masdar Institute 2,24.4416,54.6166,4.0,nan
+MatorovaFMI,Matorova Fmi,67.99997,24.240012,340.0,nan
+MaunTower,Maun Tower,-19.9,23.55,951.0,nan
+MaunaLoa,Mauna Loa,19.536006,-155.576755,3402.0,nan
+McCallABStandard,Mccall Ab Standard,44.870242,-116.115561,1524.0,nan
+McCallDragon1,Mccall Dragon 1,44.764,-116.1962,2247.0,nan
+McCallDragon3,Mccall Dragon 3,45.0385,-116.2894,1179.0,nan
+McCallDragon4,Mccall Dragon 4,45.2767,-115.9146,1865.0,nan
+McCallDragon5,Mccall Dragon 5,45.2674,-115.6834,1774.0,nan
+McCallDragon6,Mccall Dragon 6,45.4056,-116.0255,1139.0,nan
+McCallDragon7,Mccall Dragon 7,45.4105,-116.3295,582.0,nan
+McMurdo,Mcmurdo,-77.625,162.883331,75.0,nan
+Medellin,Medellin,6.260672,-75.577914,1471.0,nan
+Medenine-IRA,Medenine-Ira,33.499633,10.642547,33.5,nan
+Melpitz,Melpitz,51.525525,12.927601,84.0,nan
+MeridaMEDA,Merida Meda,20.9839,-89.6452,25.0,nan
+MeridianDEQ,Meridian Deq,43.600697,-116.347989,808.0,nan
+Merredin,Merredin,-31.493056,118.226389,315.0,nan
+MesaLakes,Mesa Lakes,39.052,-108.0981,2966.0,nan
+Messina,Messina,38.1975,15.566833,15.0,nan
+MetObsLindenberg,Metobs Lindenberg,52.209275,14.12087,120.0,nan
+Metsi,Metsi,-26.490781,27.132408,1404.0,nan
+MexicoCity,Mexico City,19.333611,-99.181667,2268.0,nan
+Mezaira,Mezaira,23.10452,53.75466,201.0,nan
+Mfuwe,Mfuwe,-13.256667,31.930833,550.0,nan
+Miami,Miami,25.72292,-80.27972,32.0,nan
+MidwayIsland,Midway Island,28.209833,-177.378333,20.0,nan
+Migal,Migal,33.236394,35.578278,200.0,nan
+MindeloOSCM,Mindelo Oscm,16.877772,-24.995374,10.0,nan
+Mingo,Mingo,36.9717,-90.1432,111.0,nan
+Minqin,Minqin,38.607,102.959,1373.0,nan
+Minsk,Minsk,53.92,27.601,235.0,nan
+Misamfu,Misamfu,-10.1712,31.2241,1381.0,nan
+Missoula,Missoula,46.916668,-114.083336,976.0,nan
+MissoulaHealthDpt,Missoula Health Dpt,46.875753,-113.995597,985.0,nan
+MissoulaMidslope,Missoula Midslope,46.999861,-114.025889,1613.0,nan
+MissoulaPtSix,Missoula Pt Six,47.041333,-113.986306,2420.0,nan
+MissoulaWaterworks,Missoula Waterworks,46.880881,-113.987222,1107.0,nan
+MobileS062308,Mobile S 062308,26.147783,80.570527,122.0,nan
+Modena,Modena,44.631667,10.945278,56.0,nan
+Modesto,Modesto,37.64217,-120.99422,33.0,nan
+Moldova,Moldova,47.0008,28.8156,205.0,nan
+MomuyMF,Momuy Mf,43.6243,-0.6092,124.0,nan
+Mongu,Mongu,-15.253611,23.150833,1047.0,nan
+MonguInn,Mongu Inn,-15.266667,23.134333,1040.0,nan
+MontJoli,Mont Joli,48.64,-68.156,30.0,nan
+Monterey,Monterey,36.59255,-121.854867,50.0,nan
+MontesoroBastia,Montesoro Bastia,42.671983,9.43505,49.900001525878906,nan
+MontevideoFING,Montevideo Fing,-34.918167,-56.166767,71.0,nan
+Montreal,Montreal,45.522558,-73.620786,62.0,nan
+Montsec,Montsec,42.051417,0.729689,1574.0,nan
+MoscowMSUMO,Moscow Msu Mo,55.706947,37.522019,192.0,nan
+MossLanding,Moss Landing,36.793133,-121.788167,20.0,nan
+MountChacaltaya,Mount Chacaltaya,-16.350139,-68.1315,5233.0,nan
+MountWilson,Mount Wilson,34.2247,-118.0559,1710.0,nan
+MtWLG,Mt Wlg,36.28333,100.89583,3816.0,nan
+Mukdahan,Mukdahan,16.606667,104.676111,166.0,nan
+MunichMaisach,Munich Maisach,48.209,11.258,520.0,nan
+MunichUniversity,Munich University,48.148,11.573,533.0,nan
+Murcia,Murcia,38.001,-1.1707,69.0,nan
+Muscat,Muscat,23.606383,58.435667,22.0,nan
+Mussafa,Mussafa,24.371667,54.466667,10.0,nan
+MuztaghAta,Muztagh Ata,38.408222,75.038764,3674.0,nan
+Mwinilunga,Mwinilunga,-11.74,24.430667,1375.0,nan
+Myanmar,Myanmar,16.864967,96.1538,20.0,nan
+NAMCO,Nam Co,30.772517,90.96245,4746.0,nan
+NASAAmes,Nasa Ames,37.419986,-122.056969,10.0,nan
+NASAKSC,Nasa Ksc,28.463763,-80.663476,1.2000000476837158,nan
+NASALaRC,Nasa Larc,37.10496,-76.37864,5.0,nan
+NB02,St. Andrews,45.0833,-67.0833,10.0,nan
+NC03,Lewiston,36.1325,-77.1708,22.0,rural-remote
+NC06,Beaufort,34.8846,-76.6207,2.0,rural
+NC08,Waccamaw State Park,34.2592,-78.4777,10.0,rural-remote
+NC11,Research Triangle Institute,35.9025,-78.87,99.0,urban
+NC17,University Research Farm,36.0672,-79.7344,238.0,urban
+NC25,Coweeta,35.0605,-83.4305,686.0,rural
+NC26,Candor,35.2632,-79.8365,198.0,rural
+NC29,Hofmann Forest,34.825,-77.3228,14.0,urban-suburban
+NC30,Duke Forest,35.9709,-79.0933,174.0,urban-suburban
+NC33,Research Triangle Park,35.8964,-78.8606,94.0,urban
+NC34,Piedmont Research Station,35.697,-80.6225,219.0,rural
+NC35,Clinton Crops Research Station,35.0258,-78.2783,41.0,rural
+NC36,Jordan Creek,34.9705,-79.5281,132.0,rural
+NC41,Finley Farm,35.7283,-78.6789,120.0,urban
+NC42,Pettigrew State Park,35.7373,-76.5149,2.0,rural-remote
+NC45,Mt. Mitchell,35.7353,-82.2861,1987.0,rural
+NCAR,Ncar,40.03753,-105.24277,1622.0,nan
+NCUTaiwan,Ncu Taiwan,24.967662,121.187508,171.0,nan
+ND00,Theodore Roosevelt National Park-Painted Canyon,46.8951,-103.378,863.0,rural-remote
+ND01,Lostwood National Wildlife Refuge,48.6419,-102.4021,691.0,rural-remote
+ND07,Theodore Roosevelt National Park-North Unit Headquarters,47.6014,-103.2642,611.0,rural-remote
+ND08,Icelandic State Park,48.782,-97.7546,306.0,rural-remote
+ND11,Woodworth,47.1247,-99.2381,578.0,rural-remote
+NDMarbelUniv,Nd Marbel Univ,6.496011,124.842531,70.0,nan
+NE15,Mead,41.1528,-96.4912,352.0,rural
+NE25,Winnebago,42.248,-96.474,360.0,rural-remote
+NE98,Santee,42.8292,-97.8541,443.0,rural-remote
+NE99,North Platte Agricultural Experiment Station,41.0592,-100.7464,919.0,rural
+NEON-Boulder,Neon-Boulder,40.00787,-105.26821,1641.0,nan
+NEON-CPER,Neon-Cper,40.812444,-104.744238,1655.0,nan
+NEON-Disney,Neon-Disney,28.125039,-81.4362,19.0,nan
+NEON17-SJER,Neon17-Sjer,37.090419,-119.722136,320.29998779296875,nan
+NEONBARR,Neon Barr,71.28241,-156.61936,6.0,nan
+NEONBONA,Neon Bona,65.154033,-147.502583,263.0,nan
+NEONBartlett,Neon Bartlett,44.063881,-71.287203,273.0,nan
+NEONCLBJ,Neon Clbj,33.40123,-97.57,259.0,nan
+NEONCVALLA,Neon Cvalla,40.16063,-105.16725,1539.0,nan
+NEONDEJU,Neon Deju,63.881119,-145.751361,529.0,nan
+NEONGRSM,Neon Grsm,35.688961,-83.50195,579.0,nan
+NEONGUAN,Neon Guan,17.96955,-66.8687,128.0,nan
+NEONHEAL,Neon Heal,63.875689,-149.213339,678.1799926757812,nan
+NEONHarvard,Neon Harvard,42.5369,-72.172661,348.0,nan
+NEONHighParkFire,Neon Highparkfire,40.624173,-105.335581,2483.0,nan
+NEONKONZ,Neon Konz,39.10077,-96.56309,415.0,nan
+NEONLENO,Neon Leno,31.853881,-88.161219,43.0,nan
+NEONMLBS,Neon Mlbs,37.378306,-80.524836,1170.0,nan
+NEONMOAB,Neon Moab,38.248331,-109.388269,1799.0,nan
+NEONNIWO,Neon Niwo,40.05425,-105.582369,3513.0,nan
+NEONNOGP,Neon Nogp,46.769719,-100.91535,578.0,nan
+NEONOAES,Neon Oaes,35.41059,-99.05879,523.0,nan
+NEONONAQ,Neon Onaq,40.177589,-112.452439,1656.0,nan
+NEONORNL,Neon Ornl,35.964128,-84.282588,344.0,nan
+NEONOSBS,Neon Osbs,29.689269,-81.993431,47.0,nan
+NEONPUUM,Neon Puum,19.553144,-155.317242,1685.0,nan
+NEONRMNP,Neon Rmnp,40.2759,-105.545972,2750.0,nan
+NEONSCBI,Neon Scbi,38.892919,-78.1395,354.0,nan
+NEONSERC,Neon Serc,38.890117,-76.560017,9.753600120544434,nan
+NEONSJER,Neon Sjer,37.10878,-119.73228,368.0,nan
+NEONSRER,Neon Srer,31.910681,-110.835489,983.0,nan
+NEONSterling,Neon Sterling,40.461903,-103.029297,1372.0,nan
+NEONTALL,Neon Tall,32.950461,-87.393269,165.0,nan
+NEONTEAK,Neon Teak,37.005831,-119.006019,2147.0,nan
+NEONTOOL,Neon Tool,68.661089,-149.370469,843.0,nan
+NEONUKFS,Neon Ukfs,39.040431,-95.19215,321.0,nan
+NEONUNDE,Neon Unde,46.233881,-89.53725,520.0,nan
+NEONWOOD,Neon Wood,47.128228,-99.241356,590.0,nan
+NEONWREF,Neon Wref,45.820488,-121.951912,407.0,nan
+NEONYELL,Neon Yell,44.95348,-110.53914,2116.0,nan
+NF09,Cormak,49.3214,-57.3931,172.0,rural-remote
+NF19,Stephenville,48.5614,-58.5656,62.0,rural
+NGHIADO,Nghia Do,21.04778,105.79964,40.0,nan
+NH00,Laconia,43.5,-71.5,181.0,rural
+NH02,Hubbard Brook,43.9433,-71.7029,250.0,rural
+NH05,New Castle,43.1667,-70.8667,10.0,urban-suburban
+NJ00,Edwin B. Forsythe National Wildlife Refuge,39.4728,-74.4369,2.0,urban-suburban
+NJ29,Princeton,40.3456,-74.6169,37.0,urban
+NJ30,New Brunswick,40.4728,-74.4226,21.0,urban
+NJ39,Cattus Island County Park,39.9894,-74.1344,1.0,urban
+NJ99,Washington Crossing,40.3154,-74.8536,72.0,urban
+NL0001R,Wageningen,51.9666667,5.633333,7.0,urban-suburban
+NL0002R,Witteveen,52.816667,6.666667,18.0,urban-suburban
+NL0003R,Den Helden,52.916667,4.783333,11.0,urban-suburban
+NL0004R,Leunen,51.466667,5.983333,29.0,rural
+NL0005R,Rekken,52.1,6.716667,25.0,urban-suburban
+NL0006R,Appelscha,52.95,6.3,10.0,rural
+NL0007R,Eibergen,52.083333,6.566667,20.0,urban-suburban
+NL0008R,Bilthoven,52.116667,5.2,5.0,urban-suburban
+NL0009R,Kollumerwaard,53.333889,6.277222,1.0,rural
+NL0010R,Vredepeel,51.541111,5.853611,28.0,urban-suburban
+NL0011R,Cabauw Zijdeweg,51.970278,4.926389,1.0,rural
+NL0091R,De Zilk,52.3,4.5,4.0,rural
+NM01,Gila Cliff Dwellings National Monument,33.2203,-108.2347,1772.0,rural-remote
+NM07,Bandelier National Monument,35.7788,-106.266,1997.0,rural
+NM08,Mayhill,32.9096,-105.471,2022.0,rural-remote
+NM09,Cuba,36.0408,-106.9714,2124.0,rural-remote
+NM10,Caballo,33.0625,-107.2917,1280.0,rural
+NM12,Capulin Volcano National Monument,36.779,-103.981,2190.0,rural-remote
+NM97,Valles Caldera National Preserve,35.8584,-106.5214,2657.0,rural-remote
+NM98,Navajo Lake,36.8097,-107.6515,1972.0,rural-remote
+NO0001R,Birkenes,58.383333,8.25,190.0,rural
+NO0002R,Birkenes Ii,58.38853,8.252,220.0,rural
+NO0008R,Skreådalen,58.816667,6.716667,475.0,rural
+NO0015R,Tustervatn,65.833333,13.916667,439.0,rural
+NO0030R,Jergul,69.45,24.6,255.0,rural
+NO0035R,Narbuvoll,62.35,11.666667,768.0,rural
+NO0037R,Bjørnøya,74.516667,19.016667,20.0,rural
+NO0039R,Kårvatn,62.783333,8.883333,210.0,rural
+NO0041R,Osen,61.25,11.783333,440.0,rural
+NO0042G,Zeppelin Mountain (Ny-Ålesund),78.90715,11.88668,474.0,rural
+NO0043R,Prestebakke,59.0,11.533333,160.0,rural
+NO0044R,Nordmoen,60.266667,11.1,200.0,rural
+NO0047R,Svanvik,69.45,30.033333,30.0,rural
+NO0048R,Voss,60.6,6.533333,500.0,rural
+NO0055R,Karasjok,69.466667,25.216667,333.0,rural
+NO0056R,Hurdal,60.372386,11.078142,300.0,rural
+NO0057R,Ny-Ålesund,78.925,11.9222222,8.0,rural
+NO0058G,Troll,-72.016667,2.533333,1309.0,rural
+NO0059G,Trollhaugen,-72.0117,2.5351,1553.0,rural
+NO0090R,Andøya,69.278333,16.011666,380.0,rural
+NO0091R,Søgne,58.116667,7.850001,15.0,urban-suburban
+NO0092R,Øverbygd,69.05,19.366667,90.0,rural
+NO0093R,Valdalen,62.083333,12.166667,800.0,rural
+NO0094R,Møsvatn,59.833333,8.333333,940.0,rural
+NO0095R,Ualand,58.516667,6.383333,220.0,rural
+NO0096R,Namsvatn,64.983333,13.583333,500.0,rural
+NO0097R,Solhomfjell,58.933333,8.8,260.0,rural
+NO0098R,Karpdalen,69.656165,30.4217959,70.0,rural
+NO0099R,Lista,58.1,6.566667,13.0,urban-suburban
+NO0202R,Bygland,58.833333,7.800001,215.0,urban-suburban
+NO0203R,Finsland,58.316667,7.583333,275.0,rural
+NO0204R,Flødevigen,58.433333,8.750001,10.0,urban-suburban
+NO0205R,Gjerstad,58.883333,8.950001,240.0,rural
+NO0207R,Mandal,58.050001,7.450001,138.0,rural
+NO0209R,Søyland,58.683333,5.983333,263.0,urban-suburban
+NO0210R,Tovdal,58.800001,8.230001,227.0,rural
+NO0214R,Skei I Jølster,61.567777,6.483333,205.0,urban-suburban
+NO0216R,Tågmyra,61.416777,12.067777,536.0,rural
+NO0217R,Kjeller,59.983333,11.050001,120.0,urban-suburban
+NO0218R,Løken,59.805443,11.460562,135.0,urban-suburban
+NO0219R,Bislingen,60.230001,10.616777,680.0,rural
+NO0220R,Grimelid,60.130001,9.600001,367.0,rural
+NO0231R,Norefjell,60.216667,9.516667,810.0,rural
+NO0232R,Hvasser,59.066667,10.433333,35.0,urban-suburban
+NO0233R,Lyngør,58.633333,9.133333,20.0,rural
+NO0234R,Fitjar,59.916667,5.316667,20.0,rural
+NO0236R,Treungen,59.016667,8.516667,300.0,urban-suburban
+NO0237R,Vatnedalen,59.466667,7.366667,800.0,rural
+NO0238R,Risdalsheia,58.400001,8.316667,340.0,rural
+NO0239R,Grungedal,59.711978,7.765612,594.4000244140625,rural
+NO0240R,Overhalla,64.470898,11.87212,71.5,rural
+NO0269R,Filefjell,60.183333,8.116667,956.0,rural
+NO0311R,Langtjern,60.366667,9.650001,260.0,rural
+NO0382R,Kise,60.766667,10.816667,128.0,rural
+NO0391R,Børselv,70.316667,25.550001,10.0,rural
+NO0392R,Dividalen,68.950001,19.500001,140.0,rural
+NO0393R,Vesterelv,70.15,28.566667,14.0,rural
+NO0398R,Bakko,60.618793,8.237675,969.0,rural
+NO0450R,Lillestrøm (Nilu Volla),59.965085,11.040818,110.0,urban-suburban
+NO0461R,Gornitak,70.183333,28.716667,20.0,rural
+NO0478R,Høylandet,64.646965,12.312422,60.0,rural
+NO0554R,Haukeland,60.816667,5.583333,190.0,rural
+NO0572R,Vikedal,59.536766,5.972167,60.0,rural
+NO0617R,Kaupanger,61.150001,7.100001,500.0,rural
+NO0655R,Nausta,61.577408,5.898247,230.0,rural
+NO0752R,Gulsvik,60.366667,9.650001,260.0,rural
+NO0759R,Noatun,69.166667,29.166667,60.0,rural
+NO0761R,Tveitdalen,58.116667,7.850001,15.0,rural
+NO0762R,Søgne 1,58.116667,7.850001,15.0,rural
+NO0763R,Dalelva,69.683333,30.366667,10.0,rural
+NO0796R,Valle,59.052311,7.566513,250.0,rural
+NO0797R,Lardal,59.466667,9.85,210.0,rural
+NO0798R,Fagernes,60.983333,9.25,354.0,urban-suburban
+NO0799R,Selbu,63.283333,11.1833333,300.0,rural
+NO0802R,Kårvatn 2,62.785793,8.88331,260.0,rural
+NO0970R,Vårli,63.45791,8.60489,40.0,rural
+NO0971R,Terningvatn,63.51667,9.50001,90.0,nan
+NO0972R,Solem,63.63333,10.00001,178.0,rural
+NO0977R,Tjeldbergodden,63.416149,8.758665,90.0,rural
+NO1006R,Sandvik,59.282715,5.504831,73.0,urban-suburban
+NO1007R,Årvik2,59.285862,5.562302,0.0,rural
+NO1010R,Gismarvik,59.315773,5.39875,0.0,rural
+NO1011R,Bokn,59.223824,5.471057,63.0,rural
+NO1041R,Osen (Forest),61.284167,11.852778,560.0,rural
+NO1078R,Førde,61.437469,6.037209,136.0,rural
+NO1200R,Tangen,63.716667,11.216667,5.0,urban-suburban
+NO1218R,Brekkebygda,60.3,9.733333,390.0,rural
+NO1241R,Karpbukt,69.666667,30.366667,20.0,rural
+NO1479U,Skøyen,59.919786111,10.689769444,3.0,urban-centre
+NP0001G,Nepal Climate Observatory - Pyramid,27.9578,86.8149,5079.0,rural
+NPLTeddington,Npl Teddington,51.4258,-0.3445,160.0,nan
+NREL-Golden,Nrel-Golden,39.743725,-105.17799,1833.0,nan
+NS01,Kejimkujik National Park,44.4328,-65.2056,155.0,rural-remote
+NSAYJPBOREAS,Nsa Yjp Boreas,55.903,-98.290001,290.0,nan
+NSPOTaiwan,Nspo Taiwan,24.783995,121.001122,99.0,nan
+NUIST,Nuist,32.206483,118.71715,62.0,nan
+NV00,Red Rock Canyon,36.1358,-115.4256,1137.0,urban-suburban
+NV01,Saval Ranch,41.2853,-115.8522,1872.0,rural-remote
+NV02,Lesperance Ranch,41.5033,-117.4989,1388.0,rural-remote
+NV03,Smith Valley,38.7992,-119.2567,1501.0,rural-remote
+NV05,Great Basin National Park-Lehman Caves,39.0054,-114.217,2066.0,rural-remote
+NV98,Reno,39.5111,-119.7186,1340.0,urban
+NV99,Gibb'S Ranch,41.5713,-115.2117,1849.0,rural-remote
+NWChapelHill,Nw Chapel Hill,35.9712,-79.0934,175.0,nan
+NY01,Alfred,42.2276,-77.8016,697.0,rural
+NY06,Bronx,40.868,-73.8782,68.0,urban
+NY08,Aurora Research Farm,42.7339,-76.6597,249.0,rural
+NY10,Chautauqua,42.2994,-79.3964,488.0,rural
+NY12,Knobit,42.3783,-73.5028,406.0,rural
+NY20,Huntington Wildlife,43.9731,-74.2231,500.0,rural-remote
+NY22,Akwesasne Mohawk-Fort Covington,44.9226,-74.4806,70.0,rural
+NY28,Piseco Lake,43.4336,-74.5002,519.0,rural-remote
+NY29,Moss Lake,43.7868,-74.8429,566.0,rural-remote
+NY43,Rochester,43.1463,-77.5482,136.0,urban
+NY51,Stilwell Lake,41.35,-74.0394,186.0,urban-suburban
+NY52,Bennett Bridge,43.5282,-75.9492,247.0,rural
+NY59,Wanakena,44.1461,-74.9025,468.0,rural-remote
+NY65,Jasper,42.1064,-77.5358,634.0,rural-remote
+NY67,Ithaca,42.4014,-76.6589,503.0,nan
+NY68,Biscuit Brook,41.9936,-74.5031,634.0,rural-remote
+NY92,Amherst,42.9931,-78.7717,183.0,urban
+NY93,Paul Smith'S,44.434,-74.246,498.0,rural
+NY94,Nick'S Lake,43.6833,-74.9833,525.0,rural-remote
+NY96,Cedar Beach-Southold,41.0347,-72.3891,1.0,rural
+NY98,Whiteface Mountain,44.3933,-73.8594,610.0,rural-remote
+NY99,West Point,41.3511,-74.0484,211.0,urban-suburban
+NaalehuElementary,Naalehu Elementary,19.060874,-155.578983,196.0,nan
+Nainital,Nainital,29.35883,79.45827,1939.0,nan
+Nairobi,Nairobi,-1.338882,36.8653,1650.0,nan
+Namibe,Namibe,-15.159,12.178,11.0,nan
+NapoliCeSMA,Napoli Cesma,40.836842,14.306567,50.0,nan
+Nara,Nara,34.688,135.828,80.0,nan
+Narsarsuaq,Narsarsuaq,61.155952,-45.419379,75.0,nan
+Natal,Natal,-5.8415,-35.1995,40.0,nan
+Nauru,Nauru,-0.5206,166.9159,7.0,nan
+Ndola,Ndola,-12.995,28.658333,1270.0,nan
+NesZiona,Nes Ziona,31.9225,34.789167,40.0,nan
+NewDelhi,New Delhi,28.630467,77.1751,240.0,nan
+NewDelhiIMD,New Delhi Imd,28.5885,77.2216,241.0,nan
+NewHampshireUniv,New Hampshire Univ,43.1325,-70.92,30.0,nan
+NhaTrang,Nhatrang,12.204722,109.205556,20.0,nan
+Niabrara,Niabrara,42.764833,-100.02,730.0,nan
+Niamey,Niamey,13.481389,2.172222,205.0,nan
+Niassa,Niassa,-12.15512,37.56656,510.0,nan
+Nicosia,Nicosia,35.140628,33.381353,181.0,nan
+Niigata,Niigata,37.846,138.942,10.0,nan
+Ningbo,Ningbo,29.859945,121.546872,37.0,nan
+NongKhai,Nong Khai,17.8772,102.71671,175.0,nan
+NorfolkStateUniv,Norfolk State Univ,36.848,-76.259,20.0,nan
+NorthPole,North Pole,88.80333,24.25433,1.0,nan
+Noto,Noto,37.334444,137.136944,200.0,nan
+Noumea,Noumea,-22.301944,166.444167,12.0,nan
+NyAlesundAWI,Ny Alesund Awi,78.923166,11.92304,7.0,nan
+OA02,Puerto A'Ngel,15.65,-96.4833,110.0,nan
+OBERNAI,Obernai,48.442778,7.5425,161.0,nan
+OH02,Athens Super Site,39.3078,-82.1182,275.0,rural
+OH09,Oxford,39.5309,-84.7238,284.0,rural
+OH15,Lykens,40.5502,-82.9982,303.0,rural
+OH16,Northeast Ohio Regional Sewer District (Neorsd),41.5032,-81.6586,50.0,nan
+OH17,Delaware,40.3555,-83.0661,285.0,rural
+OH49,Caldwell,39.7928,-81.5311,276.0,rural
+OH52,South Bass Island,41.6582,-82.827,177.0,rural
+OH54,Deer Creek State Park,39.6359,-83.2606,267.0,rural
+OH71,Wooster,40.7813,-81.9197,308.0,rural
+OHPOBSERVATOIRE,Ohp Observatoire,43.935,5.71,680.0,nan
+OK00,Salt Plains National Wildlife Refuge,36.7863,-98.18,344.0,rural-remote
+OK01,Mcgee Creek,34.3154,-95.8893,195.0,rural-remote
+OK04,Lake Murray,34.1033,-97.0708,245.0,rural
+OK05,Hugo,34.0315,-95.5376,174.0,nan
+OK06,Wichita Mountains Nwr,34.7342,-98.7094,492.0,rural-remote
+OK08,Lake Eucha,36.3481,-94.8239,243.0,rural
+OK15,Newkirk,36.9564,-97.0335,349.0,rural
+OK17,Kessler Atmospheric And Ecological Field Station,34.98,-97.5214,331.0,rural
+OK19,Pryor,36.2283,-95.25,188.0,rural
+OK22,Miami,36.895,-94.758,258.0,rural
+OK25,Clayton Lake,34.5297,-95.3531,349.0,rural-remote
+OK29,Goodwell Research Station,36.5908,-101.6175,999.0,rural-remote
+OK31,Copan,36.9081,-95.8823,255.0,rural
+OK97,Tuskahoma,34.6339,-95.2961,182.0,nan
+OK99,Stilwell,35.7508,-94.67,299.0,rural
+OKA,Oka-Terrase Biospheric Reserve,54.9,37.8,166.0,nan
+OKStUniv,Ok St Univ,35.04564,-97.91734,331.0,nan
+ON03,Dorset,45.2239,-78.9311,320.0,nan
+ON07,Egbert,44.2339,-79.7917,196.0,urban-suburban
+ON10,Burnt Island,45.8083,-82.95,184.0,nan
+ON11,Point Petre,43.8428,-77.1536,78.0,nan
+ON18,Experimental Lakes Area,49.6642,-93.7328,432.0,rural-remote
+ON99,Egbert Forest,44.2341,-79.7917,237.0,urban-suburban
+OPAL,Opal,79.990278,-85.939167,5.0,nan
+OR01,Beaverton,45.4704,-122.8151,81.0,urban
+OR02,Alsea Guard Ranger Station,44.3856,-123.6153,104.0,rural-remote
+OR07,Burns Sagebrush,43.4712,-119.6909,1398.0,rural-remote
+OR08,Lost Creek Dam,42.6678,-122.6831,475.0,rural-remote
+OR09,Silver Lake Ranger Station,43.119,-121.059,1338.0,rural-remote
+OR10,H. J. Andrews Experimental Forest,44.2118,-122.256,443.0,rural-remote
+OR11,Vines Hill,43.8994,-117.4269,904.0,rural-remote
+OR17,Pendleton,45.69,-118.8378,452.0,rural
+OR18,Starkey Experimental Forest,45.2247,-118.513,1254.0,rural-remote
+OR97,Hyslop Farm,44.6347,-123.19,69.0,urban-suburban
+OR98,Bull Run,45.4492,-122.1533,267.0,rural
+OR99,Schmidt Farm,44.6264,-123.2139,69.0,urban-suburban
+ORSHermosillo,Ors Hermosillo,29.0275,-111.145556,154.0,nan
+ORSUNAMISNP,Ors Unam Isnp,19.399467,-99.203683,2361.0,nan
+OUNWC,Ou Nwc,35.181861,-97.440306,379.6000061035156,nan
+OceolaNF,Oceolanf,30.205278,-82.442778,51.0,nan
+OkefenokeeNWR,Okefenokeenwr,30.741111,-82.128611,47.0,nan
+Okinawa,Okinawa,26.356667,127.768333,46.0,nan
+OkinawaHedo,Okinawa Hedo,26.867,128.249,60.0,nan
+Omkoi,Omkoi,17.798333,98.431667,1120.0,nan
+Oostende,Oostende,51.225,2.925,23.0,nan
+Osaka,Osaka,34.650933,135.590633,50.0,nan
+Osaka-North,Osaka-North,34.774,135.51,50.0,nan
+Osaka31,Osaka31,34.65179,135.5881,50.0,nan
+Ouagadougou,Ouagadougou,12.42413,-1.48723,302.0,nan
+Ouarzazate,Ouarzazate,30.928367,-6.912867,1136.0,nan
+Oujda,Oujda,34.65331,-1.89846,620.0,nan
+Oukaimeden,Oukaimeden,31.208793,-7.864486,2762.0,nan
+OwensLake,Owens Lake,36.487778,-117.870697,1103.0,nan
+Oxford,Oxford,51.759,-1.256,87.0,nan
+Oyster,Oyster,37.295044,-75.933192,8.699999809265137,nan
+PA00,Arendtsville,39.9231,-77.3078,269.0,rural
+PA02,Crooked Creek Lake,40.7131,-79.5144,294.0,rural
+PA13,Allegheny Portage Railroad National Historic Site,40.457,-78.56,739.0,urban-suburban
+PA15,Penn State,40.7883,-77.9458,393.0,urban-suburban
+PA18,Young Woman'S Creek,41.4142,-77.6799,272.0,rural-remote
+PA19,Centralia,40.7987,-76.3381,485.0,rural
+PA21,Goddard State Park,41.4271,-80.1451,385.0,rural
+PA29,Kane Experimental Forest,41.5978,-78.7675,618.0,rural
+PA30,Erie,42.1558,-80.1134,177.0,urban-suburban
+PA37,Waynesburg,39.8161,-80.285,452.0,rural
+PA42,Leading Ridge,40.6575,-77.9397,287.0,rural
+PA47,Millersville,39.9909,-76.3856,84.0,urban-suburban
+PA52,Little Pine State Park,41.3639,-77.3561,228.0,rural-remote
+PA60,Valley Forge,40.1166,-75.8833,46.0,urban-suburban
+PA71,Little Buffalo State Park,40.4603,-77.1692,155.0,rural
+PA72,Milford,41.3273,-74.8199,212.0,rural
+PA83,Laurel Hill State Park,39.9869,-79.2544,594.0,rural
+PA90,Hills Creek State Park,41.8043,-77.1903,476.0,rural
+PA98,Frances Slocum State Park,41.3445,-75.8901,370.0,urban-suburban
+PEARL,Pearl,80.053611,-86.416944,615.0,nan
+PED108,Prince Edward,37.165222,-78.307067,149.0,rural
+PHA001,Metro Manila,14.635833333333332,121.0786111111111,55.0,urban
+PHA002,Laguna,14.164722222222222,121.25,25.0,rural-regional
+PHA003,Benguet,16.35666666666667,120.55916666666667,1500.0,rural-remote
+PKUPEK,Pku Pek,39.593,116.184,66.0,nan
+PL0001R,Suwalki,54.133333,22.95,184.0,urban-suburban
+PL0002R,Jarczew,51.814408,21.972419,180.0,rural
+PL0003R,Sniezka,50.736444,15.7395,1603.0,rural
+PL0004R,Leba,54.753894,17.534264,2.0,rural
+PL0005R,Diabla Gora,54.15,22.066667,157.0,rural
+PNA,Pune,18.5333,73.85,559.0,nan
+PNF126,Cranberry,36.105435,-82.045015,1216.0,rural
+PNNL,Pnnl,46.34095,-119.2788,127.0,nan
+POLWETRzecin,Polwet Rzecin,52.762019,16.309589,54.0,nan
+PQ04,St. Anicet,45.2,-74.0333,49.0,nan
+PQ05,Mingan,50.2667,-64.2333,11.0,nan
+PQ17,Chapais,49.8225,-74.9753,379.0,rural-remote
+PR0100C,Cape San Juan,18.381,-65.618,65.0,rural
+PR20,El Verde,18.3206,-65.82,380.0,nan
+PRINCEALBERT,Prince Albert,53.200001,-105.699997,425.0,nan
+PRK134,Perkinstown,45.206525,-90.597209,462.0,rural
+PSDAChile,Psda Chile,-24.090306,-69.929028,965.0,nan
+PT0001R,Braganca,41.816667,-6.766667,690.0,urban-suburban
+PT0002R,Faro,37.016667,-7.966667,8.0,urban-suburban
+PT0003R,Viana Do Castelo,41.7,-8.8,16.0,urban-suburban
+PT0004R,Monte Velho,38.083333,-8.8,43.0,rural
+PT0006R,Alfragide,38.738889,-9.2075,109.0,urban-centre
+PT0010R,Angra Do Heroismo,38.666667,-27.216667,74.0,urban-suburban
+PYR,Nepal Climate Observatory - Pyramid (Nepal),27.9584,86.8134,294.0,nan
+Paddockwood,Paddockwood,53.507889,-105.561817,481.0,nan
+PagosaSprings,Pagosa Springs,37.270278,-107.050258,2316.47998046875,nan
+Palaiseau,Palaiseau,48.7116,2.215,156.0,nan
+Palangkaraya,Palangkaraya,-2.22799,113.94624,27.0,nan
+Palencia,Palencia,41.988572,-4.515694,750.0,nan
+Palgrunden,Palgrunden,58.755333,13.1515,49.0,nan
+PalmadeMallorca,Palma De Mallorca,39.5533,2.6251,10.0,nan
+PanamaBCI,Panama Bci,9.166667,-79.85,119.0,nan
+Pantnagar,Pantnagar,29.046339,79.520889,241.0,nan
+Paracou,Paracou,5.266944,-52.925833,50.0,nan
+ParanalCTA,Paranal Cta,-24.701105,-70.324794,2154.0,nan
+Paris,Paris,48.846797,2.355508,50.0,nan
+Payerne,Payerne,46.812408,6.942019,491.0,nan
+PennStateUniv,Penn State Univ,40.7421,-78.0809,401.0,nan
+Perth,Perth,-32.008056,115.893611,14.0,nan
+Peterhof,Peterhof,59.881,29.826,58.0,nan
+PetrolinaSONDA,Petrolina Sonda,-9.0691,-40.320108,381.0,nan
+Philadelphia,Philadelphia,40.035667,-75.004667,20.0,nan
+Picdumidi,Pic Du Midi,42.937217,0.1413,2898.0,nan
+PickleLake,Pickle Lake,51.449444,-90.2175,393.0,nan
+Pietersburg,Pietersburg,-23.883333,29.45,1249.0,nan
+PilarCordoba,Pilar Cordoba,-31.667411,-63.882597,333.0,nan
+Pimai,Pimai,15.181944,102.564167,220.0,nan
+PinehurstIdaho,Pinehurst Idaho,47.536739,-116.236917,680.0,nan
+PioneerJC,Pioneer Jc,1.384333,103.754528,25.0,nan
+Pokhara,Pokhara,28.186643,83.97518,800.0,nan
+Pontianak,Pontianak,0.07538,109.19086,2.0,nan
+Poprad-Ganovce,Poprad-Ganovce,49.035,20.322,706.0,nan
+Porquerolles,Porquerolles,43.001389,6.161389,22.0,nan
+PortglenoneMO,Portglenone Mo,54.865,-6.457,64.0,nan
+PortoNacional,Porto Nacional,-10.7,-48.41,210.0,nan
+PortoVelho,Porto Velho,-8.77,-63.95,110.0,nan
+PortoVelhoUNIR,Porto Velho Unir,-8.837083,-63.939983,129.0,nan
+PossessionIsland,Possession Island,-27.010428,15.194255,3.0,nan
+Potchefstroom,Potchefstroom,-26.69,27.091,1355.0,nan
+Praia,Praia,14.947,-23.484,102.0,nan
+PretoriaCSIR-DPSS,Pretoria Csir-Dpss,-25.756611,28.279722,1449.0,nan
+PretoriaCSIR-EC,Pretoria Csir-Ec,-25.750126,28.278441,1403.0,nan
+PrincetonUniv,Princeton Univ,40.35028,-74.65219,71.0,nan
+Progress,Progress,-69.37778,76.38861,32.0,nan
+ProspectHill,Prospect Hill,32.299314,-64.765092,64.0,nan
+PuertoMadryn,Puerto Madryn,-42.79,-65.01,15.0,nan
+Pullman,Pullman,46.75,-117.191666,779.0,nan
+Pune,Pune,18.537255,73.805491,595.0,nan
+PuntaArenasUMAG,Punta Arenas Umag,-53.1354,-70.8845,25.0,nan
+PusanNU,Pusan Nu,35.235354,129.082493,78.0,nan
+Puspiptek,Puspiptek,-6.3556,106.664383,58.0,nan
+QOMSCAS,Qoms Cas,28.365,86.948056,4276.0,nan
+QenaSVU,Qena Svu,26.199924,32.747029,75.69999694824219,nan
+Qiandaohu,Qiandaohu,29.555717,119.052633,133.0,nan
+QuitoUSFQ,Quito Usfq,-0.196244,-78.435589,2414.0,nan
+RCV,Rucava,56.1624,21.1733,18.0,nan
+REUNIONSTDENIS,Reunion St Denis,-20.90139,55.48474,93.0,nan
+RGA,Riga,56.9848,24.1048,6.0,nan
+RO0001R,Rarau,47.45,25.45,1536.0,rural
+RO0002R,Stina De Vale,46.683333,23.533333,1111.0,urban-suburban
+RO0003R,Semenic,45.116667,25.966667,1432.0,rural
+RO0004R,Paring,45.383333,23.466667,1585.0,rural
+RO0005R,Fundata,45.466667,25.3,1371.0,urban-suburban
+RO0006R,Turia,46.116667,25.983333,1008.0,rural
+RO0010R,Rado-Bucharest Ii,44.344,26.012,77.0,urban-suburban
+RS0005R,Kamenicki Vis,43.4,21.95,813.0,rural
+RU0001R,Janiskoski,68.933333,28.85,118.0,rural
+RU0008R,Lesogorsky,61.0,28.966667,39.0,rural
+RU0013R,Pinega,64.7,43.4,28.0,urban-suburban
+RU0014R,Pushkinskie Gory,57.0,28.9,103.0,rural
+RU0016R,Shepeljovo,59.966667,29.116667,4.0,rural
+RU0018R,Danki,54.9,37.8,150.0,rural
+RU0020R,Lesnoy,56.53,32.94,340.0,rural
+RU0021R,Zarechensk,66.755833,31.480146,48.0,rural
+RU0100R,Tiksi,71.5861663818,128.918823242,8.0,rural
+RUA001,Mondy,51.62166666666667,100.91944444444445,1996.0,rural-remote
+RUA002,Listvyanka,51.84638888888889,104.89277777777778,646.0,rural-regional
+RUA003,Irkutsk,52.24805555555556,104.25916666666667,495.0,urban
+RUA004,Primorskaya,43.62916666666667,132.23694444444442,85.0,rural-regional
+Raciborz,Raciborz,50.0831,18.1917,230.0,nan
+RaggedPoint,Ragged Point,13.165018,-59.432035,40.0,nan
+RailroadNSPO,Railroad Nspo,38.5046,-115.692,1438.0,nan
+RailroadValley,Railroad Valley,38.497,-115.691,1437.0,nan
+RailroadValley2,Railroad Valley2,38.497,-115.691,1437.0,nan
+RameHead,Rame Head,50.317132,-4.219809,105.0,nan
+RasElAin,Ras El Ain,31.670278,-7.599444,570.0,nan
+Realtor,Realtor,43.48555,5.383817,125.0,nan
+RedMountainPass,Red Mountain Pass,37.907449,-107.710917,3376.0,nan
+RedRiverDelta,Red River Delta,20.72853,106.1277,4.0,nan
+ResoluteBay,Resolute Bay,74.705123,-94.969409,35.0,nan
+RexburgIdaho,Rexburg Idaho,43.82011,-111.78301,1501.0,nan
+Reykjavik,Reykjavik,64.1278,-21.9037,51.0,nan
+RhylMO,Rhyl Mo,53.25929,-3.50859,77.0,nan
+Richland,Richland,46.34,-119.28,123.0,nan
+Rimrock,Rimrock,46.4875,-116.991667,824.0,nan
+RioBranco,Rio Branco,-9.957467,-67.86935,212.0,nan
+RioPiedras,Rio Piedras,18.40185,-66.051483,30.0,nan
+RiodeJaneiroUFRJ,Rio De Janeiro Ufrj,-22.857306,-43.233806,21.0,nan
+Rochester,Rochester,43.2337,-77.5864,107.0,nan
+RogersDryLake,Rogers Dry Lake,34.92555,-117.885,715.0,nan
+RomeESAESRIN,Rome Esa Esrin,41.826667,12.671833,240.0,nan
+RomeLaSapienza,Rome La Sapienza,41.901695,12.515773,75.0,nan
+RomeTorVergata,Rome Tor Vergata,41.83955,12.647333,130.0,nan
+RooseveltHS,Roosevelt Hs,38.994375,-76.868269,60.0,nan
+RoqueMuchachos,Roque Muchachos,28.7639,-17.8939,2396.0,nan
+Rossfeld,Rossfeld,48.335139,7.62475,167.0,nan
+RottnestIsland,Rottnest Island,-32.000103,115.501667,11.0,nan
+SACOL,Sacol,35.946,104.137083,1965.800048828125,nan
+SAGRES,Sagres,37.047706,-8.873517,26.0,nan
+SAI,Sikhote-Alin Biospheric Reserve,45.0,136.6,51.0,nan
+SANTACRUZ,Santa Cruz,-17.802133,-63.177717,442.0,nan
+SANTACRUZUTEPSA,Santa Cruz Utepsa,-17.767325,-63.200961,432.0,nan
+SC03,Savannah River,33.245,-81.6505,90.0,rural-remote
+SC05,Cape Romain National Wildlife Refuge,32.943,-79.6592,1.0,rural
+SC06,Santee National Wildlife Refuge,33.5394,-80.435,24.0,rural
+SC07,Ace Basin National Estuarine Research Reserve,32.5993,-80.4554,1.0,rural-remote
+SC09,Alibi Hunt Club,33.2307,-80.3602,16.0,rural
+SC11,North Inlet-Winyah Bay National Estuarine Research Reserve,33.3497,-79.1888,0.0,rural
+SC18,Clemson,34.6239,-82.7342,256.0,urban-suburban
+SC19,Congaree Swamp,33.8145,-80.7809,34.0,rural
+SC99,Fort Johnson,32.7508,-79.8975,2.0,urban-suburban
+SCR180,Scotia Range,40.7884,-77.9464,376.0,rural
+SD00,Huron,44.3842,-98.2206,390.0,rural
+SD04,Wind Cave National Park-Elk Mountain,43.5577,-103.484,1292.0,rural-remote
+SD08,Cottonwood,43.9461,-101.8552,733.0,rural-remote
+SD18,Eagle Butte,44.9931,-101.2403,742.0,rural-remote
+SD99,Huron Well Field,44.355,-98.2917,398.0,rural
+SDM,Shadzhatmaz,43.73,42.67,2070.0,nan
+SDSUIPLab,Sdsu Iplab,44.314828,-96.786075,518.0,nan
+SDZ,Shang Dian Zi,40.65,117.1167,294.0,nan
+SE0001R,Ekeröd,55.9,13.716667,140.0,rural
+SE0002R,Rörvik,57.416667,11.933333,10.0,urban-suburban
+SE0003R,Velen,58.783333,14.3,127.0,rural
+SE0004R,Ryda Kungsgård,59.766667,17.133333,86.0,rural
+SE0005R,Bredkälen,63.85,15.333333,404.0,urban-suburban
+SE0006R,Ekerum,56.8,16.516667,0.0,urban-suburban
+SE0008R,Hoburgen,56.916667,18.15,58.0,rural
+SE0011R,Vavihill,56.016667,13.15,175.0,rural
+SE0012R,Aspvreten,58.8,17.383333,20.0,rural
+SE0013R,Esrange,67.883333,21.066667,475.0,rural
+SE0014R,Råö,57.394,11.914,5.0,rural
+SE00174,Sännen,56.3083,15.354,90.0,rural
+SE00184,Tandövala,60.823,13.178,439.0,rural
+SE00186,Docksta,63.053,18.299,215.0,rural
+SE00193,Sandnäset,63.771,12.441,470.0,rural
+SE00205,Djursvallen Nedre,62.014,13.516,649.0,rural
+SE0020R,Hallahus,56.0429,13.148,190.0,rural
+SE0021R,Hyltemossa,56.09763,13.41897,115.0,rural
+SE0022R,Norunda Stenen,60.0858,17.50528,45.0,rural
+SE0023R,Norunda Tornet,60.086388889,17.479444444,46.0,rural
+SE00265,Tyresta,59.174,18.239,50.0,rural
+SE00289,Ryda Kungsgård,59.756,17.124,45.0,rural
+SE00291,Granan,58.6019,12.1894,175.0,rural
+SE0032R,Norra-Kvill,57.816667,15.566667,261.0,rural
+SE0033R,Sännen,56.333333,15.333333,90.0,rural
+SE0051R,Arup,55.75,13.666667,157.0,rural
+SE0053R,Rickleå,64.166667,20.933333,16.0,urban-suburban
+SE00601,Jädraås,60.8148,16.5065,185.0,rural
+SE0080R,"Djursvallen,Nedre",62.017,13.5118,623.0,rural
+SE0081R,Docksta,63.0778,18.2288,222.0,rural
+SE0082R,Granan,58.6019,12.1894,195.0,rural
+SE0085R,Jädraås,60.8148,16.5065,184.0,rural
+SE0086R,Majstre,56.9305,18.197,19.0,rural
+SE0087R,Pjungserud,58.7899,14.3166,137.0,rural
+SE0088R,Sandnäset,63.7595,12.4339,411.0,rural
+SE0090R,Transtrandsberget,60.5761,13.0973,210.0,rural
+SE0091R,Tyresta,59.1722,18.2653,42.0,rural
+SE0093R,Abisko,68.353,19.063,360.0,rural
+SE0094R,Ammarnäs,65.972,16.116,450.0,rural
+SE0097R,Gårdsjön,58.05,12.016667,126.0,rural
+SE0098R,Svartedalen,57.983333,13.066667,100.0,urban-suburban
+SE0116A,Hallahus,56.0424,13.1486,187.0,rural-regional
+SE01554,Majstre,56.942,18.187,20.0,rural
+SE08954,Fagerhult,57.511,15.348,260.0,rural-regional
+SE159216,Högbränna,65.4051,18.1052,410.0,rural-regional
+SE159217,Myrberg,66.066,20.6249,220.0,rural-regional
+SE159218,Edeby,58.9538,16.9761,60.0,rural-regional
+SE159220,Tagel B,57.0548,14.3796,190.0,rural-regional
+SE159221,Komperskulla,56.2997,14.6462,100.0,rural-regional
+SE159223,Hissmossa,56.1753,13.5193,120.0,rural-regional
+SE159224,Timrilt B,56.7713,13.1674,170.0,rural-regional
+SE159225,Blåbärskullen,59.8214,12.9094,370.0,rural-regional
+SE159226,Kvisterhult,59.3495,15.9324,50.0,rural-regional
+SE159227,Storulvsjön,62.2809,16.3212,420.0,rural-regional
+SE159228,Sör-Digertjärnen,61.9973,14.4215,400.0,rural-regional
+SE159388,Norunda Stenen,60.0858,17.5053,45.0,rural-regional
+SE17572,Fulufjället,61.5756,12.9141,480.0,rural-regional
+SE21727,Visingsö,58.0739,14.359,100.0,rural-regional
+SE30014,Höka,58.7677,15.1447,170.0,rural-regional
+SE30015,Ottenby,56.2257,16.4277,10.0,rural-regional
+SE30016,Hensbacka,58.4339,11.7373,120.0,rural-regional
+SE30200,Timrilt,56.7769,13.1427,170.0,rural-regional
+SE344186,Hundshögen Låg,62.8582,13.9236,670.0,rural-remote
+SE344248,Norra Kvill Södra,57.7255,15.6398,243.0,rural-regional
+SE367992,Södra Averstad,59.0077,13.1117,65.0,rural
+SE367994,Stenshult,55.5374,13.5871,175.0,rural
+SE367996,Tjåmotis,66.9097,18.367,310.0,rural
+SE367998,Nikkaluokta,67.8627,19.0616,470.0,rural
+SE368000,Arlanda,59.6745,17.9666,50.0,rural
+SE368002,Björkfors,65.917,23.4689,25.0,rural
+SE368004,Holmsvattnet,64.5553,21.1048,60.0,rural
+SE368006,Hundshögen Hög,62.9618,13.7265,1250.0,rural
+SE368008,Högberget,60.401,15.2405,225.0,rural
+SE368010,Storskogen,57.8578,12.6746,200.0,rural
+SE37152,Rockneby,56.856,16.2917,30.0,rural-regional
+SE37155,Farstanäs,59.0984,17.6323,50.0,rural-regional
+SE38793,Grankölen,66.062,21.4673,179.0,rural
+SE38940,Pjungserud,58.7899,14.3166,128.0,rural
+SE38943,Transtrandsberget,60.5761,13.0973,203.0,rural
+SEARCH-Centreville,Search-Centreville,32.90289,-87.24968,126.0,nan
+SEARCH-Centreville2,Search-Centreville2,32.90289,-87.24968,126.0,nan
+SEARCH-OLF,Search-Olf,30.54997,-87.37531,44.0,nan
+SEARCH-Yorkville,Search-Yorkville,33.92833,-85.04555,394.0,nan
+SEDEBOKER,Sede Boker,30.855,34.782222,480.0,nan
+SEGCLopeGabon,Segc Lope Gabon,-0.20155,11.60082,280.0,nan
+SERC,Serc,38.888901,-76.555795,36.5,nan
+SI0001R,Masun,45.65,14.366667,1026.0,rural
+SI0008R,Iskrba,45.566667,14.866667,520.0,urban-suburban
+SK0002R,Chopok,48.933333,19.583333,2008.0,rural
+SK0004R,Stará Lesná,49.15,20.283333,808.0,urban-suburban
+SK0005R,Liesek,49.366667,19.683333,892.0,urban-suburban
+SK0006R,Starina,49.05,22.266667,345.0,rural
+SK0007R,Topolniky,47.96,17.860556,113.0,rural
+SK12,Bratt'S Lake Bsrn,50.2003,-104.7111,593.0,rural-remote
+SK20,Cactus Lake,52.0229,-109.8615,784.0,rural-remote
+SK21,Hudson Bay,52.8877,-102.5756,423.0,rural-remote
+SK27,Pinehouse,55.5121,-106.7245,404.0,rural-remote
+SK28,Flat Valley,54.2953,-109.2119,500.0,rural-remote
+SK30,Weyburn,49.5523,-103.8557,589.0,rural
+SK31,Fox Valley,50.4606,-109.4622,718.0,rural-remote
+SMART,Smart,24.249321,55.612064,250.0,nan
+SMARTPOL,Smart Pol,24.249321,55.612064,250.0,nan
+SMEX,Smex,41.936,-93.664,316.0,nan
+SMHI,Smhi,58.58,16.15,33.0,nan
+SNB,Sonnblick,47.0542,12.9583,3106.0,nan
+SONETHarbin,Sonet Harbin,45.705,126.614,187.89999389648438,nan
+SONETHefei,Sonet Hefei,31.904722,117.162222,36.0,nan
+SONETZhoushan,Sonet Zhoushan,29.994,122.188,29.0,nan
+SP-EACH,Sp-Each,-23.48163,-46.49967,754.0,nan
+SPBayboro,Sp Bayboro,27.76155,-82.633,5.0,nan
+SPD111,Speedwell,36.46983,-83.826511,361.0,rural
+SSAYJPBOREAS,Ssa Yjp Boreas,53.674999,-104.650002,490.0,nan
+SUM156,Sumatra,30.110226,-84.99038,16.0,rural
+Saada,Saada,31.62583,-8.15583,420.0,nan
+SableIsland,Sable Island,43.933,-60.01,3.0,nan
+Saclay,Saclay,48.73333,2.16666,160.0,nan
+SacramentoCARB,Sacramento Carb,38.56844,-121.49311,15.0,nan
+SacramentoRiver,Sacramento River,38.049531,-121.88755,3.0,nan
+SaihSalam,Saih Salam,24.829467,55.312783,84.0,nan
+SakejiSchool,Sakeji School,-11.232956,24.312,1406.0,nan
+SalondeProvence,Salon De Provence,43.605556,5.120278,60.0,nan
+SaltonSea,Salton Sea,33.16923,-115.85593,-32.0,nan
+SanCristobalUSFQ,San Cristobal Usfq,-0.8954,-89.60879,22.0,nan
+SanGiuliano,San Giuliano,42.285556,9.519167,55.0,nan
+SanMarcoPlatform,San Marco Platform,-2.941667,40.214722,20.0,nan
+SanNicolas,San Nicolas,33.256889,-119.486972,133.0,nan
+SanNicolasVandal,San Nicolas Vandal,33.262214,-119.536711,194.0,nan
+SanPietroCapo,San Pietro Capo,44.650001,11.619999,11.0,nan
+SandiaNMPSEL,Sandia Nm Psel,35.054583,-106.540069,1662.5,nan
+SandyHook,Sandy Hook,40.448056,-73.99333,4.0,nan
+SantaCruzTenerife,Santa Cruz Tenerife,28.472528,-16.247361,52.0,nan
+SantaMonicaColg,Santa Monica Colg,34.01685,-118.47113,55.0,nan
+SantaRosa,Santa Rosa,10.8415,-85.615917,320.0,nan
+Santarem,Santarem,-2.428584,-54.706,25.0,nan
+Santiago,Santiago,-33.489633,-70.717033,510.0,nan
+SantiagoBeauchef,Santiago Beauchef,-33.457222,-70.661666,560.0,nan
+SantiagoBeauchef2,Santiago Beauchef 2,-33.457222,-70.661666,560.0,nan
+SantoPekoa,Santo Pekoa,-15.508,167.219,50.0,nan
+SaoMartinhoSONDA,Sao Martinho Sonda,-29.443333,-53.823444,489.0,nan
+SaoPaulo,Sao Paulo,-23.5615,-46.734983,786.0,nan
+SaoTome,Sao Tome,0.37469,6.71099,27.0,nan
+SaturnIsland,Saturn Island,48.775252,-123.128177,193.0,nan
+Section-7Platform,Section-7 Platform,44.5458,29.4466,30.0,nan
+Senanga,Senanga,-16.108889,23.293333,1025.0,nan
+SeoulSNU,Seoul Snu,37.458056,126.951111,116.0,nan
+Sesheke,Sesheke,-17.48083,24.303889,951.0,nan
+Sevastopol,Sevastopol,44.615833,33.517333,80.0,nan
+Sevilleta,Sevilleta,34.354721,-106.885002,1477.0,nan
+Seysses,Seysses,43.503333,1.259722,179.0,nan
+ShagayaPark,Shagaya Park,29.209072,47.060528,242.0,nan
+ShanghiMinhang,Shanghi Minhang,31.13045,121.39734,49.0,nan
+Shelton,Shelton,40.750064,-98.760286,616.0,nan
+Shijiazhuang-CHEY,Shijiazhuang-Chey,38.0,114.55,74.0,nan
+Shijiazhuang-SZF,Shijiazhuang-Szf,38.01667,114.45833,71.0,nan
+Shirahama,Shirahama,33.69345,135.356917,10.0,nan
+Shouxian,Shouxian,32.558383,116.78195,22.700000762939453,nan
+SigmaSpaceCorp,Sigma Space Corp,38.953,-76.836472,44.79999923706055,nan
+SilpakornUniv,Silpakorn Univ,13.819308,100.041183,72.0,nan
+SimonstownIMT,Simonstown Imt,-34.19272,18.44567,27.0,nan
+Singapore,Singapore,1.297667,103.780383,30.0,nan
+Sinhgad,Sinhgad,18.366667,73.75,1189.0,nan
+SiouxFalls,Sioux Falls,43.736481,-96.625991,505.0,nan
+SirBuNuair,Sir Bu Nuair,25.217825,54.231269,10.0,nan
+SirmioneMuseoGC,Sirmione Museo Gc,45.500278,10.605833,86.5,nan
+Skukuza,Skukuza,-24.9917,31.5875,265.0,nan
+SmithIslandCBF,Smith Island Cbf,37.969183,-76.02385,12.0,nan
+Socheongcho,Socheongcho,37.423133,124.738039,28.0,nan
+Sodankyla,Sodankyla,67.36662,26.62957,184.0,nan
+SofiaIEBAS,Sofia Iebas,42.6539,23.3868,631.0,nan
+SolarVillage,Solar Village,24.906933,46.397286,764.0,nan
+Solwezi,Solwezi,-12.170667,26.363333,1390.0,nan
+SonLa,Son La,21.3322,103.905151,681.0,nan
+SongkhlaMetSta,Songkhla Met Sta,7.184387,100.604583,15.0,nan
+Sopot,Sopot,54.450833,18.564722,11.0,nan
+Sorong,Sorong,-0.8746,131.2677,127.0,nan
+SouthGreenbay,South Greenbay,44.59633,-87.9512,175.8699951171875,nan
+SouthPoleObsNOAA,South Pole Obs Noaa,-90.0,70.3,2835.0,nan
+SoveratoIMAA,Soverato Imaa,38.689444,16.545278,40.0,nan
+Spokane,Spokane,47.61972,-117.53389,720.0,nan
+SraKaeo,Sra Kaeo,13.6889,102.5043,67.80000305175781,nan
+StHelena,St Helena,-15.9424,-5.6673,434.0,nan
+StLouisUniversity,St Louis University,38.636342,-90.231552,159.0,nan
+SteamboatSprings,Steamboat Springs,40.46376,-106.81699,2070.0,nan
+Stennis,Stennis,30.368014,-89.616667,20.0,nan
+Sterling,Sterling,38.98333,-77.46667,85.0,nan
+StornowayMO,Stornoway Mo,58.21156,-6.182147,82.5,nan
+Strzyzow,Strzyzow,49.8786,21.8613,450.0,nan
+Suffield,Suffield,50.28155,-111.130771,761.77197265625,nan
+Surinam,Surinam,5.8,-55.2,12.0,nan
+T0MAXMEX,T0 Max Mex,19.489944,-99.1485,2257.0,nan
+TABLEMOUNTAINCA,Table Mountain Ca,34.38,-117.68,2200.0,nan
+TGFTsukuba,Tgf Tsukuba,36.113889,140.096,25.0,nan
+THA001,Bangkok,13.784444444444444,100.53944444444444,5.0,urban
+THA002,Samutprakarn,13.666111111111112,100.60583333333332,4.0,urban
+THA003,Pathumthani,14.046111111111111,100.71194444444444,6.0,rural-regional
+THA004,Kanchanaburi(Vajiralongkorn Dam),14.784722222222221,98.60138888888888,130.0,rural-remote
+THA005,Chiang Mai Mae Hia,18.761111111111113,98.93166666666667,349.0,rural-regional
+THA008,Nakhon Ratchasima Sakaerat,14.467777777777778,101.90138888888889,409.0,rural-regional
+THALA,Thala,35.55,8.683333,1091.0,nan
+TN00,Ut Forest Research Station,35.998,-84.2194,310.0,urban-suburban
+TN04,Speedwell,36.4698,-83.8272,384.0,rural
+TN11,Great Smoky Mountains National Park-Elkmont,35.6645,-83.5903,640.0,rural
+TN12,Great Smoky Mountains National Park-Clingmans Dome,35.5622,-83.4972,2015.0,rural-remote
+TN14,Hatchie National Wildlife Refuge,35.4988,-89.2611,117.0,rural
+TN98,Wilburn Chapel,35.1825,-87.1964,302.0,rural
+TN99,Giles County,35.2847,-86.9033,244.0,rural
+TOULOUSE,Toulouse,43.561944,1.476389,150.0,nan
+TR0001R,Cubuk Ii,40.5,33.0,1169.0,urban-suburban
+TRH,Turukhansk,65.78,87.95,38.0,nan
+TUBITAKUZAYAnkara,Tubitak Uzay Ankara,39.891,32.778,924.0,nan
+TW0100R,Lulin,23.47,120.87,2862.0,rural
+TWRS,Twrs,45.103582,-114.84991,1166.0,nan
+TX02,Muleshoe National Wildlife Refuge,33.9557,-102.776,1144.0,rural-remote
+TX03,Beeville,28.4667,-97.7069,82.0,rural
+TX04,Big Bend National Park - K-Bar,29.3025,-103.1781,1056.0,rural-remote
+TX10,Attwater Prairie Chicken National Wildlife Refuge,29.6614,-96.2594,54.0,rural
+TX16,Sonora,30.2613,-100.5551,696.0,rural-remote
+TX18,Y Experimental Ranch,33.9242,-100.0469,489.0,rural-remote
+TX21,Longview,32.3786,-94.7117,103.0,rural
+TX22,Guadalupe Mountains National Park Frijole Ranger Station,31.9069,-104.805,1705.0,rural-remote
+TX38,Forest Seed Center,31.5605,-94.8608,84.0,rural
+TX39,Texas A&M University-Corpus Christi,27.7125,-97.3291,5.0,urban-suburban
+TX41,Alabama-Coushatta,30.7015,-94.674,105.0,rural-remote
+TX43,Ca��Nceta,34.88,-101.665,1057.0,rural-remote
+TX50,Fort Worth,32.6932,-97.2496,212.0,urban
+TX51,Throckmorton,33.2733,-99.2153,425.0,rural-remote
+TX53,Victoria,28.8453,-96.9203,31.0,urban-suburban
+TX56,L.B.J. National Grasslands,33.3917,-97.6397,312.0,rural-remote
+TabernasPSA-DLR,Tabernas Psa-Dlr,37.09076,-2.35818,500.0,nan
+TableMountain,Table Mountain,40.125,-105.237,1689.0,nan
+Tahir,Tahir,5.411,100.1967,37.0,nan
+Tahiti,Tahiti,-17.5769,-149.6063,98.0,nan
+TahoeCity,Tahoe City,39.1733,-120.135,1899.0,nan
+TaiPing,Tai Ping,10.3755,114.362,4.0,nan
+Taichung,Taichung,24.106167,120.49133,10.0,nan
+Taihu,Taihu,31.421,120.215333,20.0,nan
+TaipeiCWB,Taipei Cwb,25.014683,121.53837,26.0,nan
+TallTimbers,Talltimbers,30.664167,-84.23889,63.0,nan
+Tallahassee,Tallahassee,30.445833,-84.29935,49.0,nan
+TamanrassetINM,Tamanrasset Inm,22.79,5.53,1377.0,nan
+TamanrassetTMP,Tamanrasset Tmp,22.79,5.53,1377.0,nan
+Tarbes,Tarbes,43.25,0.083333,292.0,nan
+TarbesEtal,Tarbes Etal,43.224033,0.049283,332.0,nan
+TaylorRanchTWRS,Taylor Ranch Twrs,45.1035,-114.84995,1159.0,nan
+TechnionHaifaIL,Technion Haifa Il,32.77587,35.0249,230.0,nan
+Teide,Teide,28.27,-16.639,3555.0,nan
+Tel-AvivUniversity,Tel-Aviv University,32.1129,34.8062,76.0,nan
+Temuco-UFROCEFOP,Temuco-Ufro Cefop,-38.745803,-72.615525,119.0,nan
+Tenosique,Tenosique,17.4875,-91.425556,20.0,nan
+TheHague,The Hague,52.11048,4.32682,18.0,nan
+Thessaloniki,Thessaloniki,40.63,22.96,60.0,nan
+Thimphu,Thimphu,27.472643,89.639057,2314.0,nan
+Thompson,Thompson,55.799999,-97.849998,218.0,nan
+ThompsonFarm,Thompson Farm,43.108772,-70.948344,26.0,nan
+ThorntonC-power,Thornton C-Power,51.5325,2.955278,30.0,nan
+Thule,Thule,76.516102,-68.769001,225.0,nan
+Tiksi,Tiksi,71.586917,128.921417,17.0,nan
+Timisoara,Timisoara,45.74626,21.22736,122.0,nan
+TingaTingana,Tinga Tingana,-28.975833,139.990933,38.0,nan
+TiziOuzou,Tizi Ouzou,36.698611,4.055833,133.0,nan
+Tombstone,Tombstone,31.742,-110.05,1408.0,nan
+Tomsk,Tomsk,56.475351,85.04806,174.0,nan
+Tomsk22,Tomsk 22,56.417,84.074,80.0,nan
+TonopahAirport,Tonopah Airport,38.05044,-117.09052,1638.0,nan
+Toravere,Toravere,58.264895,26.466823,85.0,nan
+Toronto,Toronto,43.79,-79.47,186.0,nan
+Toulon,Toulon,43.135556,6.009444,50.0,nan
+Toulouse,Toulouse,43.574722,1.373889,150.0,nan
+ToulouseMF,Toulouse Mf,43.57261,1.37432,160.0,nan
+Toyama,Toyama,36.699,137.187,30.0,nan
+Trelew,Trelew,-43.249806,-65.308611,15.0,nan
+Tremiti,Tremiti,42.117965,15.490115,40.0,nan
+TrinidadHead,Trinidad Head,41.05392,-124.15102,105.0,nan
+Tromelin,Tromelin,-15.889167,54.517333,7.0,nan
+Tsumkwe,Tsumkwe,-19.616667,20.4425,1154.0,nan
+Tucson,Tucson,32.233002,-110.953003,779.0,nan
+Tucuman,Tucuman,-26.787153,-65.206697,481.0,nan
+TudorHill,Tudor Hill,32.264,-64.879,51.0,nan
+Tukurui,Tukurui,-3.716666,-49.683331,100.0,nan
+Tumbarumba,Tumbarumba,-35.7083,147.9499,776.0,nan
+TunisCarthage,Tunis Carthage,36.838719,10.199781,10.0,nan
+TuxtlaGutierrez,Tuxtla Gutierrez,16.754722,-93.152222,590.0,nan
+TuzGolu,Tuz Golu,38.749444,33.336111,907.0,nan
+TuzGolu2,Tuz Golu 2,38.837,33.449,917.0,nan
+TuzGolu3,Tuz Golu 3,38.792469,33.464678,906.1699829101562,nan
+UA0005R,Svityaz,51.516667,23.883333,164.0,urban-suburban
+UA0006R,Rava-Russkaya,50.25,23.633333,249.0,urban-suburban
+UA0007R,Beregovo,48.25,22.683333,112.0,rural
+UACJUNAMORS,Uacj Unam Ors,31.743333,-106.431667,1127.0,nan
+UAHuntsville,Uahuntsville,34.72533,-86.64473,223.0,nan
+UCLA,Ucla,34.069605,-118.442752,131.0,nan
+UCSB,Ucsb,34.415428,-119.84536,33.0,nan
+UEMMaputo,Uem Maputo,-25.949667,32.598833,59.20000076293945,nan
+UHAldine,Uh Aldine,29.901111,-95.326125,20.0,nan
+UHCoastalCenter,Uh Coastal Center,29.3883,-95.0425,5.0,nan
+UHLiberty,Uh Liberty,30.096944,-94.763,20.0,nan
+UHSugarland,Uh Sugarland,29.574167,-95.652,22.0,nan
+UIN162,Uinta,40.55,-110.32,2500.0,rural
+UKA00103,Flatford Mill,51.9562,1.02668,5.0,rural
+UKA00110,Preston Montford,52.724311,-2.841579,70.0,rural
+UKA00113,Tycanol Wood,51.993801,-4.778895,205.0,rural
+UKA00114,nan,54.431308,-2.748991,249.0,nan
+UKA00123,Whiteadder,55.860033,-2.541875,250.0,rural
+UKA00173,Pumlumon,52.453809,-3.731754,390.0,rural
+UKA00180,Polloch,56.759708,-5.613202,30.0,rural
+UKA00239,Balquhidder 2,56.356229,-4.356985,130.0,rural
+UKA00383,Beaghs Burn,55.086709,-6.174419,252.0,rural
+UKA00504,Percys Cross,55.235677,-2.186631,170.0,rural
+UKA00505,Ystradffin,52.109214,-3.771879,179.0,rural
+UKA00550,Driby 2,53.248057,0.081391,48.0,rural
+UKA00657,Crai Reservoir 2,51.885449,-3.619594,310.0,rural
+UMBC,Umbc,39.254628,-76.709353,79.0,nan
+UMBCtemp,Umbc Temp,39.254628,-76.709353,79.0,nan
+UNC-Bogota,Unc-Bogota,4.636933,-74.0808,2594.0,nan
+UNC-Gaitan,Unc-Gaitan,4.31068,-72.3518,192.0,nan
+UNC-Palmira,Unc-Palmira,3.512295,-76.30761,1065.199951171875,nan
+UPC-GEAB-Valledupar,Upc-Geab-Valledupar,9.5596,-73.3293,157.0,nan
+UPRMLidarLab,Uprm Lidar Lab,18.210131,-67.140125,32.0,nan
+US0008R,Barrow,71.3230133057,-156.611465454,11.0,rural
+US0013R,Hance Camp At Grand Canyon Np,35.9731,-111.9841,2267.0,rural
+US0014R,Indian Gardens,36.0778,-112.1288,1166.0,rural
+US0015R,Ike'S Backbone,34.3405,-111.6832,1297.0,rural
+US0019R,Bliss Sp (Trpa),38.9761,-120.1025,2130.0,rural
+US0028R,Cohutta,34.7852,-84.6265,735.0,rural
+US0035R,Bondville,40.05,-88.36667,213.0,urban-suburban
+US0038R,Cedar Bluff,38.7701,-99.7634,665.0,rural
+US0048R,Boundary Waters Canoe Area,47.9466,-91.4955,526.0,rural
+US0060R,Great Gulf Wilderness,44.3082,-71.2177,453.0,rural
+US0061R,Brigantine Nwr,39.465,-74.4492,5.0,rural
+US0064R,Jarbidge Wilderness,41.8926,-115.4261,1869.0,rural
+US0073R,Great Smoky Mountains Np,35.6334,-83.9416,810.0,rural
+US0078R,Lone Peak Wilderness,40.4449,-111.7081,1768.0,rural
+US0080R,James River Face Wilderness,37.6266,-79.5125,289.0,urban-suburban
+US0082R,Lye Brook Wilderness,43.1482,-73.1268,1015.0,rural
+US0083R,Columbia River Gorge,45.6644,-121.0008,178.0,urban-suburban
+US0086R,Dolly Sods Wilderness,39.1053,-79.4261,1182.0,rural
+US0092U,Phoenix,33.5038,-112.0958,342.0,urban-suburban
+US0306R,Organ Pipe Cactus National Monument,31.9506,-112.8,506.0,rural
+US0398R,Chiricahua (Az98),32.0097,-109.3889,1570.0,rural
+US0901R,Boulder Table Mountain,40.12498,-105.2368,1689.0,rural
+US1109R,Okefenokee National Wildlife Refuge (Ga09),30.7403,-82.1286,47.0,rural
+US1200R,Mauna Loa,19.5362300873,-155.576156616,3397.0,rural
+US1810R,Mammoth Cave National Park-Houchin Meadow,37.1317,-86.148,236.0,rural
+US2098R,Acadia National Park-Mcfarland Hill (Me98),44.3772,-68.2608,150.0,rural
+US2705R,Glacier National Park-Fire Weather Station (Mt05),48.5103,-113.9958,980.0,rural
+US2905R,Great Basin National Park-Lehman Caves (Nv05),39.005,-114.2158,2067.0,rural
+US3201R,Gila Cliff Dwellings National Monument (Nm01),33.2203,-108.2347,1772.0,rural
+US3446C,"Appalachian State University,Boone (Nc)",36.2,-81.7,1076.0,urban-suburban
+US4504R,Big Bend National Park-K-Bar (Tx04),29.3022,-103.1772,1056.0,rural
+US4828R,Shenandoah National Park-Big Meadows (Va28),38.5225,-78.4358,1074.0,rural
+US4999R,Mount Rainier National Park-Tahoma Woods (Wa99),46.7582,-122.1243,424.0,rural
+US5501R,Virgin Islands National Park-Lind Point (Vi01),18.3362,-64.7962,56.0,rural
+US6001R,Samoa (Cape Matatula),-14.2474746704,-170.56451416,77.0,rural
+US6002C,Southern Great Plains E13,36.605,-97.484999,318.0,rural
+US6004G,South Pole,-89.9969482422,-24.7999992371,2841.0,rural
+US6005G,Trinidad Head,41.0541000366,-124.151000977,107.0,rural
+US9000R,Rocky Mountain Np,40.2783,-105.5457,2760.0,rural
+US9002R,Mount Zirkel Wilderness,40.5383,-106.6766,3243.0,rural
+US9034R,Upper Buffalo Wilderness,35.8258,-93.203,722.0,rural
+US9035R,Sycamore Canyon,35.1406,-111.9692,2046.0,rural
+US9037R,Sierra Ancha,34.0908,-110.9421,1600.0,rural
+US9050R,"Steamboat Springs,Colorado (Storm Peak Laboratory)",40.445,-106.74,3220.0,rural
+US9073R,Wichita Mountains,34.7323,-98.713,509.0,rural
+US9074R,Three Sisters Wilderness,44.291,-122.0434,885.0,rural
+US9077R,Snoqualmie Pass,47.422,-121.4259,1049.0,rural
+US9082U,"National Capitol - Central,Washington D.C",38.9,-77.04,514.0,urban-centre
+US9083R,Seney National Wildlife Refuge (Seny1),46.29,-85.95,216.0,rural
+US9084R,Saguaro Nm - Tucson Mountain #1,32.2833,-111.1667,754.0,rural
+US9085R,Petrified Forest Np - Dry Wash,34.9139,-109.7958,1690.0,rural
+USCSEAPRISM,Usc Seaprism,33.56371,-118.11782,31.0,nan
+USCSEAPRISM2,Usc Seaprism 2,33.56371,-118.11782,31.0,nan
+USDA,Usda,39.029999,-76.879997,50.0,nan
+USDA-BARC,Usda-Barc,39.03127,-76.93218,46.0,nan
+USDA-Howard,Usda-Howard,39.0542,-76.8775,52.79999923706055,nan
+USDAALARC,Usda Alarc,33.077454,-111.97339,377.0,nan
+USGSFlagstaffROLO,Usgs Flagstaff Rolo,35.21484,-111.63442,2179.60009765625,nan
+USMPenang,Usm Penang,5.35838,100.30231,51.0,nan
+USV,Ust-Vym,62.23,50.42,106.0,nan
+UT01,Logan,41.6661,-111.8914,1370.0,urban-suburban
+UT02,Cedar Mountain,39.1711,-110.6183,2331.0,rural-remote
+UT08,Murphy Ridge,41.3586,-111.048,2146.0,rural
+UT09,Canyonlands National Park-Island In The Sky,38.4584,-109.821,1797.0,rural-remote
+UT95,East Mckee,40.7543,-109.4671,2569.0,nan
+UT97,Salt Lake City,40.7118,-111.9609,1297.0,urban
+UT98,Green River,39.0001,-110.174,1256.0,rural-remote
+UT99,Bryce Canyon National Park-Repeater Hill,37.6186,-112.1728,2477.0,rural-remote
+UVL124,Unionville,43.613572,-83.359869,202.0,rural
+Uberlandia,Uberlandia,-18.9,-48.28333,864.0,nan
+UbonRatchathani,Ubon Ratchathani,15.245518,104.871011,120.0,nan
+UdeConcepcion-CEFOP,Udeconcepcion-Cefop,-36.84278,-73.02531,170.0,nan
+Ukiah,Ukiah,45.13361,-118.918884,1028.0,nan
+Ulaangom,Ulaangom,49.973035,92.078183,944.0,nan
+UmmAlQuwain,Umm Al Quwain,25.533333,55.658333,20.0,nan
+UnivofAuckland,Univ Of Auckland,-36.852621,174.768143,100.0,nan
+UnivofHouston,Univ Of Houston,29.7177,-95.3416,65.0,nan
+UnivofLethbridge,Univ Of Lethbridge,49.681672,-112.868967,904.0,nan
+UnivofNevada-Reno,Univ Of Nevada-Reno,39.540867,-119.814033,1410.0,nan
+UofWisconsinSSEC,U Of Wisconsin Ssec,43.072492,-89.411354,330.0,nan
+Upington,Upington,-28.379,21.156,865.0,nan
+UpperBuffalo,Upper Buffalo,35.8258,-93.203,722.0,nan
+Ussuriysk,Ussuriysk,43.7004,132.1635,280.0,nan
+Utsteinen,Utsteinen,-71.95,23.333333,1396.0,nan
+VA00,Charlottesville,38.0402,-78.5427,172.0,urban-suburban
+VA08,Culpeper,38.4222,-78.1044,163.0,rural
+VA10,Mason Neck,38.6294,-77.2047,6.0,urban
+VA13,Blue Grass Trail,37.3232,-80.4572,652.0,rural
+VA24,Prince Edward,37.1652,-78.3073,150.0,rural
+VA27,James Madison University Farm,38.3034,-78.8178,336.0,rural
+VA28,Shenandoah National Park-Big Meadows,38.5231,-78.4348,1072.0,rural
+VA29,Whitetop Mountain,36.6389,-81.6058,1686.0,rural
+VA33,Love'S Mill,36.7367,-81.6869,663.0,rural
+VA98,Harcum,37.5312,-76.4928,13.0,rural
+VA99,Natural Bridge Station,37.6265,-79.5126,282.0,rural
+VI01,Virgin Islands National Park-Lind Point,18.3362,-64.7962,56.0,nan
+VN0001R,Pha Din,21.5731,103.5157,1466.0,rural
+VNA001,Hanoi,21.05666666666667,105.72666666666667,6.0,urban
+VNA002,Hoa Binh,20.836666666666666,105.34222222222222,23.0,rural-regional
+VNA003,Cuc Phuong,20.30027777777778,105.69388888888889,155.0,rural-remote
+VNA004,Da Nang,16.043055555555558,108.20666666666666,5.0,urban
+VNA005,Can Tho,10.088333333333335,105.69583333333334,2.0,rural-regional
+VNA006,Ho Chi Minh,10.784444444444444,106.7,5.0,urban
+VNA007,Yen Bai,21.70777777777778,104.87472222222222,56.0,rural-regional
+VOR,Voronezh Biospheric Reserve,51.9,39.6,156.0,nan
+VT01,Bennington,42.8761,-73.1633,305.0,rural
+VT99,Underhill,44.5283,-72.8684,399.0,rural
+Valladolid,Valladolid,41.6636,-4.70583,705.0,nan
+ValladolidSci,Valladolid Sci,41.6562,-4.7148,701.0,nan
+VechernayaHill,Vechernaya Hill,-67.66,46.158,80.0,nan
+Venise,Venise,45.3139,12.5083,10.0,nan
+ViennaBOKU,Vienna Boku,48.237861,16.331611,266.0,nan
+ViennaUNIVIE,Vienna Univie,48.221667,16.355833,225.0,nan
+Vientiane,Vientiane,17.99228,102.569642,170.0,nan
+Villefranche,Villefranche,43.683889,7.328889,130.0,nan
+Vinon,Vinon,43.709233,5.75865,304.0,nan
+VirginiaTech,Virginiatech,37.230775,-80.424681,690.0,nan
+Vishkhapatnam,Vishkhapatnam,17.72395,83.326933,30.0,nan
+WA03,Makah National Fish Hatchery,48.2892,-124.6519,6.0,rural-remote
+WA04,Confederated Tribes Of The Umatilla Indian Reservation,46.2026,-117.9539,693.0,nan
+WA14,Olympic National Park-Hoh Ranger Station,47.8597,-123.9325,182.0,rural-remote
+WA15,Sullivan Lake,48.8433,-117.2839,796.0,rural-remote
+WA18,Seattle/Noaa,47.6843,-122.2588,11.0,urban
+WA19,North Cascades National Park-Marblemount Ranger Station,48.5403,-121.446,124.0,rural-remote
+WA21,La Grande,46.8353,-122.2867,617.0,rural
+WA24,Palouse Conservation Farm,46.7606,-117.1847,766.0,rural
+WA98,Columbia River Gorge,45.5694,-122.21,233.0,rural
+WA99,Mount Rainier National Park-Tahoma Woods,46.7582,-122.1243,424.0,rural-remote
+WFFX-75SciObs,Wff X-75 Sci Obs,37.843908,-75.477517,10.0,nan
+WI06,Uw Arboretum,43.041,-89.428,265.0,urban
+WI07,Horicon Marsh,43.466,-88.621,287.0,rural
+WI08,Brule River,46.7466,-91.6055,207.0,rural-remote
+WI09,Popple River,45.7964,-88.3994,421.0,rural-remote
+WI10,Potawatomi,45.5648,-88.8083,570.0,rural-remote
+WI19,Marinette,45.0698,-87.629,172.0,nan
+WI22,Milwaukee,43.0752,-87.8843,206.0,urban
+WI25,Suring,45.052,-88.3726,262.0,rural-remote
+WI28,Lake Dubay,44.7073,-89.7716,385.0,rural
+WI31,Devil'S Lake,43.4352,-89.6801,389.0,rural
+WI32,Middle Village,44.9308,-88.755,319.0,rural-remote
+WI35,Perkinstown,45.2064,-90.5978,472.0,rural-remote
+WI36,Trout Lake,46.0512,-89.6541,509.0,rural-remote
+WI37,Spooner,45.8228,-91.8744,331.0,rural
+WI92,Chequamegon Bay,46.583,-90.9676,194.0,nan
+WI97,Lac Courte Oreilles Reservation,45.9944,-91.3711,418.0,rural
+WI98,Wildcat Mountain,43.7023,-90.5685,386.0,rural-remote
+WI99,Lake Geneva,42.5792,-88.5006,288.0,rural
+WV04,Babcock State Park,37.9796,-80.9525,753.0,rural
+WV05,Cedar Creek State Park,38.8794,-80.8476,210.0,rural
+WV18,Parsons,39.0897,-79.6622,505.0,rural-remote
+WV99,Canaan Valley Institute,39.1191,-79.4522,988.0,nan
+WY00,Snowy Range,41.3762,-106.26,3269.0,rural-remote
+WY02,Sinks Canyon,42.7336,-108.8498,2164.0,rural-remote
+WY06,Pinedale,42.929,-109.7875,2388.0,rural-remote
+WY07,Yellowstone National Park - Yellowstone Lake,44.5654,-110.4003,2468.0,rural-remote
+WY08,Yellowstone National Park-Tower Falls,44.9166,-110.4203,1912.0,rural-remote
+WY26,Roundtop Mountain,42.5299,-108.72,2534.0,rural-remote
+WY94,Grand Tetons National Park,43.8333,-110.7008,2105.0,rural-remote
+WY95,Brooklyn Lake,41.3647,-106.2408,3181.0,rural-remote
+WY96,Nash Fork,41.3403,-106.1908,2856.0,rural-remote
+WY97,South Pass City,42.4944,-108.832,2524.0,rural-remote
+WY98,Gypsum Creek,43.2227,-109.9917,2428.0,rural-remote
+WY99,Newcastle,43.873,-104.1917,1466.0,rural-remote
+WalkerBranch,Walker Branch,35.958333,-84.2875,365.0,nan
+Wallops,Wallops,37.93285,-75.47195,37.0,nan
+WallopsACHIEVE,Wallops Achieve,37.933486,-75.471,13.5,nan
+WarsawUW,Warsaw Uw,52.210932,20.982636,117.0,nan
+Waskesiu,Waskesiu,53.914386,-106.069578,569.0,nan
+WatnallMO,Watnall Mo,53.005652,-1.250958,120.0,nan
+WaveCISSiteCSI6,Wavecis Site Csi 6,28.866667,-90.483333,33.58100128173828,nan
+WeizmannInstitute,Weizmann Institute,31.907235,34.810531,73.0,nan
+Welgegund,Welgegund,-26.569444,26.939167,1480.0,nan
+Weybourne,Weybourne,52.95,1.121944,15.0,nan
+WhiteSands,White Sands,32.918999,-106.350998,1197.0,nan
+WhiteSandsHELSTF,White Sands Helstf,32.634942,-106.338072,1207.239990234375,nan
+Windhoek-NUST,Windhoek-Nust,-22.56591,17.07304,1676.0,nan
+Windpoort,Windpoort,-19.365556,15.482778,1206.0,nan
+WindsorB,Windsor B,42.283,-83.083,200.0,nan
+Wisconsin,Wisconsin,46.051888,-89.653725,505.0,nan
+WitsUniversity,Wits University,-26.192444,28.028972,1775.0,nan
+WythamWoods,Wytham Woods,51.770278,-1.3325,160.0,nan
+Xanthi,Xanthi,41.146767,24.91895,54.0,nan
+XiangHe,Xianghe,39.7536,116.9615,36.0,nan
+Xinglong,Xinglong,40.396389,117.578333,899.0,nan
+Xitun,Xitun,24.1622,120.6169,91.0,nan
+XuZhou-CUMT,Xuzhou-Cumt,34.21667,117.14167,59.70000076293945,nan
+YUMASL,Yuma Sl,32.644138,-114.58278,63.0,nan
+Yakutsk,Yakutsk,61.661667,129.366667,118.5,nan
+Yanqihu,Yanqihu,40.4083,116.6744,100.0,nan
+Yaqui,Yaqui,27.280833,-109.912,40.0,nan
+Yekaterinburg,Yekaterinburg,57.038333,59.545,300.0,nan
+YellowknifeAurora,Yellowknife Aurora,62.4513,-114.37625,220.8000030517578,nan
+YenBai,Yen Bai,21.70495,104.86894,53.0,nan
+Yevpatoria,Yevpatoria,45.2147,33.1422,6.0,nan
+YonseiUniversity,Yonsei University,37.56443,126.93479,97.0,nan
+Yulin,Yulin,38.283333,109.716667,1080.0,nan
+Yuma,Yuma,32.644138,-114.58278,63.0,nan
+Yushan,Yushan,23.487419,120.959199,3812.0,nan
+ZA0001G,Cape Point,-34.35348,18.48968,230.0,rural
+ZOETELE,"Zoétélé, Cameroon",3.166022,11.819369,720.0,rural
+Zambezi,Zambezi,-13.533167,23.107194,1073.0,nan
+Zaragoza,Zaragoza,41.6334,-0.88235,250.0,nan
+Zeebrugge-MOW1,Zeebrugge-Mow1,51.362,3.12,15.0,nan
+Zhangye,Zhangye,39.078889,100.275556,1461.0,nan
+ZhongshanUniv,Zhongshan Univ,23.06,113.39,27.0,nan
+ZinderAirport,Zinder Airport,13.776683,8.990233,456.0,nan
+ZinderDMN,Zinder Dmn,13.775417,8.9841,460.0,nan
+Zouerate-Fennec,Zouerate-Fennec,22.75,-12.483333,343.0,nan
+ZugspitzeKIT,Zugspitze Kit,47.421,10.986,2961.4599609375,nan
+Zvenigorod,Zvenigorod,55.695,36.775,200.0,nan

@@ -2,7 +2,7 @@
 
 **An Automated Model-Observation Comparison Suite Optimized for CAMS**
 
-> BETA RELEASE v1.0.1-beta: Major feature release with GHOST integration, 7,855 accessible variables, and enhanced workflows.
+> v1.0.2: Major feature release — 25 observation networks (incl. Brazilian networks), 7,855 variables, AERONET AOD mapping, and enhanced workflows.
 
 [![PyPI](https://img.shields.io/pypi/v/rc-qlc?color=blue)](https://pypi.org/project/rc-qlc/)
 
@@ -14,7 +14,7 @@ QLC (Quick Look Content) is a powerful command-line suite for automated model-ob
 
 **Key Features:**
 - 7,855 accessible variables (IFS parameters + GHOST networks + CSV observations)
-- 16 observation networks (EBAS, AirNow, GHOST harmonized, CSV-based, and more)
+- 25 observation networks (EBAS, AirNow, AERONET, Brazil networks, GHOST harmonized, CSV-based, and more)
 - Automated MARS data retrieval and processing
 - Statistical analysis with comprehensive metrics
 - Publication-quality maps, time series, and reports
@@ -62,12 +62,12 @@ Run test analysis (example data from 01-21 December 2018)
 
 - one or more experiments using workflow 'test' configuration
 ```bash
-qlc b2ro b2rn 2018-12-01 2018-12-21 test
+qlc exp1 exp2 2018-12-01 2018-12-21 test
 ```
 
 - batch submission (same options as qlc)
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test
+sqlc exp1 exp2 2018-12-01 2018-12-21 test
 ```
 
 View results
@@ -84,7 +84,7 @@ ls -lrth ~/qlc/Analysis
 
 - Plot results for active workflow:
 ```bash
-ls -lrth ~/qlc/Plots/b2ro-b2rn*
+ls -lrth ~/qlc/Plots/exp1-exp2*
 ```
 
 - Reports produced (one PDF per variable, region):
@@ -94,42 +94,38 @@ ls -lrth ~/qlc/Presentations
 
 ---
 
-## What's New in v1.0.1-beta
+## What's New in v1.0.2
 
 ### Major Enhancements
 
-**GHOST Integration & Variable System**
-- 7,855 accessible variables (vs ~50 previously)
-- Table-driven variable mapping system
-- 7 GHOST networks integrated (282 harmonized variables)
-- Variable discovery CLI: `qlc-vars search`, `qlc-vars info`, `qlc-vars list`
+**Observation Network Expansion (25 networks)**
+- Three new Brazilian networks: INMET meteorological (620 stations), State AQ (483 stations), São Paulo CETESB (72 stations)
+- AERONET AOD mapping: `od550aero → aod550` for AERONET Level 1.5 and Level 2.0
+- Central network registry (`obs_networks.conf`) defines all 25 networks in one place
+- All region definitions centralised in `qlc.conf` — no per-workflow repetition
 
-**Simplified Variable Syntax**
-```bash
-# Before (v0.4.x):
-MARS_RETRIEVALS=("sfc_O3,203.210,Ozone mass mixing ratio")
+**CLI Overhaul**
+- Named arguments: `--myvar=`, `--network=`, `--region=`, `--station_file=`, `--exp_labels=`, `--param=`, `--user=`
+- `--network=` (station collection) and `--region=` (map extent) are now separate options
+- Per-experiment MARS class: `-class=nl,nl` maps one class to each experiment
+- `--obs-only` and `--mod-only` produce distinct output directories
 
-# Now (v1.0.1):
-MARS_RETRIEVALS=("O3,go3")  # Auto-resolves to correct parameter using IFS variable table and model type surface (default)
-```
+**Variable Mapping System**
+- Finalized pipe-format spec: `userVAR|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]`
+- Arithmetic transforms (`*`, `/`, `+`, `-`) applied independently on model or obs side at load time
+- `unitFAC` field as an alternative to automatic unit conversion — useful for variables not in qlc's built-in unit table, custom model diagnostics, or quick scaling tests
+- A single `--myvar=` CLI override applies the chosen spec across all active regions in one run, with no workflow file changes required
+- `qlc-vars --exact` flag for precise IFS variable lookup
 
-**Native GRIB Support**
-- Read GRIB files directly without conversion (in addition to netCDF/csv support)
-- Supports forecast step information (forecats plots currently not yet implemented)
-- Automatic variable mapping (IFS only and model observation variable matching)
-
-**Performance Improvements**
-- 95% faster regional map rendering
-- Optimized contour processing with region-aware filtering
-
-**Enhanced CLI**
-- Named arguments, e.g.: `--exp_ids`, `--start_date`, `--end_date`
-- Mode flags, e.g.: `--obs-only`, `--mod-only`
-- Flexible configuration overrides (see complete documentation)
+**Plot and Analysis Fixes**
+- K-guard for log scale: temperature in °C automatically converted to K before log computation
+- PyFerret percentage difference plots (`DIFF_MODE=percent`) with configurable white zone
+- Degenerate zero-range diff plot guard; additive K↔°C differences handled correctly
+- South America map projection corrected (Lambert Conformal center and standard parallels)
 
 ### Complete Changelog
 
-For detailed release notes, see: [docs.researchconcepts.io/qlc/latest/reference/whatsnew](https://docs.researchconcepts.io/qlc/latest/reference/whatsnew/)
+For detailed release notes, see: [docs.researchconcepts.io/qlc/latest/reference/changelog](https://docs.researchconcepts.io/qlc/latest/reference/changelog)
 
 ---
 
@@ -169,13 +165,13 @@ For detailed release notes, see: [docs.researchconcepts.io/qlc/latest/reference/
 qlc <exp1> <expN> <start_date> <end_date> <workflow>
 
 # Run test analysis (example data from 01-21 December 2018)
-qlc b2ro      2018-12-01 2018-12-21 test # one experiment vs observations
-qlc b2ro b2rn 2018-12-01 2018-12-21 test # two or more experiments vs observations
+qlc exp1      2018-12-01 2018-12-21 test # one experiment vs observations
+qlc exp1 exp2 2018-12-01 2018-12-21 test # two or more experiments vs observations
 
 # Examples (AIFS data available from June 2025):
-qlc 9191 0001 2025-11-01 2025-11-07 mars # only data retrieval (no processing)
-qlc 9191 0001 2025-11-01 2025-11-07 aifs # workflows support multi-region processing
-qlc 9191 0001 2025-11-01 2025-11-07 aifs --station_selection=~/qlc/config/station_locations/AirNow_stations-test.csv  
+qlc aifs1 aifs2 2025-11-01 2025-11-07 mars # only data retrieval (no processing)
+qlc aifs1 aifs2 2025-11-01 2025-11-07 aifs # workflows support multi-region processing
+qlc aifs1 aifs2 2025-11-01 2025-11-07 aifs --station_file=~/qlc/config/station_locations/ver0d_airnow_stations-test.csv
 ```
 
 ### Variable Discovery
@@ -201,10 +197,10 @@ qlc-vars validate ~/qlc/config/workflows/aifs/qlc_aifs.conf
 qlc None None 2025-11-01 2025-11-07 aifs --obs-only
 
 # Model-only (no observations)
-qlc 9191 0001 2025-11-01 2025-11-07 aifs --mod-only
+qlc aifs1 aifs2 2025-11-01 2025-11-07 aifs --mod-only
 
 # Collocation (default - both model and observations)
-qlc 9191 0001 2025-11-01 2025-11-07 aifs
+qlc aifs1 aifs2 2025-11-01 2025-11-07 aifs
 ```
 
 ### Help Commands
@@ -231,7 +227,7 @@ qlc-install-tools -h       # Optional tools help
 - HPC systems (ATOS/ECMWF, SLURM clusters)
 
 **Python:**
-- Python 3.10 or later (Python 3.10 recommended/tested)
+- Python 3.10 or 3.11 (Python 3.10 recommended; Python 3.12+ is not yet supported)
 
 **Dependencies:**
 - Core dependencies automatically installed via pip
@@ -244,12 +240,13 @@ qlc-install-tools -h       # Optional tools help
 QLC uses workflow-based configurations stored in `~/qlc/config/workflows/`:
 
 **Available Workflows:**
-- `mars`      - Generic MARS retrieval and analysis (no data processing)
-- `aifs`      - AI-Integrated Forecasting System (AIFS), e.g., AI vs o-suite analyis
+- `mars`      - MARS retrieval only (no conversion or analysis)
+- `qpy`       - Station collocation and analysis via qlc-py (QPY chain)
+- `aifs`      - AI-Integrated Forecasting System (AIFS), e.g., AI vs o-suite analysis
 - `eac5`      - ECMWF Atmospheric Composition (EAC5), multi-region/species batch processing
-- `evaltools` - Compute and plot model scores (based on Meteo France software)
-- `pyferret`  - 3D quick look plots (model comparison based on NOAA/PMEL software)
-- `test`      - Testing and development (and template for user specfic workflows)
+- `evaltools` - Compute and plot model scores (based on Météo-France software)
+- `pyferret`  - 3D quick-look plots (model comparison based on NOAA/PMEL software)
+- `test`      - Testing and development (and template for user-specific workflows)
 
 Example workflow configuration at `~/qlc/config/workflows/aifs/qlc_aifs.conf`.
 
@@ -265,7 +262,7 @@ QLC automatically generates JSON configuration files that can be reused with `ql
 
 ```bash
 # Run initial analysis
-qlc 9191 0001 2025-11-01 2025-11-03 aifs
+qlc aifs1 aifs2 2025-11-01 2025-11-03 aifs
 
 # Reuse the generated config with modifications
 qlc-py --config=~/qlc/Plots/9191_20251101-20251103/US_AIRNOW/qlc_D1-ANAL_config.json
@@ -324,7 +321,7 @@ qlc-install-extras --cartopy_downloads
 
 ## License
 
-MIT License - Copyright (c) 2018-2025 ResearchConcepts io GmbH
+MIT License - Copyright (c) 2018-2026 ResearchConcepts io GmbH
 
 See [LICENSE](LICENSE) file for details.
 

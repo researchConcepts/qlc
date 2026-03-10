@@ -3,7 +3,7 @@
 """
 QLC Runtime Installation: Core Setup Module
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -44,7 +44,7 @@ Usage:
     Called automatically via 'qlc-install' command - Can also import directly
     For help: qlc-install -h
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -827,7 +827,7 @@ def setup_data_directories(root: Path, mode: str):
     Data directory strategy:
     - CAMS mode: Shared data directories across all versions (e.g., $SCRATCH/qlc_pypi/Results)
       Allows all production versions to access the same operational data
-    - Test/Dev modes: Isolated data directories per version (e.g., $PERM/qlc_pypi/v1.0.1b0/test/data/Results)
+    - Test/Dev modes: Isolated data directories per version (e.g., $PERM/qlc_pypi/v1.0.2/test/data/Results)
       Provides sandbox environments for testing and development
     """
     print("[SETUP] Configuring data directories...")
@@ -929,17 +929,19 @@ def link_model_experiments(mod_data_src_root: Path, results_dst_root: Path, debu
             results_exp_dir = results_dst_root / exp_dir.name
             results_exp_dir.mkdir(exist_ok=True)
             
-            # Find all .grb files, searching recursively through year folders
+            # Find all .grb and .flag files, searching recursively through year folders.
+            # Flag files must be linked so A1-MARS skips re-retrieval and subsequent
+            # scripts can process the pre-existing test data directly.
             for year_dir in exp_dir.iterdir():
                 if year_dir.is_dir():
-                    for src_file in year_dir.glob('*.grb'):
-                        dst_file = results_exp_dir / src_file.name
-                        dst_file.parent.mkdir(parents=True, exist_ok=True)
-                        # Use absolute paths for these links as they point from the data dir to the mod dir,
-                        # which can be far apart.
-                        copy_or_link(src_file, dst_file, symlink=True, relative=False)
-                        if debug:
-                            print(f"[LINK] {dst_file} -> {src_file}")
+                    for pattern in ['*.grb', '*.flag']:
+                        for src_file in year_dir.glob(pattern):
+                            dst_file = results_exp_dir / src_file.name
+                            dst_file.parent.mkdir(parents=True, exist_ok=True)
+                            # Use absolute paths: Results dir and examples dir can be far apart.
+                            copy_or_link(src_file, dst_file, symlink=True, relative=False)
+                            if debug:
+                                print(f"[LINK] {dst_file} -> {src_file}")
 
 def setup(mode: str, version: str, debug: bool = False, config_file: str = None):
     # Set umask to ensure files are readable for world (0022 = rwxr-xr-x)
@@ -983,11 +985,11 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
         print(f"[INFO] Production mode: using {install_root_name} runtime root")
     
     # The versioned installation directory
-    # Examples: $PERM/qlc_pypi/v1.0.1b0 (HPC) or $HOME/qlc_pypi/v1.0.1b0 (local)
+    # Examples: $PERM/qlc_pypi/v1.0.2 (HPC) or $HOME/qlc_pypi/v1.0.2 (local)
     versioned_install_dir = install_base / install_root_name / f"v{version}"
     
     # The mode-specific root
-    # Examples: $PERM/qlc_pypi/v1.0.1b0/test (HPC) or $HOME/qlc_pypi/v1.0.1b0/test (local)
+    # Examples: $PERM/qlc_pypi/v1.0.2/test (HPC) or $HOME/qlc_pypi/v1.0.2/test (local)
     root = versioned_install_dir / mode
 
     # --- Backup Logic: Back up the entire versioned directory if the specific mode being installed already exists ---
@@ -1135,10 +1137,12 @@ def setup(mode: str, version: str, debug: bool = False, config_file: str = None)
                     results_exp_dir = results_dst_root / exp_dir.name
                     results_exp_dir.mkdir(exist_ok=True)
                     
-                    # Find all .grb and .flag files, searching recursively through year folders
+                    # Find all .grb and .flag files in year subdirs and link them flat into
+                    # Results/<exp>/<file> — the year dir exists only in the source (examples),
+                    # not in Results. Flag files must be linked too so A1-MARS sees them and
+                    # skips re-retrieval, allowing subsequent scripts to process the test data.
                     for year_dir in exp_dir.iterdir():
                         if year_dir.is_dir():
-                            # Copy both .grb and .flag files
                             for pattern in ['*.grb', '*.flag']:
                                 for src_file in year_dir.glob(pattern):
                                     dst_file = results_exp_dir / src_file.name

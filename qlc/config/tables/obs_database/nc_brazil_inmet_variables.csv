@@ -1,0 +1,12 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+dewpoint,dewpoint,degC,time,latitude,longitude,unknown,dew point temperature
+dewpoint_max,dewpoint_max,degC,time,latitude,longitude,unknown,maximum dew point temperature in previous hour
+dewpoint_min,dewpoint_min,degC,time,latitude,longitude,unknown,minimum dew point temperature in previous hour
+pressure,pressure,hPa,time,latitude,longitude,unknown,atmospheric pressure at station level
+radiation,radiation,kJ/m2,time,latitude,longitude,unknown,global solar radiation
+rh,rh,percent,time,latitude,longitude,unknown,relative humidity
+rh_max,rh_max,percent,time,latitude,longitude,unknown,maximum relative humidity in previous hour
+rh_min,rh_min,percent,time,latitude,longitude,unknown,minimum relative humidity in previous hour
+temp,temp,degC,time,latitude,longitude,unknown,air temperature (dry bulb)
+wind_gust,wind_gust,m/s,time,latitude,longitude,unknown,maximum wind gust
+wind_speed,wind_speed,m/s,time,latitude,longitude,unknown,wind speed

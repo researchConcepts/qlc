@@ -3,7 +3,7 @@
 """
 QLC CLI Module: Command-Line Interface Entry Points
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -14,7 +14,7 @@ Description:
     qlc (main workflow), qlc-py (standalone), and sqlc (batch submission).
     Handles argument parsing and shell script execution.
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -60,7 +60,7 @@ def run_shell_driver():
             # Detect runtime
             qlc_home, detection_method = detect_qlc_runtime()
             
-            print(f"QLC (Quick Look Content) version {__version__} BETA [{install_type}]")
+            print(f"QLC (Quick Look Content) version {__version__} [{install_type}]")
             print("An Automated Model-Observation Comparison Suite Optimized for CAMS datasets")
             print("")
             print(f"Release date: {__release_date__}")
@@ -69,8 +69,8 @@ def run_shell_driver():
             print("Documentation: https://docs.researchconcepts.io/qlc/latest")
             print("               https://github.com/researchconcepts/qlc")
             print("")
-            print("BETA RELEASE: Under development, requires further testing.")
-            print("© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.")
+            print("See: https://docs.researchconcepts.io/qlc/latest/reference/changelog")
+            print("© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.")
             print("Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>")
             sys.exit(0)
         except ImportError:
@@ -80,50 +80,138 @@ def run_shell_driver():
     if '--help' in sys.argv or '-h' in sys.argv:
         print("""
 ========================================================================================
-QLC - Interactive QLC Execution
+QLC - Quick Look Content
 ========================================================================================
 
-Usage:
+Usage (positional):
   qlc <exp1> [exp2 ...] <start_date> <end_date> <workflow> [options]
 
+Usage (named arguments):
+  qlc --exps=<exp1>[,exp2,...] --start_date=<date> --end_date=<date> --workflow=<name> [options]
+
+Both syntaxes can be mixed. Both - and -- prefixes are accepted for all options.
+
 Arguments:
-  <exp1> [exp2 ...]  One or more experiment identifiers
-  <start_date>       Start date (YYYY-MM-DD)
-  <end_date>         End date (YYYY-MM-DD)
-  <workflow>         Workflow name: aifs, eac5, evaltools, mars, pyferret, qpy, test
+  <exp1> [exp2 ...]          One or more experiment identifiers (positional)
+  --exps=exp1[,exp2,...]     Same as above using named syntax
+  <start_date>               Start date YYYY-MM-DD (positional)
+  --start_date=YYYY-MM-DD    Same using named syntax
+  <end_date>                 End date YYYY-MM-DD (positional)
+  --end_date=YYYY-MM-DD      Same using named syntax
+  <workflow>                 Workflow name, e.g. qpy, aifs, eac5 (positional)
+  --workflow=<name>          Same using named syntax
 
-Common Options:
-  --obs-only         Analyze observations only
-  --mod-only         Analyze model results only
-  -class=xx          Override MARS class (e.g., -class=nl)
-  -vars=<spec>       Variable specification (e.g., -vars="go3,NH3,PM2.5")
-  -region=<code>     Region override (e.g., -region=EU)
+Processing options:
+  --obs-only                 Analyse observations only (skip model download/processing)
+  --mod-only                 Analyse model results only (skip observation processing)
+  -class=xx[,yy]             Override MARS class per experiment (e.g. -class=nl or -class=nl,rd)
+  --exp_labels=L1[,L2,...]   Display labels for experiments (comma-separated, same order as exps).
+                             Quotes optional unless labels contain spaces: --exp_labels="Run 1,Run 2"
+  --scripts=S1[,S2,...]      Restrict which QLC scripts to run (e.g. --scripts=D1-ANAL,Z1-XPDF)
+  --user=<label>             Override system username in PDF report titles/footers.
+                             Example: --user=cams
 
-Quick Examples:
-  qlc b2ro b2rn 2018-12-01 2018-12-21 test
-  qlc b2ro b2rn 2018-12-01 2018-12-21 test -obs-only -region=EU
-  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -vars="go3,nh3"
-  qlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -param=210073,210203 -myvar=PM2p5,O3 -levtype=sfc,pl
+Variable override — GRIB retrieval context (A1-MARS, eac5, aifs, pyferret):
+  --myvar=<spec>[;<spec>]    Override MARS_RETRIEVALS from workflow config.
+                             Each spec: [level_type_]display_name,GRIB_param
+                             Multiple specs separated by semicolon.
+                             IMPORTANT: quote the value when using semicolons in a shell:
+                               --myvar="sfc_T2m,167"
+                               --myvar="sfc_T2m,167;pl_T,130"
+  --param=<grib>[;<grib>]    Per-experiment GRIB param override (A1-MARS only).
+                             Use when experiments use different GRIB codes for the same variable
+                             (e.g. IFS-AER vs IFS-HAMM7 aerosol schemes).
+                             Separator rules: ';' between variables (matches --myvar= order),
+                                              ',' between experiments (matches --exps= order).
+                             Single entry broadcasts to all experiments.
+                             Both GRIB notations accepted: 249.210 and 210249.
+                             IMPORTANT: always quote the value; requires --myvar= to be set:
+                               --myvar="pl_NH4_as;pl_NO3_as" --param="35.212,249.210;36.212,247.210"
 
-Variable Search:
-  qlc-vars search O3
-  qlc-vars info O3
+Variable override — obs-mod mapping context (D1-ANAL / qpy, evaltools) [new in v1.0.2]:
+  --myvar="DisplayName|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]"
+                             Pipe-format variable spec for station collocation.
+                             Multiple variables separated by ';' inside the quoted string.
+                             Arithmetic operators: * / + -  applied at load time (model or obs side).
+                             unitFAC: explicit scale factor (alternative to automatic unit conversion).
+                             Applied to all active networks (--network=) in one run — no workflow
+                             file changes required.
+                             Use for variables not in qlc's built-in unit table, custom model
+                             diagnostics, experimental datasets, or quick scaling tests.
+                             Examples:
+                               --myvar="O3|go3|O3|ug/m3"                    O3: auto kg/kg -> ug/m3
+                               --myvar="PM2.5|pm2p5|PM2.5|ug/m3"            PM2.5: auto kg/m3 -> ug/m3
+                               --myvar="T2m|2t|temp|degC"                   T2m: auto K -> degC
+                               --myvar="MyVar|myvar,*,0.001|obs|N/A"         custom: scale model x0.001
+                               --myvar="MyVar|myvar|obs|unit,1e3"            custom: unitFAC=1e3
+                               --myvar="O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3"  multi-variable
 
-View Results:
-  ls -lrth ~/qlc/Results        # GRIB data (MARS download)
-  ls -lrth ~/qlc/Analysis       # NetCDF processed data
-  ls -lrth ~/qlc/Plots          # Generated plots
-  ls -lrth ~/qlc/Presentations  # PDF reports
+Network and region overrides (D1-ANAL only):
+  --network=CODE[,CODE2,...] Override ACTIVE_REGIONS — which station networks to process.
+                             Network codes must match REGION_*_NAME entries in the workflow config.
+                             Example: --network=BRAZIL_INMET,US_CASTNET
+  --region=GEO[,GEO2,...]   Override geographic plot extent for all active networks.
+                             Comma-separated plot region codes (e.g., EU, SA, GLOBE, NH).
+                             Each active network is run once per listed plot region.
+                             When multiple regions are given, output dirs get a _REGION suffix.
+                             Example: --region=SA          (single, same output name)
+                             Example: --region=SA,GLOBE    (two runs: BRAZIL_INMET_SA/, BRAZIL_INMET_GLOBE/)
+  --station_file=<path>      Override station CSV file for all active networks.
+                             Tilde (~) is expanded to home directory.
 
-For batch submission (HPC/SLURM), use: sqlc
+MARS request overrides:
+  -grid=<value>              Override MARS GRID parameter
+  -step=<value>              Override MARS STEP
+  -time=<value>              Override MARS TIME
+  -levelist=<value>          Override MARS LEVELIST
+
+Examples:
+  # Positional syntax (classic)
+  qlc exp1 exp2 2018-12-01 2018-12-21 test
+  qlc exp1 exp2 2018-12-01 2018-12-21 test --obs-only --network=EU_EBAS_Daily
+  qlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,nl
+
+  # Named syntax (both - and -- prefix accepted; same options apply to sqlc)
+  qlc --exps=exp1,exp2 --start_date=2018-12-01 --end_date=2018-12-21 --workflow=test
+  qlc --exps=exp1,exp2 --start_date=2018-12-01 --end_date=2018-12-21 --workflow=test --obs-only
+
+  # GRIB variable overrides (MARS retrieval context; quotes required when using ; in shell)
+  qlc exp1 exp2 2018-12-01 2018-12-21 test --myvar="sfc_T2m,167"
+  qlc exp1 exp2 2018-12-01 2018-12-21 test --myvar="sfc_T2m,167;pl_T,130"
+  qlc exp1 exp2 2018-12-01 2018-12-21 test --network=EU_EBAS_Daily,US_CASTNET
+  qlc exp1 exp2 2018-12-01 2018-12-21 test --network=BRAZIL_INMET --region=SA,GLOBE \\
+      --station_file=~/qlc/config/station_locations/test.csv
+
+  # Per-experiment GRIB param override (e.g. AER vs HAMM7 comparison)
+  qlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,rd \\
+      --myvar="pl_NH4_as;pl_NO3_as" --param="35.212,249.210;36.212,247.210"
+
+  # Obs-mod pipe-format (qpy / evaltools): one spec across all active networks [new in v1.0.2]
+  qlc exp1 exp2 2018-12-01 2018-12-21 qpy --myvar="O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3"
+  qlc exp1 exp2 2018-12-01 2018-12-21 qpy --myvar="MyVar|myvar,*,0.001|obs|N/A" --network=EU_AIRBASE -class=rd
+
+  # Full named syntax
+  qlc --exps=exp1,exp2 --start_date=2018-12-01 --end_date=2018-12-21 --workflow=test \\
+      --myvar="sfc_T2m,167;pl_T,130" -class=nl,nl --network=EU_EBAS_Daily,US_CASTNET
+
+Other commands:
+  qlc -V / --version         Show version information
+  qlc-vars search O3         Search variable table
+  sqlc ...                   Batch submission (HPC/SLURM), accepts same options as qlc
+
+Results:
+  ~/qlc/Results        GRIB data (MARS download)
+  ~/qlc/Analysis       NetCDF processed data
+  ~/qlc/Plots          Generated plots
+  ~/qlc/Presentations  PDF reports
 
 For more information:
   Quick Start    : ~/qlc/doc/QuickStart.md
   Documentation  : https://docs.researchconcepts.io/qlc
   Getting Started: https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/
 
-BETA RELEASE: Under development, requires further testing.
-© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+See: https://docs.researchconcepts.io/qlc/latest/reference/changelog
+© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 ========================================================================================
         """)

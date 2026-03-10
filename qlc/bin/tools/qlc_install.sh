@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Standalone Installer
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # IMPORTANT: This script installs QLC from PyPI (https://pypi.org/project/rc-qlc/)
@@ -38,7 +38,7 @@
 # - Install from local wheel (development / testing)
 #   bash qlc_install.sh --mode test --wheel /path/to/rc_qlc-1.0.1b0-*.whl
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -132,7 +132,7 @@ Installation Path Configuration (HPC/ATOS):
     
     Test/Dev modes (isolated per version):
       Data directories created within version directory
-      Example: \$PERM/qlc_pypi/v1.0.1b0/test/data/Results
+      Example: \$PERM/qlc_pypi/v1.0.2/test/data/Results
 
   To override default HPC storage paths (optional):
     export PERM="/perm/\$USER"           # Installation base + data storage
@@ -915,10 +915,10 @@ print_completion() {
     echo ""
     echo "5. Start using QLC:"
     echo "   cd ~/qlc/run"
-    echo "   qlc b2ro b2rn 2018-12-01 2018-12-21 test"
+    echo "   qlc exp1 exp2 2018-12-01 2018-12-21 test"
     echo ""
     echo "  Batch mode (HPC/SLURM):"
-    echo "    sqlc b2ro b2rn 2018-12-01 2018-12-21 test"
+    echo "    sqlc exp1 exp2 2018-12-01 2018-12-21 test"
     echo ""
     echo "For more information:"
     echo "  Quick Start:   ~/qlc/doc/QuickStart.md"

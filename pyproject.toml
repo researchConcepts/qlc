@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rc-qlc"
-version = "1.0.2-beta"
+version = "1.0.2"
 license = { text = "MIT" }
-description = "Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS [BETA]"
+description = "Quick Look Content (QLC): An Automated Model–Observation Comparison Suite Optimized for CAMS"
 authors = [
   { name = "ResearchConcepts io GmbH", email = "contact@researchconcepts.io" }
 ]
@@ -41,6 +41,8 @@ dependencies = [
   "cdo>=1.6.0",  # Climate Data Operators - critical for grb2nc conversion
   "cfgrib>=0.9.10",  # GRIB file reading support
   "eccodes",  # ECMWF GRIB library Python bindings
+  "lxml>=4.6.0",  # HTML parsing for pandas.read_html (EBAS website data)
+  "html5lib>=1.1",  # Alternative HTML parser for pandas.read_html (fallback)
   "tomli>=2.0.0; python_version < '3.11'"  # Use tomli for Python < 3.11, tomllib built-in for 3.11+
 ]
 
@@ -86,6 +88,16 @@ qlc-python = "qlc.cli:run_python_driver"
 sqlc = "qlc.cli:run_batch_driver"
 qlc-install = "qlc.cli.qlc_installer:main"
 qlc-extract-stations = "qlc.py.extract_stations:main"
+qlc-extract-variables = "qlc.py.extract_obs_variables:main"
+qlc-extract-station-metadata = "qlc.py.extract_station_metadata:main"
+qlc-parse-csv-metadata = "qlc.py.parse_csv_metadata:main"
+qlc-parse-aqs-metadata = "qlc.py.parse_aqs_metadata:main"
+qlc-parse-eea-metadata = "qlc.py.parse_eea_metadata:main"
+qlc-parse-openaq-metadata = "qlc.py.parse_openaq_metadata:main"
+qlc-extract-ghost-data = "qlc.py.qlc_extract_ghost_data:main"
+qlc-convert-brazil-data = "qlc.py.qlc_convert_brazil_data:main"
+qlc-generate-ebas-metadata = "qlc.py.generate_ebas_metadata:main"
+qlc-extract-brazil-metadata = "qlc.py.extract_brazil_metadata:main"
 qlc-install-extras = "qlc.cli.qlc_install_extras:main"
 qlc-install-tools = "qlc.cli.qlc_install_tools:main"
 qlc-fix-dependencies = "qlc.cli.qlc_fix_dependencies:main"

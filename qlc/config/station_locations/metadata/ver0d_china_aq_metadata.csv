@@ -1,0 +1,1669 @@
+site_id,site_name,latitude,longitude,altitude,city,station_name_chinese
+1001A,The West Palace of Longevity,39.8673,116.366,47,Beijing,万寿西宫
+1002A,Dingling Tomb,40.2865,116.17,307,Beijing,定陵
+1003A,A surname,39.9522,116.434,50,Beijing,东四
+1004A,Temple of Heaven,39.8745,116.434,46,Beijing,天坛
+1005A,Agriculture exhibition hall,39.9716,116.473,37,Beijing,农展馆
+1006A,Official garden,39.9425,116.361,55,Beijing,官园
+1007A,"Wanliu, Haidian District",39.9934,116.315,54,Beijing,海淀区万柳
+1008A,Shunyi New ,40.1438,116.72,32,Beijing,顺义新城
+1009A,Huairou Town,40.3937,116.644,205,Beijing,怀柔镇
+1010A,Changping Town,40.1952,116.23,58,Beijing,昌平镇
+1011A,Olympic sports center,40.0031,116.407,49,Beijing,奥体中心
+1012A,Ancient ,39.9279,116.225,63,Beijing,古城
+1013A,Municipal Monitoring Center (outage 150702),39.097,117.151,9,Tianjin,市监测中心(停运150702)
+1014A,Nankou Road (no service 161122),39.173,117.193,8,Tianjin,南口路(停运161122)
+1015A,Be industrious and thrifty,39.1654,117.145,5,Tianjin,勤俭道
+1016A,Nanjing Road (no service 160601),39.1205,117.184,12,Tianjin,南京路(停运160601)
+1017A,Dazhigu No. 8 Road,39.1082,117.237,4,Tianjin,大直沽八号路
+1018A,Way forward,39.0927,117.202,5,Tianjin,前进道
+1019A,Huaihe Road,39.2133,117.1837,5,Tianjin,淮河道
+1020A,Tianshan Road (outage 150702),39.1337,117.269,6,Tianjin,天山路(停运150702)
+1021A,Skip road,39.0877,117.307,6,Tianjin,跃进路
+1022A,Meijiang Community (out of service 150702),39.06,117.221,2,Tianjin,梅江小区(停运150702)
+1023A,Fourth Avenue,39.0343,117.707,2,Tianjin,第四大街
+1024A,Wing Ming road,38.8394,117.457,2,Tianjin,永明路
+1025A,Space Road (out of service 170426),39.124,117.401,2,Tianjin,航天路(停运170426)
+1026A,Han Bei Road,39.1587,117.764,1,Tianjin,汉北路
+1027A,Tuanbowa,38.9194,117.157,2,Tianjin,团泊洼(对照点)
+1028A,Chemical engineering school,37.995,114.609,70,Shijiazhuang ,化工学校
+1029A,Staff hospital,38.0513,114.4548,79,Shijiazhuang ,职工医院
+1030A,High-tech zone,38.0398,114.6046,70,Shijiazhuang ,高新区
+1031A,Northwest water source,38.1398,114.5019,75,Shijiazhuang ,西北水源
+1032A,Southwest higher Education,38.00583333,114.4586111,76,Shijiazhuang ,西南高教
+1033A,Century Park,38.01777778,114.5330556,71,Shijiazhuang ,世纪公园
+1034A,People's hall,38.0524,114.5214,78,Shijiazhuang ,人民会堂
+1035A,Fenglong Mountain,37.9097,114.3541,270,Shijiazhuang ,封龙山
+1036A,Supply and Marketing Cooperatives (closed 200110),39.6308,118.1662,29,Tangshan ,供销社(停运200110)
+1037A,Radar station,39.643,118.144,30,Tangshan ,雷达站
+1038A,Materials bureau,39.6407,118.1853,33,Tangshan ,物资局
+1039A,Ceramic Company (shutdown 200109),39.6679,118.2185,29,Tangshan ,陶瓷公司(停运200109)
+1040A,Twelve middle schools,39.65782,118.1838,20,Tangshan ,十二中
+1041A,hill,39.6295,118.1997,27,Tangshan ,小山
+1042A,Beidaihe Environmental Protection Bureau,39.8283,119.5259,28,Qinhuangdao ,北戴河环保局
+1043A,The first pass,40.0181,119.7624,39,Qinhuangdao ,第一关
+1044A,Monitoring station,39.9567,119.6023,23,Qinhuangdao ,监测站
+1046A,Construction block,39.9419,119.5369,6,Qinhuangdao ,建设大厦
+1047A,Environmental Protection Agency,36.61763,114.5129,57,Handan ,环保局
+1048A,East sewage treatment plant,36.6164,114.5426,58,Handan ,东污水处理厂
+1049A,Mine institute,36.5776,114.5035,56,Handan ,矿院
+1050A,Congtai Park,36.61981,114.4965,60,Handan ,丛台公园
+1051A,natatorium,38.8632,115.493,24,Baoding ,游泳馆
+1052A,Huadian District 2,38.8957,115.5223,17,Baoding ,华电二区
+1053A,Reception center,38.9108,115.4713,19,Baoding ,接待中心
+1054A,Surface water plant,38.8416,115.4612,24,Baoding ,地表水厂
+1055A,Film plant,38.8756,115.442,26,Baoding ,胶片厂
+1056A,Monitoring station,38.8707,115.5214,20,Baoding ,监测站
+1057A,People's Park,40.8367,114.8985,893,Zhangjiakou ,人民公园
+1058A,Engine scout factory,40.79481,114.892,767,Zhangjiakou ,探机厂
+1059A,Five coffers,40.8115,114.8814,760,Zhangjiakou ,五金库
+1060A,Century Grand Garden,40.7688,114.9032,728,Zhangjiakou ,世纪豪园
+1061A,North pump House,40.8725,114.904,878,Zhangjiakou ,北泵房
+1062A,railway,40.9161,117.9664,337,Chengde ,铁路
+1063A,Bank of China,40.9843,117.9525,394,Chengde ,中国银行
+1064A,Development zone,40.9359,117.963,321,Chengde ,开发区
+1065A,Cultural center,40.9733,117.8184,400,Chengde ,文化中心
+1066A,Detached palace,41.0112,117.9384,352,Chengde ,离宫
+1067A,Pharmaceutical company,39.5178,116.6838,18,Langfang ,药材公司
+1068A,Development zone,39.5747,116.7729,15,Langfang ,开发区
+1069A,Environmental Monitoring Supervision Center,39.5571,116.715,15,Langfang ,环境监测监理中心
+1070A,North China Aerospace Institute,39.5343,116.7464,16,Langfang ,北华航天学院
+1071A,Cangxian urban construction Bureau,38.2991,116.8854,8,Cangzhou ,沧县城建局
+1072A,Television relay station,38.3254,116.8584,9,Cangzhou ,电视转播站
+1073A,Municipal Environmental Protection Bureau,38.3228,116.8709,7,Cangzhou ,市环保局
+1074A,Electric machinery north Factory,37.7575,115.6951,20,Hengshui ,电机北厂
+1075A,Municipal monitoring station,37.7379,115.6426,24,Hengshui ,市监测站
+1076A,Municipal Environmental Protection Bureau,37.739,115.6906,24,Hengshui ,市环保局
+1077A,Dahua Spring,37.0967,114.4821,70,Xingtai ,达活泉
+1078A,Xing division high school,37.0533,114.5261,65,Xingtai ,邢师高专
+1079A,Road and bridge company,37.0964,114.5331,62,Xingtai ,路桥公司
+1080A,Municipal Environmental Protection Bureau,37.062,114.4854,77,Xingtai ,市环保局
+1081A,Sharp lawn,37.8873,112.522,790,Taiyuan ,尖草坪
+1082A,Jianhe,37.9103,112.573,831,Taiyuan ,涧河
+1083A,Shanglan (comparison point),38.0108,112.434,813,Taiyuan ,上兰(对照点)
+1084A,Jinyuan,37.7124,112.469,767,Taiyuan ,晋源
+1085A,shop,37.7394,112.5583,776,Taiyuan ,小店
+1086A,Peach orchard,37.8692,112.5369,789,Taiyuan ,桃园
+1087A,docktown,37.8195,112.57,788,Taiyuan ,坞城
+1088A,Nanchai,37.9854,112.549,804,Taiyuan ,南寨
+1089A,Golden victory,37.7778,112.4783,786,Taiyuan ,金胜
+1090A,A supervisor in Hohmarket,40.7579,111.651,1034,Hohhot ,呼市一监
+1091A,Xiao Zhao,40.8033,111.658,1049,Hohhot ,小召
+1092A,Xingsong Community (out of service 200113),40.8452,111.659,1067,Hohhot ,兴松小区(停运200113)
+1093A,Sugar Factory (closed 200113),40.8144,111.608,1059,Hohhot ,糖厂(停运200113)
+1094A,Ruyi water treatment plant,40.8369,111.751,1072,Hohhot ,如意水处理厂
+1095A,Twenty-ninth,40.8062,111.7277,1057,Hohhot ,二十九中
+1096A,Jinchuan Campus of Technology University,40.7866,111.551,1066,Hohhot ,工大金川校区
+1097A,Fertilizer plant living area,40.7612,111.717,1043,Hohhot ,化肥厂生活区
+1098A,Forest road,41.9339,123.6836,132,Shenyang ,森林路
+1099A,Hunnan East Road,41.7561,123.535,52,Shenyang ,浑南东路
+1100A,New star Street,41.7089,123.439,45,Shenyang ,新秀街
+1101A,Canghai Road,41.7694,123.284,38,Shenyang ,沧海路
+1102A,Dongling Road,41.8336,123.542,57,Shenyang ,东陵路
+1103A,East Ling Street,41.8472,123.428,48,Shenyang ,陵东街
+1104A,Wenhua Road,41.765,123.41,43,Shenyang ,文化路
+1105A,riverside,41.7775,123.478,52,Shenyang ,小河沿
+1106A,Taiyuan Street,41.7972,123.3997,53,Shenyang ,太原街
+1107A,South ten East Road,41.7806,123.3606,46,Shenyang ,南十东路
+1108A,Jingshen Street,41.9228,123.3783,46,Shenyang ,京沈街
+1109A,Kanjingzi,38.97388889,121.6119444,14,Dalian ,甘井子
+1110A,perizon,38.95111111,121.565,37,Dalian ,周水子
+1111A,Xinghai three stations,38.885,121.5638889,37,Dalian ,星海三站
+1112A,Qingniwa Bridge,38.91194444,121.6330556,28,Dalian ,青泥洼桥
+1113A,Fu Jiazhuang,38.86388889,121.625,16,Dalian ,傅家庄
+1114A,Seven wise Ridge,38.85611111,121.5180556,47,Dalian ,七贤岭
+1115A,Lushun,38.80805556,121.2588889,5,Dalian ,旅顺
+1116A,Golden State,39.1311,121.7481,54,Dalian ,金州
+1117A,Development zone,39.0511,121.7769,30,Dalian ,开发区
+1118A,Double D ports,39.0631,121.9769,2,Dalian ,双D港
+1119A,Food factory,43.9167,125.323,217,Changchun ,食品厂
+1120A,Passenger car factory,43.91,125.287,214,Changchun ,客车厂
+1121A,University of Posts and Telecommunications,43.84,125.2786,219,Changchun ,邮电学院
+1122A,Labor park,43.8748,125.3649,198,Changchun ,劳动公园
+1123A,Garden department,43.8694,125.325,221,Changchun ,园林处
+1124A,Jingyuetan,43.7878,125.454,228,Changchun ,净月潭
+1125A,Springing bay,43.55,125.633,218,Changchun ,甩湾子
+1126A,Economic development zone sanitation Department,43.8667,125.417,203,Changchun ,经开区环卫处
+1127A,Administrative Committee of High-tech Zone,43.8167,125.25,210,Changchun ,高新区管委会
+1128A,Daishan Park,43.85,125.217,213,Changchun ,岱山公园
+1129A,Lingbei,45.755,126.542,119,Harbin ,岭北(对照点)
+1130A,Songbei Commercial University,45.8167,126.561,118,Harbin ,松北商大
+1131A,Ah Cheng Huining,45.5422,126.979,144,Harbin ,阿城会宁
+1132A,Nangang Xuefu Road,45.7222,126.599,149,Harbin ,南岗学府路
+1133A,Taiping Grand Park,45.7733,126.689,129,Harbin ,太平宏伟公园
+1134A,"Chengde Square, Daowai",45.7667,126.635,135,Harbin ,道外承德广场
+1135A,Xiangfang Hongqi Street,45.7319,126.685,147,Harbin ,香坊红旗大街
+1136A,Dynamic peace path,45.7258,126.646,152,Harbin ,动力和平路
+1137A,Daoli Jianguo Road,45.7478,126.593,122,Harbin ,道里建国路
+1138A,Bungalow East light factory,45.61,126.615,180,Harbin ,平房东轻厂
+1139A,Hulan Teachers College,45.9819,126.6106,127,Harbin ,呼兰师专
+1140A,Provincial Academy of Agricultural Sciences,45.6842,126.6206,166,Harbin ,省农科院
+1141A,Putuo,31.238,121.4,7,Shanghai,普陀
+1142A,Fifteenth factory,31.2036,121.478,8,Shanghai,十五厂
+1143A,Hongkou,31.3008,121.467,9,Shanghai,虹口
+1144A,Xu Hui attended Normal University,31.1654,121.412,4,Shanghai,徐汇上师大
+1145A,Yang Pu four Piao,31.2659,121.536,11,Shanghai,杨浦四漂
+1146A,Qingpu Dianshan Lake,31.0935,120.978,6,Shanghai,青浦淀山湖
+1147A,Jing 'an monitoring Station,31.2261,121.425,8,Shanghai,静安监测站
+1148A,Chuansha in Pudong,31.1907,121.703,5,Shanghai,浦东川沙
+1149A,Pudong New Area monitoring station,31.2284,121.533,9,Shanghai,浦东新区监测站
+1150A,Pudong Zhangjiang District,31.2071,121.577,5,Shanghai,浦东张江
+1151A,Maigao Bridge,32.1083,118.803,21,Nanjing,迈皋桥
+1152A,Meadow gate,32.0572,118.749,6,Nanjing,草场门
+1153A,Shan Xi Road,32.0723,118.778,13,Nanjing,山西路
+1154A,Zhonghua Gate,32.0144,118.777,15,Nanjing,中华门
+1155A,Ruijin Road,32.0314,118.803,13,Nanjing,瑞金路
+1156A,Xuanwu Lake,32.0775,118.795,15,Nanjing,玄武湖
+1157A,Pukou District,32.0964,118.6414,15,Nanjing,浦口
+1158A,Olympic sports center,31.9996,118.7356,5,Nanjing,奥体中心
+1159A,Xianlin University Town,32.105,118.907,19,Nanjing,仙林大学城
+1160A,Mount Shangfang,31.2472,120.561,3,Suzhou ,上方山
+1161A,A surname,31.2864,120.628,8,Suzhou ,南门
+1162A,Colored incense,31.3019,120.591,1,Suzhou ,彩香
+1163A,Rolling mill,31.3264,120.596,3,Suzhou ,轧钢厂
+1164A,Wuzhong District,31.2703,120.613,11,Suzhou ,吴中区
+1165A,Suzhou New District,31.2994,120.543,52,Suzhou ,苏州新区
+1166A,Suzhou Industrial Park,31.3097,120.669,22,Suzhou ,苏州工业园区
+1167A,Xiangcheng District,31.3708,120.641,1,Suzhou ,相城区
+1168A,Southern suburbs,31.96,120.913,2,Nantong ,南郊
+1169A,Rainbow bridge,32.0005,120.86,2,Nantong ,虹桥
+1170A,In the ,32.02,120.87,7,Nantong ,城中
+1171A,Star Lake Garden,31.93,120.94,3,Nantong ,星湖花园
+1172A,Zilang College,32.0417,120.81,1,Nantong ,紫琅学院
+1173A, environmental monitoring station,34.5885,119.176,7,Lianyungang ,市环境监测站
+1174A,Hongmen Police Station,34.5896,119.141,5,Lianyungang ,洪门派出所
+1175A,墟沟 Nuclear power Expert village,34.7507,119.368,5,Lianyungang ,墟沟核电专家村
+1176A,Development zone Hengrui pharmaceutical company,34.6984,119.348,6,Lianyungang ,开发区恒瑞医药公司
+1177A,Huanghe New village,34.2761,117.167,44,Xuzhou ,黄河新村
+1178A,Huita,34.2328,117.1917,58,Xuzhou ,淮塔
+1179A,Tongshan Veterinary Hospital,34.3083,117.192,35,Xuzhou ,铜山兽医院
+1180A,New urban district,34.2153,117.256,37,Xuzhou ,新城区
+1181A,Taoyuan Road,34.2908,117.2458,40,Xuzhou ,桃园路
+1182A,Academy of Agricultural Sciences,34.2778,117.2933,36,Xuzhou ,农科院
+1183A,Tongshan District Environmental Protection Bureau,34.1806,117.166,37,Xuzhou ,铜山区环保局
+1184A,Chengdong Financial Office (closed 180626),32.3878,119.46,9,Yangzhou ,城东财政所(停运180626)
+1185A,Municipal monitoring station,32.41,119.404,10,Yangzhou ,市监测站
+1186A,Hanjiang monitoring station,32.3761,119.389,9,Yangzhou ,邗江监测站
+1187A,Fourth Hospital (out of service 161107),32.4033,119.439,10,Yangzhou ,第四医院(停运161107)
+1188A,Snow wave,31.4867,120.269,2,Wuxi ,雪浪
+1189A,Yellow Lane,31.6219,120.275,5,Wuxi ,黄巷
+1190A,Cao Zhang,31.56,120.294,7,Wuxi ,曹张
+1191A,Chiltong,31.5031,120.242,78,Wuxi ,漆塘
+1192A,Dongjeong,31.5848,120.354,4,Wuxi ,东亭
+1193A,Wantrang,31.5475,120.354,4,Wuxi ,旺庄
+1194A,Vinh Lane,31.5631,120.245,9,Wuxi ,荣巷
+1195A,Weir bridge,31.6842,120.288,7,Wuxi ,堰桥
+1196A,Municipal monitoring station,31.7586,119.996,6,Changzhou ,市监测站
+1197A,Urban Construction School (closed 161026),31.7786,119.933,6,Changzhou ,城建学校(停运161026)
+1198A,Permanent Industrial Institute (out of service 161026),31.8089,119.962,6,Changzhou ,常工院(停运161026)
+1199A,Lucheng (out of service 161026),31.7638,120.0393,7,Changzhou ,潞城(停运161026)
+1200A,Wujin monitoring Station,31.7039,119.935,1,Changzhou ,武进监测站
+1201A,Settle down,31.9017,119.9167,4,Changzhou ,安家
+1202A,Environmental monitoring station,32.173,119.498,14,Zhenjiang ,环境监测站
+1203A,New district office,32.1883,119.68,21,Zhenjiang ,新区办事处
+1204A,Vocational education center,32.215,119.491,32,Zhenjiang ,职教中心
+1205A,Dantu area monitoring station,32.1319,119.43,37,Zhenjiang ,丹徒区监测站
+1206A,Park road,32.4867,119.9,7,Taizhou ,公园路
+1207A,lotus,32.4611,119.9219,4,Taizhou ,莲花
+1208A,Gaogang District Government,32.303,119.882,8,Taizhou ,高港区政府
+1209A,Overseas students Pioneer park,32.4639,119.888,3,Taizhou ,留学生创业园
+1210A,Palji Mountain,33.5981,119.036,17,Huai 'an ,钵池山
+1211A,Beijing South Road,33.575,119.007,9,Huai 'an ,北京南路
+1212A,Municipal monitoring station,33.6067,118.989,17,Huai 'an ,市监测站
+1213A,Chuzhou district monitoring station,33.5039,119.135,6,Huai 'an ,楚州区监测站
+1214A,Huaiyin district monitoring station,33.6297,119.0186,12,Huai 'an ,淮阴区监测站
+1215A,Yancheng power plant,33.4022,120.118,3,Yancheng ,盐城电厂
+1216A,Municipal monitoring station,33.3942,120.156,3,Yancheng ,市监测站
+1217A,Man fung secondary,33.3719,120.129,5,Yancheng ,文峰中学
+1218A,Administrative committee of development zone,33.3947,120.225,1,Yancheng ,开发区管委会
+1219A,Municipal monitoring Station (out of service 161107),33.96,118.2658,31,Suqian ,市监测站(停运161107)
+1220A,Suqian University,33.9528,118.293,29,Suqian ,宿迁学院
+1221A,Suqian Middle School,33.9592,118.2442,29,Suqian ,宿迁中学
+1222A,Suyu District Environmental Protection Bureau,33.9506,118.3214,21,Suqian ,宿豫区环保局
+1223A,Binjiang,30.21,120.211,8,Hangzhou ,滨江
+1224A,Xi Xi,30.2747,120.063,6,Hangzhou ,西溪
+1225A,Thousand-island Lake,29.635,119.026,105,Hangzhou ,千岛湖
+1226A,Lower sand,30.3058,120.348,9,Hangzhou ,下沙
+1227A,Wolong Bridge,30.2456,120.127,15,Hangzhou ,卧龙桥
+1228A,Zhejiang Agricultural University,30.2692,120.19,15,Hangzhou ,浙江农大
+1229A,Chaoyang five district,30.2897,120.157,16,Hangzhou ,朝晖五区
+1230A,United primary,30.3119,120.12,12,Hangzhou ,和睦小学
+1231A,Linping Town,30.4183,120.301,10,Hangzhou ,临平镇
+1232A,Chengxiang Town,30.1819,120.27,13,Hangzhou ,城厢镇
+1233A,Cloud habitat,30.1808,120.088,80,Hangzhou ,云栖
+1234A,District environmental building,29.9108,121.836,4,Ningbo ,区环保大楼
+1235A,Wanli University,29.8208,121.56,5,Ningbo ,万里学院
+1236A,Ronsay Hospital,29.9572,121.713,6,Ningbo ,龙赛医院
+1237A,Sanjiang secondary,29.8906,121.554,9,Ningbo ,三江中学
+1238A,Municipal administration station,29.9017,121.615,5,Ningbo ,市政管理站
+1239A,Qianhu Lake water plant,29.7736,121.633,5,Ningbo ,钱湖水厂
+1240A,Swire primary,29.8633,121.586,9,Ningbo ,太古小学
+1241A,Municipal Environmental monitoring Center,29.8506,121.524,5,Ningbo ,市环境监测中心
+1242A,Ou Hai,28.0089,120.634,11,Wenzhou ,瓯海
+1243A,Nampo,27.9939,120.677,8,Wenzhou ,南浦
+1244A,Long Wan,27.9747,120.76,7,Wenzhou ,龙湾
+1245A,Municipal station,28.0167,120.671,12,Wenzhou ,市站
+1246A,Paogang Station,30.0911,120.598,10,Shaoxing ,袍江站
+1247A, East Development Commission,29.9919,120.605,10,Shaoxing ,城东开发委
+1248A,Municipal environmental protection station,30.007,120.576,14,Shaoxing ,市环保站
+1249A,North  water works,30.8867,120.1,5,Huzhou ,城北水厂
+1250A,West  water Works,30.8244,120.07,3,Huzhou ,城西水厂
+1251A,Jishan New Village,30.8617,120.093,7,Huzhou ,吉山新村
+1252A,Qinghe primary,30.7946,120.744,7,Jiaxing ,清河小学
+1253A,Jiaxing University,30.7478,120.726,10,Jiaxing ,嘉兴学院
+1254A,Monitoring station,30.529,120.684,8,Jiaxing ,监测站
+1255A,Huangyan Environmental Protection Building,28.6459,121.273,8,Taizhou ,黄岩环保大楼
+1256A,Taizhou Environmental Protection Building,28.6542,121.419,6,Taizhou ,台州环保大楼
+1257A,Road bridge Tian Yang king,28.5773,121.377,7,Taizhou ,路桥田洋王
+1258A,Dinghai Sandalwood,30.0203,122.122,3,Zhoushan ,定海檀枫
+1259A,The port of Putodong,29.9558,122.3094,12,Zhoushan ,普陀东港
+1260A,Lincheng new district,29.9944,122.19,13,Zhoushan ,临城新区
+1261A,Four middle schools,29.1131,119.649,60,Jinhua ,四中
+1262A,Fifteenth middle school,29.077,119.647,49,Jinhua ,十五中
+1263A,Monitoring station,29.1029,119.686,42,Jinhua ,监测站
+1264A,Green building,28.9404,118.871,72,Quzhou ,环保大楼
+1265A,Experimental school,28.9664,118.871,75,Quzhou ,实验学校
+1266A,Quzhou University,28.9745,118.855,63,Quzhou ,衢州学院
+1267A,Monitoring station building,28.4514,119.914,61,Lishui ,监测站大楼
+1268A,Liandu primary,28.4586,119.93,58,Lishui ,莲都小学
+1269A,Yu Zhuangqian,28.4231,119.879,56,Lishui ,余庄前
+1270A,Pearl Square,31.7848,117.196,36,Hefei ,明珠广场
+1271A,Sanli Street,31.8766,117.307,17,Hefei ,三里街
+1272A,Amber Villa,31.8706,117.259,16,Hefei ,琥珀山庄
+1273A,Dongpu reservoir,31.9051,117.16,32,Hefei ,董铺水库
+1274A,Middle Changjiang Road,31.8572,117.25,30,Hefei ,长江中路
+1275A,Luyang District,31.9438,117.266,34,Hefei ,庐阳区
+1276A,Yaohai District,31.8585,117.336,19,Hefei ,瑶海区
+1277A,Baohe District,31.7956,117.302,15,Hefei ,包河区
+1278A,Binhu New district,31.7386,117.278,13,Hefei ,滨湖新区
+1279A,High-tech zone,31.8516,117.124,42,Hefei ,高新区
+1280A,Drum Mountain,26.0542,119.389,390,Fuzhou ,鼓山
+1281A,Kuaian,26.0258,119.414,7,Fuzhou ,快安
+1282A,Normal University,26.0392,119.303,35,Fuzhou ,师大
+1283A,May 4th North Road,26.1092,119.299,19,Fuzhou ,五四北路
+1284A,Yangqiao West Road,26.0797,119.268,10,Fuzhou ,杨桥西路
+1285A,Ziyang,26.0753,119.315,18,Fuzhou ,紫阳
+1286A,Kye-dong,24.81805556,118.1569444,130,Xiamen ,溪东
+1287A,Great prose,24.47666667,118.1513889,35,Xiamen ,洪文
+1288A,Gulangyu Island,24.44583333,118.0636111,12,Xiamen ,鼓浪屿
+1290A,Provincial foreign affairs office,28.6844,115.893,32,Nanchang ,省外办
+1291A,Provincial forestry company,28.6839,115.8886,27,Nanchang ,省林业公司
+1292A,Institute of Forestry,28.7442,115.813,43,Nanchang ,林科所
+1293A,Jingdong Town Government (Closed 200108),28.6969,115.973,17,Nanchang ,京东镇政府(停运200108)
+1294A,Construction engineering school,28.6869,115.852,22,Nanchang ,建工学校
+1295A,Elephant lake,28.6425,115.892,15,Nanchang ,象湖
+1296A,Martial Arts School (Comparison point),28.7994,115.742,169,Nanchang ,武术学校(对照点)
+1297A,Petrochemical (outage 170322),28.6131,115.912,30,Nanchang ,石化(停运170322)
+1298A,Provincial station,28.6844,115.931,20,Nanchang ,省站
+1299A,Kokansuo,36.6114,116.988,190,Jinan ,科干所
+1300A,Agricultural science institute,36.67,116.93,28,Jinan ,农科所
+1301A,Development zone,36.6739,117.114,80,Jinan ,开发区
+1302A,Jinan Chemical Plant,36.6872,116.989,34,Jinan ,济南化工厂
+1303A,Provincial seed storehouse,36.6868,117.0684,39,Jinan ,省种子仓库
+1304A,Machine tool Plant II,36.6489,116.943,37,Jinan ,机床二厂
+1305A,Municipal monitoring station,36.6622,117.049,61,Jinan ,市监测站
+1306A,Chang Qing Party School,36.5464,116.7672,61,Jinan ,长清党校
+1307A,Overhead mouth,36.2403,120.6659,9,Qingdao ,仰口
+1308A,Licang District sub-station,36.1851,120.3905,58,Qingdao ,李沧区子站
+1309A,Shibei sub-station,36.0699,120.3471,77,Qingdao ,市北区子站
+1310A,Shinan District east sub-station,36.0654,120.4134,47,Qingdao ,市南区东部子站
+1311A,Sifang District sub-station,36.1032,120.3664,27,Qingdao ,四方区子站
+1312A,Shinan District west sub-station,36.0543,120.2992,20,Qingdao ,市南区西部子站
+1313A,Laoshan district sub-station,36.0851,120.4587,-21,Qingdao ,崂山区子站
+1314A,Huangdao District sub-station,36.3083,120.1964,10,Qingdao ,黄岛区子站
+1315A,Chengyang District sub-station,36.2403,120.4001,21,Qingdao ,城阳区子站
+1316A,Tobacco factory,34.7622,113.6844,104,Zhengzhou,烟厂
+1317A,Zheng spinning machine,34.7745,113.641,103,Zhengzhou,郑纺机
+1318A,Banking school,34.8019,113.675,92,Zhengzhou,银行学校
+1319A,Water supply company,34.802,113.564,112,Zhengzhou,供水公司
+1320A,Economic development zone management Committee,34.7187,113.727,100,Zhengzhou,经开区管委
+1321A,Forty-seven middle schools,34.719,113.734,95,Zhengzhou,四十七中
+1322A,Municipal monitoring station,34.7496,113.5991,131,Zhengzhou,市监测站
+1323A,River medical University,34.7538,113.6356,107,Zhengzhou,河医大
+1324A,Gangli Reservoir (comparison point),34.9162,113.6113,98,Zhengzhou,岗李水库(对照点)
+1325A,East Lake Pear Garden,30.5719,114.3672,29,Wuhan ,东湖梨园
+1326A,Hanyang Moon Lake,30.5514,114.2511,31,Wuhan ,汉阳月湖
+1327A,Hankou Flower Bridge,30.6197,114.2836,28,Wuhan ,汉口花桥
+1328A,Wuchang Ziyang,30.5494,114.3006,35,Wuhan ,武昌紫阳
+1329A,Wuchang Ziyang,30.6103,114.4272,30,Wuhan ,青山钢花
+1330A,Ziyang District Administration Center,30.4753,114.1525,29,Wuhan ,沌口新区
+1331A,Ziyang Middle School,30.5947,114.3008,38,Wuhan ,汉口江滩
+1332A,Donghu Hi-tech,30.4822,114.3894,26,Wuhan ,东湖高新
+1333A,Wujia Mountain,30.6414,114.2131,21,Wuhan ,吴家山
+1334A,Sinking lake seven trenches,30.2997,113.8531,19,Wuhan ,沉湖七壕
+1335A,Economic development zone environmental protection Bureau,28.2325,113.0833,62,Changsha ,经开区环保局
+1336A,Gaokai District Environmental Protection Bureau,28.2189,112.8872,70,Changsha ,高开区环保局
+1337A,Mapoling,28.2053,113.0792,42,Changsha ,马坡岭
+1338A,Hunan Normal University,28.19,112.9394,123,Changsha ,湖南师范大学
+1339A,Yuhua District Environmental Protection Bureau,28.1442,112.9956,95,Changsha ,雨花区环保局
+1340A,Wujialing,28.2597,112.9792,30,Changsha ,伍家岭
+1341A,New train station,28.1944,113.0014,57,Changsha ,火车新站
+1342A,Tianxin District Environmental Protection Bureau,28.1178,112.9844,81,Changsha ,天心区环保局
+1343A,Hunan University of Traditional Chinese Medicine,28.1308,112.8908,35,Changsha ,湖南中医药大学
+1344A,Sand flat,28.3586,112.9958,82,Changsha ,沙坪
+1345A,Kwong nga secondary,23.1422,113.235,9,Guangzhou ,广雅中学
+1346A,Municipal No. 5 middle schools,23.105,113.261,11,Guangzhou ,市五中
+1347A,Tianhe vocational children,23.152,113.32,3,Guangzhou ,天河职幼
+1348A,Guangdong College of Commerce,23.0916,113.348,4,Guangzhou ,广东商学院
+1349A, eighty-six middle school,23.105,113.433,29,Guangzhou ,市八十六中
+1350A,Panyu Secondary,22.9477,113.352,7,Guangzhou ,番禺中学
+1351A,Huadu Normal University,23.3917,113.215,19,Guangzhou ,花都师范
+1352A,Municipal monitoring station,23.1331,113.26,13,Guangzhou ,市监测站
+1353A,Kowloon town dragon,23.2783,113.568,22,Guangzhou ,九龙镇镇龙
+1354A,Foot lake,23.1569,113.281,38,Guangzhou ,麓湖
+1355A,Maofeng Mountain Forest Park,23.5538,113.589,38,Guangzhou ,帽峰山森林公园
+1356A,Tongxinlingzi Station,22.5545,114.1063,20,Shenzhen,通心岭子站
+1357A,Honghu,22.5625,114.117,19,Shenzhen,洪湖
+1358A,Overseas Chinese Town,22.5417,113.987,41,Shenzhen,华侨城
+1359A,Nanhaizi Railway Station,22.5171,113.9181,6,Shenzhen,南海子站
+1360A,Salt pan,22.5908,114.263,3,Shenzhen,盐田
+1361A,Longgang,22.7267,114.24,42,Shenzhen,龙岗
+1362A,Xixiang,22.5794,113.891,3,Shenzhen,西乡
+1363A,South Australia,22.5422,114.494,71,Shenzhen,南澳
+1364A,Kwai chung,22.6342,114.41,25,Shenzhen,葵涌
+1365A,Mecha,22.5978,114.297,-18,Shenzhen,梅沙
+1366A,Guan LAN,22.75,114.085,28,Shenzhen,观澜
+1367A,Jilin University,22.2611,113.574,25,Zhuhai ,吉大
+1368A,Front hill,22.2294,113.495,0,Zhuhai ,前山
+1369A,Tang family,22.4251,113.628,13,Zhuhai ,唐家
+1370A,A surname,22.2281,113.299,21,Zhuhai ,斗门
+1371A,Bay beam,23.0048,113.134,2,Foshan ,湾梁
+1372A,Huatai vocational,23.0395,113.105,18,Foshan ,华材职中
+1373A,Nanhai Meteorological Bureau,23.0467,113.144,0,Foshan ,南海气象局
+1374A,Shunde Sugang,22.8054,113.292,-18,Foshan ,顺德苏岗
+1375A,Ronggui Street Office,22.7629,113.257,6,Foshan ,容桂街道办
+1376A,Gao Ming Kong Hall,22.8693,112.844,3,Foshan ,高明孔堂
+1377A,Sanshui monitoring station,23.1572,112.885,-3,Foshan ,三水监测站
+1378A,Three water clouds East China Sea,23.1886,112.863,41,Foshan ,三水云东海
+1379A,Chinese cedar garden,22.5211,113.3769,7,Zhongshan ,华柏园
+1380A,Zhang Xi,22.5497,113.3881,2,Zhongshan ,张溪
+1381A,Zima Ridge,22.5111,113.4075,9,Zhongshan ,紫马岭
+1382A,Yangtze river tourism area,22.4853,113.4411,23,Zhongshan ,长江旅游区
+1383A,North Street,22.6069,113.104,19,Jiangmen ,北街
+1384A,west area.,22.5811,113.074,20,Jiangmen ,西区
+1385A,Kwebong West,22.5311,113.0219,17,Jiangmen ,圭峰西
+1386A,East Lake (comparison point),22.5931,113.0819,8,Jiangmen ,东湖(对照点)
+1387A,East main mountain,23.05361111,113.7819444,28,Dongguan,东城主山
+1388A,Nancheng Yuanling,23.02777778,113.7461111,22,Dongguan,南城元岭
+1389A,"Itchon, Wanseong",23.06,113.7480556,10,Dongguan,莞城梨川
+1390A,Higashi Ishii,23.01277778,113.7944444,35,Dongguan,东城石井
+1391A,Nancheng Xiping,22.96583333,113.7383333,36,Dongguan,南城西平
+1392A,Jinshan Huzi station on the Henan coast,23.0528,114.4183,17,Huizhou ,河南岸金山湖子站
+1393A,Xiapu Hengjiang third road station,23.08,114.4053,12,Huizhou ,下埔横江三路子站
+1394A,Jiangbei Yun Shanxi road station,23.1142,114.4103,26,Huizhou ,江北云山西路子站
+1395A,"Chengxiu road Chuanhuzi station, Huiyang District",22.8172,114.3244,59,Huizhou ,惠阳区承修路船湖子站
+1396A,Daya Bay Management Committee sub-station,22.7422,114.5317,6,Huizhou ,大亚湾管委会子站
+1397A,Mugangzi Station,23.0706,112.427,13,Zhaoqing ,睦岗子站
+1398A,Urban neutron station,23.0528,112.471,14,Zhaoqing ,城中子站
+1399A,Keng Kouzi Station,23.1617,112.565,8,Zhaoqing ,坑口子站
+1400A,Qixing Yanzi Station,23.0786,112.4722,6,Zhaoqing ,七星岩子站
+1401A,Zhenning garden,22.7875,108.301,89,Nanning ,振宁花园
+1402A,North Lake,22.8561,108.316,78,Nanning ,北湖
+1403A,Municipal monitoring station,22.8225,108.321,88,Nanning ,市监测站
+1404A,Nature garden,22.805,108.383,130,Nanning ,大自然花园
+1405A,roselle,22.7906,108.439,63,Nanning ,仙葫
+1406A,District agricultural vocational hospital,22.8464,108.239,83,Nanning ,区农职院
+1407A,Yinghua Garden,22.735,108.328,110,Nanning ,英华嘉园
+1408A,Shajing Town street office,22.7833,108.244,91,Nanning ,沙井镇街道办
+1409A,Dongzhai Port,19.9507,110.576,3,Haikou ,东寨港
+1410A,Hainan University,20.0574,110.3232,5,Haikou ,海南大学
+1411A,Xiuying Hainan Hospital,20.0053,110.283,21,Haikou ,秀英海南医院
+1412A,Hainan Normal University,19.9969,110.338,19,Haikou ,海南师范大学
+1413A,Longhua Road environmental protection Bureau dormitory,20.0356,110.33,7,Haikou ,龙华路环保局宿舍
+1414A,Jinyun Mountain (comparison point),29.8272,106.379,907,Chongqing ,缙云山（对照点）
+1415A,Gao Jia Garden (out of service 161118),29.5736,106.46,272,Chongqing ,高家花园(停运161118)
+1416A,born,29.8264,106.424,244,Chongqing ,天生
+1417A,Two routes,29.7228,106.626,456,Chongqing ,两路
+1418A,Hogye,29.5983,106.296,298,Chongqing ,虎溪
+1419A,Nanping,29.5186,106.54,198,Chongqing ,南坪
+1420A,Tang Jiatuo,29.6219,106.65,243,Chongqing ,唐家沱
+1421A,Tea plantation,29.4892,106.634,268,Chongqing ,茶园
+1422A,Bai Shiyi,29.4822,106.364,308,Chongqing ,白市驿
+1423A,Jiefang Monument (out of service 170928),29.5642,106.571,275,Chongqing ,解放碑(停运170928)
+1424A,Yeung Ka Ping (outage 161118),29.5164,106.512,268,Chongqing ,杨家坪(停运161118)
+1425A,airport,29.7125,106.617,442,Chongqing ,空港
+1426A,Xinshan Village,29.4892,106.468,294,Chongqing ,新山村
+1427A,Regia,29.6453,106.562,279,Chongqing ,礼嘉
+1428A,The CAI family,29.709,106.452,207,Chongqing ,蔡家
+1429A,Yu Xin Street,29.389,106.513,196,Chongqing ,鱼新街
+1430A,South Spring (out of service 161119),29.4272,106.591,252,Chongqing ,南泉(停运161119)
+1431A,Golden spring and two rivers,30.72358333,103.97275,518,Chengdu ,金泉两河
+1432A,Shilidian,30.6872,104.176,492,Chengdu ,十里店
+1433A,Sanwa kiln,30.5706,104.079,481,Chengdu ,三瓦窑
+1434A,Shahe Shop,30.63,104.1113889,488,Chengdu ,沙河铺
+1435A,Liangjiaxiang,30.685,104.074,500,Chengdu ,梁家巷
+1436A,Caotang Temple (no longer in service),30.6544,104.026,500,Chengdu ,草堂寺（已停运）
+1437A,Junping Street,30.6578,104.054,498,Chengdu ,君平街
+1438A,Divine Rock Temple,31.0283,103.613,982,Chengdu ,灵岩寺
+1439A,Ma On Shan,26.6029,106.6856,1211,Guiyang ,马鞍山
+1440A,Municipal environmental protection station,26.5689,106.6971,1080,Guiyang ,市环保站
+1441A,Jianhu Road,26.6266,106.6243,1276,Guiyang ,鉴湖路
+1442A,Swallow Chong,26.6343,106.7487,1080,Guiyang ,燕子冲
+1443A,Nest of azure Clouds,26.4364,106.6554,1112,Guiyang ,碧云窝
+1444A,Zhongyuan village,26.5155,106.6948,1079,Guiyang ,中院村
+1445A,Red side gate,26.6009,106.7105,1093,Guiyang ,红边门
+1446A,Xinhua Road,26.5697,106.7164,1066,Guiyang ,新华路
+1447A,Taici Bridge,26.5495,106.6867,1101,Guiyang ,太慈桥
+1449A,Switch off,25.0124,102.743,1894,Kunming ,关上
+1450A,Chenggong New District,24.8885,102.821,1925,Kunming ,呈贡新区
+1451A,Xishan Forest Park (comparison point),24.9624,102.625,2220,Kunming ,西山森林公园(对照点)
+1452A,Longquan Town,25.0836,102.728,1895,Kunming ,龙泉镇
+1453A,Dongfeng East Road,25.0405,102.722,1895,Kunming ,东风东路
+1454A,Geumjeongsan,25.067,102.681,1902,Kunming ,金鼎山
+1455A,Biji Square,25.0359,102.638,1895,Kunming ,碧鸡广场
+1456A,Barkhor Street,29.6514,91.1319,3654,Lhasa ,八廓街
+1457A,Municipal Environmental Protection Bureau,29.6747,91.1221,3655,Lhasa ,市环保局
+1458A,District monitoring station,29.6475,91.0874,3647,Lhasa ,区监测站
+1459A,Xizang University,29.6541,91.1774,3660,Lhasa ,西藏大学
+1460A,District radiation station,29.6588,90.9798,3663,Lhasa ,区辐射站
+1461A,Lhasa Railway Station,29.6292,91.0834,3646,Lhasa ,拉萨火车站
+1462A,High voltage switch factory,34.2749,108.882,396,Xi 'an ,高压开关厂
+1463A,Xingqing community,34.2629,108.993,437,Xi 'an ,兴庆小区
+1464A,Textile ,34.2572,109.06,444,Xi 'an ,纺织城
+1465A,Kozhai,34.2324,108.94,415,Xi 'an ,小寨
+1466A,Municipal People's Stadium,34.2713,108.954,410,Xi 'an ,市人民体育场
+1467A,High-tech west District,34.2303,108.883,408,Xi 'an ,高新西区
+1468A,Economic development zone,34.3474,108.935,380,Xi 'an ,经开区
+1469A,Chang 'an District,34.1546,108.906,439,Xi 'an ,长安区
+1470A,Yanliang District,34.6575,109.2,382,Xi 'an ,阎良区
+1471A,Lintong District,34.3731,109.2186,453,Xi 'an ,临潼区
+1472A,grassland,34.378,108.869,373,Xi 'an ,草滩
+1473A,Qujiang Cultural Industry Group,34.1978,108.985,488,Xi 'an ,曲江文化产业集团
+1474A,Gwangwontan,34.3274,109.043,378,Xi 'an ,广运潭
+1475A,Staff Hospital (Closed 20181115),36.0812,103.7222,1526,Lanzhou ,职工医院（20181115停运）
+1476A,Lanlian Hotel,36.1031,103.631,1556,Lanzhou ,兰炼宾馆
+1477A,Yuzhong LAN University Campus (comparison point),35.94,104.148,1812,Lanzhou ,榆中兰大校区(对照点)
+1478A,Biologics institute,36.0725,103.841,1527,Lanzhou ,生物制品所
+1479A,Railway design institute,36.0464,103.831,1532,Lanzhou ,铁路设计院
+1480A, environmental monitoring station,36.6428,101.748,2251,Xining ,市环境监测站
+1481A,Provincial medical warehouse,36.6922,101.749,2294,Xining ,省医药仓库
+1482A,Silu Hospital,36.5819,101.834,2214,Xining ,四陆医院
+1483A,The fifth water Works,36.6867,101.524,2388,Xining ,第五水厂
+1484A,Helan Mountain Malian mouth (comparison point),38.6016,105.9512,1320,Yinchuan ,贺兰山马莲口(对照点)
+1485A,Silver Lake Lane (No service 160703),38.4744,106.2682,1111,Yinchuan ,银湖巷(停运160703)
+1486A,Ning 'an Street (closed 160615),38.4536,106.217,1111,Yinchuan ,宁安大街(停运160615)
+1487A,Ninghua Living Area (out of service 160703),38.4858,106.0715,1125,Yinchuan ,宁化生活区(停运160703)
+1488A,Helan Mountain East Road,38.4975,106.2328,1110,Yinchuan ,贺兰山东路
+1489A,Xueyuan Road,38.5036,106.1358,1115,Yinchuan ,学院路
+1490A,Monitoring station,43.8303,87.5801,816,Urumqi ,监测站
+1491A,Toll booth,43.768,87.6046,921,Urumqi ,收费所
+1492A,Xinjiang Academy of Agricultural Sciences farm,43.9469,87.4754,587,Urumqi ,新疆农科院农场
+1493A,Railway administration,43.8711,87.5525,744,Urumqi ,铁路局
+1494A,Thirty-one secondary,43.831,87.6432,864,Urumqi ,三十一中学
+1495A,Seventy-fourth secondary,43.8729,87.4171,757,Urumqi ,七十四中学
+1496A,Midong Environmental Protection Bureau,43.962,87.6444,599,Urumqi ,米东区环保局
+1508A,Slab pond,27.8614,112.9433,55,Xiangtan ,板塘
+1511A,Municipal monitoring station,27.8403,112.9118,48,Xiangtan ,市监测站
+1512A,River foot,27.8728,112.8937,49,Xiangtan ,江麓
+1513A,Yuetang,27.8159,112.9227,51,Xiangtan ,岳塘
+1514A,HKUST,27.9119,112.9074,68,Xiangtan ,科大
+1515A,Tiantai Mountain Resort,27.8244,113.135,50,Zhuzhou ,天台山庄
+1518A,Chu-ye Hospital,27.8867,113.095,63,Zhuzhou ,株冶医院
+1519A, No. 4 Middle schools,27.8667,113.167,62,Zhuzhou ,市四中
+1520A,Railway station,27.8381,113.143,35,Zhuzhou ,火车站
+1524A,Municipal monitoring station,27.8528,113.13,29,Zhuzhou ,市监测站
+1552A,Tongmuling,26.3003,106.805,1449,Guiyang ,桐木岭
+1559A,Dajing Scenic Area,27.8336,113.251,119,Zhuzhou ,大京风景区
+1562A,Zhaoshan Mountain,27.9153,113.0048,63,Xiangtan ,昭山
+1564A,Shaoshan (a county in Henan Province),27.9164,112.4876,120,Xiangtan ,韶山
+1585A, environmental monitoring station,40.6532,109.8756,1064,Baotou ,市环境监测站
+1586A,Pak Pak Building (closed 200107),40.6575,109.8104,1072,Baotou ,包百大楼(停用200107)
+1587A,East River  Environmental Department,40.5905,110.0067,1025,Baotou ,东河城环局
+1588A,Qingshan Hotel,40.6821,109.8538,1072,Baotou ,青山宾馆
+1589A,Huilong Logistics,40.6288,109.8654,1054,Baotou ,惠龙物流
+1590A,East River Honglong Bay,40.5546,110.0377,1005,Baotou ,东河鸿龙湾
+1591A,Complex building,39.8129,110.0023,1456,Ordos ,综合楼
+1592A,Bayinmunk Forest Farm office,39.8261,109.9486,1464,Ordos ,巴音孟克林场办事处
+1593A,Kangzeyuan,39.5986,109.7736,1303,Ordos ,康泽苑
+1594A,Huatai Motor ,39.5989,109.8119,1270,Ordos ,华泰汽车城
+1595A,Olin Garden,39.7884,109.9734,1445,Ordos ,奥林花园
+1596A,Xuefu South Road,40.6592,122.2414,2,Yingkou ,学府南路
+1597A,Daqing Road,40.7094,122.2703,11,Yingkou ,大庆路
+1598A,West Jinghu Road,40.6511,122.215,2,Yingkou ,镜湖西路
+1599A,West Fort,40.6789,122.1658,288,Yingkou ,西炮台
+1600A,Jiangwan East Road,40.0625,124.3303,2,Dandong ,江湾东路
+1601A,Linjiang Back Street,40.1503,124.4256,10,Dandong ,临江后街
+1602A,Yuanbao Mountain,40.1461,124.3933,24,Dandong ,元宝山
+1603A,Democracy bridge,40.1194,124.3678,11,Dandong ,民主桥
+1604A,Development zone,41.1556,122.0247,3,Panjin ,开发区
+1605A,Xinglong Terrace,41.0903,122.0539,2,Panjin ,兴隆台
+1606A,New street,41.1042,121.835,3,Panjin ,新生街道
+1607A,Longgang District,40.7136,120.9092,27,Huludao ,龙港区
+1608A,Chemie Street,40.7514,120.8392,16,Huludao ,化工街
+1609A,New district,40.715,120.8478,18,Huludao ,新区
+1610A,Dongcheng District,40.7736,120.8631,15,Huludao ,东城区
+1611A,Tushan street,24.9117,118.5819,16,Quanzhou ,涂山街
+1612A,Tsin Tou Po,24.8978,118.5972,10,Quanzhou ,津头埔
+1613A,Van An,24.9424,118.6663,11,Quanzhou ,万安
+1614A,Qingyuan Mountain,24.9617,118.6108,335,Quanzhou ,清源山
+1615A,Plant Oil Plant (outage 170603),36.205,117.685,197,Jinan ,植物油厂(停运170603)
+1616A,Technical college,36.2289,117.6789,200,Jinan ,技术学院
+1617A,Sunrise International,36.2081,117.715,201,Jinan ,日升国际
+1618A,Yihe community,35.0573,118.3418,76,Linyi ,沂河小区
+1619A,Lunan Pharmaceutical Factory,35.0583,118.295,69,Linyi ,鲁南制药厂
+1620A,Xinguang woolen Mill,34.9817,118.2764,67,Linyi ,新光毛纺厂
+1621A,East River Insurance Company,35.0896,118.4023,68,Linyi ,河东保险公司
+1622A,Children's playground,37.4664,116.3061,24,Dezhou ,儿童乐园
+1623A,Dark horse Group,37.4504,116.2729,25,Dezhou ,黑马集团
+1624A,Supervision station,37.4489,116.3189,22,Dezhou ,监理站
+1625A,District government,36.4372,115.9848,34,Liaocheng ,区政府
+1626A,Second light machine (no longer in service),36.4568,115.9968,36,Liaocheng ,二轻机（已停运）
+1627A,Party School (Closed 20190222),36.4796,115.9835,36,Liaocheng ,党校(20190222停运)
+1628A,Municipal Environmental Protection Bureau,37.3803,118.0062,13,Binzhou ,市环保局
+1629A,Second water works,37.3617,118.0018,12,Binzhou ,第二水厂
+1630A,North Middle New school,37.393,117.9776,8,Binzhou ,北中新校
+1631A,People's Park,36.8088,118.0482,42,Zibo ,人民公园
+1632A,Dongfeng Chemical Plant,36.838,118.0448,34,Zibo ,东风化工厂
+1633A,Shuangshan,36.497,117.8477,211,Zibo ,双山
+1634A,Meteorological station,36.6377,117.9544,89,Zibo ,气象站
+1635A,Putian Garden,36.8198,118.3092,64,Zibo ,莆田园
+1636A,Sanjin Group,36.8041,117.8512,53,Zibo ,三金集团
+1637A,Central District Government,34.864,117.5564,74,Zaozhuang ,市中区政府
+1638A,Xuecheng Environmental Protection Bureau,34.7837,117.2852,61,Zaozhuang ,薛城环保局
+1639A,Yicheng district government,34.7745,117.5852,55,Zaozhuang ,峄城区政府
+1640A,Taierzhuang district Environmental Protection Bureau,34.5667,117.732,24,Zaozhuang ,台儿庄区环保局
+1641A,Shanting district Environmental Protection Bureau,35.0992,117.4518,164,Zaozhuang ,山亭区环保局
+1642A,Development zone,37.5639,121.2514,6,Yantai ,开发区
+1643A,Bearing plant,37.5433,121.3719,18,Yantai ,轴承厂
+1644A,Xijiao chemical Station,37.5436,121.3181,12,Yantai ,西郊化工站
+1645A,Laishan Environmental Protection Bureau,37.4822,121.4478,8,Yantai ,莱山环保局
+1646A,Fukuyama Environmental Protection Bureau,37.4967,121.2611,10,Yantai ,福山环保局
+1647A,Muping Environmental Protection Bureau (shutdown 170519),37.3872,121.5953,11,Yantai ,牟平环保局(停运170519)
+1648A,Arbitration commission,36.7019,119.12,30,Weifang ,仲裁委
+1649A,Liu Jiayuan,36.7306,119.0919,24,Weifang ,刘家园
+1650A,Environmental Protection Agency,36.7008,119.1425,30,Weifang ,环保局
+1651A,Gongda company,36.6572,119.1614,41,Weifang ,共达公司
+1652A,Hanting monitoring station,36.7731,119.1939,18,Weifang ,寒亭监测站
+1653A,Torch ,35.428,116.6305,37,Jining ,火炬城
+1654A,Monitoring Station (outage 200103),35.4144,116.5856,42,Jining ,监测站(停运200103)
+1655A,Electrochemical plant,35.4039,116.5546,39,Jining ,电化厂
+1656A,Monitoring station,36.1942,117.1436,141,Tai 'an ,监测站
+1657A,Population school,36.1942,117.0881,156,Tai 'an ,人口学校
+1658A,Electric power school,36.1758,117.1081,138,Tai 'an ,电力学校
+1659A,Monitoring station,35.4178,119.4641,12,Rizhao ,监测站
+1660A, hall square,35.4234,119.5198,40,Rizhao ,市政府广场
+1661A,Port authority,35.3962,119.54,16,Rizhao ,港务局
+1662A,Huaxia Technical School,37.4294,122.1206,38,Weihai ,华夏技校
+1663A,Shandong University,37.5325,122.0508,13,Weihai ,山大分校
+1664A,Municipal monitoring station,37.5072,122.1067,47,Weihai ,市监测站
+1665A,Xicheng Sunshine environmental protection Company,37.4658,118.5019,7,Dongying ,西城阳光环保公司
+1666A,Municipal Environmental Protection Bureau,37.4314,118.6672,3,Dongying ,市环保局
+1667A,Gengjing Village,37.4442,118.5857,4,Dongying ,耿井村
+1668A,Guangnan reservoir,37.3781,118.8192,5,Dongying ,广南水库
+1669A,Municipal No. 8 Middle School,24.769519,113.586606,68,Shaoguan ,市八中
+1670A,Bihu Villa,24.81119444,113.5593889,76,Shaoguan ,碧湖山庄
+1671A,Garden department,24.795928,113.598061,70,Shaoguan ,园林处
+1672A,Shaoguan University,24.77908333,113.6734722,111,Shaoguan ,韶关学院
+1673A,Qujiang monitoring Station,24.68636111,113.5970833,73,Shaoguan ,曲江监测站
+1674A,Kimpyeongja Station,23.3667,116.6794,11,Shantou ,金平子站
+1675A,Longhuzi Station,23.3633,116.7244,5,Shantou ,龙湖子站
+1676A,Haojiangzi Station,23.2775,116.7258,10,Shantou ,濠江子站
+1677A,Chenghaizi Station,23.4714,116.7519,6,Shantou ,澄海子站
+1678A,Chaoyangzi Station,23.2539,116.6092,15,Shantou ,潮阳子站
+1679A,Chaonanzi Station,23.2536,116.4019,3,Shantou ,潮南子站
+1680A,Zhanjiang Film Theater,21.2706,110.3539,28,Zhanjiang ,湛江影剧院
+1681A, environmental monitoring station,21.2228,110.3928,33,Zhanjiang ,市环境监测站
+1682A,Environmental protection bureau dormitory,21.1997,110.4019,-1,Zhanjiang ,环保局宿舍
+1683A,Xiashan swimming Pool,21.2028,110.4111,-1,Zhanjiang ,霞山游泳场
+1684A,Mazhang District Environmental Protection Bureau,21.2679,110.3316,41,Zhanjiang ,麻章区环保局
+1685A,Potou district Environmental Protection Bureau,21.2567,110.4558,13,Zhanjiang ,坡头区环保局
+1686A,Municipal Environmental Protection Bureau Maogang branch,21.4689,111.0286,9,Maoming ,市环保局茂港分局
+1687A,MAO petrochemical seven small,21.6533,110.9294,22,Maoming ,茂石化七小
+1688A,Jiankang Road,21.6669,110.9067,22,Maoming ,健康路
+1689A,Gao Ling,21.6828,110.8592,17,Maoming ,高岭
+1690A,Jiayin University,24.3289,116.1278,94,Meizhou ,嘉应大学
+1691A,Meixian New Town,24.2719,116.0797,86,Meizhou ,梅县新城
+1692A,Environmental monitoring center,24.2654,116.1248,87,Meizhou ,环境监控中心
+1693A,Municipal Environmental Protection Bureau,22.775,115.3653,4,Shanwei ,市环保局
+1694A,Municipal government,22.7898,115.3706,35,Shanwei ,市政府
+1695A,Xincheng secondary,22.7925,115.3622,2,Shanwei ,新城中学
+1696A,Genishi,23.7569,114.6778,45,Heyuan ,源西
+1697A,Dongpu District,23.7586,114.6944,44,Heyuan ,东埔
+1698A,Old town,23.7233,114.6892,48,Heyuan ,老城
+1699A,Yuanyang Lake,21.8586,111.9786,12,Yangjiang ,鸳鸯湖
+1700A,Nan 'en Road,21.8536,111.9508,7,Yangjiang ,南恩路
+1701A,Manantong,21.865,111.9494,6,Yangjiang ,马南垌
+1702A,Green building,23.6936,113.0425,18,Qingyuan ,环保大楼
+1703A,Fengcheng Street Office,23.7106,113.0208,22,Qingyuan ,凤城街办
+1704A,High-tech zone,23.6272,113.0622,13,Qingyuan ,高新区
+1705A,Xiyuan Road,23.6714,116.6339,19,Chaozhou ,西园路
+1706A,Archives office,23.6706,116.6447,17,Chaozhou ,档案局
+1707A,Municipal corporation,23.6531,116.6175,16,Chaozhou ,市政公司
+1708A,Newly emerging,23.5353,116.3697,5,Jieyang ,新兴
+1709A,Cima,23.5486,116.3242,7,Jieyang ,西马
+1710A,Dongxing,23.5739,116.3594,11,Jieyang ,东兴
+1711A,Fishing lake,23.5292,116.4094,4,Jieyang ,渔湖
+1712A,New  Hall,22.9169,112.0392,74,Yunfu ,新市府
+1713A,Municipal monitoring station,22.9394,112.0369,101,Yunfu ,市监测站
+1714A,shepherd,22.9539,112.0539,64,Yunfu ,牧羊
+1715A,Dongfeng reservoir,24.3694,102.5778,1696,Yuxi ,东风水库
+1716A,Municipal monitoring station,24.3603,102.5433,1634,Yuxi ,市监测站
+1717A,Dayingjie Town,24.3411,102.4964,1627,Yuxi ,大营街镇
+1718A,Municipal Meteorological Bureau,35.248889,115.42277,53,Heze ,市气象局
+1719A,Municipal political Consultative Conference,35.2375,115.474722,55,Heze ,市政协
+1720A,Heze University,35.27,115.455,54,Heze ,菏泽学院
+1721A,Fruit farm,40.1097,113.3819,1059,Datong ,果树场(对照点)
+1722A,Red Flag Square (out of service 160601),40.0958,113.2858,1058,Datong ,红旗广场(停运160601)
+1723A,Yungang Hotel,40.0758,113.2994,1044,Datong ,云冈宾馆
+1724A,Datong University,40.0917,113.3444,1071,Datong ,大同大学
+1725A,Home village,40.1269,113.2661,1098,Datong ,安家小村
+1726A,School of education,40.0844,113.2711,1060,Datong ,教育学院
+1727A,Qinghua Railway Station,36.1542,113.1097,937,Changzhi ,清华站
+1728A,Monitoring station,36.1939,113.0972,920,Changzhi ,监测站
+1729A,orit,36.1961,113.1466,940,Changzhi ,澳瑞特
+1730A,Audit bureau,36.2126,113.0886,921,Changzhi ,审计局
+1731A,Changzhi eighth middle School,36.1855,113.0844444,923,Changzhi ,长治八中
+1732A,Municipal monitoring Station (out of service 161122),36.0978,111.5125,432,Linfen ,市监测站(停运161122)
+1733A,Lingang Hospital,36.0783,111.5531,462,Linfen ,临钢医院
+1734A,Technical school,36.0714,111.5028,450,Linfen ,技工学校
+1735A,Industrial and commercial school,36.0822,111.5169,453,Linfen ,工商学校
+1736A,Municipal party committee,36.0875,111.5025,441,Linfen ,市委
+1737A,Yaomiao Town (out of service 191230),36.0417,111.4917,447,Linfen ,尧庙镇(停运191230)
+1738A,downtown,37.8564,113.5753,671,Yangquan ,市中心
+1739A,racefish,37.8792,113.4922,764,Yangquan ,赛鱼
+1740A,Nanzhuang,37.8561,113.5922,659,Yangquan ,南庄
+1741A,Aries Villa,37.8531,113.6292,668,Yangquan ,白羊墅
+1742A,flat,37.8694,113.5689,673,Yangquan ,平坦
+1743A,Dayang Spring,37.85,113.5158,1017,Yangquan ,大阳泉
+1744A,Matsuyama Isaka,42.2814,118.9233,567,Chifeng ,松山一中
+1745A,Hada Street,42.2725,118.9572,569,Chifeng ,哈达街
+1746A,Tianyi road,42.2556,118.8789,589,Chifeng ,天义路
+1747A,Songsan Road,42.0317,119.2719,522,Chifeng ,松山路
+1748A,Shengoji,41.1196,123.044,107,Anshan ,深沟寺
+1749A,Sun ,41.0931,123.011,101,Anshan ,太阳城
+1750A,Peace and tranquility,41.1442,123.0485,42,Anshan ,太平
+1751A,Tiexi Third Street,41.0971,122.9642,32,Anshan ,铁西三道街
+1752A,Tiexi Industrial Park,41.0833,122.9481,30,Anshan ,铁西工业园区
+1753A,Mingda New District,41.0831,123.0156,98,Anshan ,明达新区
+1754A,Qianshan Mountains,41.0228,123.1289,254,Anshan ,千山
+1755A,Wanghua District,41.8469,123.81,76,Fushun ,望花区
+1756A,Shuncheng District,41.8828,123.9169,86,Fushun ,顺城区
+1757A,Dongzhou District,41.8625,124.0383,97,Fushun ,东洲区
+1758A,Xinfu District,41.8594,123.9,90,Fushun ,新抚区
+1759A,Dahuofang Reservoir,41.8864,124.0878,102,Fushun ,大伙房水库
+1760A,Shenfu New ,41.8417,123.7117,61,Fushun ,沈抚新城
+1761A,Dayu,41.3283,123.8436,214,Benxi ,大峪
+1762A,Xi Lake,41.3369,123.7528,143,Benxi ,溪湖
+1763A,Caitun,41.3047,123.7308,106,Benxi ,彩屯
+1764A,Dongming Dynasty,41.2864,123.7669,220,Benxi ,东明
+1765A,Sinlitun,41.2692,123.7989,218,Benxi ,新立屯
+1766A,Weining ,41.3472,123.8142,122,Benxi ,威宁
+1767A,South Mountain,41.0781,121.0986,22,Jinzhou ,南山
+1768A,Development zone,40.8333,121.045,19,Jinzhou ,开发区
+1769A,Baicu Street,41.1219,121.2008,14,Jinzhou ,百股街道
+1770A,Cheonan Street,41.1222,121.1178,30,Jinzhou ,天安街道
+1771A,North Lake Park,41.1386,121.1303,54,Jinzhou ,北湖公园
+1772A,Hadskaya Guba,43.8875,126.555,194,Jilin ,哈达湾
+1773A,East bureau,43.8358,126.5844,186,Jilin ,东局子
+1774A,Institute of Electric power,43.8228,126.4978,200,Jilin ,电力学院
+1775A,North of the river,43.8947,126.5786,180,Jilin ,江北
+1776A,Jiangnan Park,43.8256,126.55,195,Jilin ,江南公园
+1778A,full,43.7256,126.6772,205,Jilin ,丰满
+1779A,Residential area,47.3636,123.9305,149,Qiqihar ,安居小区
+1780A,Central square,47.3386,123.9305,149,Qiqihar ,中心广场
+1781A,Agriculture and animal husbandry vehicle factory,47.3227,123.9483,148,Qiqihar ,农牧车辆厂
+1782A,Fuku Environmental Protection Bureau (shut down 191231),47.203,123.6261,153,Qiqihar ,富区环保局(停运191231)
+1783A, environmental monitoring station,47.2988,123.945,147,Qiqihar ,市环境监测站
+1784A,Green building,44.561,129.61,236,Mudanjiang ,环保大楼　
+1785A,Cultural square,44.5782,129.6115,239,Mudanjiang ,文化广场　
+1786A,The first Hospital,44.5952,129.5902,245,Mudanjiang ,第一医院
+1787A,Locomotive factory,44.6104,129.6459,233,Mudanjiang ,机车工厂
+1788A,No. 1 High School,44.5462,129.6386,235,Mudanjiang ,第一中学
+1789A,Datong District,46.0347,124.8354,133,Daqing ,大同区
+1790A,Longfeng District,46.528,125.112,144,Daqing ,龙凤区
+1791A,Honggang District,46.3991,124.8847,143,Daqing ,红岗区
+1792A,Sartu District,46.5776,125.1386,143,Daqing ,萨尔图区
+1793A,Let Hu Road area,46.6219,124.8648,148,Daqing ,让胡路区
+1794A,Monitoring station,31.3508,118.3528,17,Wuhu ,监测站
+1795A,Science and innovation center,31.4189,118.37,16,Wuhu ,科创中心
+1796A,Water works,31.3139,118.3667,12,Wuhu ,四水厂
+1797A,Ji Min Hospital (comparison point),31.3839,118.4022,11,Wuhu ,济民医院(对照点)
+1798A,Four small Hudong Road,31.6861,118.5058,13,Maanshan ,湖东路四小
+1799A,Tianping garment,31.6411,118.4828,6,Maanshan ,天平服装
+1800A,Ci Hu two small,31.7506,118.5106,7,Maanshan ,慈湖二小
+1801A,Masteel power plant,31.6928,118.48,12,Maanshan ,马钢动力厂
+1802A,Municipal education base,31.7133,118.6439,40,Maanshan ,市教育基地
+1803A,Shili,29.6816,115.9872,28,Jiujiang ,十里
+1804A,Maoshantou,29.7048,115.9581,15,Jiujiang ,茅山头
+1805A,Western Garden,29.7292,115.988,30,Jiujiang ,西园
+1806A,The 5727 Factory,29.6535,116.0174,108,Jiujiang ,五七二七厂
+1807A,Institute of water Sciences,29.6926,116.0628,16,Jiujiang ,水科所
+1808A,Integrated industrial park,29.6039,115.9114,58,Jiujiang ,综合工业园
+1809A,Petrochemical complex,29.7534,116.0726,13,Jiujiang ,石化总厂
+1810A,Lushan Meteorological Observatory (comparison point),29.5867,115.9936,1175,Jiujiang ,庐山气象台(对照点)
+1811A,Citic Second Elementary School,34.6692,112.3628,172,Luoyang ,中信二小
+1812A,Municipal Party school,34.6511,112.3939,161,Luoyang ,市委党校
+1813A,Municipal monitoring station,34.67,112.4333,155,Luoyang ,市监测站
+1814A,Yu West Hotel,34.6869,112.4664,150,Luoyang ,豫西宾馆
+1815A,Henan Forestry School,34.6869,112.4831,138,Luoyang ,河南林校
+1816A,Administrative committee of development zone,34.6231,112.3844,175,Luoyang ,开发区管委会
+1817A,New office area of Municipal Committee,34.6258,112.4275,144,Luoyang ,市委新办公区
+1818A,Cotton research institute,36.061,114.483,66,Anyang ,棉研所(对照点)
+1819A,Hongmiao Street,36.086,114.32,83,Anyang ,红庙街
+1820A,Ginkgo community,36.087,114.358,73,Anyang ,银杏小区
+1821A,Environmental Protection Agency (outage 171207),36.0883,114.3931,69,Anyang ,环保局(停运171207)
+1822A,Iron Buddha Temple (closed 200115),36.11,114.286,84,Anyang ,铁佛寺(停运200115)
+1823A,Heda First Affiliated Hospital (out of service 180109),34.8022,114.3406,74,Kaifeng ,河大一附院(停运180109)
+1824A,Cancer hospital,34.7781,114.3389,74,Kaifeng ,肿瘤医院
+1825A,Maternal and Child Health Centre (Closed 20190322),34.7975,114.3733,76,Kaifeng ,妇幼保健院(20190322停运)
+1826A,Century Star kindergarten,34.7967,114.2886,72,Kaifeng ,世纪星幼儿园
+1827A,Municipal monitoring station,35.235,113.261,111,Jiaozuo ,市监测站
+1828A,Municipal Environmental Protection Bureau,35.213,113.227,101,Jiaozuo ,市环保局
+1829A,High-tech zone government,35.1764,113.2464,94,Jiaozuo ,高新区政府
+1830A,Film and Television  (comparison point),35.259,113.1992,197,Jiaozuo ,影视城(对照点)
+1831A,High voltage Switch Factory (20190304 out of service),33.7214,113.3064,87,Pingdingshan ,高压开关厂(20190304停运)
+1832A,Xinhua Hotel,33.721,113.322,85,Pingdingshan ,新华旅馆
+1833A,Planning and design institute,33.739,113.292,91,Pingdingshan ,规划设计院
+1834A,Pingdingshan Institute of Technology,33.737,113.182,102,Pingdingshan ,平顶山工学院
+1835A,Municipal government,34.7772,111.1928,361,Sanmenxia ,市政府
+1836A,Development zone,34.794,111.158,341,Sanmenxia ,开发区
+1837A,Double seal,34.7917,111.1858,399,Sanmenxia ,二  印
+1838A,Scenic spot,34.7997,111.1489,344,Sanmenxia ,风景区
+1839A,four-zero-three,30.7157,111.3009,124,Yichang ,四零三
+1840A,White Dragon Ridge,30.698,111.2992,64,Yichang ,白龙岗
+1841A,Wujia Gang,30.6463,111.3549,65,Yichang ,伍家岗
+1842A,Point military area command,30.696,111.268,66,Yichang ,点军区
+1843A,Yiling District,30.7819,111.3296,96,Yichang ,夷陵区
+1844A,Municipal library,30.3175,112.2551,30,Jingzhou ,市图书馆
+1845A,Municipal Party school,30.3515,112.2068,40,Jingzhou ,市委党校
+1846A,Kerong Environmental Protection,30.3055,112.2887,32,Jingzhou ,科融环保
+1847A,South Lake scenic spot,29.3578,113.1094,47,Yueyang ,南湖风景区
+1848A,Chenglingji,29.4251,113.1493,41,Yueyang ,城陵矶
+1849A,Development zone,29.3678,113.1772,38,Yueyang ,开发区
+1850A,Yunxi District,29.4758,113.2621,50,Yueyang ,云溪区
+1851A,Junshan District,29.4402,112.9943,28,Yueyang ,君山区
+1852A,Jinfeng reservoir,29.355,113.2117,54,Yueyang ,金凤水库
+1853A,Municipal monitoring station,29.0244,111.7044,35,Changde ,市监测站
+1854A,Municipal No. 2 Middle School,28.9703,111.6975,49,Changde ,市二中
+1855A,Dingcheng district Environmental Protection Bureau,29.0239,111.6753,41,Changde ,鼎城区环保局
+1856A,Municipal Bureau of Technical Supervision,29.0381,111.6794,38,Changde ,市技术监督局
+1857A,Baekhesan,29.1456,111.7158,117,Changde ,白鹤山
+1858A,Yongding New District,29.1389,110.48,215,Zhangjiajie ,永定新区
+1859A,Electric power bureau,29.1242,110.4697,160,Zhangjiajie ,电业局
+1860A,Weiyang Road,29.3547,110.5594,512,Zhangjiajie ,未央路
+1861A,Yuan Jiajie,29.315,110.4417,869,Zhangjiajie ,袁家界
+1862A,University of Electronic Science and Technology Yaoshan campus,25.3167,110.4144,173,Guilin ,电子科大尧山校区
+1863A,Monitoring station,25.2697,110.2819,151,Guilin ,监测站
+1864A,Longyin Road primary School,25.2708,110.3089,167,Guilin ,龙隐路小学
+1865A,No. 8 middle school,25.2178,110.2869,156,Guilin ,八中
+1866A,Oxweiling Reservoir,21.5958,109.2256,30,Beihai ,牛尾岭水库
+1867A,Beach park,21.4086,109.1436,-6,Beihai ,海滩公园
+1868A,Xinshi Environmental Protection Bureau,21.4661,109.0981,17,Beihai ,新市环保局
+1869A,Beihai Industrial Park,21.5233,109.1778,15,Beihai ,北海工业园
+1870A,Liudong primary,24.3898,109.4883,132,Liuzhou ,柳东小学
+1871A,Environmental monitoring station,24.3304,109.4108,99,Liuzhou ,环保监测站
+1872A,Hexi Water Works,24.3406,109.3886,94,Liuzhou ,河西水厂
+1873A, No. 4 Middle schools,24.299,109.4221,98,Liuzhou ,市四中
+1874A,Municipal No. 9 middle school,24.3663,109.3957,90,Liuzhou ,市九中
+1875A,Gujeongsan,24.3158,109.4839,90,Liuzhou ,古亭山
+1876A,Hedongzi Station,18.2489,109.5078,14,Sanya ,河东子站
+1877A,Hexizi Station,18.2681,109.4964,7,Sanya ,河西子站
+1878A,Fule Mountain,31.4747,104.7778,520,Mianyang ,富乐山
+1879A,Municipal people's congress,31.4539,104.7536,461,Mianyang ,市人大
+1880A,High-tech zone water company,31.4656,104.6717,479,Mianyang ,高新区自来水公司
+1881A,Third water works,31.5072,104.7283,464,Mianyang ,三水厂
+1882A,Shek Ma secondary,28.8194,104.5969,298,Yibin ,石马中学
+1883A,Municipal party committee,28.76611,104.6225,258,Yibin ,市委
+1884A,Yibin No. 4 Middle School,28.7867,104.6061,320,Yibin ,宜宾四中
+1885A,Municipal government,28.76389,104.6417,319,Yibin ,市政府
+1886A,Golden mouth,28.71583,104.5761,302,Yibin ,黄金嘴
+1887A,Sha ping secondary,28.7989,104.6789,307,Yibin ,沙坪中学
+1888A,Nongnong pyong,26.57098,101.68912,1223,Panzhihua ,弄弄坪
+1889A,River gate,26.5928,101.5769,1083,Panzhihua ,河门口
+1890A,Bingcho Ridge,26.585,101.7169,1140,Panzhihua ,炳草岗
+1891A,Benevolence and harmony,26.5017,101.7453,1256,Panzhihua ,仁和
+1893A,The Nine Lions Mountain,28.9583,105.4306,296,Luzhou ,九狮山
+1894A,Small market on the pier,28.9026,105.4436,225,Luzhou ,小市上码头
+1895A,Lantian Constitutional Bridge,28.8558,105.4322,271,Luzhou ,兰田宪桥
+1896A, environmental supervision station,28.8833,105.4322,332,Luzhou ,市环监站
+1897A,Datangsan,29.3628,104.7547,306,Zigong ,大塘山
+1898A,Yanma Road,29.3586,104.7214,352,Zigong ,盐马路
+1899A,Sandalwood Street,29.3564,104.7747,288,Zigong ,檀木林街
+1900A,Chunhua Road,29.3411,104.7692,304,Zigong ,春华路
+1901A,Dongshan Park,31.1208,104.4219,527,Deyang ,东山公园
+1902A,West district,31.1333,104.3883,499,Deyang ,西小区
+1903A,Municipal procuratorate,31.1167,104.4053,484,Deyang ,市检察院
+1904A,Refractory materials factory,31.1108,104.3539,488,Deyang ,耐火材料厂
+1905A,Xishan Scenic spot,30.8064,106.056,424,Nanchong ,西山风景区
+1906A,Nanchong Municipal Committee,30.8023,106.0789,280,Nanchong ,南充市委
+1907A,Nanchong oil refinery,30.8217,106.1031,292,Nanchong ,南充炼油厂
+1908A,Gao Ping district monitoring station,30.7856,106.1064,288,Nanchong ,高坪区监测站
+1909A,Jialing District Environmental Protection Bureau,30.7636,106.0642,293,Nanchong ,嘉陵区环保局
+1910A, environmental monitoring station,30.8388,106.1087,330,Nanchong ,市环境监测站
+1911A,t-slot,27.6869,106.9222,848,Zunyi ,丁字口
+1912A,Mount Phoenix,27.7019,106.9242,1002,Zunyi ,凤凰山
+1913A,Chungchong,27.6486,106.8906,935,Zunyi ,忠庄
+1914A,Zhoushui Bridge,27.6506,106.9231,827,Zunyi ,舟水桥
+1915A,Dry field dam,27.72,106.9178,895,Zunyi ,干田坝
+1916A,Environmental monitoring station,25.5035,103.7897,1896,Qujing ,环境监测站
+1917A,Tobacco factory office area,25.5364,103.8,1868,Qujing ,烟厂办公区
+1918A,Weather station (comparison point),34.3956,108.7197,462,Xianyang ,气象站(对照点)
+1919A,Zhonghua community,34.3181,108.6761,391,Xianyang ,中华小区
+1920A,Normal college,34.3617,108.7233,414,Xianyang ,师范学院
+1921A,College of Traditional Chinese Medicine,34.3164,108.7369,383,Xianyang ,中医学院
+1922A,Party school,35.0994,109.0656,880,Tongchuan ,党校
+1923A,Wangyi District Government,35.0697,109.0697,831,Tongchuan ,王益区政府
+1924A,New district management committee,34.9058,108.9344,734,Tongchuan ,新区管委会
+1925A,New District Laneige Corporation,34.8731,108.9589,691,Tongchuan ,新区兰芝公司
+1926A,Jujube orchard,36.6275,109.4131,1121,Yan 'an ,枣园
+1927A,Yanda Hospital attached,36.6028,109.4761,964,Yan 'an ,延大医附院
+1928A,Municipal monitoring station,36.5767,109.4824,991,Yan 'an ,市监测站
+1929A,Baimi Avenue,36.6106,109.5056,973,Yan 'an ,百米大道
+1930A,Miaogou Village,34.3708,107.1586,589,Baoji ,庙沟村
+1931A,Zhuyuangou,34.3017,107.0708,804,Baoji ,竹园沟
+1932A,Sanriku Hospital,34.3672,107.1906,576,Baoji ,三陆医院
+1933A,Monitoring station,34.3547,107.1431,597,Baoji ,监测站
+1934A,Technical school,34.3739,107.1186,596,Baoji ,技工学校
+1935A,Chencang Environmental Protection Bureau,34.3528,107.3906,538,Baoji ,陈仓环保局
+1936A,College of arts and Sciences,34.3497,107.2058,573,Baoji ,文理学院
+1937A,Sandi primary,34.3622,107.2386,563,Baoji ,三迪小学
+1938A,Agricultural science institute,34.5101,109.5293,341,Weinan ,农科所
+1939A,Daily newspaper office,34.5004,109.5049,359,Weinan ,日报社
+1940A,gymnasium,34.493,109.4636,361,Weinan ,体育馆
+1941A,High-tech small,34.5021,109.4266,353,Weinan ,高新一小
+1942A,Municipal Science and Technology Commission (outage 180727),38.5247,102.1878,1522,Jinchang ,市科委(停运180727)
+1943A,Sincheonwon,38.5339,102.1725,1510,Jinchang ,新川苑
+1944A,Two corporate moves,38.5061,102.1708,1552,Jinchang ,公司二招
+1945A,Weather bureau,39.7711,98.2908,1664,Jiayuguan ,气象局
+1947A,Sand Lake tourist area,38.817,106.3394,1100,Shizuishan ,沙湖旅游区
+1948A,Dawukou Yellow River East Street,39.0153,106.3717,1113,Shizuishan ,大武口黄河东街
+1949A,Huinong South Street,39.2282,106.7704,1093,Shizuishan ,惠农南大街
+1950A,"Huixin Street, Red fruit Town",39.1292,106.7096,1095,Shizuishan ,红果子镇惠新街
+1951A,Long March New Village,45.6033,84.8861,391,Karamay ,长征新村
+1952A,Nanlin community,45.5828,84.8897,350,Karamay ,南林小区
+1953A,White Alkali Beach area,45.6886,85.1186,285,Karamay ,白碱滩区
+1954A,Dushanzi District,44.3336,84.8983,736,Karamay ,独山子区
+1955A,Wuerhe District business building,46.0872,85.6931,305,Karamay ,乌尔禾区商贸楼
+1956A,Peacock park,41.7511,86.1461,942,Korla ,孔雀公园
+1957A,Cotton mill,41.7192,86.2022,953,Korla ,棉纺厂
+1958A,Economic development zone,41.7128,86.2381,975,Korla ,经济开发区
+1959A,Monitoring station,36.881,118.746,23,Shouguang ,监测站
+1960A,Century school,36.864,118.78,24,Shouguang ,世纪学校
+1961A,Dongshan Primary School (added 191218),36.71,117.541,70,Zhangqiu ,东山小学(新增191218)
+1962A,Mingshui Development Zone,36.71,117.541,70,Zhangqiu ,明水开发区
+1963A,Environmental protection bureau sub-station,36.44,120.61,56,Jimo ,环保局子站
+1964A,Development zone sub-station,36.39,120.47,28,Jimo ,开发区子站
+1965A,JN sub-station,35.878,120.005,4,Jiaonan ,JN子站
+1966A,Sub-station two,35.872,120.039,8,Jiaonan ,2号子站
+1967A,Jiaozhou Environmental Protection Bureau,36.283,120.008,11,Jiaozhou ,胶州环保局
+1968A,Jiaozhou No. 1 Middle School,36.253,120.014,18,Jiaozhou ,胶州一中
+1969A,Environmental protection bureau sub-station,36.865,120.537,54,Laixi ,环保局子站
+1970A,People's Square sub-station,36.885,120.515,63,Laixi ,人民广场子站
+1971A,Number one,36.792,119.952,56,Pingdu ,1号
+1972A,Number two,36.799,119.976,63,Pingdu ,2号
+1973A,Penglai Environmental Protection Bureau,37.825,120.747,97,Penglai ,蓬莱环保局
+1974A,Penglai Museum,37.809,120.773,25,Penglai ,蓬莱博物馆
+1975A,Zhaoyuan Environmental Protection Bureau,37.374,120.399,63,Zhaoyuan ,招远环保局
+1976A,Zhaoyuan Education Bureau,37.364,120.394,70,Zhaoyuan ,招远教育局
+1977A,Laizhou Environmental Protection Bureau,37.177,119.941,49,Laizhou ,莱州环保局
+1978A,Laizhou Foreign Economic and Trade Commission,37.18,119.959,49,Laizhou ,莱州外经委
+1979A,Rongcheng Environmental protection Bureau office building,37.154,122.471,4,Rongcheng ,荣成市环保局办公楼
+1980A,Shandong Chengshan tire Company,37.161,122.41,21,Rongcheng ,山东成山轮胎公司
+1981A,Wendeng Municipal Environmental Protection Bureau,37.197,122.038,36,Wendeng ,文登市环保局
+1982A,Wendeng Silk Company,37.187,122.019,42,Wendeng ,文登市丝绸公司
+1983A,Rushan Environmental Protection Bureau,36.913,121.531,30,Rushan ,乳山市环保局
+1984A,Rushan Meteorological Bureau,36.907,121.544,32,Rushan ,乳山市气象局
+1985A,Wujiang Environmental Protection Bureau,31.155,120.636,4,Wujiang ,吴江市环保局
+1986A,Teacher training school,31.17,120.635,7,Wujiang ,教师进修学校
+1987A,Wujiang Development Zone,31.172,120.658,3,Wujiang ,吴江开发区
+1988A,Kunshan Experimental Primary School,31.388,120.953,18,Kunshan ,昆山实验小学
+1989A,Zhenchuan secondary,31.381,120.999,4,Kunshan ,震川中学
+1990A,Haiyuzi Station,31.67,120.758,5,Changshu ,海虞子站
+1991A,Xingfuzi Station,31.671,120.721,11,Changshu ,兴福子站
+1992A,Lingtangzi Station,31.656,120.734,10,Changshu ,菱塘子站
+1993A,Zhangjiagang  monitoring station,31.874,120.526,16,Zhangjiagang ,张家港市监测站
+1994A,Chengbei primary,31.882,120.55,10,Zhangjiagang ,城北小学
+1995A,Taicang  monitoring station,31.453,121.115,4,Taicang ,太仓市监测站
+1996A,Science and education new town real small,31.422,121.14,2,Taicang ,科教新城实小
+1997A,Fire command center,31.955,119.146,26,Jurong ,消防指挥中心
+1998A,Fangjiaba,31.955,119.18,14,Jurong ,房家坝
+1999A,Hongqiao Post,31.92,120.268,8,Jiangyin ,虹桥邮政
+2000A,Five Star Park,31.909,120.237,6,Jiangyin ,五星公园
+2001A,Second experimental primary school,31.92,120.302,5,Jiangyin ,第二实验小学
+2002A,Yixing Environmental Protection Bureau,31.354,119.818,12,Yixing ,宜兴市环保局
+2003A,Yiyuan,31.371,119.794,19,Yixing ,宜园
+2004A,Jintan  environmental monitoring station,31.751,119.579,14,Jintan ,金坛市环境监测站
+2005A,Jintan  water company,31.737,119.579,4,Jintan ,金坛市自来水公司
+2006A,"East Gate station, Liyang ",31.4,119.46,31,Liyang ,溧阳市东门子站
+2007A,Yanshanzi Station,31.317,119.438,17,Liyang ,燕山子站
+2008A,Haimen monitoring Station,31.896,121.173,7,Haimen ,海门市监测站
+2009A,Social welfare institution,31.89708,121.1518,5,Haimen ,社会福利院
+2010A,Municipal government,30.2366,119.7183,45,Lin 'an ,市政府
+2011A,Four middle schools,30.2311,119.6942,54,Lin 'an ,四中
+2012A,Monitoring station,30.054,119.954,20,Fuyang ,监测站
+2013A,Fuchun Junior School,30.049,119.946,18,Fuyang ,富春二小
+2014A,Jiang Dong,29.305,120.091,67,Yiwu ,江东
+2015A,Beiyuan,29.334,120.04,87,Yiwu ,北苑
+2016A,Library,29.719,120.251,14,Zhuji ,图书馆
+2017A,Flynn printing,29.732,120.209,13,Zhuji ,富林印务
+2018A,Baolong Villa,39.625,121.989,167,Wafangdian ,抱龙山庄
+2019A,Dongshan Park,39.617,122.011,103,Wafangdian ,东山公园
+2031A,Wan tin secondary,27.9958,113.1817,68,Zhuzhou ,云田中学
+2054A,Pingqiao Branch Office,32.1078,114.1044,79,Xinyang ,平桥分局
+2064A,South Bay Water Works,32.1403,114.0122,76,Xinyang ,南湾水厂
+2065A,Municipal brewing company,32.1342,114.0681,85,Xinyang ,市酿酒公司
+2066A,Audit bureau,32.1383,114.0614,86,Xinyang ,审计局
+2067A, environmental monitoring station,33.6128,114.6613,53,Zhoukou ,市环境监测站
+2068A,Zhoukou Normal School,33.6347,114.6758,52,Zhoukou ,周口师范
+2069A, operations Department,33.5979,114.6546,49,Zhoukou ,市运管处
+2070A,Chuanhui District Environmental Protection Bureau,33.6406,114.6369,52,Zhoukou ,川汇区环保局
+2073A,Lam Tin (out of service 160601),24.5086,117.7206,12,Zhangzhou ,蓝田(停运160601)
+2074A,Zhangzhou No. 3 Middle School (20190503 out of service),24.5157,117.6569,18,Zhangzhou ,漳州三中(20190503停运)
+2075A,Nine Lakes (comparison point),24.4674,117.6336,32,Zhangzhou ,九湖(对照点)
+2160A,Water company,35.5051,112.85,728,Jincheng,自来水公司
+2161A,Baiyun Trade,35.4934,112.835,699,Jincheng,白云商贸
+2162A,Municipal Environmental Protection Bureau,35.4883,112.8564,712,Jincheng,市环保局
+2163A,Technical college,35.4894,112.8664,725,Jincheng,技术学院
+2164A,Zezhou No. 1 Middle School,35.4813,112.8252,735,Jincheng,泽州一中
+2165A,White Horse Temple,35.546,112.8453,867,Jincheng,白马寺
+2166A,Pinscho,39.3514,112.44,1100,Shuozhou ,平朔
+2167A,A surname,39.3606,112.4549,1099,Shuozhou ,朔唯
+2168A,District government,39.3179,112.4254,1096,Shuozhou ,区政府
+2169A,Municipal Environmental Protection Bureau,39.3265,112.4078,1106,Shuozhou ,市环保局
+2170A,Municipal No. 2 Middle School,39.3673,112.4279,1121,Shuozhou ,市二中
+2171A,Polyamide community,37.7019,112.7549,830,Jinzhong ,锦纶小区
+2172A,Yuci hydraulic parts factory,37.683,112.703,790,Jinzhong ,榆次液压件厂
+2173A,Nandu community,37.7111,112.7306,803,Jinzhong ,南都小区
+2174A,Yuci District Government,37.7087,112.7105,800,Jinzhong ,榆次区政府
+2175A,Yuncheng secondary,35.0147,110.9956,369,Yuncheng ,运城中学
+2176A,Yudu Development Zone,35.0611,111.0233,367,Yuncheng ,禹都开发区
+2177A,Yuncheng University,35.129,110.938,393,Yuncheng ,运城学院
+2178A,Regional technical school,35.0308,110.9678,361,Yuncheng ,地区技校
+2179A,Airport new district,35.1147,111.0414,378,Yuncheng ,空港新区
+2180A,Traction (20190313 out of service),38.4186,112.7356,790,Xinzhou ,机引(20190313停运)
+2181A,Development zone,38.4519,112.7383,783,Xinzhou ,开发区
+2182A,Exhibition center,38.4928,112.7003,786,Xinzhou ,会展中心
+2183A,Environmental Protection Agency,37.5211,111.1406,948,Lvliang ,环保局
+2184A,Bean products factory,37.106,110.805,855,Lvliang ,豆制品厂
+2185A,Water company,37.5136,111.1297,934,Lvliang ,自来水公司
+2186A,Juying school,39.6719,106.8219,1100,Wuhai ,聚英学校
+2187A,Municipal Forestry Bureau,39.6969,106.8089,1092,Wuhai ,市林业局
+2188A,Zhonghaibo Bay School,39.6572,106.7931,1092,Wuhai ,中海勃湾学校
+2189A,Tongliao Hotel,43.6267,122.2603,178,Tongliao ,通辽宾馆
+2190A,Jiajian aluminum,43.6156,122.3039,179,Tongliao ,胶建铝业
+2191A,Art vocational school,43.6801,122.2532,175,Tongliao ,艺术职业学校
+2192A,District environmental protection bureau,49.2261,119.7594,611,Hulunbuir ,区环保局
+2193A,Municipal art school,49.2014,119.7283,614,Hulunbuir ,市艺校
+2194A,Autumn forest breeding base,40.916,107.5936,1035,Bayannur ,秋林养殖基地
+2195A,Attached middle school,40.7608,107.4211,1042,Bayannur ,附中
+2196A,Municipal environmental protection building,40.7378,107.3715,1040,Bayannur ,市环保大楼
+2197A,Jining New District,40.9923,113.1306,1361,Ulanqab ,集宁新区
+2198A,Jining old district west,41.038,113.0974,1415,Ulanqab ,集宁旧区西
+2199A,Union monitoring station,46.0872,122.062,286,Xingan League ,盟监测站
+2200A,Shenghua New pharmaceutical factory,46.0703,122.0506,273,Xingan League ,胜华新制药厂
+2201A,Keyou front banner environmental protection Bureau,46.0756,121.9462,298,Xingan League ,科右前旗环保局
+2202A, environmental monitoring station,43.9317,116.1042,1005,Xilin Gol League ,市环保监测站
+2203A,Municipal government,43.9311,116.0781,994,Xilin Gol League ,市政府
+2204A,stadium,38.8343,105.6775,1547,Alxa League ,体育场
+2205A,Union environmental protection building,38.843,105.6975,1580,Alxa League ,盟环保楼
+2206A,Environmental protection Bureau new building,38.8516,105.724,1658,Alxa League ,环保局新楼
+2207A,Industrial park,41.9967,121.6178,129,Fuxin ,工业园区
+2208A,Cheung ching street,42.0186,121.6561,140,Fuxin ,长青街
+2209A,Agricultural park,42.0503,121.6972,155,Fuxin ,农业园区
+2210A,Dongyuan,42.0228,121.6722,140,Fuxin ,东苑
+2211A,Yulong New ,42.0486,121.6592,158,Fuxin ,玉龙新城
+2212A,Hongwei District,41.1953,123.2,97,Liaoyang ,宏伟区
+2213A,Xinhua Garden,41.2553,123.15,24,Liaoyang ,新华园
+2214A,Riverside road,41.2736,123.1761,26,Liaoyang ,滨河路
+2215A,Tiexi Industrial Park,41.2894,123.1417,23,Liaoyang ,铁西工业园
+2216A,Hui Gong Street West,42.3022,123.8139,56,Tieling ,汇工街西
+2217A,Water park,42.292,123.8469,75,Tieling ,水上乐园
+2218A,Silver State Road East,42.2864,123.8489,114,Tieling ,银州路东段
+2219A,Jinshajiang Road north,42.2217,123.7153,59,Tieling ,金沙江路北
+2220A,West Liang,41.5931,120.4439,174,Chaoyang ,西梁
+2221A,Riverside community,41.5672,120.4486,167,Chaoyang ,河畔小区
+2222A,Pali Fort,41.5647,120.4247,171,Chaoyang ,八里堡
+2223A,Agricultural park,41.615,120.3939,238,Chaoyang ,农业园区
+2224A,Monitoring Station (Closed 200414),43.1747,124.3419,167,Siping ,监测站(停运200414)
+2225A,mall,43.1594,124.3711,171,Siping ,一商场
+2226A,Scenic garden,43.1847,124.3897,167,Siping ,境园
+2227A,Environmental Protection Agency,42.8947,125.1358,258,Liaoyuan ,环保局
+2228A,Sewage treatment plant,42.8953,125.1567,259,Liaoyuan ,污水处理厂
+2229A,light,41.7156,125.9361,389,Tonghua ,光明
+2230A,railway,41.7381,125.9486,472,Tonghua ,铁路
+2231A,Kiyoyo,41.9206,126.4047,462,Baishan ,喜丰
+2232A,Environmental Protection Agency,41.9419,126.4078,471,Baishan ,环保局
+2233A,Areas south of the Yangtze River,45.0878,124.8292,133,Songyuan ,江南
+2234A,North of the river,45.1642,124.8528,141,Songyuan ,江北
+2235A,Taobei district Environmental Protection Bureau,45.6289,122.8444,153,Baicheng ,洮北区环保局
+2236A,Municipal Environmental Protection Bureau,45.6175,122.8211,152,Baicheng ,市环保局
+2237A,Maternal and child hospital,42.8939,129.4892,175,Yanbian ,妇幼医院
+2238A,Yanbian Hospital,42.9061,129.5042,184,Yanbian ,延边医院
+2239A,Chaoyang Chuanzhen Hospital,42.8775,129.3675,203,Yanbian ,朝阳川镇医院
+2240A,Environmental Protection Agency,45.2924,130.962,200,Jixi ,环保局
+2241A,Water company,45.305,130.9817,187,Jixi ,自来水公司
+2242A,distillery,45.2948,131.0103,186,Jixi ,白酒厂
+2243A,Meteorological Office (reference point),45.2978,130.9298,274,Jixi ,气象局(对照点)
+2244A,Harbin Beer branch,47.3349,130.2659,171,Hegang ,哈啤分公司
+2245A,Star Electric,47.2753,130.261,150,Hegang ,斯达机电
+2246A,Dongshan paperboard factory,47.3489,130.3172,162,Hegang ,东山纸板厂
+2247A,Reservoir No. 5,47.3382,130.1097,182,Hegang ,五号水库
+2248A,Shuanghe Village,46.6572,131.1638,161,Shuangyashan ,双合村
+2249A,Nanxiao,46.619,131.1651,140,Shuangyashan ,南小市
+2250A,Environmental Protection Agency,46.6462,131.1516,165,Shuangyashan ,环保局
+2251A,nursery,46.5888,131.1572,190,Shuangyashan ,苗圃
+2252A,Central hospital,47.7222,128.8736,226,Yichun ,中心医院
+2253A,Forestry administration bureau,47.7317,128.9094,227,Yichun ,林管局
+2254A,Tangwang River National Park,48.4658,129.4942,398,Yichun ,汤旺河国家公园
+2255A,habotai,46.8025,130.2719,83,Jiamusi ,佳纺
+2256A,Power station,46.8267,130.3961,82,Jiamusi ,发电厂
+2257A,Environmental Protection Agency,46.7975,130.3258,83,Jiamusi ,环保局
+2258A,Eleven middle schools,46.8032,130.3648,81,Jiamusi ,十一中
+2259A,Mitoyo,46.7588,130.3794,116,Jiamusi ,四丰
+2260A,Environmental Protection Agency,45.7677,131.0032,231,Qitaihe ,环保局
+2261A,New (outage 200107),45.8194,130.8625,196,Qitaihe ,新建(停运200107)
+2262A,Huotou channel,45.8309,130.9467,291,Qitaihe ,葫头沟(对照点)
+2263A,Transport bureau,50.2486,127.4961,137,Heihe ,交通局　
+2264A,Party school,50.2391,127.5044,133,Heihe ,党校
+2265A,Seismological bureau,50.2538,127.4143,158,Heihe ,地震局　
+2266A,Renhe East Street,46.6384,126.9934,184,Suihua ,人和东街
+2267A,Party and government office center,46.6527,126.9636,173,Suihua ,党政办公中心
+2268A,Environmental Protection Agency (shutdown 191231),50.4269,124.1186,393,Greater Khinganling region ,环保局(停运191231)
+2269A,Public security bureau,50.4217,124.1303,389,Greater Khinganling region ,公安局
+2270A,Workers' sanatorium,32.939,117.3961,28,Bengbu ,工人疗养院
+2271A,Department store,32.9427,117.3605,32,Bengbu ,百货大楼
+2272A,No. 2 Water Works (closed 200430),32.935,117.3086,26,Bengbu ,二水厂(停运200430)
+2273A,Bengbu University,32.8913,117.4186,21,Bengbu ,蚌埠学院
+2274A,Huaishang District government,32.9673,117.3536,19,Bengbu ,淮上区政府
+2275A,High-tech zone,32.8985,117.3065,23,Bengbu ,高新区
+2276A,Datong District Government (discontinued),32.6611,117.0417,25,Huainan ,大通区政府（已停运）
+2277A,Panji District Government,32.7639,116.8028,22,Huainan ,潘集区政府
+2278A,Normal college,32.645,117.0083,33,Huainan ,师范学院
+2279A,Xiejia District Government,32.6028,116.8556,48,Huainan ,谢家集区政府
+2280A,Palgongshan District government,32.6319,116.8306,51,Huainan ,八公山区政府
+2281A,Jiaogang Lake Scenic area management office,32.625,116.7039,22,Huainan ,焦岗湖风景区管理处
+2282A,Monitoring station,33.975,116.8008,42,Huaibei ,监测站
+2283A,Lieshan District Government,33.8997,116.8067,29,Huaibei ,烈山区政府
+2284A,Vocational technical college,33.9461,116.7844,31,Huaibei ,职业技术学院
+2285A, No. 4 Middle School,30.9414,117.8178,34,Tongling ,市第四中学
+2286A,Municipal highway Bureau,30.9222,117.8078,41,Tongling ,市公路局
+2287A, Xinmin sewage plant,30.9414,117.7806,9,Tongling ,市新民污水厂
+2288A, No. 9 Middle School,30.8811,117.7442,10,Tongling ,市第九中学
+2289A,Railway station new district,30.9219,117.8561,19,Tongling ,车站新区
+2290A, vocational education base,30.9697,117.8472,15,Tongling ,市职教基地
+2291A,Chinese Academy of Environmental Sciences,30.5103,117.0549,16,Anqing ,环科院
+2292A,Masan Hotel,30.512,117.0331,35,Anqing ,马山宾馆
+2293A,Lianfu Garden (closed 180816),30.5489,117.0486,26,Anqing ,联富花园(停运180816)
+2294A,Ankyung University (191227),30.6145,116.9896,27,Anqing ,安庆大学(191227更为评价点)
+2295A,89 Yan 'an Road,29.7128,118.3057,164,Huangshan ,延安路89号
+2296A,89 East Huangshan Road,29.7207,118.3236,127,Huangshan ,黄山东路89号
+2297A,Huangshan District Government Building 5,30.2756,118.1371,169,Huangshan ,黄山区政府5号楼
+2298A,University for the aged,32.3153,118.3094,21,Chuzhou ,老年大学
+2299A,Renmin Hotel,32.2786,118.3244,26,Chuzhou ,人大宾馆
+2300A,Monitoring Station (20190308 out of service),32.3061,118.3158,21,Chuzhou ,监测站(20190308停运)
+2301A,Municipal monitoring station,32.8928,115.8275,33,Fuyang ,市监测站
+2302A,Municipal Party school,32.913,115.77,30,Fuyang ,市委党校
+2303A,Development zone,32.8603,115.8556,29,Fuyang ,开发区
+2304A,Monitoring building,33.6481,116.9765,35,Suzhou ,监测楼
+2305A,No. 1 Middle School (outage 200114),33.6284,116.9677,30,Suzhou ,一中(停运200114)
+2306A,Railway station,33.6306,116.989,29,Suzhou ,火车站
+2307A,Monitoring building,31.7371,116.508,62,Lu 'an ,监测大楼
+2308A,West Anhui University,31.7618,116.478,34,Lu 'an ,皖西学院
+2309A,Chaoyang Plant,31.7797,116.5068,42,Lu 'an ,朝阳厂
+2310A,Development zone,31.7712,116.5661,57,Lu 'an ,开发区
+2311A,Sewage treatment plant,33.8399,115.8067,40,Bozhou ,污水处理厂
+2312A,Three Kingdoms Range Rover Palace,33.8561,115.7831,42,Bozhou ,三国揽胜宫
+2313A,Green Building (out of service 160506),30.6414,117.4808,11,Chizhou ,环保大楼(停运160506)
+2314A,Chizhou University,30.6617,117.4697,36,Chizhou ,池州学院
+2315A,Pingtian Lake (comparison point),30.6539,117.4974,9,Chizhou ,平天湖(对照点)
+2316A,Aofengzi Station,30.9447,118.7581,26,Xuancheng ,鳌峰子站
+2317A,Jingting Shanzi Station,30.9742,118.7386,16,Xuancheng ,敬亭山子站
+2318A,Development zone sub-station,30.9431,118.7175,38,Xuancheng ,开发区子站
+2319A,"Canghou Road, Licheng District",25.442,119.0156,13,Putian ,荔城区仓后路
+2320A,Putian  monitoring station,25.4552,119.0018,51,Putian ,莆田市监测站
+2321A,Hanjiang District No. 6 Middle School,25.4556,119.1117,15,Putian ,涵江区六中
+2322A,Xiuyu District Government,25.3214,119.1015,17,Putian ,秀屿区政府
+2323A,Dongzhen reservoir,25.4792,118.981,97,Putian ,东圳水库
+2324A,Sansteel,26.2625,117.6211,155,Sanming ,三钢
+2325A,Sanming second middle School,26.2708,117.6353,155,Sanming ,三明二中
+2326A,Sanyuan District government,26.2378,117.6028,152,Sanming ,三元区政府
+2327A,Yangxi,26.3108,117.7275,199,Sanming ,洋溪
+2331A,Mandang Mountain,26.6761,118.0966,1203,Nanping ,茫荡山
+2332A,Nanping  monitoring station,26.6383,118.1694,107,Nanping ,南平市监测站
+2333A,"Nanping Aluminum Co., LTD",26.6514,118.1819,80,Nanping ,南平铝业有限公司
+2334A,Nanping No.7 Middle School,26.6272,118.1756,144,Nanping ,南平七中
+2335A,Longyan Teachers College,25.1174,117.0181,345,Longyan ,龙岩师专
+2336A,Longyan  monitoring station,25.1035,117.0216,357,Longyan ,龙岩市监测站
+2337A,Minxi Vocational and Technical College,25.0661,117.0256,337,Longyan ,闽西职业技术学院
+2338A,Longyan College,25.0311,117.0151,369,Longyan ,龙岩学院
+2339A,Jinhan Reservoir (comparison point),26.6946,119.5001,99,Ningde ,金涵水库(对照点)
+2340A,Jiaocheng District Agricultural Machinery Bureau (Closed 20190319),26.6607,119.5202,33,Ningde ,蕉城区农机局(20190319停运)
+2341A,Ningde  monitoring station,26.6611,119.5392,5,Ningde ,宁德市监测站
+2342A,Wanggang secondary,29.3864,117.3097,57,Jingdezhen ,王岗中学
+2343A,Activity center for veteran cadres,29.2958,117.2111,68,Jingdezhen ,老干部活动中心
+2344A,Veterinary station,29.2786,117.1983,51,Jingdezhen ,兽医站
+2345A,Delta ceramics,29.2647,117.1558,31,Jingdezhen ,台达陶瓷
+2346A,Pottery research institute,29.2956,117.2461,34,Jingdezhen ,陶研所
+2347A,Wugong Mountain Weather Station (comparison point),27.4948,114.0944,355,Pingxiang ,武功山气象站(对照点)
+2348A,Hospital of traditional Chinese medicine,27.6428,113.8381,117,Pingxiang ,中医院
+2349A,Municipal garage,27.6231,113.8447,108,Pingxiang ,市政府车库
+2350A,Municipal Environmental Protection Bureau,27.6442,113.8686,121,Pingxiang ,市环保局
+2351A,Anyuan District Government,27.6178,113.865,125,Pingxiang ,安源区政府
+2352A,Beigang (comparison point),27.7758,115.0586,61,Xinyu ,北岗(对照点)
+2353A,Feiyu,27.8344,114.9831,57,Xinyu ,飞宇
+2354A,Second water works,27.8328,114.9289,57,Xinyu ,第二水厂
+2355A,Municipal Meteorological Bureau,27.8036,114.9314,64,Xinyu ,市气象局
+2356A,New steel oxygen plant,27.8042,114.9119,84,Xinyu ,新钢氧气厂
+2357A,Longhu Mountain,28.095,116.9622,100,Yingtan ,龙虎山
+2358A,New monitoring station,28.2642,117.0564,27,Yingtan ,新监测站
+2359A,Caiyuan Hotel,28.2403,117.0281,51,Yingtan ,财苑宾馆
+2360A,gymnasium,28.2264,117.0222,39,Yingtan ,体育馆
+2361A,Mitsukawa water meter,28.2169,116.9983,40,Yingtan ,三川水表
+2362A,Tongtian Rock,25.9118,114.9064,118,Ganzhou ,通天岩
+2363A,Prefectural party committee,25.8664,114.9367,111,Ganzhou ,地委
+2364A,observatory,25.8481,114.9461,121,Ganzhou ,气象台
+2365A,Municipal library,25.8333,114.9322,100,Ganzhou ,市图书馆
+2366A,Huajian Shoe ,25.8471,114.8905,118,Ganzhou ,华坚鞋城
+2367A,Red Sound equipment factory,27.0658,114.9817,68,Ji 'an ,红声器材厂
+2368A,Municipal Forest Industry Bureau,27.11,114.9739,60,Ji 'an ,市森林工业局
+2369A, environmental monitoring station,27.1311,114.99,63,Ji 'an ,市环境监测站
+2370A,Qingyuan District Court,27.0983,115.0075,53,Ji 'an ,青原区法院
+2371A,Betel nut water industry (comparison point),27.8036,114.3442,93,Yichun ,槟榔水业(对照点)
+2372A,Municipal Bank of China,27.8014,114.3806,102,Yichun ,市中国银行
+2373A,Municipal oil company,27.7842,114.3953,108,Yichun ,市石油公司
+2374A,Municipal Meteorological Bureau,27.7914,114.3703,116,Yichun ,市气象局
+2375A,Municipal Bureau of Radio and Television,27.8072,114.4011,92,Yichun ,市广电局
+2376A,Tong Yuan Dang Xi,28.0797,116.2239,33,Fuzhou ,桐源党溪
+2377A,Municipal station,27.9883,116.3553,50,Fuzhou ,市站
+2378A,Blood prevention station,27.9639,116.3598,53,Fuzhou ,血防站
+2379A,Tea picking troupe,28.0005,116.3574,49,Fuzhou ,采茶剧团
+2380A,Medical branch,27.9647,116.385,42,Fuzhou ,医学分院
+2381A,Baicao Garden (comparison point),28.4569,118.0058,113,Shangrao ,百草园(对照点)
+2382A,Municipal monitoring station,28.4459,117.973,80,Shangrao ,市监测站
+2383A,Phoenix optics,28.4622,117.9511,75,Shangrao ,凤凰光学
+2384A,Development Zone Management Committee (Shutdown 200112),28.4303,117.9033,85,Shangrao ,开发区管委会(停运200112)
+2385A,Municipal monitoring station,35.9019,114.17,173,Hebi ,市监测站
+2386A, traffic police detachment,35.7511,114.2956,90,Hebi ,市交警支队
+2387A,guesthouse,35.7306,114.2878,90,Hebi ,迎宾馆
+2388A,Institute of science and technology,35.279,113.926,73,Xinxiang ,科技学院
+2389A,Environmental protection west Court,35.31,113.836,74,Xinxiang ,环保西院
+2390A,Development zone,35.272,113.884,75,Xinxiang ,开发区
+2391A,Dongyuan Environmental Protection,35.303,113.883,74,Xinxiang ,环保东院
+2392A,Environmental Protection Agency,35.763,115.031,56,Puyang ,环保局
+2393A,紭 Tianwei,35.767,114.9906,56,Puyang ,紭天威
+2394A,Oil field transport company,35.7672,115.0628,50,Puyang ,油田运输公司
+2395A,Oilfield geophysical exploration company,35.767,115.0772,52,Puyang ,油田物探公司
+2396A,Monitoring station,34.0117,113.8331,74,Xuchang ,监测站
+2397A,Environmental Protection Agency,34.0314,113.8208,78,Xuchang ,环保局
+2398A,Development zone,33.9953,113.7906,69,Xuchang ,开发区
+2399A,Three five five factory,33.567,114.056,60,Luohe ,三五一五工厂
+2400A,Luohe University,33.568,114.005,66,Luohe ,漯河大学
+2401A,Water resources Bureau,33.581,114.014,67,Luohe ,水利局
+2402A,Bureau of Radio and Television,33.5653,114.0322,67,Luohe ,广电局
+2403A,Environmental Protection Agency,32.9917,112.5192,129,Nanyang ,环保局
+2404A,Tile-roofed house,33.0122,112.5224,127,Nanyang ,瓦房庄
+2405A,Chinese painting Studio,32.9735,112.5003,127,Nanyang ,汉画馆
+2406A,Meteorological station,33.027,112.5573,128,Nanyang ,气象站
+2407A,Institute of technology,32.9689,112.5481,120,Nanyang ,理工学院
+2408A,Environmental monitoring station,34.4286,115.6697,52,Shangqiu ,环境监测站
+2409A,Food bureau,34.429,115.6558,52,Shangqiu ,粮食局
+2410A,Suiyang district environmental protection Bureau,34.407,115.6386,50,Shangqiu ,睢阳区环保局
+2411A,The Third People's Hospital (20190220 out of service),34.402,115.6578,47,Shangqiu ,第三人民医院(20190220停运)
+2420A, a paper factory,32.965,114.018,84,Zhumadian ,市一纸厂　
+2421A, color printing factory,33.0069,114.0131,85,Zhumadian ,市彩印厂　
+2422A,Tianfang two branch factory,32.996,113.996,90,Zhumadian ,天方二分厂　
+2423A,Shen Jiaying,30.2352,115.0625,24,Huangshi ,沈家营
+2424A,Chenjiawan,30.2028,115.0767,27,Huangshi ,陈家湾
+2425A,New landfall,30.1765,114.9551,40,Huangshi ,新下陆
+2426A,Tieshan,30.2043,114.8949,63,Huangshi ,铁山
+2427A,Round  Mountain,30.2099,115.0264,77,Huangshi ,团城山
+2428A,Wudang Mountain,32.395,111.0419,988,Shiyan ,武当山
+2429A,Riverside New Village,32.6494,110.78,272,Shiyan ,滨河新村
+2430A,Liujiagou,32.6389,110.7258,299,Shiyan ,刘家沟
+2431A,Tie two places,32.5714,110.8839,207,Shiyan ,铁二处
+2432A,Xiangcheng Sports Road,32.0197,112.155,73,Xiangyang ,襄城运动路
+2433A,"Xinhua Road, Fancheng ",32.0564,112.1392,73,Xiangyang ,樊城新华路
+2434A,High-tech management committee,32.1142,112.1825,82,Xiangyang ,高新管委会
+2435A,Xiangzhou Air Road,32.0903,112.2106,62,Xiangyang ,襄州航空路
+2436A,Municipal government,30.3944,114.8878,25,Ezhou ,市政府
+2437A,Zhaojiaba,30.3714,114.8989,29,Ezhou ,赵家坝
+2438A,Fankou Development Zone,30.4133,114.8131,23,Ezhou ,凡口开发区
+2439A,Chu yuan primary,31.0483,112.2014,90,Jingmen ,竹园小学
+2440A,trimmer,30.9892,112.1969,115,Jingmen ,掇刀
+2441A,Petrified small,31.0386,112.2211,83,Jingmen ,石化一小
+2442A,Municipal government,31.0375,112.1931,95,Jingmen ,市政府
+2443A,Wenhua Road,30.9285,113.9153,35,Xiaogan ,文化路
+2444A,Dongcheng District,30.9075,113.942,26,Xiaogan ,东城区
+2445A,Continental island,30.4522,114.8857,36,Huanggang ,大洲岛
+2446A,Staff center,30.4742,114.9028,28,Huanggang ,职工中心
+2447A,Forest Park (comparison point),29.8175,114.329,54,Xianning ,森林公园(对照点)
+2448A,Municipal Development and Reform Commission,29.8211,114.3231,78,Xianning ,市发改委
+2449A,Haman District Government,29.8539,114.2894,31,Xianning ,咸安区政府
+2450A,Yangtze River Industrial Park,29.8686,114.3372,43,Xianning ,长江产业园
+2451A,Municipal Party school,31.7275,113.3583,72,Suizhou ,市委党校
+2452A,Municipal Forestry Bureau,31.6908,113.3833,58,Suizhou ,市林业局
+2453A, overpass water plant,31.7308,113.3983,90,Suizhou ,市立交桥水厂
+2454A,Hubei People's Hospital,30.2989,109.5039,447,Enshi Prefecture ,湖北民院
+2455A,State power corporation,30.2819,109.4689,438,Enshi Prefecture ,州电力总公司
+2456A,Former 169 Hospital,26.9089,112.5328,74,Hengyang ,原169医院
+2457A,Hengyang Chemical plant,26.9258,112.6194,79,Hengyang ,衡阳化工总厂
+2458A,Zhuhui district Environmental Protection Bureau,26.8956,112.6211,70,Hengyang ,珠晖区环保局
+2459A,Municipal Party school,26.8733,112.6197,64,Hengyang ,市委党校
+2460A,Municipal monitoring station,26.8919,112.6006,80,Hengyang ,市监测站
+2461A,Vacuum electromechanical company,26.9056,112.5664,73,Hengyang ,真空机电公司
+2462A,Municipal Institute of Soil and Water,27.3033,111.5239,248,Shaoyang ,市水土所
+2463A,Municipal No. 1 Middle School,27.2317,111.4733,220,Shaoyang ,市一中
+2464A,Municipal chemical plant,27.2582,111.4908,243,Shaoyang ,市化工厂
+2465A, cannery,27.2537,111.4503,229,Shaoyang ,市罐头厂
+2466A,Municipal Environmental Protection Bureau,27.2272,111.4328,243,Shaoyang ,市环保局
+2467A,Ganxi Port,28.6428,112.4067,29,Yiyang ,甘溪港
+2468A,Municipal Environmental Protection Bureau,28.5808,112.3458,68,Yiyang ,市环保局
+2469A, special education school,28.56,112.3439,66,Yiyang ,市特殊教育学校
+2470A,Ziyang District Administration Center,28.6047,112.3347,33,Yiyang ,资阳区政务中心
+2471A,Wuchang Ziyang,28.5819,112.3744,42,Yiyang ,赫山环保分局
+2472A,Ziyang District Administration Center,25.9061,113.0073,240,Chenzhou ,马头岭
+2473A,Ziyang Middle School,25.8226,113.0116,158,Chenzhou ,市职中
+2474A,Xinglong Pedestrian Street,25.8179,113.0119,155,Chenzhou ,兴隆步行街
+2475A,Municipal audit Bureau,25.8071,113.0383,156,Chenzhou ,市审计局
+2476A,Municipal Environmental Protection Bureau,25.7759,113.0348,215,Chenzhou ,市环保局
+2477A,Lingling South Jindu,26.2081,111.6217,111,Yongzhou ,零陵南津渡
+2478A, environmental monitoring station,26.4214,111.6156,112,Yongzhou ,市环境监测站
+2479A,Lingling District Environmental Protection Bureau,26.2331,111.6236,111,Yongzhou ,零陵区环保局
+2480A,Yongzhou Environmental Protection Bureau,26.4364,111.5992,115,Yongzhou ,永州市环保局
+2481A,Cold beach area Environmental Protection Bureau,26.4519,111.5989,96,Yongzhou ,冷水滩区环保局
+2482A,Institute of Forestry,27.5733,109.9333,339,Huaihua ,林科所
+2483A,Hexi Local Taxation Bureau,27.5444,109.9453,241,Huaihua ,河西地税局
+2484A, No. 4 Hospital,27.5342,109.9792,248,Huaihua ,市四医院
+2485A,Monitoring building,27.5578,109.9972,229,Huaihua ,监测楼
+2486A,Municipal Party school,27.583,110.0394,246,Huaihua ,市委党校
+2487A,Television transmitting station,27.725,111.9975,137,Loudi ,电视发射台
+2488A,Municipal monitoring station,27.725,111.9975,137,Loudi ,市监测站
+2489A,Municipal Party school,27.7314,112.0194,150,Loudi ,市委党校
+2490A,Lianyuan Steel,27.7569,111.9561,108,Loudi ,涟钢
+2491A,Municipal government,27.7044,111.9892,108,Loudi ,市政府
+2492A,Yuejin reservoir,28.2558,109.6414,250,Xiangxi ,跃进水库
+2493A,State government,28.3169,109.7325,203,Xiangxi ,州政府
+2494A,Jishou  family planning Bureau,28.2675,109.6958,190,Xiangxi ,吉首市计生局
+2495A,Municipal environmental protection,23.4792,111.2897,30,Wuzhou ,市环保
+2496A,Wan Gai primary,23.475,111.3178,11,Wuzhou ,云盖小学
+2497A,Long Wei,23.415,111.2353,39,Wuzhou ,龙圩
+2498A,Long Tan,23.4794,111.26,35,Wuzhou ,龙新
+2499A,Chavin,21.6158,108.3411,10,Fangchenggang ,沙万
+2500A,Town government,21.7631,108.3511,16,Fangchenggang ,防城镇政府
+2501A,Sea garden,21.6414,108.3506,-6,Fangchenggang ,大海花园
+2502A,Municipal environmental protection station,21.9667,108.6236,9,Qinzhou ,市环保站
+2503A,Municipal Academy of Agricultural Sciences,21.9508,108.6553,13,Qinzhou ,市农科院
+2504A,Port area 1,21.7431,108.5989,4,Qinzhou ,港区一小
+2505A,Tak Chi senior high,23.1478,109.5681,92,Guigang ,德智高中
+2506A,Jiangnan zi Railway Station,23.0672,109.6042,42,Guigang ,江南子站　
+2507A,Guicheng Station,23.0944,109.6014,52,Guigang ,贵城子站
+2508A,Hoseongzi Station,23.1036,109.5683,46,Guigang ,荷城子站
+2509A,Hanshan reservoir,22.7019,110.1106,109,Yulin ,寒山水库
+2510A,Municipal monitoring station,22.6411,110.1675,81,Yulin ,市监测站
+2511A,Nanjiang No. 1 Middle School,22.6164,110.1433,79,Yulin ,南江一中
+2512A,Municipal monitoring station,23.9011,106.6103,145,Bose,市监测站
+2513A,The 's central blood bank,23.8844,106.6527,137,Bose,市中心血站
+2514A,Environmental protection district,24.4175,111.5269,109,Hezhou ,环保小区
+2515A,CPPCC building,24.4072,111.5622,106,Hezhou ,政协大楼
+2516A,Dongin Paradise,24.7121,108.2134,332,Hechi ,东仁乐园
+2517A,Municipal environmental protection station,24.6928,108.054,272,Hechi ,市环保站
+2518A, Center for Disease Control,24.6967,108.1009,191,Hechi ,市疾控中心
+2519A,Laibin No. 2 Middle School,23.7208,109.2131,87,Laibin ,来宾二中
+2520A,Come to the guest house,23.7369,109.2317,94,Laibin ,来冶招待所
+2521A, environmental protection Bureau Jiangzhou branch,22.4137,107.3476,112,Chongzuo ,市环保局江州分局
+2522A,Chengnan New District,22.3708,107.3701,129,Chongzuo ,城南新区
+2523A,Blackrock slope,32.4535,105.8945,579,Guangyuan ,黑石坡
+2524A,Old town,32.4429,105.8242,502,Guangyuan ,老城
+2525A,Nanba,32.4246,105.8153,470,Guangyuan ,南坝
+2526A,Monitoring station,32.4285,105.8624,483,Guangyuan ,监测站
+2527A,Shi Xihao,30.5797,105.7519,468,Suining ,石溪浩
+2528A,Municipal monitoring station,30.6133,105.68,325,Suining ,市监测站
+2529A,Administrative center,30.6347,105.8161,420,Suining ,行政中心
+2530A,Meining Foods,30.475,105.5956,280,Suining ,美宁食品公司
+2531A,Municipal monitoring station,29.5953,105.0331,312,Neijiang ,市监测站
+2532A,Dongxing District Government,29.5947,105.0717,320,Neijiang ,东兴区政府
+2533A,Neijiang No. 2 Middle School,29.5817,105.0653,308,Neijiang ,内江二中
+2534A,Neijiang Daily,29.5822,105.0406,326,Neijiang ,内江日报社
+2535A,Huahu Bay,29.5467,103.7705,396,Leshan ,花湖湾
+2536A,Ox-ear bridge,29.5844,103.7627,374,Leshan ,牛耳桥
+2537A, third water plant,29.6007,103.7506,374,Leshan ,市第三水厂
+2538A,Municipal monitoring station,29.5634,103.757,401,Leshan ,市监测站
+2539A,Toad temple,30.0506,103.8986,471,Meishan ,蟆颐观
+2540A,Weather bureau,30.0874,103.8416,417,Meishan ,气象局
+2541A,Xuguang community,30.0691,103.8495,413,Meishan ,旭光小区
+2542A,Municipal monitoring station,30.062,103.8341,422,Meishan ,市监测站
+2543A,Xiao Ping old residence,30.518,106.631,361,Guang 'an ,小平旧居
+2544A,Municipal party committee,30.4576,106.6303,303,Guang 'an ,市委
+2545A,Friendship secondary,30.4663,106.6271,314,Guang 'an ,友谊中学
+2546A,Artificial lake,30.4844,106.6406,268,Guang 'an ,人工湖
+2547A,Radio and television Garden,30.4551,106.6388,302,Guang 'an ,广电花园
+2548A,Dazhou Vocational and Technical College,31.2797,107.5272,291,Dazhou ,达州职业技术学院
+2549A, environmental monitoring station,31.215,107.525,318,Dazhou ,市环境监测站
+2550A,Fenghuang community,31.2108,107.4967,366,Dazhou ,凤凰小区
+2551A,Da County organ hotel,31.1956,107.5069,293,Dazhou ,达县机关宾馆
+2552A,Civic center,31.2058,107.4611,324,Dazhou ,市政中心
+2553A,Daxing 526 (comparison point),30.0125,103.009,674,Ya 'an ,大兴526台(对照点)
+2554A,Jian 'an Plant,29.9899,103.0013,569,Ya 'an ,建安厂
+2555A,Municipal government,29.9834,103.0109,584,Ya 'an ,市政府
+2556A,Sichuan Agricultural University,29.9816,103.0001,585,Ya 'an ,川农大
+2557A,South Niche Park,31.8475,106.7583,437,Bazhong ,南龛公园
+2558A,Municipal Environmental Protection Bureau,31.8711,106.7389,359,Bazhong ,市环保局
+2559A,Ba Chung secondary,31.8531,106.7594,369,Bazhong ,巴中中学
+2560A,Municipal sixth middle School,31.8456,106.7608,437,Bazhong ,市六中
+2561A,Lianhuashan,30.1366,104.6617,413,Ziyang,莲花山
+2562A,Ziyang Middle School,30.1506,104.6356,397,Ziyang,资阳中学
+2563A,Wuchang Ziyang,30.1377,104.6289,372,Ziyang,四三一厂
+2564A,Ziyang District Administration Center,30.1142,104.6469,349,Ziyang,师范校
+2565A,Ziyang Middle School,30.1259,104.6294,357,Ziyang,区法院
+2566A,State Agricultural Institute,31.9286,102.1755,2596,Aba ,州农科所
+2567A,State monitoring station,31.9025,102.2218,2614,Aba ,州监测站
+2568A,Jockey school,31.8934,102.2402,2618,Aba ,马师校
+2569A,Jiangjun Bridge,30.0506,101.9628,2660,Garzi ,将军桥
+2570A,Mizuhashi Ko,30.0475,101.9603,2748,Garzi ,水桥子
+2571A,Azure Dragon Temple,27.8094,102.3419,1509,Liangshan ,青龙寺
+2572A,Qionghai Hotel,27.8408,102.2714,1602,Liangshan ,邛海宾馆
+2573A,Xichang  Government,27.8978,102.2625,1549,Liangshan ,西昌市政府
+2574A,Liangshan Prefecture government,27.8847,102.2689,1513,Liangshan ,凉山州政府
+2575A,Chang 'an,27.8953,102.2311,1515,Liangshan ,长安
+2576A,Kiln top,26.5892,104.8,1811,Liupanshui ,窑上
+2577A,Loess slope,26.5917,104.83,1800,Liupanshui ,黄土坡
+2578A,Water steel,26.5939,104.89,1893,Liupanshui ,水钢
+2579A,Minzhong,26.5894,104.8475,1787,Liupanshui ,民中
+2580A,Double water,26.5506,104.9544,1783,Liupanshui ,双水
+2581A,Rainbow machine factory school,26.2611,105.9556,1404,Anshun ,虹机厂子校
+2582A,Municipal No. 1 Middle School,26.255,105.9278,1391,Anshun ,市一中
+2583A,Railway sub-school,26.2358,105.9394,1354,Anshun ,铁路子校
+2584A,Longyanzi school,26.2392,105.8853,1423,Anshun ,龙岩子校
+2585A,Tongren Health School,27.7297,109.1916,255,Tongren District ,铜仁卫校
+2586A,Tongren Seventh Middle School,27.7231,109.1794,269,Tongren District ,铜仁七中
+2587A,No. 8 middle school,27.3125,105.2864,1508,Bijie ,八中
+2588A,Normal school,27.2944,105.31,1466,Bijie ,师专
+2589A,Changba Street,25.0925,104.9022,1276,Qiannan ,场坝街
+2590A,Pingdong Avenue,25.0992,104.8811,1258,Qiannan ,坪东大道
+2591A, environmental monitoring station,26.5747,107.9783,720,Qiannan ,市环境监测站
+2592A,Ma Pojing Primary School,26.572,107.959,733,Qiannan ,马坡井小学
+2593A,Xiaowei Village,26.2403,107.5228,784,Qiannan ,小围寨
+2594A, environmental monitoring station,25.1081,99.1678,1660,Baoshan ,市环境监测站
+2595A,Municipal Environmental Protection Bureau,25.1328,99.1711,1673,Baoshan ,市环保局
+2596A,Monitoring station,27.3392,103.7032,1911,Zhaotong ,监测站
+2597A,Environmental Protection Agency,27.3361,103.7225,1914,Zhaotong ,环保局
+2598A,Southwest suburb,26.8576,100.2143,2384,Lijiang ,西南郊
+2599A,Old town of Lijiang,26.8802,100.2497,2388,Lijiang ,丽江古城
+2600A,downtown,26.8906,100.2203,2411,Lijiang ,市中心
+2601A,Municipal Environmental Protection Bureau,22.7633,100.98,1303,Pu 'er ,市环保局
+2602A,Pu 'er No. 2 Middle School,22.8322,100.9817,1337,Pu 'er ,普洱第二中学
+2603A,Environmental Protection Agency,23.8822,100.0869,1501,Lincang ,环保局
+2604A,Weather bureau,23.8982,100.0782,1483,Lincang ,气象局
+2605A,Environmental monitoring station,25.0441,101.5482,1782,Chuxiong ,环境监测站
+2606A,Economic development zone,25.0492,101.538,1781,Chuxiong ,经济开发区
+2607A,Rain bed,23.4626,103.3113,1285,Red River ,雨过铺
+2608A,Sewage treatment plant,23.3993,103.3772,1286,Red River ,污水处理厂
+2609A,Monitoring station,23.4168,103.386,1285,Red River ,监测站
+2610A,Water resources Bureau,23.3594,104.2533,1253,Wenshan ,水务局
+2611A,Convenience service center,23.3892,104.2319,1254,Wenshan ,便民服务中心
+2612A,Jiangnan of Jinghong ,22.0019,100.7939,554,Xishuangbanna ,景洪市江南
+2613A,"Jiangbei, Jinghong ",22.0225,100.8017,550,Xishuangbanna ,景洪市江北
+2614A,Dali  environmental monitoring station,25.7054,100.1542,2012,Dali ,大理市环境监测站
+2615A,Dali Ancient ,25.5811,100.2171,1992,Dali ,大理古城
+2616A,Dehong monitoring Station,24.428,98.5842,936,Dehong ,德宏监测站
+2617A,Mangshi Construction Bureau (closed 200103),24.441,98.578,907,Dehong ,芒市建设局(停运200103)
+2618A,Monitoring station,25.8567,98.8601,939,Nujiang ,监测站
+2619A,Lushui No. 1 Middle School,25.8417,98.8546,838,Nujiang ,泸水一中
+2620A,Old Town (Closed 20180930),27.8136,99.7064,3337,Diqing ,古城（20180930停运）
+2621A,Diqing Railway Station,27.8317,99.7056,3280,Diqing ,迪庆站
+2622A,Chamdo monitoring Station,31.1278,97.1804,3236,Qamdo ,昌都监测站
+2623A,Qamdo dam in Qamdo region,31.1254,97.1809,3310,Qamdo ,昌都地区昌都坝
+2624A,Shannan monitoring Station,29.2313,91.7608,3559,Sannan,山南监测站
+2625A,Shannan People's Hospital,29.261,91.7706,3556,Sannan,山南人民医院
+2626A,Shigatse monitoring station,29.2718,88.8876,3839,Shigatse ,日喀则监测站
+2627A,Shigatse Hongda Company,29.2365,88.8931,3838,Shigatse ,日喀则鸿达公司
+2628A,Naqu monitoring station,31.4846,92.0657,4510,Nagqu District ,那曲监测站
+2629A,Naqu Jiaxing Hospital,31.4733,92.0505,4506,Nagqu District ,那曲嘉兴医院
+2630A,Ali monitoring station,32.5,80.1161,4288,Ngari Prefecture,阿里监测站
+2631A,Local Party Committee of Ali,32.5039,80.0895,4280,Ngari Prefecture,阿里地委
+2632A,Nyingchi monitoring Station,29.6376,94.3681,2987,Nyingchi ,林芝监测站
+2633A,Nyingchi People's Hospital,29.6632,94.3616,2996,Nyingchi ,林芝人民医院
+2634A,Hanchuan machine tool factory school,33.1842,106.9893,575,Hanzhong ,汉川机床厂子校
+2635A,Municipal monitoring station,33.0706,107.0154,513,Hanzhong ,市监测站
+2636A,Xinyuan Development Zone,33.1138,107.0089,533,Hanzhong ,鑫源开发区
+2637A,Nanzheng Dahe kan water plant,33.0323,107.007,510,Hanzhong ,南郑大河坎水厂
+2638A,Hongshixia Forest Park (comparison point),38.3344,109.7414,1143,Yulin ,红石峡森林公园(对照点)
+2639A,Century Square,38.2911,109.7456,1062,Yulin ,世纪广场
+2640A,Experimental middle school,38.2839,109.7289,1090,Yulin ,实验中学
+2641A,Environmental monitoring building,38.2478,109.7336,1077,Yulin ,环保监测大楼
+2642A,Xiangxi Cave,32.6778,109.0311,362,Ankang ,香溪洞
+2643A,Ankang  monitoring station,32.6939,109.0281,271,Ankang ,安康市监测站
+2644A,Hanbin District Procuratorate,32.6975,109.0072,254,Ankang ,汉滨区检察院
+2645A,Monitoring station,33.8715,109.9154,705,Shangluo ,监测站
+2646A,Donglongshan Meteorological Bureau,33.8509,109.966,700,Shangluo ,东龙山气象局
+2647A,Yuyuan Hotel,36.5458,104.1731,1725,Baiyin ,豫源饭店
+2648A,Power company,36.5481,104.1731,1725,Baiyin ,动力公司
+2649A,Fairy Cliff,34.3469,106.005,1590,Tianshui ,仙人崖
+2650A,Progress Lane,34.5814,105.7281,1170,Tianshui ,进步巷
+2651A,House of culture,34.5653,105.8614,1089,Tianshui ,文化馆
+2652A,Monitoring station,37.9311,102.6219,1532,Wuwei ,监测站
+2653A,Thunder Station (190211 out of service),37.9358,102.6469,1518,Wuwei ,雷台(190211停运)
+2654A,Monitoring station,38.9467,100.4686,1475,Zhangye ,监测站
+2655A,Science and technology commission,38.9389,100.4497,1475,Zhangye ,科委
+2656A,Monitoring station,35.5461,106.6692,1370,Pingliang ,监测站
+2657A,museum,35.5294,106.7039,1336,Pingliang ,博物馆
+2658A,Cangmen Street Station,39.746,98.509,1468,Jiuquan ,仓门街子站
+2659A,Fukang home world sub-station,39.7294,98.5023,1479,Jiuquan ,富康家世界子站
+2660A,District environmental protection bureau,35.7289,107.6831,1369,Qingyang ,区环保局
+2661A,Grain and trade General Corporation,35.5236,107.6406,1293,Qingyang ,粮贸总公司
+2662A,Municipal Environmental Protection Bureau,35.7067,107.6364,1406,Qingyang ,市环保局
+2663A,Monitoring station (former Grain Bureau),35.5714,104.6228,1926,Dingxi ,监测站（原粮食局）
+2664A,Nanfeng Hospitality (former Crane Factory),35.5975,104.6169,1900,Dingxi ,南峰招待所（原起重机厂）
+2665A,Solid water son Hanwang town,33.3261,105.0822,936,Longnan ,汉王镇固水子
+2666A,Municipal Forestry Bureau,33.376,104.964,1075,Longnan ,市林业局
+2667A,Environmental Protection Agency,35.6039,103.2139,1883,Linxia ,环保局
+2668A,State Party School,35.5997,103.2064,1891,Linxia ,州委党校
+2669A,Monitoring station,35.0003,102.905,2881,Gannan ,监测站
+2670A,Pingan County,36.4997,102.1086,2139,Haidong district ,平安县
+2671A,Haiyan County Xihai town,36.9639,100.9048,3105,Haibei ,海晏县西海镇
+2672A,Tongren county Longwu town,35.5102,102.0199,2484,Huangnan ,同仁县隆务镇
+2673A,"Chapcha Town, Gonghe County",36.2866,100.6188,2867,Hainan ,共和县恰卜恰镇
+2674A,"Dawu town, Maqin County",34.4714,100.2561,3742,Guoluo ,玛沁县大武镇
+2675A,"Jiegu Town, Yushu County",33.0014,97.0,3773,Yushu ,玉树县结古镇
+2676A,Delingha ,37.3753,97.3731,2990,Haixi ,德令哈市
+2677A,Education park,37.9648,106.1532,1130,Wuzhong ,教育园区
+2678A,Senior high school,37.9844,106.2025,1133,Wuzhong ,高级中学
+2679A,New District two pumping station,37.9723,106.196,1133,Wuzhong ,新区二泵站
+2680A,Shapotou Fire Station,37.4514,105.0197,1249,Nakai,沙坡头消防站
+2681A,Guanqiao Station,37.0172,105.18,1700,Nakai,官桥站
+2682A,Environmental protection bureau station,37.5002,105.1971,1225,Nakai,环保局站
+2683A,Horse park,36.1417,106.2319,1598,Guyuan ,马园
+2684A,Monitoring station,36.0022,106.2792,1750,Guyuan ,监测站
+2685A,New district,36.0211,106.2375,1780,Guyuan ,新区
+2686A,Municipal Environmental Protection Bureau,42.9409,89.191,31,Turpan District ,市环保局
+2687A,Regional environmental protection bureau,42.9559,89.1673,49,Turpan District ,地区环保局
+2688A,Area monitoring station,42.8172,93.5128,757,Hami District ,地区监测站
+2689A,Hami Normal School,42.8328,93.4961,760,Hami District ,哈密师范学校
+2690A,Tianshan Tianchi,44.1564,87.9897,553,Changji ,天山天池
+2691A,State monitoring station,44.0114,87.2997,580,Changji ,州监测站
+2692A,New district government affairs center,44.0297,87.2717,570,Changji ,新区政务中心
+2693A,West suburb of Bole,44.9079,82.0485,528,Bozhou ,博乐市西郊区
+2694A,Municipal Environmental Protection Bureau,44.8969,82.0806,503,Bozhou ,市环保局
+2695A,Television station,41.1636,80.2828,1111,Aksu Prefecture ,电视台
+2696A,Art center,41.1933,80.2956,1124,Aksu Prefecture ,艺术中心
+2697A,Municipal people's government,39.7153,76.1861,1292,Kezhou ,市人民政府
+2698A,Patrol group,39.5371,75.9828,1361,Kashgar Prefecture ,巡警大队
+2699A,What we do,39.4699,75.9771,1297,Kashgar Prefecture ,吾办
+2700A, environmental monitoring station,39.4365,75.9435,1292,Kashgar Prefecture ,市环境监测站
+2701A,Regional station,37.1152,79.9485,1364,Hotan Prefecture ,地区站
+2702A,Gujiang Bagh township yard,37.1013,79.9117,1389,Hotan Prefecture ,古江巴格乡院内
+2703A,Municipal Environmental Protection Bureau,43.9404,81.2815,640,Ili Kazak ,市环保局
+2704A,New government area,43.895,81.2867,603,Ili Kazak ,新政府片区
+2705A,Second water works,43.941,81.3364,664,Ili Kazak ,第二水厂
+2706A,Small garden outside the east gate,46.7432,82.9994,553,Tacheng area ,东门外小游园
+2707A,Xiaodong Gou,47.9047,88.1214,981, of Altai Prefecture,小东沟
+2708A,Municipal station,47.8515,88.1267,991, of Altai Prefecture,市站
+2709A,Ai Qing Poetry Hall,44.2967,86.0497,490,Shihezi ,艾青诗歌馆
+2710A,Sunshine school,44.3075,86.0697,483,Shihezi ,阳光学校
+2711A,Agricultural water building,44.1756,87.5475,471,Wujiaqu ,农水大厦
+2835A,Forty primary and secondary schools,26.567,101.7227,1244,Panzhihua ,四十中小
+2842A,Huli Middle school,24.5058,118.0936,48,Xiamen ,湖里中学
+2845A,Tak Shing court,36.1912,113.1569,967,Changzhi ,德盛苑
+2846A,Sports West,23.1323,113.3208,15,Guangzhou ,体育西
+2858A,Once the river west road,39.2474,117.7918,3,Tianjin,河西一经路
+2859A,Jinju Road,38.9846,117.3747,3,Tianjin,津沽路
+2860A,Waterfront West Road,39.0845,117.1589,5,Tianjin,宾水西道
+2862A,22 Central South Campus,38.03777778,114.5480556,75,Shijiazhuang ,22中南校区
+2865A,Yuci No. 3 Middle School,37.68277778,112.7194444,793,Jinzhong ,榆次三中
+2866A,Capital of the Bund,35.04388889,111.0522222,367,Yuncheng ,外滩首府
+2867A,Ma Maozhuang Primary School,37.51,111.1283333,993,Lvliang ,马茂庄小学
+2868A,Nine stations,43.95305556,126.4738889,186,Jilin ,九站
+2869A,Wutaishan Hospital,32.41361,119.458,8,Yangzhou ,五台山医院
+2870A, Center for Disease Control,32.18888889,119.4369444,23,Zhenjiang ,市疾控中心
+2871A,Wanli International School,29.90167,121.6147,5,Ningbo ,万里国际学校
+2872A,Nanhu District Disabled Persons' Federation,30.7525,120.7844444,6,Jiaxing ,南湖区残联
+2873A,Renhuangshan New District,30.89556,120.0875,3,Huzhou ,仁皇山新区
+2874A,Yiyi Dairy Industrial Park,32.64600333,117.0411667,30,Huainan ,益益乳业工业园
+2875A,Fuyang Vocational and Technical College,32.88922222,115.7838889,30,Fuyang ,阜阳职业技术学院
+2876A,Preschool teacher,36.7339,119.0841,25,Weifang ,幼特教师范
+2877A,Fangzi Post,36.6525,119.1638,48,Weifang ,坊子邮政
+2878A,Talk about Big East Campus,36.4343,116.0072,34,Liaocheng ,聊大东校
+2880A,Dashi West Road,30.65638889,104.0238889,500,Chengdu ,大石西路
+2881A,Carey College,26.53111111,107.8908333,679,Qiandongnan ,凯里学院
+2882A,Yuxi No. 1 Middle School,24.3702,102.5389,1630,Yuxi ,玉溪一中
+2883A,Cultural and sports center,24.339,102.5381,1643,Yuxi ,文体中心
+2884A,Jiusteel Hotel,39.79777778,98.26722222,1675,Jiayuguan ,酒钢宾馆
+2885A,Riverside secondary,33.38256667,104.9338889,1002,Longnan ,滨江中学
+2897A,Shenliao West Road,41.7347,123.2444,33,Shenyang ,沈辽西路
+2900A,Yu Nong road,41.9086,123.5953,130,Shenyang ,裕农路
+2902A,Beichen primary,30.4865,106.6351,278,Guang 'an ,北辰小学
+2907A,Wuxing District Station,30.8596,120.1844,3,Huzhou ,吴兴区站
+2914A,Su Shanping,31.87888889,106.7513889,403,Bazhong ,苏山坪
+2915A,Vocational middle school,31.85805556,106.7619444,352,Bazhong ,职业中学
+2916A,Bureau of Veteran Cadres (closed 190815),30.66,117.49,9,Chizhou ,老干部局(停运190815)
+2919A,Hebei University of Technology,39.5453,116.7022,16,Langfang ,河北工业大学
+2920A,Lantian Town,24.506,117.7116,6,Zhangzhou ,蓝田镇
+2921A,Tree King Station,30.0033,120.7789,10,Shaoxing ,树下王站
+2922A,Dali Road,39.1067,117.1941,8,Tianjin,大理道
+2923A,Water Supply and Drainage Company (shutdown 200102),40.1114,113.2803,1066,Datong ,供排水公司(停运200102)
+2924A,Shuixiang Road,38.44139,106.2275,1115,Yinchuan ,水乡路
+2925A,Shanghai East Road,38.4841,106.2739,1107,Yinchuan ,上海东路
+2926A,Wenchang North Street,38.49494,106.1024,1118,Yinchuan ,文昌北街
+2929A,Hongwei road,30.4519,114.8858,36,Huanggang ,红卫路
+2994A,Armed Police detachment,29.1128,119.6533,51,Jinhua ,武警支队
+2996A,Municipal power supply Bureau,33.965,118.283,26,Suqian ,市供电局
+2997A,Wang Ying,32.3292,119.8767,6,Taizhou ,王营
+2998A,Hu ditch management office,34.7519,119.3608,12,Lianyungang ,胡沟管理处
+2999A,Mine design institute,34.5911,119.1478,4,Lianyungang ,矿山设计院
+3000A,Deyuan Pharmaceutical (straight pipe station),34.6972,119.3581,4,Lianyungang ,德源药业(直管站)
+3002A,Administrative center,31.8108,119.9736,6,Changzhou ,行政中心
+3003A,Economic development zone,31.7694,120.0469,5,Changzhou ,经开区
+3004A,Baolong Plaza,33.3681,120.1631,3,Yancheng ,宝龙广场
+3005A,Gulou district administration,34.29,117.1814,35,Xuzhou ,鼓楼区政府
+3006A,Copper Mountain District Admissions Office,34.1781,117.1694,37,Xuzhou ,铜山区招生办
+3008A,Hu ditch management office,34.7519,119.3608,12,Lianyungang ,胡沟管理处
+3009A,Mine design institute,34.5911,119.1478,4,Lianyungang ,矿山设计院
+3010A,belfry,31.7897,119.8914,6,Changzhou ,钟楼
+3012A,Western mountain language,31.03389,112.1908,138,Jingmen ,西山林语
+3014A,berm,29.53675,106.4959,328,Chongqing ,歇台子
+3015A,Longjing Bay,29.57278,106.4042,498,Chongqing ,龙井湾
+3016A,Lung Chau Bay,29.41569,106.5506,412,Chongqing ,龙洲湾
+3018A,Tang Yao Hotel,36.10139,111.505,426,Linfen ,唐尧大酒店
+3020A,Zhongshan North Road,39.16969,117.2099,8,Tianjin,中山北路
+3021A,Pu Shui river management office,35.76806,115.0061,56,Puyang ,濮水河管理处
+3022A,Triumph Road Elementary School,34.6686,112.4433,149,Luoyang ,凯旋路小学
+3025A,Technician college,23.63444,113.0472,14,Qingyuan ,技师学院
+3026A,Municipal government,23.65889,116.6183,20,Chaozhou ,市政府
+3027A,Green bars Forest Road,29.33972,104.7228,335,Zigong ,青杠林路
+3028A,Sandalwood Gymnasium,29.36028,104.7778,316,Zigong ,檀木林体育馆
+3033A,Training base,43.4569,87.4651,1685,Urumqi ,培训基地
+3034A,Guangming Street primary,41.0385,113.1076,1403,Ulanqab ,光明街小学
+3035A,North Binhe,46.0707,122.0931,268,Xingan League ,北滨河
+3036A,Administrative committee of development zone,37.43445,118.696,2,Dongying ,开发区管委会
+3038A,State library,23.3682,103.3758,1296,Red River ,州图书馆
+3039A,No.1 primary school,34.7822,111.19,369,Sanmenxia ,第一小学
+3045A,Shangzhou District Middle School,33.8471,109.9643,685,Shangluo ,商州区中学
+3046A,Electromechanical school,28.6064,115.9083,37,Nanchang ,机电学校
+3048A,Kowloon,26.0931,119.58,48,Fuzhou ,九龙
+3051A,West fourth road,39.1495,117.3916,4,Tianjin,西四道
+3054A,Municipal Party school,35.28385,113.5922,77,Xinxiang ,市委党校
+3055A, north district government,36.6428,101.7775,2261,Xining ,城北区政府
+3057A,Muping Procuratorate,37.4014,121.5992,15,Yantai ,牟平检察院
+3058A,Galaxy Street,42.0352,119.2654,521,Chifeng ,银河街
+3059A,Taixing company,36.2092,117.7181,201,Jinan ,泰兴公司
+3061A,Guohua Electric Power East,49.1577,119.7512,615,Hulunbuir ,国华电力东
+3064A,Laiwu Campaign Memorial Hall,36.2211,117.6983,214,Jinan ,莱芜战役纪念馆
+3065A,State environmental protection agency,29.9972,101.9533,2947,Garzi ,州环保局
+3066A,Jiuququan pure water plant,37.4372,116.2714,25,Dezhou ,九衢泉纯净水厂
+3122A,Wujiaguan (comparison point),26.2611,105.9606,1374,Anshun ,伍家关(对照点)
+3123A,Mount Phoenix,26.2431,105.9408,1373,Anshun ,凤凰山
+3124A,Golden Bell Mountain,26.2564,105.9439,1447,Anshun ,金钟山
+3125A,Loujiapo,26.2481,105.8983,1422,Anshun ,娄家坡
+3128A,Nagqu Convention Center,31.4797,92.0506,4504,Nagqu District ,那曲会议中心
+3129A,Ping An high-speed rail New area,36.5067,102.0306,2151,Haidong district ,平安高铁新区
+3131A,Tobacco factory,40.7903,114.8792,732,Zhangjiakou ,烟厂
+3132A,Mungni,39.938,119.5966,5,Qinhuangdao ,文明里
+3133A,Shangqing Temple,29.565,106.5469,256,Chongqing ,上清寺
+3134A,Municipal No. 1 Middle School,34.0339,113.8172,76,Xuchang ,市一中
+3136A,Longquanyi District Government,30.5589,104.2725,523,Chengdu ,龙泉驿区区政府
+3137A,Municipal Party school,30.0744,103.8578,415,Meishan ,市委党校
+3138A,Yongan Wuling District,29.0289,111.7153,34,Changde ,武陵区永安
+3139A,Dingcheng Yuxia,28.9881,111.6892,35,Changde ,鼎城区玉霞
+3140A,Wuling District Changgeng,29.0531,111.6625,34,Changde ,武陵区长庚
+3141A,Bureau for letters and Calls,36.0878,114.3922,69,Anyang ,信访局
+3147A,Longting Park,34.8097,114.3442,76,Kaifeng ,龙亭公园
+3148A,District Human Resources and Social Security Bureau,30.0561,103.8286,426,Meishan ,区人社局
+3149A,Bijiashan North Road,30.1594,115.0158,39,Huangshi ,笔架山北路
+3151A,Yichun College North Campus,27.8097,114.375,93,Yichun ,宜春学院北校区
+3153A,182 National Avenue,30.4908,114.3877,14,Wuhan ,民族大道182号
+3164A,Guangling Construction Bureau,32.3942,119.4686,7,Yangzhou ,广陵建设局
+3165A,Yangadato,34.2969,108.6594,393,Xianyang ,两寺渡
+3169A,Tai Chi Sports Center,35.2067,113.2725,94,Jiaozuo ,太极体育中心
+3170A,Municipal Party school,38.5253,102.1864,1522,Jinchang ,市委党校
+3171A,Liang Park Archives Bureau,34.445,115.6125,52,Shangqiu ,梁园区档案局
+3173A,Municipal people's congress,30.5342,117.0594,16,Anqing ,市人大
+3178A,Weifang seven middle School,36.7225,119.0586,25,Weifang ,潍坊七中
+3179A,Guandu District Museum,25.0119,102.749,1899,Kunming ,官渡区博物馆
+3180A,Bureau of Quality and Technical Supervision,27.8094,99.7136,3394,Diqing ,质量技术监督局
+3182A,Liyang Garden,31.8542,106.7658,351,Bazhong ,丽阳花园
+3183A,Holy Springs Water Company,31.8653,106.7417,374,Bazhong ,圣泉水务公司
+3184A,Municipal Party school,45.7219,126.6203,149,Harbin ,市委党校
+3185A,A large wheel,37.8964,112.5628,804,Taiyuan ,巨轮
+3186A,Education harbour,36.1058,103.7583,1730,Lanzhou ,教育港
+3187A,Ocean voyage Museum,33.666,116.951,27,Suzhou ,远航博物馆
+3188A,Municipal urban management Bureau,37.739,115.6689,18,Hengshui ,市城管局
+3190A,Foreign language school,29.6995,116.0257,57,Jiujiang ,外国语学校
+3191A,Suyu District Government,33.9447,118.3225,20,Suqian ,宿豫区政府
+3194A,Management committee,30.3122,112.2747,32,Jingzhou ,管委会
+3195A,Municipal Sports Bureau,32.3972,119.3633,14,Yangzhou ,市体育局
+3200A,Monitoring center,36.4978,115.9819,29,Liaocheng ,监控中心
+3201A,Dongguan investment Market,37.9325,102.6486,1523,Wuwei ,东关招商场
+3204A,Planning bureau,33.7297,113.3025,93,Pingdingshan ,规划局
+3206A,Xingang Qinyuan village,27.807,114.9149,63,Xinyu ,新钢沁园村
+3207A,Original office building of municipal government,32.3039,118.3117,19,Chuzhou ,市政府原办公楼
+3207A,Original office building of municipal government,32.3039,118.3117,19,Chuzhou ,市政府原办公楼
+3208A,Municipal government,38.4153,112.7283,795,Xinzhou ,市政府
+3209A,Ningde No.1 Middle School,26.6564,119.5228,22,Ningde ,宁德一中
+3210A,Bianjing Park,34.7964,114.3644,71,Kaifeng ,汴京公园
+3216A,Zhangzhou Party School,24.5183,114.6622,588,Zhangzhou ,漳州党校
+3237A,Exhibition hall,30.6619,117.4916,9,Chizhou ,展览馆
+3238A,Ji Min Hospital (comparison point),31.3946,118.3954,13,Wuhu ,济民医院(对照点)
+3239A,Yinying Pharmaceutical,42.9079,125.0829,253,Liaoyuan ,银鹰制药
+3288A,Daquan Street,34.4369,117.4632,37,Xuzhou ,大泉街道
+3422A,Jiangning Rainbow Bridge (added 200305),31.918,118.858,6,Nanjing,江宁彩虹桥(新增200305)
+3423A,Lishui Yongyang (added 200421),31.6494,119.0138,26,Nanjing,溧水永阳(新增200421)
+3424A,Gao Chun Lao Gongzhong (145),31.324,118.876,21,Nanjing,高淳老职中(145)
+3427A,Liuhe Xiongzhou (145),32.34,118.843,8,Nanjing,六合雄州(145)
+3486A,Botanical Gardens (145),43.152,124.415,194,Siping ,植物园(145)
+3494A,Jiyang District Government (added 191219),36.984,117.179,22,Jinan ,济阳区政府(新增191219)
+3495A,Kam Ping Secondary (added 200108),36.636,117.13,290,Jinan ,锦屏中学(新增200108)
+3662A,Rich District Youth Activity Center,47.2075,123.6333,152,Qiqihar ,富区青少年活动中心
+3663A,Hongqi community,50.4278,124.1175,393,Great Khinganling ,红旗社区
+3668A,Seongnam,36.0414,111.5036,448,Linfen ,城南
+3676A,The Second People's Hospital,40.0995,113.2802,1056,Datong ,第二人民医院
+3677A,Mangshi People's government complex building,24.4335,98.589,933,Dehong Prefecture ,芒市人民政府综合楼
+3678A, No. 7 Middle School,35.4053,116.5909,40,Jining ,市第七中学
+3682A,Jinan Four Construction Projects,36.6819,116.9814,27,Jinan ,济南四建
+3683A,Kunming district government,40.6576,109.8331,1068,Baotou ,昆区政府
+3684A,New mine plaza,45.883,130.864,193,Qitaihe ,新建矿广场
+3685A,Double Creation technology building,28.4315,117.897,108,Shangrao ,双创科技楼
+3690A,Foreign language school,28.7031,115.9721,17,Nanchang ,外国语学校
+3692A,Fire cylinder Kiln Road Squadron,39.6581,118.2045,22,Tangshan ,消防缸窑路中队
+3693A,Lunan Television University,39.6202,118.1436,22,Tangshan ,路南电大
+3698A,Hongqi primary,40.8179,111.5968,1065,Hohhot ,红旗小学
+3699A,East China Sea Office,40.8389,111.652,1064,Hohhot ,海东办
+3700A,Health center (comparison point),29.9697,103.0456,1044,Ya 'an ,康养中心(对照点)
+3701A,North Anhui coal power Group,33.6252,116.9648,29,Suzhou ,皖北煤电集团
+3703A,Angang staff school,36.095,114.2917,83,Anyang ,安钢职工学校
+3706A,Activity center for veteran cadres,43.6333,122.2584,178,Tongliao ,老干部活动中心
+3707A,"Europe, America and Japan auto repair factory",45.3011,131.0147,180,Jixi ,欧美日汽修厂
+3708A,Oriental Pearl community,43.6189,122.2922,178,Tongliao ,东方明珠社区
+3709A,Office of Municipal Facilities Management,45.3044,130.99,181,Jixi ,市政设施管理处
+3710A,White Sands Activity Center,29.8975,121.5594,10,Ningbo ,白沙活动中心
+3713A,Century ,43.1726,124.3285,166,Siping ,世纪城
+3715A,"Tianjiabing Middle School, Bengbu",32.9314,117.3092,26,Bengbu ,蚌埠田家炳中学

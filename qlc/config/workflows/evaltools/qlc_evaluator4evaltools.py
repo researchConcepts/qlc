@@ -3,7 +3,7 @@
 """
 QLC Evaluator4Evaltools: QLC-PY to Evaltools Converter
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -224,7 +224,7 @@ def extract_stations_from_collocated_csv(collocated_csv_files, output_file, debu
         combined.to_csv(output_file, index=False, 
                        columns=['station', 'name', 'lat', 'lon', 'altitude'])
         
-        log(f"    ✓ Extracted {len(combined)} unique stations with collocated data")
+        log(f"    Extracted {len(combined)} unique stations with collocated data")
         
         if debug:
             log(f"    First 3 stations:", "DEBUG")
@@ -976,7 +976,7 @@ def process_species(species, config, model_colors, debug=False):
                 # Check for step dimension/coordinate/variable
                 if 'step' in ds.dims or 'step' in ds.coords or 'step' in ds.data_vars:
                     has_forecast_steps = True
-                    log(f"  ✓ Forecast step information detected in collocated file")
+                    log(f"  Forecast step information detected in collocated file")
                 else:
                     log(f"  ⊗ No forecast step dimension found (GRIB→NetCDF conversion loses step)")
         except Exception as e:
@@ -1082,7 +1082,7 @@ def process_species(species, config, model_colors, debug=False):
                 evaluator.observations.dataset.step = 1
                 for sim_ds in evaluator.simulations.datasets:
                     sim_ds.step = 1
-                log(f"  ✓ Set step=1 for daily data in Evaluator (required for Taylor diagrams)")
+                log(f"  Set step=1 for daily data in Evaluator (required for Taylor diagrams)")
             
             # Add metadata about forecast step availability (detected from collocated NetCDF structure)
             # If QLC collocated files contain 'step' dimension → forecast-dependent plots can be generated
@@ -1114,11 +1114,11 @@ def process_species(species, config, model_colors, debug=False):
             
             try:
                 evaluator.dump(evaluator_file)
-                log(f"  ✓ Evaluator saved: {os.path.basename(evaluator_file)}")
+                log(f"  Evaluator saved: {os.path.basename(evaluator_file)}")
                 log(f"    Stations: {observations.dataset.data.shape[1]}, Timesteps: {observations.dataset.data.shape[0]}")
                 success_count += 1
             except Exception as e:
-                log(f"  ✗ Error saving Evaluator: {e}", "ERROR")
+                log(f"  ERROR Error saving Evaluator: {e}", "ERROR")
                 import traceback
                 traceback.print_exc()
     

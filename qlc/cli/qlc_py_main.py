@@ -3,7 +3,7 @@
 """
 QLC Python CLI: Standalone Entry Point for qlc-py
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -19,7 +19,7 @@ Usage:
     qlc-py --version
     qlc-py --help
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -59,8 +59,8 @@ def main():
             print("Documentation: https://docs.researchconcepts.io/qlc/latest")
             print("               https://github.com/researchconcepts/qlc")
             print("")
-            print("BETA RELEASE: Under development, requires further testing.")
-            print("© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.")
+            print("See: https://docs.researchconcepts.io/qlc/latest/reference/changelog")
+            print("© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.")
             print("Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>")
             sys.exit(0)
         except ImportError:
@@ -92,8 +92,8 @@ def main():
         print("Documentation: https://docs.researchconcepts.io/qlc/latest")
         print("               https://github.com/researchconcepts/qlc")
         print("")
-        print("BETA RELEASE: Under development, requires further testing.")
-        print("© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.")
+        print("See: https://docs.researchconcepts.io/qlc/latest/reference/changelog")
+        print("© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.")
         print("Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>")
         sys.exit(0)
     

@@ -1,0 +1,183 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+AT0001R,Kittsee,48.083333,17.066667,140.0,urban-suburban
+AU0002G,Kennaook / Cape Grim Baseline Air Pollution Station,-40.68222,144.68834,94.0,rural
+BG0001R,Beo Moussala,42.166667,23.583333,2925.0,rural
+CA0011R,Egbert,44.231006,-79.783839,255.0,rural
+CA0100R,Whistler Mountain,50.059299469,-122.957603455,2182.0,rural
+CA0101R,Sable Island,43.933,-60.017,4.0,rural
+CA0102R,East Trout Lake,54.353743,-104.986864,500.0,rural
+CA0420G,Alert,82.4991455078,-62.3415260315,2182.0,rural
+CH0010U,Zürich-Kaserne,47.377586,8.530419,409.0,urban-centre
+CH0013R,Delemont,47.366667,7.35,420.0,urban-suburban
+CH0014R,Oeschberg,47.133333,7.616667,484.0,urban-suburban
+CH0015R,Einsiedeln,47.133333,8.75,886.0,urban-suburban
+CH0016R,Magadino,46.166667,8.883333,190.0,urban-suburban
+CH0029U,Bern-Bollwek,46.951111,7.440833,542.0,urban-centre
+CH0030U,Lugano-Università,46.011111,8.957222,287.0,urban-centre
+CL0001R,El Tololo,-30.17254,-70.79923,2220.0,rural
+DE0003R,Schauinsland,47.914722,7.908611,1205.0,urban-suburban
+DE0009R,Zingst,54.4368,12.7249,1.0,rural
+DE0043G,Hohenpeissenberg,47.8014984131,11.009619,975.0,rural
+DE0060G,Neumayer,-70.666,-8.266,42.0,rural
+DE0061B,Annaberg-Buchholz,50.571667,12.998889,545.0,urban-suburban
+DE0063K,Dresden-Nord,51.065,13.741389,116.0,urban-centre
+DE0064B,Dresden-Winckelmannstrasse,51.036111,13.730556,120.0,urban-centre
+DE0066K,Leipzig-Eisenbahnstrasse,51.345833,12.406389,120.0,urban-centre
+DK0001R,Færøerne,62.03,-7.066667,210.0,rural
+DK0002R,Hanstholm,57.116667,8.6,46.0,urban-suburban
+DK0004R,Gniben,56.0,11.283333,0.0,urban-suburban
+DK0006R,Dueodde,55.0,15.083333,10.0,rural
+DK0025G,Summit,72.5800018311,-38.4799995422,3238.0,rural
+ES0019U,Barcelona (Palau Reial),41.387463,2.11532,80.0,urban-centre
+ES0020U,Granada,37.164,-3.605,680.0,urban-centre
+ES0021U,Madrid (Ciemat),40.456436,-3.725631,669.0,urban-suburban
+ES0022R,Montsec,42.05134,0.72956,1571.0,rural
+ES0100R,El Arenosillo,37.1,-6.733333,41.0,rural
+ES1778R,Montseny,41.766667,2.35,700.0,rural
+FI0001R,Jomala,60.183333,19.983333,7.0,urban-suburban
+FI0003R,Puumala,61.566667,28.066667,131.0,rural
+FI0005R,Sodankylä,67.367917,26.632778,179.0,urban-suburban
+FI0039U,Mäkelänkatu,60.196351,24.95222,25.0,urban-centre
+FI0042U,Helsinki (Mannerheimintie),60.169722,24.939444,10.0,urban-centre
+FI0043U,Helsinki (Töölöntulli),60.190028,24.916028,24.0,urban-centre
+FI0047U,Helsinki (Rekola),60.331444,25.075889,29.0,urban-suburban
+FI0048U,Helsinki (Itä-Hakkila),60.291722,25.112861,41.0,urban-suburban
+FI0049U,Helsinki (Pirkkola),60.234215,24.922323,27.0,urban-suburban
+FI0050R,Hyytiälä,61.85,24.283333,181.0,rural
+FI0065R,Jokioinen,60.82,23.5,106.0,urban-suburban
+FI0096G,Pallas (Sammaltunturi),67.973333333,24.116111111,565.0,rural
+FR0020R,Sirta Atmospheric Research Observatory,48.7089,2.1487,162.0,urban-suburban
+FR0030R,Puy De Dôme,45.772223,2.964886,1465.0,rural
+FR0035U,Marseille Longchamp,43.305287,5.394716,73.0,urban-centre
+FR0043U,Paris Haussmann,48.874322,2.323108,44.5,urban-centre
+FR0044U,Paris 13Éme,48.828474,2.359384,57.0,urban-centre
+GB0001R,Cottered,51.966667,-0.1,139.0,urban-suburban
+GB0012R,Pitlochry,56.716667,-3.766667,80.0,urban-suburban
+GB0021U,London - North Kensington,51.521,-0.2135,27.0,urban-centre
+GB0022U,London - Marylebone Road,51.52253,-0.154611,39.0,urban-centre
+GB0101U,Birmingham Air Quality Site (Baqs),52.456,-1.929,143.0,urban-centre
+GR0101R,Helmos Mountain,37.984265,22.196262,2314.0,rural
+HU0002R,K-Puszta,46.965333,19.544889,125.0,rural
+ID1013R,Bukit Kototabang,-0.202222,100.318056,845.0,rural
+IN1016R,Gual Pahari,28.427778,77.151389,320.0,urban-suburban
+IS0001R,Rjupnahed,64.083333,-21.85,120.0,urban-suburban
+IT0004R,Ispra,45.814556,8.635722,209.0,rural
+IT0009R,Monte Cimone,44.193205336,10.7014294564,2165.0,rural
+IT0014R,Capo Granitola,37.571111,12.659722,5.0,rural
+IT0016R,Lamezia Terme,38.8763,16.2322,6.0,rural
+IT0025U,Milano Pascal,45.4783439922,9.23144264384,118.0,urban-centre
+IT0026U,Rome (Villa Ada),41.9329,12.50695,60.0,urban-centre
+KE0001G,Mt. Kenya,-0.0622,37.2972,3678.0,rural
+KR0100R,Anmyeon-Do,36.5383338928,126.330001831,57.696998596191406,rural
+KR0101R,Gosan,33.293917,126.163111,72.0,rural
+MY1053R,Danum Valley,4.983333,117.85,427.0,rural
+NL0001R,Wageningen,51.9666667,5.633333,7.0,urban-suburban
+NL0003R,Den Helden,52.916667,4.783333,11.0,urban-suburban
+NL0004R,Leunen,51.466667,5.983333,29.0,rural
+NL0011R,Cabauw Zijdeweg,51.970278,4.926389,1.0,rural
+NO0001R,Birkenes,58.383333,8.25,1007.9400024414062,rural
+NO0030R,Jergul,69.45,24.6,255.0,rural
+NO0035R,Narbuvoll,62.35,11.666667,768.0,rural
+NO0037R,Bjørnøya,74.516667,19.016667,20.0,rural
+NO0041R,Osen,61.25,11.783333,440.0,rural
+NO0042G,Zeppelin Mountain (Ny-Ålesund),78.90715,11.88668,474.0,rural
+NO0043R,Prestebakke,59.0,11.533333,160.0,rural
+NO0044R,Nordmoen,60.266667,11.1,200.0,rural
+NO0047R,Svanvik,69.45,30.033333,30.0,rural
+NO0048R,Voss,60.6,6.533333,500.0,rural
+NO0056R,Hurdal,60.372386,11.078142,300.0,rural
+NO0057R,Ny-Ålesund,78.925,11.9222222,8.0,rural
+NO0058G,Troll,-72.016667,2.533333,1309.0,rural
+NO0059G,Trollhaugen,-72.0117,2.5351,1553.0,rural
+NO0090R,Andøya,69.278333,16.011666,380.0,rural
+NO0091R,Søgne,58.116667,7.850001,15.0,urban-suburban
+NO0092R,Øverbygd,69.05,19.366667,90.0,rural
+NO0093R,Valdalen,62.083333,12.166667,800.0,rural
+NO0094R,Møsvatn,59.833333,8.333333,940.0,rural
+NO0095R,Ualand,58.516667,6.383333,220.0,rural
+NO0096R,Namsvatn,64.983333,13.583333,500.0,rural
+NO0097R,Solhomfjell,58.933333,8.8,260.0,rural
+NO0098R,Karpdalen,69.656165,30.4217959,70.0,rural
+NO0202R,Bygland,58.833333,7.800001,215.0,urban-suburban
+NO0203R,Finsland,58.316667,7.583333,275.0,rural
+NO0204R,Flødevigen,58.433333,8.750001,10.0,urban-suburban
+NO0205R,Gjerstad,58.883333,8.950001,240.0,rural
+NO0207R,Mandal,58.050001,7.450001,138.0,rural
+NO0209R,Søyland,58.683333,5.983333,263.0,urban-suburban
+NO0210R,Tovdal,58.800001,8.230001,227.0,rural
+NO0214R,Skei I Jølster,61.567777,6.483333,205.0,urban-suburban
+NO0216R,Tågmyra,61.416777,12.067777,536.0,rural
+NO0217R,Kjeller,59.983333,11.050001,120.0,urban-suburban
+NO0218R,Løken,59.805443,11.460562,135.0,urban-suburban
+NO0219R,Bislingen,60.230001,10.616777,680.0,rural
+NO0220R,Grimelid,60.130001,9.600001,367.0,rural
+NO0231R,Norefjell,60.216667,9.516667,810.0,rural
+NO0232R,Hvasser,59.066667,10.433333,35.0,urban-suburban
+NO0233R,Lyngør,58.633333,9.133333,20.0,rural
+NO0234R,Fitjar,59.916667,5.316667,20.0,rural
+NO0236R,Treungen,59.016667,8.516667,300.0,urban-suburban
+NO0237R,Vatnedalen,59.466667,7.366667,800.0,rural
+NO0238R,Risdalsheia,58.400001,8.316667,340.0,rural
+NO0239R,Grungedal,59.711978,7.765612,594.4000244140625,rural
+NO0240R,Overhalla,64.470898,11.87212,71.5,rural
+NO0269R,Filefjell,60.183333,8.116667,956.0,rural
+NO0311R,Langtjern,60.366667,9.650001,260.0,rural
+NO0382R,Kise,60.766667,10.816667,128.0,rural
+NO0391R,Børselv,70.316667,25.550001,10.0,rural
+NO0392R,Dividalen,68.950001,19.500001,140.0,rural
+NO0393R,Vesterelv,70.15,28.566667,14.0,rural
+NO0398R,Bakko,60.618793,8.237675,969.0,rural
+NO0450R,Lillestrøm (Nilu Volla),59.965085,11.040818,110.0,urban-suburban
+NO0461R,Gornitak,70.183333,28.716667,20.0,rural
+NO0478R,Høylandet,64.646965,12.312422,60.0,rural
+NO0554R,Haukeland,60.816667,5.583333,190.0,rural
+NO0572R,Vikedal,59.536766,5.972167,60.0,rural
+NO0617R,Kaupanger,61.150001,7.100001,500.0,rural
+NO0655R,Nausta,61.577408,5.898247,230.0,rural
+NO0752R,Gulsvik,60.366667,9.650001,260.0,rural
+NO0759R,Noatun,69.166667,29.166667,60.0,rural
+NO0761R,Tveitdalen,58.116667,7.850001,15.0,rural
+NO0762R,Søgne 1,58.116667,7.850001,15.0,rural
+NO0763R,Dalelva,69.683333,30.366667,10.0,rural
+NO0796R,Valle,59.052311,7.566513,250.0,rural
+NO0797R,Lardal,59.466667,9.85,210.0,rural
+NO0798R,Fagernes,60.983333,9.25,354.0,urban-suburban
+NO0799R,Selbu,63.283333,11.1833333,300.0,rural
+NO0802R,Kårvatn 2,62.785793,8.88331,260.0,rural
+NO0970R,Vårli,63.45791,8.60489,40.0,rural
+NO0971R,Terningvatn,63.51667,9.50001,90.0,nan
+NO0972R,Solem,63.63333,10.00001,178.0,rural
+NO0977R,Tjeldbergodden,63.416149,8.758665,90.0,rural
+NO1006R,Sandvik,59.282715,5.504831,73.0,urban-suburban
+NO1007R,Årvik2,59.285862,5.562302,0.0,rural
+NO1010R,Gismarvik,59.315773,5.39875,0.0,rural
+NO1011R,Bokn,59.223824,5.471057,63.0,rural
+NO1078R,Førde,61.437469,6.037209,136.0,rural
+NO1200R,Tangen,63.716667,11.216667,5.0,urban-suburban
+NO1218R,Brekkebygda,60.3,9.733333,390.0,rural
+NO1241R,Karpbukt,69.666667,30.366667,20.0,rural
+NO1479U,Skøyen,59.919786111,10.689769444,3.0,urban-centre
+NP0001G,Nepal Climate Observatory - Pyramid,27.9578,86.8149,5079.0,rural
+PR0100C,Cape San Juan,18.381,-65.618,65.0,rural
+RO0007R,Rado-Bucharest I,44.348,26.029,93.0,urban-suburban
+RO0010R,Rado-Bucharest Ii,44.344,26.012,77.0,urban-suburban
+RU0100R,Tiksi,71.5861663818,128.918823242,8.0,rural
+SE0001R,Ekeröd,55.9,13.716667,140.0,rural
+SE0004R,Ryda Kungsgård,59.766667,17.133333,86.0,rural
+SE0006R,Ekerum,56.8,16.516667,0.0,urban-suburban
+SE0024U,Stockholm (Hornsgatan 108),59.317111,18.048444,42.0,urban-centre
+SE0025U,Stockholm (Torkel Knutssonsgatan),59.316028,18.057861,38.0,urban-centre
+SE0053R,Rickleå,64.166667,20.933333,16.0,urban-suburban
+TW0100R,Lulin,23.47,120.87,2862.0,rural
+US0008R,Barrow,71.3230133057,-156.611465454,11.0,rural
+US0035R,Bondville,40.05,-88.36667,213.0,urban-suburban
+US0901R,Boulder Table Mountain,40.12498,-105.2368,1689.0,rural
+US1200R,Mauna Loa,19.5362300873,-155.576156616,3397.0,rural
+US3446C,"Appalachian State University,Boone (Nc)",36.2,-81.7,1076.0,urban-suburban
+US6001R,Samoa (Cape Matatula),-14.2474746704,-170.56451416,77.0,rural
+US6002C,Southern Great Plains E13,36.605,-97.484999,318.0,rural
+US6004G,South Pole,-89.9969482422,-24.7999992371,2841.0,rural
+US6005G,Trinidad Head,41.0541000366,-124.151000977,107.0,rural
+US9050R,"Steamboat Springs,Colorado (Storm Peak Laboratory)",40.445,-106.74,3220.0,rural
+VN0001R,Pha Din,21.5731,103.5157,1466.0,rural
+ZA0001G,Cape Point,-34.35348,18.48968,230.0,rural

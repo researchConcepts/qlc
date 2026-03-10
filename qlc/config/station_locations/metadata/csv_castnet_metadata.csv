@@ -1,0 +1,155 @@
+site_id,site_name,latitude,longitude,altitude,country_code,state,county,agency,land_use,terrain,active,inactive
+ABT147,Abington,41.84046,-72.010368,202.0,US,CT,Windham,EPA,Urban/Agric,Rolling,domp,w
+ACA416,Acadia NP,44.377086,-68.2608,158.0,US,ME,Hancock,NPS,Forest,Rolling,dom,
+ALC188,Alabama-Coushatta Tribe of Texas,30.701577,-94.674011,105.0,US,TX,Polk,EPA,Prairie,Rolling,dom,
+ALH157,Alhambra,38.869001,-89.622815,164.0,US,IL,Madison,EPA,Agric,Flat,domp,w
+ALH257,Alhambra Collocated,38.869001,-89.622815,164.0,US,IL,Madison,EPA,Agric,Flat,,domw
+ALH557,Alhambra Aerosol,38.869001,-89.622815,164.0,US,IL,Madison,EPA,Agric,Flat,,a
+ANA115,Ann Arbor,42.416636,-83.90218,266.0,US,MI,Washtenaw,EPA,Forest,Flat,domp,w
+ANL146,Argonne NL,41.7,-87.99,229.0,US,IL,DuPage,EPA,Urban/Agric,Rolling,,dom
+ARE128,Arendtsville,39.923241,-77.307863,266.0,US,PA,Adams,EPA,Agric,Rolling,domp,w
+ARE228,Arendtsville Collocated,39.923241,-77.307863,266.0,US,PA,Adams,EPA,Forest,Rolling,,domw
+ARE528,Arendtsville Aerosol,39.923241,-77.307863,266.0,US,PA,Adams,EPA,Agric,Rolling,,ain
+ASH135,Ashland,46.603832,-68.413227,231.0,US,ME,Aroostook,EPA,Agric,Flat,dom,
+ASH235,Ashland Collocated,46.603832,-68.413227,231.0,US,ME,Aroostook,EPA,Agric,Flat,,dom
+BAS601,Basin,44.28,-108.0411,1242.0,US,WY,Big Horn,BLM,Prairie,Rolling,dom,
+BBE401,Big Bend NP,29.302651,-103.177813,1052.0,US,TX,Brewster,NPS,Forest,Complex,dom,
+BEL116,Beltsville,39.028177,-76.817127,47.0,US,MD,Prince George's,EPA,Range,Flat,dom,t
+BEL216,Beltsville Collocated,39.028177,-76.817127,47.0,US,MD,Prince George's,EPA,Range,Flat,,r
+BFT142,Beaufort,34.884668,-76.620666,5.0,US,NC,Carteret,EPA,Agric,Flat,domp,w
+BUF603,Buffalo,44.1442,-106.1089,1324.0,US,WY,Johnson,BLM,Prairie,Rolling,dm,
+BVL130,Bondville,40.051981,-88.372495,213.0,US,IL,Champaign,EPA,Agric,Flat,domt,
+BVL530,Bondville Aerosol,40.051981,-88.372495,213.0,US,IL,Champaign,EPA,Agric,Flat,,a
+BWR139,Blackwater NWR,38.444971,-76.111274,1.0,US,MD,Dorchester,EPA,Forest/Marsh,Coastal,dom,
+CAD150,Caddo Valley,34.179278,-93.098755,78.0,US,AR,Clark,EPA,Forest,Complex,dom,
+CAN407,Canyonlands NP,38.458323,-109.82126,1809.0,US,UT,San Juan,NPS,Desert,Complex,dom,
+CAT175,Claryville,41.942325,-74.551999,754.0,US,NY,Ulster,EPA,Forest,Complex,dm,o
+CAV436,Carlsbad Caverns NP,32.1783,-104.4406,1357.0,US,NM,Eddy,NPS,Desert,Complex,om,
+CDR119,Cedar Creek,38.879503,-80.847677,240.0,US,WV,Gilmer,EPA,Forest,Complex,domp,w
+CDZ171,Cadiz,36.784053,-87.85015,190.0,US,KY,Trigg,EPA,Agric,Rolling,dom,
+CDZ571,Cadiz Aerosol,36.784053,-87.85015,190.0,US,KY,Trigg,EPA,Agric,Rolling,,ain
+CHA267,Chiricahua NM Collocated,32.009405,-109.389058,1569.0,US,AZ,Cochise,EPA,Range,Complex,,dom
+CHA467,Chiricahua NM,32.009405,-109.389058,1570.0,US,AZ,Cochise,NPS,Range,Complex,domp,w
+CHC432,Chaco Culture NHP,36.035,-107.9042,1965.0,US,NM,San Juan,NPS,Desert,Complex,omt,
+CHE185,Cherokee Nation,35.750786,-94.669789,305.0,US,OK,Adair,EPA,Agric,Rolling,dom,
+CKT136,Crockett,37.92146,-83.066295,376.0,US,KY,Morgan,EPA,Agric,Rolling,dom,
+CLD303,Clingmans Dome MADPro,35.5631,-83.4986,2014.0,US,TN,Sevier,EPA,Forest,Complex,,dmc
+CND125,Candor,35.26333,-79.83754,172.0,US,NC,Montgomery,EPA,Forest,Rolling,dom,w
+CNT169,Centennial,41.364531,-106.24002,3175.0,US,WY,Albany,EPA,Forest,Complex,dom,
+CON186,Converse Station,34.194048,-116.912977,1718.0,US,CA,San Bernardino,EPA,Forest/Arid,Complex,,dom
+COW005,Coweeta Screwdriver Knob,35.04826,-83.45428,960.0,US,NC,Macon,EPA,Forest,Complex,,dm
+COW137,Coweeta,35.060527,-83.43034,683.0,US,NC,Macon,EPA,Forest,Complex,dom,
+COW182,Coweeta Special,35.060527,-83.43034,683.0,US,NC,Macon,EPA,Forest,Complex,,d
+CRM435,Craters of the Moon NM and Preserve,43.4606,-113.5622,,US,ID,Butte,NPS,Desert,Rolling,om,
+CTH110,Connecticut Hill,42.400875,-76.653516,511.0,US,NY,Tompkins,EPA,Forest,Rolling,dom,w
+CTH510,Connecticut Hill Aerosol,42.400875,-76.653516,511.0,US,NY,Tompkins,EPA,Forest,Rolling,,ain
+CVL151,Coffeeville,34.002747,-89.799183,138.0,US,MS,Yalobusha,EPA,Forest,Rolling,dom,
+DCP114,Deer Creek,39.635888,-83.260563,264.0,US,OH,Fayette,EPA,Agric,Rolling,domp,w
+DCP214,Deer Creek Collocated,39.635888,-83.260563,264.0,US,OH,Fayette,EPA,Agric,Rolling,,dom
+DEN417,Denali NP,63.7232,-148.9676,661.0,US,AK,Denali,NPS,Forest,Complex,dom,
+DEV412,Death Valley NM,36.5089,-116.8478,125.0,US,CA,Inyo,NPS,Desert,Complex,om,d
+DIN431,Dinosaur NM,40.4373,-109.3046,1463.0,US,UT,Uintah,NPS,Desert,Complex,dom,
+DUK008,Duke Forest,35.9745,-79.099,164.0,US,NC,Orange,EPA,Forest,Rolling,domt,
+EGB181,Egbert,44.231071,-79.783115,227.0,US,ON,,EPA,Agric,Rolling,dm,
+EGB281,Egbert Collocated,44.231071,-79.783115,227.0,US,ON,,EPA,Agric,Rolling,,d
+ESP127,Edgar Evins,36.03893,-85.73305,302.0,US,TN,DeKalb,EPA,Forest,Rolling,dom,
+EVE419,Everglades NP,25.391223,-80.680819,2.0,US,FL,Miami-Dade,NPS,Forest/Marsh,Flat,dm,o
+FOR605,Fortification Creek,44.3395,-105.9198,1408.0,US,WY,Campbell,BLM,Prairie,Rolling,dm,
+GAS153,Georgia Station,33.181173,-84.410054,265.0,US,GA,Pike,EPA,Agric,Rolling,dom,
+GAS253,Georgia Station Collocated,33.181173,-84.410054,265.0,US,GA,Pike,EPA,Agric,Rolling,,dom
+GLR468,Glacier NP,48.510301,-113.996807,976.0,US,MT,Flathead,NPS,Forest,Complex,dom,
+GRB411,Great Basin NP,39.005121,-114.215932,2060.0,US,NV,White Pine,NPS,Forest,Complex,dom,
+GRC474,Grand Canyon NP,36.058642,-112.183575,2073.0,US,AZ,Coconino,NPS,Forest,Rolling,dom,
+GRS420,Great Smoky NP - Look Rock,35.633482,-83.941606,793.0,US,TN,Blount,NPS,Forest,Complex,domt,
+GRT434,Grand Teton NP,43.6708,-110.5995,2105.0,US,WY,Teton,NPS,Forest,Rolling,om,
+GTH161,Gothic,38.95627,-106.98587,2915.0,US,CO,Gunnison,EPA,Range,Complex,domp,w
+HBR183,Hubbard Brook Special,43.95,-71.7,322.0,US,NH,Grafton,EPA,Forest,Complex,,d
+HOW132,Howland,45.215607,-68.70851,66.0,US,ME,Penobscot,EPA,Forest,Rolling,,dom
+HOW191,Howland Ameriflux,45.203963,-68.740041,68.0,US,ME,Penobscot,EPA,Forest,Rolling,,dom
+HOX148,Hoxeyville,44.18089,-85.73898,297.0,US,MI,Wexford,EPA,Forest,Flat,dom,
+HVT424,Hawaii Volcanoes NP,19.4197,-155.24,1199.0,US,HI,Hawaii,NPS,Forest/Tropical,Complex,,dom
+HWF187,Huntington Wildlife Forest,43.973044,-74.223317,497.0,US,NY,Essex,EPA,Forest,Complex,domt,
+IRL141,Indian River Lagoon,27.849215,-80.455595,2.0,US,FL,Indian River,EPA,Coastal/Marsh,Flat/Water,dom,
+JOT403,Joshua Tree NP,34.069569,-116.388933,1244.0,US,CA,San Bernardino,NPS,Desert,Complex,dom,
+KEF112,Kane Exp. Forest,41.598119,-78.767866,618.0,US,PA,Elk,EPA,Forest,Rolling,dom,
+KIC003,Kickapoo Tribe of Indians of the Kickapoo Reservation in Kansas,39.8539,-95.6578,367.0,US,KS,Brown,EPA,Prairie,Rolling,dm,
+KNZ184,Konza Prairie,39.10216,-96.609583,346.0,US,KS,Riley,EPA,Prairie,Flat,dm,o
+KVA428,Kobuk Valley NP,67.0931,-157.8689,88.0,US,AK,,NPS,,,,dm
+LAV410,Lassen Volcanic NP,40.539991,-121.576462,1756.0,US,CA,Shasta,NPS,Forest,Complex,dom,
+LCW121,Lilley C. Woods,37.13,-82.99,335.0,US,KY,Letcher,EPA,Agric,Rolling,,dom
+LIV573,Livonia Aerosol,38.5347,-86.2608,299.0,US,IN,Washington,EPA,Agric,Rolling,,ai
+LRL117,Laurel Hill,39.988309,-79.251573,609.0,US,PA,Somerset,EPA,Forest,Complex,dom,
+LYE145,Lye Brook,43.050884,-73.061334,725.0,US,VT,Bennington,EPA,Forest,Mountaintop,,domw
+LYK123,Lykens,40.916981,-82.998206,303.0,US,OH,Crawford,EPA,Agric,Flat,,domwp
+MAC426,Mammoth Cave NP,37.131794,-86.142953,243.0,US,KY,Edmonson,NPS,Agric,Rolling,domt,
+MCK131,Mackville,37.704678,-85.048706,293.0,US,KY,Washington,EPA,Agric,Rolling,dom,
+MCK231,Mackville Collocated,37.704678,-85.048706,293.0,US,KY,Washington,EPA,Agric,Rolling,dom,
+MEV405,Mesa Verde NP,37.198398,-108.490462,2165.0,US,CO,Montezuma,NPS,Forest,Complex,dom,
+MKG113,M.K. Goddard,41.426847,-80.145247,377.0,US,PA,Mercer,EPA,Forest,Rolling,dom,
+MKG513,M.K. Goddard Aerosol,41.426847,-80.145247,377.0,US,PA,Mercer,EPA,Forest,Rolling,,ai
+MOR409,Mount Rainier NP,46.75838,-122.12429,415.0,US,WA,Pierce,NPS,Forest,Complex,,dom
+NCS415,North Cascades NP,48.54051,-121.445652,109.0,US,WA,Skagit,NPS,Forest,Complex,,dom
+NEC602,Newcastle,43.873,-104.1919,1468.0,US,WY,Weston,BLM,Prairie,Rolling,dom,
+NIC001,Nicks Lake,43.6805,-74.9891,525.0,US,NY,Herkimer,EPA,Forest,Rolling,dm,
+NPT006,Nez Perce Tribe,46.2756,-116.0216,945.0,US,ID,Idaho,EPA,Forest,Rolling,dom,
+OLY421,Olympic NP,48.0975,-123.4256,125.0,US,WA,Clallam,NPS,Forest,Complex,,dom
+ONL102,Oak Ridge,35.96,-84.29,341.0,US,TN,Anderson,EPA,Forest,Rolling,,dom
+OXF122,Oxford,39.531115,-84.723547,284.0,US,OH,Butler,EPA,Agric,Rolling,dom,
+PAL190,Palo Duro,34.88061,-101.664703,1053.0,US,TX,Randall,EPA,Prairie,Complex,dom,
+PAR107,Parsons,39.090434,-79.661742,510.0,US,WV,Tucker,EPA,Forest,Complex,dom,
+PAR207,Parsons Collocated,39.090434,-79.661742,510.0,US,WV,Tucker,EPA,Forest,Complex,,dom
+PBF129,Perryville,37.68,-84.97,279.0,US,KY,Boyle,EPA,Agric,Rolling,,dom
+PED108,Prince Edward,37.165222,-78.307067,149.0,US,VA,Prince Edward,EPA,Forest,Rolling,domp,w
+PET427,Petrified Forest,34.822508,-109.892485,1723.0,US,AZ,Navajo,NPS,Desert,Flat,dom,
+PIN414,Pinnacles NM,36.483235,-121.156876,335.0,US,CA,San Benito,NPS,Forest,Complex,dom,
+PND165,Pinedale,42.929031,-109.787796,2386.0,US,WY,Sublette,EPA,Forest,Rolling,domt,
+PNF126,Cranberry,36.105435,-82.045015,1216.0,US,NC,Avery,EPA,Forest,Mountaintop,domt,w
+POF425,Poker Flats - Yukon Flats NM,65.1178,-147.4333,495.0,US,AK,Fairbanks North Star,NPS,Forest,Complex,,dm
+PRK134,Perkinstown,45.206525,-90.597209,462.0,US,WI,Taylor,EPA,Agric,Rolling,domp,w
+PSU106,Penn State,40.720902,-77.931759,364.0,US,PA,Centre,EPA,Agric,Rolling,dom,
+QAK172,Quaker City,39.942714,-81.337914,371.0,US,OH,Noble,EPA,Agric,Rolling,dom,
+QAK272,Quaker City Collocated,39.942714,-81.337914,371.0,US,OH,Noble,EPA,Agric,Rolling,,a
+QAK572,Quaker City Aerosol,39.942714,-81.337914,371.0,US,OH,Noble,EPA,Agric,Rolling,,ain
+RCK163,Reynolds Creek,43.21,-116.75,1198.0,US,ID,Owyhee,EPA,Range,Rolling,,dom
+RCK263,Reynolds Creek Collocated,43.21,-116.75,1198.0,US,ID,Owyhee,EPA,Range,Rolling,,dom
+RED004,"Red Lake Band of Chippewa Indians, Minnesota",47.8638,-94.8352,372.0,US,MN,Beltrami,EPA,Forest,Flat,dm,
+ROM206,Rocky Mtn NP Collocated,40.278129,-105.545635,2742.0,US,CO,Larimer,EPA,Forest,Complex,domt,
+ROM406,Rocky Mtn NP,40.278129,-105.545635,2743.0,US,CO,Larimer,NPS,Forest,Complex,dom,
+RTP101,Res. Triangle Pk.,35.91,-78.88,91.0,US,NC,Durham,EPA,Urban,Rolling,,domr
+SAL133,Salamonie Reservoir,40.816038,-85.661407,250.0,US,IN,Wabash,EPA,Agric,Flat,dom,
+SAN189,"Santee Sioux Nation, Nebraska",42.829154,-97.854128,434.0,US,NE,Knox,EPA,Range,Rolling,dom,
+SAV164,Saval Ranch,41.29,-115.86,1873.0,US,NV,Elko,EPA,Forest,Rolling,,dom
+SCR180,Scotia Range,40.7884,-77.9464,376.0,US,PA,Centre,EPA,Forest,Rolling,,dmw
+SEK402,Sequoia NP - Lookout Pt,36.4292,-118.7625,1225.0,US,CA,Tulare,NPS,Forest,Mountaintop,,dom
+SEK430,Sequoia NP - Ash Mountain,36.489469,-118.829153,510.0,US,CA,Tulare,NPS,Forest,Mountaintop,dom,
+SHE604,Sheridan,44.93,-106.85,1115.0,US,WY,Sheridan,BLM,Prairie,Rolling,dm,
+SHN418,Shenandoah NP - Big Meadows,38.5231,-78.43471,1073.0,US,VA,Madison,NPS,Forest,Mountaintop,dom,
+SHN518,Shenandoah NP - Big Meadows Aerosol,38.5231,-78.43471,1068.0,US,VA,Madison,EPA,Forest,Mountaintop,,a
+SIK270,Sikes Collocated,32.0575,-92.4353,68.0,US,LA,Winn,EPA,Agric,Flat,,a
+SIK570,Sikes Aerosol,32.0575,-92.4353,68.0,US,LA,Winn,EPA,Agric,Flat,,ain
+SND152,Sand Mountain,34.289001,-85.970065,349.0,US,AL,DeKalb,EPA,Agric,Rolling,dom,
+SPD111,Speedwell,36.46983,-83.826511,361.0,US,TN,Claiborne,EPA,Agric,Rolling,domp,w
+STK138,Stockton,42.287216,-89.99995,281.0,US,IL,Jo Daviess,EPA,Agric,Rolling,dom,
+SUM156,Sumatra,30.110226,-84.99038,16.0,US,FL,Liberty,EPA,Forest,Flat,domp,w
+SUM256,Sumatra Collocated,30.110226,-84.99038,16.0,US,FL,Liberty,EPA,Forest,Flat,,dom
+THR422,Theodore Roosevelt NP,46.894844,-103.377719,850.0,US,ND,Billings,NPS,Forest,Rolling,dom,
+UIN162,Uinta,40.55,-110.32,2500.0,US,UT,Duchesne,EPA,Range,Complex,,domw
+UMA009,Confederated Tribes of the Umatilla Indian Reservation,46.2026,-117.9539,681.0,US,WA,Columbia,EPA,Forest,Rolling,dom,
+UND002,Underhill,44.5283,-72.8688,399.0,US,VT,Chittenden,EPA,Forest,Complex,dm,
+UVL124,Unionville,43.613572,-83.359869,202.0,US,MI,Tuscola,EPA,Agric,Flat,domp,w
+VII423,Virgin Islands NP - Lind Pt,18.3364,-64.7964,80.0,US,VI,St. John,NPS,Forest,Complex,,dom
+VIN140,Vincennes,38.740792,-87.484923,136.0,US,IN,Knox,EPA,Agric,Rolling,dom,
+VOY413,Voyageurs NP,48.412518,-92.829225,429.0,US,MN,St. Louis,NPS,Forest,Rolling,dom,
+VPI120,Blue Grass Trail,37.3232,-80.4572,652.0,US,VA,Giles,EPA,Agric,Mountaintop,domp,
+WEL149,Wellston,44.2249,-85.8198,295.0,US,MI,Wexford,EPA,Forest,Flat,,dom
+WFM007,Whiteface Mountain Summit,44.39,-73.86,1415.0,US,NY,Essex,EPA,Forest,Complex,,dm
+WFM105,Whiteface Mountain,44.39,-73.86,570.0,US,NY,Essex,EPA,Forest,Complex,dm,o
+WNC429,Wind Cave NP,43.557639,-103.483856,1292.0,US,SD,Custer,NPS,Prairie,Rolling,dom,
+WPA103,West Point A,41.35,-74.05,203.0,US,NY,Orange,EPA,Forest,Complex,,dom
+WPB104,West Point B,41.35,-74.05,203.0,US,NY,Orange,EPA,Forest,Complex,,dom
+WSP144,Wash. Crossing,40.312303,-74.872663,59.0,US,NJ,Mercer,EPA,Range,Rolling,dom,
+WST109,Woodstock,43.944519,-71.700787,255.0,US,NH,Grafton,EPA,Forest,Complex,dom,
+YEL408,Yellowstone NP,44.565356,-110.400338,2430.0,US,WY,Teton,NPS,Agric,Rolling,dom,
+YOS204,Yosemite NP Collocated,37.7133,-119.7061,1605.0,US,CA,Mariposa,NPS,Forest,Complex,,o
+YOS404,Yosemite NP - Turtleback Dome,37.713251,-119.706196,1605.0,US,CA,Mariposa,NPS,Forest,Complex,dom,
+ZIO433,Zion NP - Dalton's Wash,37.1983,-113.1506,1213.0,US,UT,Washington,NPS,Desert,Complex,om,

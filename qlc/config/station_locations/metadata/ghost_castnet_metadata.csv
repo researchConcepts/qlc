@@ -1,0 +1,24 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+ABT147,Abington,41.84046,-72.010368,202.0,urban
+ALH157,Alhambra,38.869,-89.6228,164.0,rural
+ALH257,Alhambra Collocated,38.869001,-89.622815,164.0,rural
+ANA115,Ann Arbor,42.416636,-83.90218,266.0,rural
+ARE128,Arendtsville,39.923241,-77.307863,266.0,rural
+ARE228,Arendtsville Collocated,39.923241,-77.307863,266.0,rural
+BFT142,Beaufort,34.884668,-76.620666,5.0,rural
+CDR119,Cedar Creek,38.879503,-80.847677,240.0,rural
+CHA467,Chiricahua Nm,32.009405,-109.389058,1570.0,rural
+CND125,Candor,35.26333,-79.83754,172.0,rural
+CTH110,Connecticut Hill,42.400875,-76.653516,511.0,rural
+DCP114,Deer Creek,39.635888,-83.260563,264.0,rural
+GTH161,Gothic,38.95627,-106.98587,2915.0,rural
+LYE145,Lye Brook,43.050884,-73.061334,725.0,rural
+LYK123,Lykens,40.916981,-82.998206,303.0,rural
+PED108,Prince Edward,37.165222,-78.307067,149.0,rural
+PNF126,Cranberry,36.105435,-82.045015,1216.0,rural
+PRK134,Perkinstown,45.206525,-90.597209,462.0,rural
+SCR180,Scotia Range,40.7884,-77.9464,376.0,rural
+SPD111,Speedwell,36.46983,-83.826511,361.0,rural
+SUM156,Sumatra,30.110226,-84.99038,16.0,rural
+UIN162,Uinta,40.55,-110.32,2500.0,rural
+UVL124,Unionville,43.613572,-83.359869,202.0,rural

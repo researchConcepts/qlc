@@ -3,7 +3,7 @@
 """
 QLC Extras Installer: Evaltools and PyFerret Integration
 
-Part of QLC (Quick Look Content) v1.0.1-beta
+Part of QLC (Quick Look Content) v1.0.2
 An Automated Model-Observation Comparison Suite Optimized for CAMS
 
 Documentation:
@@ -31,7 +31,7 @@ Usage:
     qlc-install-extras --pyferret
     qlc-install-extras --all
 
-Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 """
 
@@ -199,21 +199,21 @@ def install_cartopy_data(force: bool = False) -> bool:
                         # Verify .shp file exists
                         shp_file = dest_dir / f"{shapefile_name}.shp"
                         if shp_file.exists():
-                            log(f"  ✓ ne_{resolution}_{name} downloaded and extracted successfully")
+                            log(f"  ne_{resolution}_{name} downloaded and extracted successfully")
                             log(f"    Location: {shp_file}")
                             download_count += 1
                         else:
-                            log(f"  ✗ Warning: Extraction succeeded but .shp file not found", "WARN")
+                            log(f"  ERROR Warning: Extraction succeeded but .shp file not found", "WARN")
                             error_count += 1
                     except zipfile.BadZipFile as e:
-                        log(f"  ✗ Warning: Downloaded file is not a valid zip: {e}", "WARN")
+                        log(f"  ERROR Warning: Downloaded file is not a valid zip: {e}", "WARN")
                         error_count += 1
                 else:
-                    log(f"  ✗ Warning: Could not download from {zip_url}", "WARN")
+                    log(f"  ERROR Warning: Could not download from {zip_url}", "WARN")
                     error_count += 1
                     
             except Exception as e:
-                log(f"  ✗ Warning: Could not download ne_{resolution}_{name}: {e}", "WARN")
+                log(f"  ERROR Warning: Could not download ne_{resolution}_{name}: {e}", "WARN")
                 log("  This may cause runtime downloads or errors. Continuing...", "WARN")
                 error_count += 1
         
@@ -379,7 +379,7 @@ def install_evaltools(venv_path: Optional[str] = None, force: bool = False) -> b
                         ax.add_feature(feature.with_scale(resolution))
                         
                         plt.close(fig)
-                        log(f"  ✓ {shapefile_name} downloaded successfully to venv")
+                        log(f"  {shapefile_name} downloaded successfully to venv")
                     except Exception as e:
                         log(f"  WARNING: Could not pre-download {shapefile_name} ({resolution}): {e}", "WARN")
                         log("  This may cause runtime downloads. Continuing installation...", "WARN")

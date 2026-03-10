@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Z1-XPDF: TeX/PDF Report Generation
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -19,7 +19,7 @@
 #   Called automatically by qlc_main.sh - Do not call directly
 #   For help: qlc -h
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -29,6 +29,11 @@
 source $FUNCTIONS
 
 CUSR="`echo $USER`"
+# --user=<label> CLI override: replace system username with custom display label in PDF reports.
+if [ -n "${QLC_CLI_USER:-}" ]; then
+  CUSR="${QLC_CLI_USER}"
+  log "PDF user label overridden: CUSR=${CUSR}"
+fi
 PLOTTYPE="pdftex"
 SCRIPT="$0"
  log  "________________________________________________________________________________________"
@@ -72,7 +77,9 @@ parse_qlc_arguments "$@" || exit 1
 
 # Create experiment strings for different uses
 experiments_comma=$(IFS=,; echo "${experiments[*]}")  # Comma-separated for JSON
-experiments_hyphen=$(IFS=-; echo "${experiments[*]}") # Hyphen-separated for paths
+# Use experiments_dirname set by parse_qlc_arguments so that obs-only / mod-only
+# runs (where experiments[] is cleared for processing) still carry the experiment IDs.
+experiments_hyphen="${experiments_dirname:-None}"
 exp1="${experiments[0]}" # Keep exp1 for backward compatibility in some operations
 
 # Process dates
@@ -80,12 +87,20 @@ sDate="${sDat//[-:]/}"
 eDate="${eDat//[-:]/}"
 mDate="$sDate-$eDate"
 
+# Append mode suffix to match the output directory created by D1-ANAL
+mode_suffix=""
+if [ -n "${QLC_MODE_OBS_ONLY:-}" ]; then
+    mode_suffix="_obs-only"
+elif [ -n "${QLC_MODE_MOD_ONLY:-}" ]; then
+    mode_suffix="_mod-only"
+fi
+
 # definition of tex file name
-pfile="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_${QLTYPE}_${CDATE}"
+pfile="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}${mode_suffix}_${QLTYPE}_${CDATE}"
 log "pfile base name  : $pfile"
 
 tpath="${TEX_DIRECTORY}/${pfile}"
-hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}"
+hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}${mode_suffix}"
 
 # Create help directory if not existent
 if [  ! -d "$hpath" ]; then
@@ -338,8 +353,8 @@ if [ -f "${tpath}/per_variable_tex_files.list" ]; then
         if [ -f "${var_tex}" ]; then
             var_tex_basename=$(basename "${var_tex}" .tex)
             
-            # Base name for all PDFs: TEAM_experiments_dates_qlc_Z1-XPDF_CDATE
-            base_pdf_name="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}_qlc_Z1-XPDF_${CDATE}"
+            # Base name for all PDFs: TEAM_experiments_dates[_mode]_qlc_Z1-XPDF_CDATE
+            base_pdf_name="${TEAM_PREFIX}_${experiments_hyphen}_${mDate}${mode_suffix}_qlc_Z1-XPDF_${CDATE}"
             
             # Extract QLTYPE, region (if present), and variable from filename
             # Pattern: texPlotfiles_qlc_D1-ANAL_REGION_VAR.tex or texPlotfiles_qlc_C1-GLOB_VAR.tex

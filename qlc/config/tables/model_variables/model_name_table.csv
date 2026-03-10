@@ -1,0 +1,14 @@
+# Model Name to Parameter Table Mapping
+# Maps model names from config to their corresponding table keys
+# Format: model_name,table_key,description
+#
+# Usage: config['model'] = 'IFS-COMPO' → uses table_key 'ifs'
+#        Table registry defines which files/classes correspond to each key
+#
+model_name,table_key,description
+IFS,ifs,IFS standard parameter database (7398+ variables)
+IFS-COMPO,ifs,IFS-COMPO with default AIR aerosol binning (10 bulk aerosol species)
+IFS-AIR,ifs,IFS-COMPO synonym
+IFS-HAM,ifs-hamm7,IFS-COMPO with HAMM7 aerosol binning (39 modal aerosol species)
+AIFS,ifs,AIFS uses IFS standard parameter database
+AIFS-COMPO,ifs,AIFS-COMPO with default AIR aerosol binning

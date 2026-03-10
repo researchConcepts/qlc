@@ -63,7 +63,7 @@
       "title": "Air pollutants over US, O3",
       "summary": "netCDF output: Collocated model and observation data for selected stations.",
       "author": "qlc Team @ ResearchConcepts io GmbH",
-      "history": "Processed for CAMS2_35bis (qlc_v1.0.1-beta)",
+      "history": "Processed for CAMS2_35bis (qlc_v1.0.2)",
       "Conventions": "CF-1.8"
     }
   }

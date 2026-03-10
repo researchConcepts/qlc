@@ -1,0 +1,4 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+acprec,acprec,mm,time,latitude,longitude,unknown,liquid precipitation accumulation
+prechg,prechg,ng l-1,time,latitude,longitude,unknown,mercury in precipitation
+wethg,wethg,pg m-2 min-1,time,latitude,longitude,unknown,mercury wet deposition flux

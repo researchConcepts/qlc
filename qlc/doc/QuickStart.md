@@ -88,7 +88,7 @@ To switch from test mode to CAMS production mode:
 qlc-install --mode cams
 ```
 
-This links `~/qlc` to `$PERM/qlc_pypi/v1.0.1-beta/cams`.
+This links `~/qlc` to `$PERM/qlc_pypi/v1.0.2/cams`.
 
 Continue with section 5.
 
@@ -108,42 +108,49 @@ qlc --help
 ### Search and inspect variables
 
 ```bash
-qlc-vars search O3
-qlc-vars info O3
+qlc-vars search O3             # fuzzy search
+qlc-vars --exact go3           # exact match
+qlc-vars info go3              # show full metadata
+qlc-vars list --source ver0d_airbase  # list network variables
 ```
 
 ### Bash execution (workflow test for quick execution)
 
 ```bash
-qlc b2ro b2rn 2018-12-01 2018-12-21 test
+qlc exp1 exp2 2018-12-01 2018-12-21 test
 ```
 
 ### Batch submission (complete analysis with downloads of required data from MARS archive using dependency job)
 
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test
+sqlc exp1 exp2 2018-12-01 2018-12-21 test
 ```
 
 ### Analysis options
 
 Observation only (quick test without model comparison):
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test --obs-only
+sqlc exp1 exp2 2018-12-01 2018-12-21 test --obs-only
 ```
 
 Model results only (quick test without observation comparison):
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test --mod-only
+sqlc exp1 exp2 2018-12-01 2018-12-21 test --mod-only
 ```
 
-With command line overrides (class, vars, region):
+With command line overrides (class, myvar, region):
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -vars="pl:O3,210203" -region=EU
+sqlc exp1 exp2 2018-12-01 2018-12-21 test -class=nl,nl --myvar="pl:O3,210203" -region=EU
 ```
 
 With command line overrides (class, param, myvar, levtype, region):
 ```bash
-sqlc b2ro b2rn 2018-12-01 2018-12-21 test -class=nl,nl -param=72.210,73.210 -myvar=PM1,PM2p5 -levtype=sfc -region=EU
+sqlc exp1 exp2 2018-12-01 2018-12-21 eac5 -class=nl,nl -param=72.210,73.210 -myvar=PM2.5;PM10
+```
+
+Override active scripts (run only station analysis without retrieval):
+```bash
+qlc exp1 exp2 2018-12-01 2018-12-21 eac5 --scripts=D1-ANAL,Z1-XPDF
 ```
 
 ### View results
@@ -160,7 +167,7 @@ ls -lrth ~/qlc/Analysis
 
 Plot results for active workflow:
 ```bash
-ls -lrth ~/qlc/Plots/b2ro-b2rn*
+ls -lrth ~/qlc/Plots/exp1-exp2*
 ```
 
 Reports produced (one PDF per variable, region):
@@ -184,8 +191,8 @@ source ~/.profile  # if needed
 
 ```bash
 WPATH=~/qlc_wheels
-WHEEL=$WPATH/rc_qlc-1.0.1b0-cp310-cp310-macosx_10_9_universal2.whl  # macOS
-WHEEL=$WPATH/rc_qlc-1.0.1b0-cp310-cp310-linux_x86_64.whl            # Linux
+WHEEL=$WPATH/rc_qlc-1.0.2-cp310-cp310-macosx_10_9_universal2.whl  # macOS
+WHEEL=$WPATH/rc_qlc-1.0.2-cp310-cp310-linux_x86_64.whl            # Linux
 ```
 
 ### Define installation mode
@@ -291,8 +298,8 @@ Continue with section 3 or 5.
 
 ## 10. Questions/Comments
 
-**BETA RELEASE:** Under development, requires further testing.
+**v1.0.2:** Latest release. See the [changelog](https://docs.researchconcepts.io/qlc/latest/reference/changelog) for what's new.
 
-© 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+© 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 
 Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>

@@ -1,0 +1,1225 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+AAOT,Aaot,45.3139,12.5083,10.0,nan
+AAUET,Aau Et,9.019167,38.747778,2370.0,nan
+AOEBaotou,Aoe Baotou,40.8517,109.6288,1314.0,nan
+ARIAKETOWER,Ariake Tower,33.103617,130.27195,15.0,nan
+ARMAscensionIs,Arm Ascension Is,-7.966964,-14.349806,341.0,nan
+ARMCordoba,Arm Cordoba,-32.12641,-64.72837,1141.0,nan
+ARMDarwin,Arm Darwin,-12.425,130.891,29.899999618530273,nan
+ARMGanIsland,Arm Gan Island,-0.690597,73.149896,1.0,nan
+ARMGothic,Arm Gothic,38.956,-106.988,2894.0,nan
+ARMGraciosa,Arm Graciosa,39.09109,-28.02917,15.199999809265137,nan
+ARMHighlandsMA,Arm Highlands Ma,42.030478,-70.049317,47.853599548339844,nan
+ARMHyytialaFinland,Arm Hyytialafinland,61.843536,24.287847,179.0,nan
+ARMLaPorte,Arm Laporte,29.669,-95.059,7.0,nan
+ARMMacquarieIs,Arm Macquarie Is,-54.499561,158.934581,3.5999999046325684,nan
+ARMManacapuru,Arm Manacapuru,-3.212972,-60.598056,49.9900016784668,nan
+ARMMcMurdo,Arm Mcmurdo,-77.848889,166.729722,73.0,nan
+ARMNainital,Arm Nainital,29.35883,79.45827,1943.0,nan
+ARMOliktokAK,Arm Oliktok Ak,70.4995,-149.88,2.0,nan
+ARMSGP,Arm Sgp,36.605175,-97.485619,319.0,nan
+ARMWAIS,Arm Wais,-79.470556,-112.083333,1799.0,nan
+ASIMalindi,Asi Malindi,-2.996,40.1945,12.0,nan
+ATHENS-NOA,Athens-Noa,37.9721,23.718,130.0,nan
+ATHENSNTUA,Athens Ntua,37.977036,23.783088,215.0,nan
+Abisko,Abisko,68.35,18.817,390.0,nan
+AbracosHill,Abracos Hill,-10.76,-62.358333,259.0,nan
+AbuAlBukhoosh,Abu Al Bukhoosh,25.495,53.145833,24.5,nan
+AbuDhabi,Abu Dhabi,24.476111,54.328889,7.0,nan
+AdelaideSite7,Adelaide Site 7,-34.725067,138.656483,30.0,nan
+AgiaMarinaXyliatou,Agiamarina Xyliatou,35.038,33.0577,521.0,nan
+Agoufou,Agoufou,15.3454,-1.479117,305.0,nan
+AguasEmendadas,Aguas Emendadas,-15.58175,-47.6563,988.0,nan
+AireAdour,Aire Adour,43.7,0.25,80.0,nan
+AlAin,Al Ain,24.242167,55.705167,283.0,nan
+AlDhafra,Al Dhafra,24.254278,54.549667,40.0,nan
+AlKhaznah,Al Khaznah,24.158611,55.100556,192.0,nan
+AlQlaa,Al Qlaa,24.133333,53.033333,5.0,nan
+AlbanyOregon,Albany Oregon,44.583332,-123.066666,67.0,nan
+AlbergueUGR,Albergue Ugr,37.095598,-3.386989,2501.0,nan
+Alboran,Alboran,35.939625,-3.35297,15.0,nan
+Albuquerque,Albuquerque,35.051672,-106.535836,1645.0,nan
+AlkaliLake,Alkali Lake,37.8588,-117.382,1468.0,nan
+AltaFloresta,Alta Floresta,-9.871339,-56.104453,277.0,nan
+AltaFlorestaIF,Alta Floresta If,-9.908354,-56.064393,288.0,nan
+AmazonATTOTower,Amazon Atto Tower,-2.144117,-58.999867,210.0,nan
+AmericanSamoa,American Samoa,-14.2472,-170.5644,76.0,nan
+Ames,Ames,42.021361,-93.774778,338.0,nan
+AmityUnivGurgaon,Amity Univ Gurgaon,28.317329,76.916031,285.0,nan
+AmsterdamIsland,Amsterdam Island,-37.799544,77.571946,49.0,nan
+AmsterdamRuisdael,Amsterdam Ruisdael,52.334336,4.866967,57.0,nan
+Andenes,Andenes,69.278333,16.008611,379.0,nan
+AndrosIsland,Andros Island,24.7,-77.8,7.0,nan
+Angiola,Angiola,35.947,-119.538,43.0,nan
+Anmyon,Anmyon,36.538537,126.330194,47.0,nan
+AntarcticaDomeC,Antarcticadomec,-75.099953,123.331299,3269.0,nan
+AntikytheraNOA,Antikythera Noa,35.86099,23.30982,193.0,nan
+AppalachianState,Appalachian State,36.2146,-81.6938,1080.0,nan
+AppledoreIsland,Appledore Island,42.987064,-70.615361,35.0,nan
+ApulianTavoliere,Apulian Tavoliere,41.46084,15.5016,90.0,nan
+ArasdelosOlmos,Aras De Los Olmos,39.945,-1.1016,1280.0,nan
+Arcachon,Arcachon,44.663528,-1.163222,11.0,nan
+Arica,Arica,-18.471667,-70.313333,25.0,nan
+Ariquiums,Ariquiums,-9.916667,-63.033332,142.0,nan
+Arizona,Arizona,32.442001,-110.788002,2791.0,nan
+AscensionIsland,Ascension Island,-7.976389,-14.414722,30.0,nan
+AsuncionAirport,Asuncion Airport,-25.235809,-57.514727,83.0,nan
+AubiereLAMP,Aubiere Lamp,45.76096,3.111072,423.0,nan
+Autilla,Autilla,41.997222,-4.603056,873.0,nan
+Avignon,Avignon,43.93275,4.878067,32.0,nan
+Azores,Azores,38.53,-28.63,50.0,nan
+BMKGGAWPALU,Bmkg Gaw Palu,-1.6503,120.1829,1370.0,nan
+BMKGJakarta,Bmkg Jakarta,-6.155239,106.841197,35.0,nan
+BONDVILLE,Bondville,40.053333,-88.371944,212.0,nan
+BORDEAUX,Bordeaux,44.788028,-0.579167,40.0,nan
+BSRNBAOBoulder,Bsrn Bao Boulder,40.045183,-105.006033,1604.0,nan
+BacGiang,Bac Giang,21.291416,106.225472,15.0,nan
+BacLieu,Bac Lieu,9.28,105.73,10.0,nan
+BachLongVy,Bach Long Vy,20.133321,107.733339,5.0,nan
+BackGardenGZ,Backgarden Gz,23.296,113.021,16.0,nan
+Badajoz,Badajoz,38.882808,-7.01082,186.0,nan
+Baengnyeong,Baengnyeong,37.966111,124.630278,136.0,nan
+BahiaBlanca,Bahia Blanca,-39.148333,-61.721667,15.0,nan
+Bahrain,Bahrain,26.20805,50.609267,25.0,nan
+Bakersfield,Bakersfield,35.331506,-119.000008,108.0,nan
+Balbina,Balbina,-1.916983,-59.4868,80.0,nan
+Bambey-ISRA,Bambey-Isra,14.708567,-16.476733,30.0,nan
+Bamboo,Bamboo,25.186711,121.535266,1050.0,nan
+Bandung,Bandung,-6.888417,107.61,826.0,nan
+Baneasa,Baneasa,44.511333,26.077806,127.0,nan
+Bangkok,Bangkok,13.7491,100.5177,57.099998474121094,nan
+Banizoumbou,Banizoumbou,13.54693,2.66519,274.0,nan
+Banqiao,Banqiao,24.997757,121.442497,16.0,nan
+Barbados,Barbados,13.148575,-59.624122,112.0,nan
+BarbadosSALTRACE,Barbados Saltrace,13.148513,-59.624839,110.0,nan
+Barcelona,Barcelona,41.38925,2.11206,125.0,nan
+Bareilly,Bareilly,28.38996,79.43696,169.0,nan
+BariUniversity,Bari University,41.108327,16.883983,12.0,nan
+Barnaul,Barnaul,53.341667,83.772222,202.0,nan
+Barrow,Barrow,71.3122,-156.665,8.0,nan
+Bayfordbury,Bayfordbury,51.77632,-0.09624,75.0,nan
+Beijing,Beijing,39.97689,116.38137,92.0,nan
+Beijing-CAMS,Beijing-Cams,39.93333,116.31667,106.0,nan
+BeijingPKU,Beijing Pku,39.992,116.3102,53.0,nan
+BeijingRADI,Beijing Radi,40.0048,116.3786,59.0,nan
+Belsk,Belsk,51.836667,20.791667,190.0,nan
+Belterra,Belterra,-2.648483,-54.95165,132.0,nan
+BenSalem,Ben Salem,35.55055,9.914003,130.0,nan
+BerlinFRIE,Berlin Frie,52.5075,13.398,128.0,nan
+BerlinFUB,Berlin Fub,52.4575,13.310333,80.0,nan
+Bermuda,Bermuda,32.37,-64.696111,10.0,nan
+Bethlehem,Bethlehem,-28.248333,28.333333,1709.0,nan
+Bhola,Bhola,22.226675,90.756415,7.0,nan
+BidiBahn,Bidi Bahn,14.06,-2.45,291.0,nan
+Bidur,Bidur,27.8955,85.140096,576.0,nan
+BigMeadows,Big Meadows,38.521944,-78.436111,1082.0,nan
+Biggs,Biggs,39.450001,-121.73333,29.0,nan
+Billerica,Billerica,42.528347,-71.268619,82.0,nan
+Birdsville,Birdsville,-25.89893,139.34596,46.5,nan
+Birkenes,Birkenes,58.38845,8.25231,230.0,nan
+BlackForestAMF,Black Forest Amf,48.54005,8.396867,511.0,nan
+Blida,Blida,36.508333,2.880556,230.0,nan
+BlythNOAH,Blyth Noah,55.146399,-1.420859,19.0,nan
+Bolzano,Bolzano,46.4569,11.33,262.0,nan
+Bonanza,Bonanza,-21.825556,19.590278,1382.0,nan
+BonanzaCreek,Bonanza Creek,64.742805,-148.316269,353.0,nan
+Bondoukoui,Bondoukoui,11.85,-3.75,349.0,nan
+BordjBadjiMokhtar,Bordj Badji Mokhtar,21.38,0.92,420.0,nan
+Boulder,Boulder,39.991466,-105.260832,1659.0,nan
+BoydCountyMS,Boyd County Ms,38.427461,-82.700033,207.0,nan
+Bozeman,Bozeman,45.662204,-111.045013,1507.0,nan
+Braccagni,Braccagni,42.827746,11.079531,7.0,nan
+Bragansa,Bragansa,-0.834,-46.641,55.0,nan
+Brasilia,Brasilia,-15.917,-47.900002,1100.0,nan
+BrasiliaSONDA,Brasilia Sonda,-15.60129,-47.71348,992.0,nan
+BrattsLake,Bratts Lake,50.204238,-104.713013,586.7000122070312,nan
+BrestMF,Brest Mf,48.444565,-4.411855,101.0,nan
+Brisbane-UniofQLD,Brisbane-Uni Of Qld,-27.497083,153.013611,42.0,nan
+BrnoAirport,Brno Airport,49.15647,16.68333,238.0,nan
+Brookhaven,Brookhaven,40.866,-72.8847,37.0,nan
+Brussels,Brussels,50.783332,4.35,120.0,nan
+Bucarest,Bucarest,44.45,26.525,44.0,nan
+BucharestInoe,Bucharest Inoe,44.348311,26.02805,89.0,nan
+Buesum,Buesum,54.13225,8.878797,7.0,nan
+Bujumbura,Bujumbura,-3.38,29.383833,863.0,nan
+BukitKototabang,Bukit Kototabang,-0.20194,100.31805,864.5,nan
+BureOPE,Bure Ope,48.5625,5.505,393.0,nan
+Burjassot,Burjassot,39.507,-0.4202,104.0,nan
+Burtonsville,Burtonsville,39.093714,-76.949881,140.0,nan
+Bushland,Bushland,35.18678,-102.09384,1168.0,nan
+CARTEL,Cartel,45.379754,-71.93133,251.0,nan
+CARTSITE,Cart Site,36.60667,-97.48639,318.0,nan
+CASLEO,Casleo,-31.798815,-69.295685,2485.0,nan
+CATUCBamenda,Catuc Bamenda,5.9491,10.1563,1293.0,nan
+CBBT,Cbbt,37.03665,-76.0766,20.0,nan
+CCNY,Ccny,40.821313,-73.949036,100.0,nan
+CEILAP-BA,Ceilap-Ba,-34.555425,-58.506411,26.0,nan
+CEILAP-Bariloche,Ceilap-Bariloche,-41.146944,-71.163333,840.0,nan
+CEILAP-Comodoro,Ceilap-Comodoro,-45.792153,-67.462875,49.0,nan
+CEILAP-Neuquen,Ceilap-Neuquen,-38.95222,-68.13666,271.0,nan
+CEILAP-RG,Ceilap-Rg,-51.600503,-69.31925,19.0,nan
+CEILAP-UTN,Ceilap-Utn,-34.659722,-58.468611,27.0,nan
+CENER,Cener,42.816424,-1.602187,471.0,nan
+CLUJUBB,Cluj Ubb,46.768333,23.551389,405.0,nan
+COVE,Cove,36.9,-75.71,37.0,nan
+COVESEAPRISM,Cove Seaprism,36.9,-75.71,24.0,nan
+CRPSMMalindi,Crpsm Malindi,-2.996,40.1945,12.0,nan
+CUIABA-MIRANDA,Cuiaba-Miranda,-15.73091,-56.07086,210.0,nan
+CUT-TEPAK,Cut-Tepak,34.674806,33.04275,22.0,nan
+Cabauw,Cabauw,51.971,4.927,-0.699999988079071,nan
+CaboRaso,Cabo Raso,38.70937,-9.48587,20.0,nan
+CabodaRoca,Cabo Da Roca,38.781722,-9.497667,136.0,nan
+Caceres,Caceres,39.478583,-6.343467,397.0,nan
+CachoeiraPaulista,Cachoeira Paulista,-22.689,-45.006,574.0,nan
+CaillouelCOBIACC,Caillouel Cobiacc,49.619914,3.12681,53.0,nan
+CairoEMA,Cairo Ema,30.080767,31.290067,70.0,nan
+CairoEMA2,Cairo Ema 2,30.080767,31.290067,70.0,nan
+CairoUniversity,Cairo University,30.026167,31.207317,50.0,nan
+CalTech,Caltech,34.13673,-118.126167,260.0,nan
+CaldwellParishHS,Caldwell Parish Hs,32.060303,-92.096277,50.0,nan
+CalernOCA,Calern Oca,43.752207,6.923153,1270.0,nan
+Calhau,Calhau,16.863889,-24.867222,40.0,nan
+CalipsoRidgely,Calipso Ridgely,38.94863,-75.8815,15.0,nan
+CalipsoZion,Calipso Zion,39.932389,-76.199,120.0,nan
+Camaguey,Camaguey,21.4223,-77.8499,122.0,nan
+CamborneMO,Camborne Mo,50.21782,-5.32656,87.0,nan
+CampoGrande,Campo Grande,-20.45,-54.616667,551.0,nan
+CampoGrandeSONDA,Campo Grande Sonda,-20.438617,-54.538742,677.0,nan
+CampusUSACH,Campus Usach,-33.4499,-70.681567,550.0,nan
+Canberra,Canberra,-35.2713,149.1111,600.0,nan
+CapeFugueiStation,Cape Fuguei Station,25.297452,121.537859,40.0,nan
+CapeRomain,Cape Romain,32.941,-79.6572,4.0,nan
+CapeSanJuan,Cape San Juan,18.3845,-65.6199,15.0,nan
+CapelDewi,Capel Dewi,52.424804,-4.004613,48.0,nan
+CapoVerde,Capo Verde,16.7325,-22.935499,60.0,nan
+Carloforte,Carloforte,39.139908,8.309875,15.0,nan
+Carlsbad,Carlsbad,32.368833,-104.233167,967.0,nan
+CarmelValley,Carmel Valley,36.4021,-121.6464,340.0,nan
+Carpentras,Carpentras,44.083333,5.058333,107.0,nan
+CartSite,Cart Site,36.60667,-97.48639,318.0,nan
+CasablancaPlatform,Casablanca Platform,40.717,1.358,35.0,nan
+CascadeAirport,Cascade Airport,44.495286,-116.016825,1447.0,nan
+Catalina,Catalina,32.456511,-110.879547,935.0,nan
+CerroPoyos,Cerro Poyos,37.108869,-3.487261,1809.0,nan
+Chachoengsao,Chachoengsao,13.5,101.45,60.0,nan
+Chapais,Chapais,49.822433,-74.9754,373.44000244140625,nan
+CheboguePoint,Chebogue Point,43.747,-66.123,18.0,nan
+Chen-KungUniv,Chen-Kung Univ,22.993419,120.204664,50.0,nan
+Chequamegon,Chequamegon,45.933333,-90.25,485.0,nan
+Cheritan,Cheritan,37.289478,-75.971778,5.0,nan
+ChesapeakeBay,Chesapeake Bay,39.12351,-76.3489,30.0,nan
+ChiangDao,Chiang Dao,19.454722,98.9609,450.0,nan
+ChiangMai,Chiang Mai,18.813333,98.986944,324.0,nan
+ChiangMaiMetSta,Chiang Mai Met Sta,18.771125,98.972467,312.0,nan
+Chiayi,Chiayi,23.495975,120.495975,62.0,nan
+ChibaUniversity,Chiba University,35.6247,140.1038,60.0,nan
+Chilbolton,Chilbolton,51.14446,-1.43698,88.0,nan
+ChinaLake,China Lake,35.6741,-117.744533,704.0,nan
+Chinhae,Chinhae,35.1558,128.652433,69.0,nan
+Chulalongkorn,Chulalongkorn,13.736111,100.530278,115.0,nan
+Churchill,Churchill,58.736,-93.818167,10.0,nan
+ClermontFerrand,Clermont Ferrand,45.772435,2.964332,1461.0,nan
+CliffCreek1,Cliff Creek 1,45.108708,-114.843318,1351.0,nan
+CliffCreek2,Cliff Creek 2,45.115091,-114.843248,1552.0,nan
+CliffCreek3,Cliff Creek 3,45.115417,-114.836824,1727.0,nan
+CliffCreek4,Cliff Creek 4,45.123432,-114.83938,2024.0,nan
+CliffCreek5,Cliff Creek 5,45.129928,-114.846827,2068.0,nan
+CliffCreek6,Cliff Creek 6,45.144171,-114.845318,2232.0,nan
+CoconutIsland,Coconut Island,21.4329,-157.789717,2.0,nan
+ColdLake,Cold Lake,54.417,-110.283,539.0,nan
+Coleambally,Coleambally,-34.8101,146.0644,127.0,nan
+ColumbiaSC,Columbia Sc,34.022803,-81.036333,104.19999694824219,nan
+Concepcion,Concepcion,-16.138167,-62.028,500.0,nan
+Corcoran,Corcoran,36.10343,-119.5661,110.0,nan
+Cordoba-CETT,Cordoba-Cett,-31.524075,-64.463682,730.0,nan
+CorkUCC,Cork Ucc,51.89241,-8.493762,40.0,nan
+Coruna,Coruna,43.363,-8.4208,67.0,nan
+Creteil,Creteil,48.7885,2.442783,57.0,nan
+CroisicUTLN,Croisic Utln,47.293606,-2.5134,6.0,nan
+CrozetIsland,Crozet Island,-46.434806,51.850361,221.0,nan
+Cuiaba,Cuiaba,-15.555244,-56.070214,234.0,nan
+DEWAResearchCentre,Dewa Researchcentre,24.766847,55.369125,86.80000305175781,nan
+DMNMaineSoroa,Dmn Maine Soroa,13.216717,12.023067,350.0,nan
+DRAGONABERD,Dragon Aberd,39.515103,-76.16523,37.0,nan
+DRAGONANNEA,Dragon Annea,39.1647,-76.6247,30.0,nan
+DRAGONARNCC,Dragon Arncc,39.1589,-76.7208,50.0,nan
+DRAGONARNLS,Dragon Arnls,39.058488,-76.512926,12.0,nan
+DRAGONAldine,Dragon Aldine,29.901037,-95.326125,20.0,nan
+DRAGONAldino,Dragon Aldino,39.563433,-76.203932,127.0,nan
+DRAGONAnmyeon,Dragon Anmyeon,36.53863,126.33002,58.599998474121094,nan
+DRAGONArvin,Dragon Arvin,35.237959,-118.78781,158.0,nan
+DRAGONAuroraEast,Dragon Aurora East,39.63854,-104.56913,1802.0,nan
+DRAGONBATMR,Dragon Batmr,39.398913,-76.47555,65.0,nan
+DRAGONBLDND,Dragon Bldnd,39.258315,-76.519504,11.0,nan
+DRAGONBLLRT,Dragon Bllrt,39.389385,-76.578242,127.0,nan
+DRAGONBLTCC,Dragon Bltcc,39.362201,-76.688429,120.0,nan
+DRAGONBLTNR,Dragon Bltnr,39.2156,-76.6186,50.0,nan
+DRAGONBOWEM,Dragon Bowem,38.9747,-76.7506,40.0,nan
+DRAGONBTMDL,Dragon Btmdl,39.238826,-76.441601,5.0,nan
+DRAGONBainbridge,Dragon Bainbridge,39.606044,-76.074122,129.0,nan
+DRAGONBakersfield,Dragon Bakersfield,35.331506,-119.000008,50.0,nan
+DRAGONBelAir,Dragon Belair,39.500014,-76.263098,52.0,nan
+DRAGONBeltsville,Dragon Beltsville,39.054091,-76.877491,53.0,nan
+DRAGONBokjeong,Dragon Bokjeong,37.45699,127.13123,61.20000076293945,nan
+DRAGONBoulder,Dragon Boulder,39.991859,-105.261325,1660.0,nan
+DRAGONCLLGP,Dragon Cllgp,38.9911,-76.9086,65.0,nan
+DRAGONCLRST,Dragon Clrst,39.20541,-76.94445,140.0,nan
+DRAGONChannelView,Dragon Channel View,29.8025,-95.125556,10.0,nan
+DRAGONChatfieldPk,Dragon Chatfield Pk,39.5345,-105.070365,1676.0,nan
+DRAGONClinton,Dragon Clinton,29.733611,-95.2575,10.0,nan
+DRAGONClovis,Dragon Clovis,36.81931,-119.71639,90.0,nan
+DRAGONConroe,Dragon Conroe,30.350278,-95.425,72.0,nan
+DRAGONCorcoran,Dragon Corcoran,36.10222,-119.56583,55.0,nan
+DRAGONDeerPark,Dragon Deer Park,29.670046,-95.128485,10.0,nan
+DRAGONDenverLaCasa,Dragon Denverlacasa,39.77949,-105.00518,1601.0,nan
+DRAGONDrummond,Dragon Drummond,36.70556,-119.74139,90.0,nan
+DRAGONEDCMS,Dragon Edcms,38.922218,-76.560012,13.0,nan
+DRAGONELLCT,Dragon Ellct,39.2661,-76.861603,128.0,nan
+DRAGONEdgewood,Dragon Edgewood,39.409834,-76.296352,8.0,nan
+DRAGONEssex,Dragon Essex,39.310943,-76.474486,12.0,nan
+DRAGONFLLST,Dragon Fllst,39.522366,-76.413318,151.0,nan
+DRAGONFairHill,Dragon Fairhill,39.701435,-75.860059,117.0,nan
+DRAGONFortCollins,Dragon Fort Collins,40.592795,-105.14141,1572.0,nan
+DRAGONFukue,Dragon Fukue,32.752,128.682,80.0,nan
+DRAGONFukuoka,Dragon Fukuoka,33.524,130.475,30.0,nan
+DRAGONGalveston,Dragon Galveston,29.254474,-94.861289,1.0,nan
+DRAGONGalvestonDP,Dragon Galveston Dp,29.254474,-94.861289,1.0,nan
+DRAGONGangneungWNU,Dragon Gangneungwnu,37.771,128.867,60.0,nan
+DRAGONGarland,Dragon Garland,36.78537,-119.77302,100.0,nan
+DRAGONGuwol,Dragon Guwol,37.44967,126.72403,38.5,nan
+DRAGONGwangjuGIST,Dragon Gwangju Gist,35.228278,126.843139,52.0,nan
+DRAGONHakuba,Dragon Hakuba,36.700666,137.864134,703.0,nan
+DRAGONHanford,Dragon Hanford,36.31572,-119.64323,50.0,nan
+DRAGONHankukUFS,Dragon Hankuk Ufs,37.33883,127.26582,167.0,nan
+DRAGONHenties3,Dragon Henties 3,-22.184012,14.377948,30.0,nan
+DRAGONHenties4,Dragon Henties 4,-22.020377,14.345504,100.0,nan
+DRAGONHenties5,Dragon Henties 5,-22.091751,14.399573,90.0,nan
+DRAGONHenties6,Dragon Henties 6,-22.166736,14.430668,80.0,nan
+DRAGONIida,Dragon Iida,35.516667,137.842199,490.0,nan
+DRAGONIna,Dragon Ina,35.8475,137.96125,683.0,nan
+DRAGONJalanChainF,Dragon Jalan Chainf,5.400542,100.381339,8.0,nan
+DRAGONKampungBharu,Dragon Kampungbharu,5.341589,100.463158,10.0,nan
+DRAGONKentIsland,Dragon Kentisland,38.9793,-76.307864,4.0,nan
+DRAGONKobe,Dragon Kobe,34.72,135.291,20.0,nan
+DRAGONKofu,Dragon Kofu,35.678889,138.571534,314.0,nan
+DRAGONKohriyama,Dragon Kohriyama,37.361042,140.3829,230.0,nan
+DRAGONKongjuNU,Dragon Kongju Nu,36.470623,127.140023,73.0,nan
+DRAGONKonkukUniv,Dragon Konkuk Univ,37.54205,127.079774,40.0,nan
+DRAGONKoreaUniv,Dragon Korea Univ,37.58514,127.02507,65.4000015258789,nan
+DRAGONKunsanNU,Dragon Kunsan Nu,35.941072,126.683008,32.0,nan
+DRAGONKyoto,Dragon Kyoto,35.026,135.781,60.0,nan
+DRAGONKyungilUniv,Dragon Kyungil Univ,36.038648,128.788442,122.0,nan
+DRAGONLAUMD,Dragon Laumd,39.1428,-76.8592,112.0,nan
+DRAGONMEWRCentral,Dragon Mewr Central,1.310906,103.836486,50.0,nan
+DRAGONMNKTN,Dragon Mnktn,39.572926,-76.652318,182.0,nan
+DRAGONMaderaCity,Dragon Madera City,36.953162,-120.034418,78.0,nan
+DRAGONManvelCroix,Dragon Manvelcroix,29.520427,-95.392522,19.0,nan
+DRAGONMatsue,Dragon Matsue,35.48,133.01,10.0,nan
+DRAGONMatsumoto,Dragon Matsumoto,36.251389,137.977832,626.0,nan
+DRAGONMinowa,Dragon Minowa,35.915,137.980741,713.0,nan
+DRAGONMokpoNU,Dragon Mokpo Nu,34.91342,126.43736,26.0,nan
+DRAGONMtHappo,Dragon Mt Happo,36.696858,137.798126,1846.0,nan
+DRAGONMtHaruna,Dragon Mt Haruna,36.475441,138.877794,1359.0,nan
+DRAGONMtIkoma,Dragon Mt Ikoma,34.6798,135.678667,600.0,nan
+DRAGONMtKrigamine,Dragon Mt Krigamine,36.09806,138.168297,1674.0,nan
+DRAGONMtRokko,Dragon Mt Rokko,34.757,135.23,797.0,nan
+DRAGONNIER,Dragon Nier,37.56893,126.63971,26.899999618530273,nan
+DRAGONNREL-Golden,Dragon Nrel-Golden,39.743725,-105.17799,1833.0,nan
+DRAGONNWHarrisCO,Dragon Nw Harris Co,30.039444,-95.673889,51.0,nan
+DRAGONNara,Dragon Nara,34.688,135.828,80.0,nan
+DRAGONNishiharima,Dragon Nishiharima,35.026,134.336,420.0,nan
+DRAGONNiwotRidge,Dragon Niwot Ridge,40.031795,-105.533313,2886.0,nan
+DRAGONOLNES,Dragon Olnes,39.149148,-77.068267,180.0,nan
+DRAGONONNGS,Dragon Onngs,39.387756,-76.81912,177.0,nan
+DRAGONOmachi,Dragon Omachi,36.503,137.8514,751.0,nan
+DRAGONOsaka-North,Dragon Osaka-North,34.774,135.51,50.0,nan
+DRAGONOsaka-South,Dragon Osaka-South,34.5435,135.503867,30.0,nan
+DRAGONOsakaCenter,Dragon Osaka Center,34.668477,135.530894,30.0,nan
+DRAGONPATUX,Dragon Patux,38.827168,-76.70938,26.0,nan
+DRAGONPadonia,Dragon Padonia,39.462036,-76.631669,120.0,nan
+DRAGONPandanResrv,Dragon Pandan Resrv,1.318808,103.742362,2.0,nan
+DRAGONParlier,Dragon Parlier,36.59744,-119.50369,104.0,nan
+DRAGONPasadena,Dragon Pasadena,39.111638,-76.45544,17.0,nan
+DRAGONPayaTerubong,Dragon Payaterubong,5.375964,100.275847,30.0,nan
+DRAGONPermatangDL,Dragon Permatang Dl,5.277875,100.271253,13.0,nan
+DRAGONPineyOrchard,Dragon Pineyorchard,39.060781,-76.719202,59.0,nan
+DRAGONPlatteville,Dragon Platteville,40.182765,-104.7261,1523.0,nan
+DRAGONPondokUpeh,Dragon Pondok Upeh,5.33325,100.22661,16.0,nan
+DRAGONPusanNU,Dragon Pusan Nu,35.235354,129.082493,78.0,nan
+DRAGONPylesville,Dragon Pylesville,39.67515,-76.405349,158.0,nan
+DRAGONRockyFlats,Dragon Rocky Flats,39.912795,-105.188575,1803.0,nan
+DRAGONSPBRK,Dragon Spbrk,39.0581,-77.0058,110.0,nan
+DRAGONSanggye,Dragon Sanggye,37.65885,127.06845,35.0,nan
+DRAGONSeabrookPark,Dragon Seabrookpark,29.583047,-95.015544,4.0,nan
+DRAGONShafter,Dragon Shafter,35.50361,-119.2725,86.0,nan
+DRAGONSinjeong,Dragon Sinjeong,37.52341,126.85863,27.100000381469727,nan
+DRAGONSmithPoint,Dragon Smith Point,29.546244,-94.786969,1.0,nan
+DRAGONSoha,Dragon Soha,37.45213,126.8847,48.0,nan
+DRAGONStJohnsIs,Dragon St Johns Is,1.21795,103.849615,15.0,nan
+DRAGONSuwa,Dragon Suwa,36.045552,138.108754,766.0,nan
+DRAGONTakayama,Dragon Takayama,36.252778,137.3045,1296.0,nan
+DRAGONTemasekPoly,Dragon Temasek Poly,1.344821,103.930621,10.0,nan
+DRAGONTranquility,Dragon Tranquility,36.63434,-120.38234,43.0,nan
+DRAGONTsukuba,Dragon Tsukuba,36.050556,140.120278,30.0,nan
+DRAGONUHSugarland,Dragon Uh Sugarland,29.5741,-95.652,22.0,nan
+DRAGONUHWLiberty,Dragon Uh W Liberty,30.0583,-94.9781,24.0,nan
+DRAGONUMRLB,Dragon Umrlb,38.891262,-76.814106,44.0,nan
+DRAGONUiTM,Dragon Uitm,5.38313,100.41631,7.0,nan
+DRAGONWSTFD,Dragon Wstfd,39.301577,-76.946248,173.0,nan
+DRAGONWelch,Dragon Welch,39.63878,-105.13951,1743.0,nan
+DRAGONWeldCoTwr,Dragon Weld Co Twr,40.38636,-104.737445,1484.0,nan
+DRAGONWestHouston,Dragon West Houston,29.833056,-95.656944,34.0,nan
+DRAGONWileyFord,Dragon Wileyford,39.610446,-78.773648,217.0,nan
+DRAGONYishunITE,Dragon Yishun Ite,1.434638,103.844876,2.0,nan
+Dahkla,Dahkla,23.716667,-15.95,12.0,nan
+Dakar,Dakar,14.394167,-16.958611,21.0,nan
+DakarBelair,Dakar Belair,14.7017,-17.4256,15.0,nan
+Dalanzadgad,Dalanzadgad,43.577222,104.419167,1470.0,nan
+Dalma,Dalma,24.502222,52.331667,16.0,nan
+Darwin,Darwin,-12.424,130.8915,29.0,nan
+Davos,Davos,46.81281,9.84369,1589.0,nan
+Dayton,Dayton,39.775977,-84.109618,243.0,nan
+DeadSea,Dead Sea,31.1,35.45,-410.0,nan
+DebrzynaPULS,Debrzyna Puls,53.7825,16.592157,158.0,nan
+DenverLaCasa,Denver Lacasa,39.77949,-105.00518,1601.0,nan
+Dhabi,Dhabi,24.480556,54.382778,15.0,nan
+Dhadnah,Dhadnah,25.512817,56.324717,81.0,nan
+DhakaUniversity,Dhaka University,23.72839,90.39819,34.0,nan
+Dharwar,Dharwar,15.428611,74.988611,746.0,nan
+DibrugarhUniv,Dibrugarh Univ,27.45085,94.896889,119.0,nan
+DigitalGlobeCal,Digitalglobe Cal,40.13889,-105.13722,1539.239990234375,nan
+Dilar,Dilar,37.062981,-3.385925,2884.0,nan
+Djougou,Djougou,9.76007,1.59901,467.0,nan
+DoiAngKhang,Doi Ang Khang,19.93245,99.0454,1536.0,nan
+DoiInthanon,Doi Inthanon,18.59,98.485556,2565.0,nan
+DollySods,Dolly Sods,39.11,-79.43,1182.0,nan
+Donetsk,Donetsk,48.020833,37.809444,214.0,nan
+DongshaIsland,Dongsha Island,20.698556,116.728833,5.0,nan
+Douliu,Douliu,23.7117,120.5448,60.0,nan
+DryTortugas,Dry Tortugas,24.628056,-82.871944,3.0,nan
+DugwayUtah,Dugway Utah,40.101944,-113.21408,1313.68798828125,nan
+Dunedin,Dunedin,-45.863937,170.513644,43.0,nan
+Dunhuang,Dunhuang,40.03838,94.794,1381.0,nan
+DunhuangLZU,Dunhuang Lzu,40.49237,94.95503,1061.0,nan
+Dunkerque,Dunkerque,51.03535,2.368117,5.0,nan
+DurbanUKZN,Durban Ukzn,-29.817233,30.944011,205.0,nan
+Dushanbe,Dushanbe,38.553264,68.857911,821.0,nan
+ECCOE-Mann-Farm-SD,Eccoe-Mann-Farm-Sd,43.997131,-98.215017,393.0,nan
+EOPACE1,Eopace1,36.182167,-75.75075,9.0,nan
+EPA-NCU,Epa-Ncu,24.967533,121.185483,144.0,nan
+EPA-ResTrianglePk,Epa-Res Triangle Pk,35.88,-78.87,109.0,nan
+ETNA,Etna,37.6135,15.019433,736.0,nan
+ETNAVENA,Etna Vena,37.7905,15.1386,735.0,nan
+EVK2-CNR,Evk2-Cnr,27.95775,86.814936,5079.0,nan
+EastMallingMO,Eastmalling Mo,51.29,0.44,33.0,nan
+Easton-MDE,Easton-Mde,38.794972,-76.08425,4.5,nan
+EastonAirport,Easton Airport,38.80745,-76.07257,15.0,nan
+Edinburgh,Edinburgh,55.923967,-3.17915,97.5,nan
+Eforie,Eforie,44.075,28.632222,40.0,nan
+Egbert,Egbert,44.231543,-79.781414,264.0,nan
+EgbertX,Egbert X,44.231543,-79.781414,264.0,nan
+Eilat,Eilat,29.5025,34.9175,15.0,nan
+ElAlto-Altiplano,El Alto-Altiplano,-16.509972,-68.198583,4050.0,nan
+ElArenosillo,El Arenosillo,37.105,-6.733472,59.0,nan
+ElFarafra,El Farafra,27.058,27.990167,92.0,nan
+ElNidoAirport,El Nido Airport,11.2051,119.4135,4.0,nan
+ElRefugio,El Refugio,-14.766388,-62.034722,225.0,nan
+ElSegundo,El Segundo,33.9125,-118.3823,25.0,nan
+Elandsfontein,Elandsfontein,-26.245342,29.417572,1740.0,nan
+Epanomi,Epanomi,40.375,22.978,20.0,nan
+Erlin,Erlin,23.9253,120.4096,16.0,nan
+Ersa,Ersa,43.003669,9.359289,80.0,nan
+EscuderoStation,Escudero Station,-62.2015,-58.9657,33.0,nan
+EtoshaPan,Etosha Pan,-19.175017,15.914383,1131.0,nan
+Evora,Evora,38.567833,-7.9115,293.0,nan
+ExeterMO,Exeter Mo,50.728519,-3.475167,40.0,nan
+FLINFLON,Flin Flon,54.669998,-101.690002,305.0,nan
+FORTHCRETE,Forth Crete,35.332694,25.282417,20.0,nan
+FORTHRSLab,Forth Rslab,35.336147,25.132861,50.0,nan
+FZJ-JOYCE,Fzj-Joyce,50.908333,6.413056,111.0,nan
+Fang,Fang,19.913397,99.206425,480.0,nan
+FarmingtonRSVP,Farmington Rsvp,36.797383,-108.479991,1641.0,nan
+Finokalia-FKL,Finokalia-Fkl,35.337712,25.669762,258.0,nan
+Fontainebleau,Fontainebleau,48.406667,2.680278,85.0,nan
+FortMcKay,Fort Mckay,57.1835,-111.64,267.0,nan
+FortMcMurray,Fort Mcmurray,56.752306,-111.476139,360.0,nan
+FowlersGap,Fowlers Gap,-31.0863,141.70082,181.0,nan
+FreiburgALU,Freiburg Alu,48.0011,7.8486,323.5,nan
+FrenchmanFlat,Frenchman Flat,36.80928,-115.93479,940.0,nan
+Fresno,Fresno,36.781733,-119.773167,97.0,nan
+Fresno2,Fresno 2,36.78537,-119.77302,100.0,nan
+Frioul,Frioul,43.266111,5.293333,40.0,nan
+FugueiCape,Fuguei Cape,25.297452,121.537859,50.0,nan
+Fukue,Fukue,32.752,128.682,80.0,nan
+Fukuoka,Fukuoka,33.524,130.475,30.0,nan
+GISS,Giss,40.7977,-73.9599,50.0,nan
+GOAINDIA,Goa India,15.4525,73.806111,20.0,nan
+GOTSeaprism,Got Seaprism,9.2862,101.4123,10.0,nan
+GSFC,Gsfc,38.9925,-76.839833,87.0,nan
+GageochoStation,Gageocho Station,33.941991,124.592912,26.0,nan
+Gaithersburg,Gaithersburg,39.133335,-77.208336,139.0,nan
+GalataPlatform,Galata Platform,43.044624,28.19319,31.0,nan
+GandhiCollege,Gandhi College,25.871,84.127944,60.0,nan
+GangneungWNU,Gangneung Wnu,37.771,128.867,60.0,nan
+GeorgiaTech,Georgia Tech,33.780202,-84.399537,294.0,nan
+GirardotaColombia,Girardota Colombia,6.376324,-75.448979,1452.0,nan
+GlasgowMO,Glasgow Mo,55.9068,-4.53122,59.0,nan
+Gloria,Gloria,44.59997,29.35967,30.0,nan
+Gobabeb,Gobabeb,-23.561619,15.041058,405.0,nan
+Goldstone,Goldstone,35.233333,-116.791667,1100.0,nan
+Gorongosa,Gorongosa,-18.978417,34.35075,30.0,nan
+GosanNIMSSNU,Gosan Nims Snu,33.3001,126.2058,52.0,nan
+GosanSNU,Gosan Snu,33.292222,126.161667,72.0,nan
+Gotland,Gotland,57.916667,18.95,10.0,nan
+Gozo,Gozo,36.034139,14.264694,111.0,nan
+Graciosa,Graciosa,39.091111,-28.029722,15.239999771118164,nan
+Granada,Granada,37.164,-3.605,680.0,nan
+GrandForks,Grand Forks,47.91175,-97.32545,268.0,nan
+GraniteIsland,Granite Island,46.7208,-87.412,183.0,nan
+GrizzlyBay,Grizzly Bay,38.108167,-122.056208,4.0,nan
+Guadeloup,Guadeloup,16.22492,-61.528378,39.0,nan
+Guadiana-UGR,Guadiana-Ugr,37.910839,-3.228483,370.0,nan
+GualPahari,Gual Pahari,28.426086,77.15047,250.0,nan
+Guam,Guam,13.430617,144.800783,62.0,nan
+GustavDalenTower,Gustav Dalen Tower,58.59417,17.46683,25.0,nan
+GwangjuGIST,Gwangju Gist,35.228278,126.843139,52.0,nan
+HESS,Hess,-23.273,16.502944,1818.0,nan
+HJAndrews,Hjandrews,44.238609,-122.223892,830.0,nan
+HOPE-Hambach,Hope-Hambach,50.8972,6.4639,110.0,nan
+HOPE-Inselhombroich,Hope-Inselhombroich,51.1514,6.6436,70.0,nan
+HOPE-Krauthausen,Hope-Krauthausen,50.8796,6.4145,100.0,nan
+HOPE-Melpitz,Hope-Melpitz,51.525525,12.927601,84.0,nan
+HOPE-RWTH-Aachen,Hope-Rwth-Aachen,50.7777,6.0606,230.0,nan
+HadaEl-Sham,Hada El-Sham,21.802,39.7289,254.0,nan
+HainichUGOE,Hainich Ugoe,51.0792,10.4522,439.0,nan
+Halifax,Halifax,44.638,-63.594,65.0,nan
+Hamburg,Hamburg,53.568333,9.973333,120.0,nan
+Hamim,Hamim,22.966667,54.3,105.0,nan
+HamptonRoads,Hampton Roads,36.783333,-76.449997,10.0,nan
+HamptonUniversity,Hampton University,37.0204,-76.3365,12.119999885559082,nan
+Hangzhou-ZFU,Hangzhou-Zfu,30.257233,119.727417,42.0,nan
+HangzhouCity,Hangzhou City,30.289633,120.156917,30.0,nan
+HankukUFS,Hankuk Ufs,37.33883,127.26582,167.0,nan
+HartMillerIsland,Hart Miller Island,39.2419,-76.3628,5.0,nan
+HarvardForest,Harvard Forest,42.532,-72.188,339.0,nan
+Hefei,Hefei,31.904722,117.162222,36.0,nan
+Helgoland,Helgoland,54.177861,7.887361,33.0,nan
+Helsinki,Helsinki,60.203733,24.96065,52.79999923706055,nan
+HelsinkiLighthouse,Helsinki Lighthouse,59.94897,24.92636,20.0,nan
+Heng-Chun,Heng-Chun,22.054742,120.6995,25.0,nan
+HentiesBay,Henties Bay,-22.09506,14.25974,20.0,nan
+Hermosillo,Hermosillo,29.074722,-110.96,237.0,nan
+Herstmonceux,Herstmonceux,50.867517,0.334378,82.80000305175781,nan
+Hetauda,Hetauda,27.42835,85.030933,465.0,nan
+Highfield,Highfield,51.608,0.1745,42.099998474121094,nan
+HogIsland,Hog Island,37.453,-75.675,15.0,nan
+HohenpeissenbergDWD,Hohenpeissenbergdwd,47.8019,11.0119,989.6799926757812,nan
+HokkaidoUniversity,Hokkaido University,43.0755,141.3407,59.0,nan
+Homburi,Homburi,15.329167,-1.546667,280.0,nan
+HongKongHokTsui,Hong Kong Hok Tsui,22.2097,114.258,80.0,nan
+HongKongPolyU,Hong Kong Polyu,22.303333,114.179722,30.0,nan
+HongKongSheung,Hong Kong Sheung,22.4833,114.1166,40.0,nan
+Honolulu,Honolulu,21.3172,-157.8861,5.0,nan
+Hornsund,Hornsund,77.00148,15.54028,12.4399995803833,nan
+Howland,Howland,45.2041,-68.7402,120.0,nan
+HsinchuSciencePk,Hsinchu Science Pk,24.785068,121.001811,98.0,nan
+HuaHin,Hua Hin,12.634444,99.951111,1.0,nan
+Huambo,Huambo,-12.8679,15.7046,1670.0,nan
+Huancayo-IGP,Huancayo-Igp,-12.0402,-75.3209,3313.0,nan
+Huelva,Huelva,37.0163,-6.5687,25.0,nan
+Hyytiala,Hyytiala,61.846447,24.295892,191.0,nan
+IAOCA-KRSU,Iaoca-Krsu,42.46383,78.52895,1930.0,nan
+IASBS,Iasbs,36.705167,48.507111,1805.0,nan
+ICIPE-Mbita,Icipe-Mbita,-0.431525,34.206062,1152.0,nan
+IERCinzana,Ier Cinzana,13.278433,-5.933867,285.0,nan
+IHOP-Homestead,Ihop-Homestead,36.558333,-100.606183,850.0,nan
+IITDelhi,Iit Delhi,28.545,77.1926,15.0,nan
+IITKGPEXTKolkata,Iit Kgp Ext Kolkata,22.574,88.418,10.0,nan
+IMAAPotenza,Imaa Potenza,40.601254,15.7237,770.0,nan
+IMCOristano,Imc Oristano,39.91,8.5,10.0,nan
+IMPROVE-MammothCave,Improve-Mammothcave,37.1318,-86.1479,235.0,nan
+IMS-METU-ERDEMLI,Ims-Metu-Erdemli,36.565,34.255,3.0,nan
+ISDGMCNR,Isdgm Cnr,45.436981,12.331982,20.0,nan
+IasiLOASL,Iasi Loasl,47.193056,27.555556,175.0,nan
+IeodoStation,Ieodo Station,32.122953,125.182447,29.0,nan
+Ilorin,Ilorin,8.4841,4.6745,400.0,nan
+Inhaca,Inhaca,-26.040583,32.905,73.5,nan
+Iqaluit,Iqaluit,63.747575,-68.542997,15.0,nan
+IrbeLighthouse,Irbe Lighthouse,57.75092,21.72297,38.0,nan
+Irkutsk,Irkutsk,51.799797,103.086644,670.0,nan
+Ispra,Ispra,45.80305,8.6267,235.0,nan
+Issyk-Kul,Issyk-Kul,42.622778,76.983056,1650.0,nan
+Itajuba,Itajuba,-22.41325,-45.452389,856.0,nan
+Ittoqqortoormiit,Ittoqqortoormiit,70.4848,-21.9512,68.0,nan
+Izana,Izana,28.30932,-16.49906,2401.0,nan
+JabalHafeet,Jabal Hafeet,24.058217,55.776383,1059.0,nan
+Jabiru,Jabiru,-12.6607,132.8931,30.0,nan
+Jaipur,Jaipur,26.905817,75.806217,450.0,nan
+Jamari,Jamari,-9.19907,-63.068552,129.0,nan
+Jambi,Jambi,-1.632445,103.641563,30.0,nan
+JaruReserve,Jaru Reserve,-10.083333,-61.933333,162.0,nan
+JiParana,Ji Parana,-10.86,-61.799999,168.0,nan
+JiParanaSE,Ji Parana Se,-10.93425,-61.851517,218.0,nan
+JiParanaUNIR,Ji Parana Unir,-10.882212,-61.9686,175.0,nan
+Jingtai,Jingtai,37.333333,104.1,1583.0,nan
+Joberg,Joberg,-26.186133,28.029167,1736.0,nan
+Jomsom,Jomsom,28.778214,83.7142,2825.0,nan
+JonesERC,Joneserc,31.23083,-84.471111,50.0,nan
+JugBay,Jug Bay,38.766666,-76.778099,35.0,nan
+KAUSTCampus,Kaust Campus,22.304833,39.102833,11.199999809265137,nan
+KEMPTENUAS,Kempten Uas,47.715833,10.314133,718.0,nan
+KITcubeKarlsruhe,Kitcube Karlsruhe,49.0933,8.4279,140.0,nan
+KITcubeMasada,Kitcube Masada,31.322547,35.372297,-350.0,nan
+KITcubeRottenburg,Kitcube Rottenburg,48.489074,8.955358,339.0,nan
+KITcubeSave,Kitcube Save,8.000928,2.427925,166.0,nan
+KONZAEDC,Konza Edc,39.102328,-96.6096,341.0,nan
+KORUSBaeksa,Korus Baeksa,37.41156,127.5691,64.0,nan
+KORUSDaegwallyeong,Korus Daegwallyeong,37.68712,128.75872,837.0,nan
+KORUSIksan,Korus Iksan,35.9622,127.0052,84.0,nan
+KORUSKyungpookNU,Korus Kyungpook Nu,35.889989,128.606416,65.0,nan
+KORUSMokpoNU,Korus Mokpo Nu,34.91342,126.43736,26.0,nan
+KORUSNIER,Korus Nier,37.56893,126.63971,26.899999618530273,nan
+KORUSOlympicPark,Korus Olympic Park,37.52165,127.12418,45.0,nan
+KORUSSongchon,Korus Songchon,37.33849,127.48946,90.0,nan
+KORUSTaehwa,Korus Taehwa,37.31248,127.31033,152.0,nan
+KORUSUNISTUlsan,Korus Unist Ulsan,35.5819,129.1897,106.0,nan
+Kaashidhoo,Kaashidhoo,4.965,73.466,10.0,nan
+Kaiping,Kaiping,22.3152,112.5386,51.0,nan
+Kaloma,Kaloma,-14.86,24.8275,1230.0,nan
+Kandahar,Kandahar,31.508611,65.847778,1007.0,nan
+Kangerlussuaq,Kangerlussuaq,66.9958,-50.6214,320.0,nan
+Kanpur,Kanpur,26.512778,80.231639,123.0,nan
+KanzelhoheObs,Kanzelhohe Obs,46.677232,13.901269,1526.0,nan
+Kaohsiung,Kaohsiung,22.675621,120.292171,15.0,nan
+Kapoho,Kapoho,19.516222,-154.810806,7.0,nan
+Karachi,Karachi,24.94574,67.13594,49.0,nan
+Karlsruhe,Karlsruhe,49.0933,8.4279,140.0,nan
+KarunyaUniversity,Karunya University,10.9353,76.7441,478.0,nan
+Kasama,Kasama,-10.21697,31.136159,1392.0,nan
+Kathmandu-Bode,Kathmandu-Bode,27.68,85.39,1297.0,nan
+KathmanduUniv,Kathmandu Univ,27.601067,85.538333,1510.0,nan
+Kejimkujik,Kejimkujik,44.383333,-65.2833,90.0,nan
+KelloggLTER,Kellogg Lter,42.407983,-85.371717,293.0,nan
+Kelowna,Kelowna,49.955333,-119.373,344.0,nan
+KelownaUAS,Kelowna Uas,49.941294,-119.400111,456.0,nan
+KemigawaOffshore,Kemigawa Offshore,35.610833,140.02333,8.199999809265137,nan
+KeyBiscayne,Key Biscayne,25.731966,-80.16333,10.0,nan
+KeyBiscayne2,Key Biscayne2,25.731966,-80.16333,0.0,nan
+Kibale,Kibale,0.56045,30.3575,1536.0,nan
+KirtlandAFB,Kirtland Afb,34.95081,-106.507403,1711.31201171875,nan
+KluaneLake,Kluane Lake,61.027,-138.41,773.0,nan
+Kobe,Kobe,34.72,135.291,20.0,nan
+KoforiduaANUC,Koforidua Anuc,6.109408,-0.302058,205.0,nan
+Kolfield,Kolfield,39.802223,-74.476387,50.0,nan
+Konza,Konza,39.0825,-96.559667,457.0,nan
+KoreaUniversity,Korea University,37.58514,127.02507,65.4000015258789,nan
+Krasnoyarsk,Krasnoyarsk,55.983333,92.766667,202.0,nan
+Kuching,Kuching,1.490556,110.348611,28.0,nan
+Kuopio,Kuopio,62.892414,27.633606,105.0,nan
+Kupang,Kupang,-10.139178,123.667097,30.0,nan
+Kuujjuarapik,Kuujjuarapik,55.28,-77.76,20.0,nan
+KuwaitUniversity,Kuwait University,29.325,47.971,42.0,nan
+KwajaleinAtoll,Kwajalein Atoll,8.84749,167.742808,2.0,nan
+KyanjinGompa,Kyanjin Gompa,28.211258,85.5663,3862.0,nan
+Kyiv,Kyiv,50.363611,30.496667,200.0,nan
+Kyiv-AO,Kyiv-Ao,50.4523,30.498,200.0,nan
+KyungilUniversity,Kyungil University,36.071667,128.82361,447.0,nan
+LA-TM,La-Tm,30.324,119.44,439.0,nan
+LAMTO-STATION,Lamto-Station,6.223517,-5.026617,105.0,nan
+LANAI,Lanai,20.82615,-156.985,133.0,nan
+LAQUILACoppito,Laquila Coppito,42.368386,13.350636,656.0,nan
+LISCO,Lisco,40.954517,-73.341767,12.0,nan
+LOSFIEROS98,Los Fieros 98,-14.556,-60.929,208.0,nan
+LaCrau,La Crau,43.5765,4.819,32.0,nan
+LaJolla,La Jolla,32.86846,-117.25113,80.0,nan
+LaLaguna,La Laguna,28.481944,-16.321111,568.0,nan
+LaPalma,La Palma,28.486667,-17.848611,630.0,nan
+LaParguera,La Parguera,17.97045,-67.045383,12.399999618530273,nan
+LaPaz,La Paz,-16.539,-68.066467,3439.0,nan
+Laegeren,Laegeren,47.478349,8.364352,763.0,nan
+Lahore,Lahore,31.47987,74.26406,209.0,nan
+LakeArgyle,Lake Argyle,-16.1081,128.7485,150.0,nan
+LakeErie,Lake Erie,41.8256,-83.1936,173.5,nan
+LakeLefroy,Lake Lefroy,-31.255,121.705,300.0,nan
+LakeOkeechobee,Lake Okeechobee,26.9017,-80.7892,9.0,nan
+LakeOkeechobeeN,Lake Okeechobee N,27.139117,-80.788803,10.0,nan
+LameziaTerme,Lamezia Terme,38.8764,16.2321,8.0,nan
+Lampedusa,Lampedusa,35.516667,12.631667,45.0,nan
+LanYuIsland,Lan Yu Island,22.037306,121.558111,348.0,nan
+Lanai,Lanai,20.735,-156.921667,20.0,nan
+LangtangBC,Langtang Bc,28.214431,85.609781,4901.0,nan
+Lannion,Lannion,48.730833,-3.461944,15.0,nan
+LanzhouCity,Lanzhou City,36.04805,103.8534,1516.0,nan
+LasCardes,Las Cardes,-30.250833,-71.257778,280.0,nan
+LeFauga,Le Fauga,43.38423,1.2846,193.0,nan
+Learmonth,Learmonth,-22.2407,114.0967,9.0,nan
+LecceUniversity,Lecce University,40.335111,18.111389,30.0,nan
+Leicester,Leicester,52.61931,-1.12231,89.0,nan
+Leipzig,Leipzig,51.3525,12.435278,125.0,nan
+LelandHS,Leland Hs,33.402128,-90.89285,37.0,nan
+LerwickMO,Lerwick Mo,60.139372,-1.185113,82.0,nan
+Lewis-ClarkIDUSA,Lewis-Clark Id Usa,46.413153,-117.02717,268.0,nan
+Liangning,Liangning,41.5118,122.7013,15.0,nan
+Lille,Lille,50.611667,3.141667,60.0,nan
+LingshanMountain,Lingshan Mountain,40.0537,115.4962,1653.0,nan
+LochLeven,Loch Leven,56.18803,-3.35165,110.94999694824219,nan
+Lochiel,Lochiel,49.028,-122.602,86.0,nan
+LoftusMO,Loftus Mo,54.5627,-0.861733,159.0,nan
+London-CDN,London-Cdn,43.008,-81.27,258.0,nan
+London-UCL-UAO,London-Ucl-Uao,51.52427,-0.131101,46.60499954223633,nan
+Longyearbyen,Longyearbyen,78.222833,15.649,30.0,nan
+Lopburi,Lopburi,15.266667,101.187361,49.279998779296875,nan
+LosAlamos,Los Alamos,35.873583,-106.326067,2290.0,nan
+LosFieros,Los Fieros,-14.55,-60.616667,734.0,nan
+LosLeonesAuger,Los Leones Auger,-35.495807,-69.449759,1385.0,nan
+LuangNamtha,Luang Namtha,20.9311,101.4162,557.0,nan
+Lubango,Lubango,-14.958,13.445,2047.0,nan
+Lucinda,Lucinda,-18.5198,146.3861,8.0,nan
+Lugansk,Lugansk,48.5704,39.36472,90.0,nan
+Lulin,Lulin,23.468611,120.873611,2868.0,nan
+Lumbini,Lumbini,27.49,83.28,110.0,nan
+LumbiniNorth,Lumbini North,27.503722,83.282133,89.0,nan
+LunarLake,Lunar Lake,38.390083,-115.988383,1749.0,nan
+MAARCO,Maarco,24.700333,54.658833,10.0,nan
+MALE,Male,4.191667,73.529167,2.0,nan
+MAXARFUTON,Maxar Futon,40.03556,-104.885,1522.0,nan
+MCO-Hanimaadhoo,Mco-Hanimaadhoo,6.77635,73.183183,13.0,nan
+MDScienceCenter,Md Science Center,39.28123,-76.612052,15.0,nan
+MISR-JPL,Misr-Jpl,34.199,-118.17439,367.0,nan
+MVCO,Mvco,41.325,-70.5667,10.0,nan
+Madrid,Madrid,40.4519,-3.72395,680.0,nan
+Maeson,Maeson,19.83046,99.17069,502.0,nan
+MaggieValley,Maggie Valley,35.519816,-83.09473,917.0,nan
+MagureleInoe,Magurele Inoe,44.348292,26.030703,90.0,nan
+MaidoOPAR,Maido Opar,-21.07985,55.383087,2160.0,nan
+Mainz,Mainz,49.999,8.3,150.0,nan
+Majadas,Majadas,39.955031,-5.775914,258.0,nan
+Makassar,Makassar,-4.99768,119.57227,16.0,nan
+Malaga,Malaga,36.715242,-4.478153,56.0,nan
+MaldivesGan,Maldives Gan,-0.6905,73.15,4.0,nan
+Manaus,Manaus,-2.59908,-60.03864,93.0,nan
+ManausEMBRAPA,Manaus Embrapa,-2.890528,-59.969778,115.0,nan
+ManchesterUoM,Manchester Uom,53.467374,-2.232006,94.0,nan
+MandalayMTU,Mandalay Mtu,21.972896,96.186136,104.0,nan
+ManilaObservatory,Manila Observatory,14.63525,121.07784,63.0,nan
+Manus,Manus,-2.06,147.425,4.0,nan
+Marambio,Marambio,-64.239996,-56.625244,200.0,nan
+MarbellaSanPedro,Marbella San Pedro,36.486309,-4.993439,100.0,nan
+Maricopa,Maricopa,33.069023,-111.972298,360.0,nan
+Marseille,Marseille,43.2824,5.383817,34.0,nan
+MarseilleATMO,Marseille Atmo,43.3059,5.395,65.0,nan
+Martova,Martova,49.936,36.953,120.0,nan
+MasdarInstitute,Masdar Institute,24.4416,54.6166,4.0,nan
+MasdarInstitute2,Masdar Institute 2,24.4416,54.6166,4.0,nan
+MatorovaFMI,Matorova Fmi,67.99997,24.240012,340.0,nan
+MaunTower,Maun Tower,-19.9,23.55,951.0,nan
+MaunaLoa,Mauna Loa,19.536006,-155.576755,3402.0,nan
+McCallABStandard,Mccall Ab Standard,44.870242,-116.115561,1524.0,nan
+McCallDragon1,Mccall Dragon 1,44.764,-116.1962,2247.0,nan
+McCallDragon3,Mccall Dragon 3,45.0385,-116.2894,1179.0,nan
+McCallDragon4,Mccall Dragon 4,45.2767,-115.9146,1865.0,nan
+McCallDragon5,Mccall Dragon 5,45.2674,-115.6834,1774.0,nan
+McCallDragon6,Mccall Dragon 6,45.4056,-116.0255,1139.0,nan
+McCallDragon7,Mccall Dragon 7,45.4105,-116.3295,582.0,nan
+McMurdo,Mcmurdo,-77.625,162.883331,75.0,nan
+Medellin,Medellin,6.260672,-75.577914,1471.0,nan
+Medenine-IRA,Medenine-Ira,33.499633,10.642547,33.5,nan
+Melpitz,Melpitz,51.525525,12.927601,84.0,nan
+MeridaMEDA,Merida Meda,20.9839,-89.6452,25.0,nan
+MeridianDEQ,Meridian Deq,43.600697,-116.347989,808.0,nan
+Merredin,Merredin,-31.493056,118.226389,315.0,nan
+MesaLakes,Mesa Lakes,39.052,-108.0981,2966.0,nan
+Messina,Messina,38.1975,15.566833,15.0,nan
+MetObsLindenberg,Metobs Lindenberg,52.209275,14.12087,120.0,nan
+Metsi,Metsi,-26.490781,27.132408,1404.0,nan
+MexicoCity,Mexico City,19.333611,-99.181667,2268.0,nan
+Mezaira,Mezaira,23.10452,53.75466,201.0,nan
+Mfuwe,Mfuwe,-13.256667,31.930833,550.0,nan
+Miami,Miami,25.72292,-80.27972,32.0,nan
+MidwayIsland,Midway Island,28.209833,-177.378333,20.0,nan
+Migal,Migal,33.236394,35.578278,200.0,nan
+MindeloOSCM,Mindelo Oscm,16.877772,-24.995374,10.0,nan
+Mingo,Mingo,36.9717,-90.1432,111.0,nan
+Minqin,Minqin,38.607,102.959,1373.0,nan
+Minsk,Minsk,53.92,27.601,235.0,nan
+Misamfu,Misamfu,-10.1712,31.2241,1381.0,nan
+Missoula,Missoula,46.916668,-114.083336,976.0,nan
+MissoulaHealthDpt,Missoula Health Dpt,46.875753,-113.995597,985.0,nan
+MissoulaMidslope,Missoula Midslope,46.999861,-114.025889,1613.0,nan
+MissoulaPtSix,Missoula Pt Six,47.041333,-113.986306,2420.0,nan
+MissoulaWaterworks,Missoula Waterworks,46.880881,-113.987222,1107.0,nan
+MobileS062308,Mobile S 062308,26.147783,80.570527,122.0,nan
+Modena,Modena,44.631667,10.945278,56.0,nan
+Modesto,Modesto,37.64217,-120.99422,33.0,nan
+Moldova,Moldova,47.0008,28.8156,205.0,nan
+MomuyMF,Momuy Mf,43.6243,-0.6092,124.0,nan
+Mongu,Mongu,-15.253611,23.150833,1047.0,nan
+MonguInn,Mongu Inn,-15.266667,23.134333,1040.0,nan
+MontJoli,Mont Joli,48.64,-68.156,30.0,nan
+Monterey,Monterey,36.59255,-121.854867,50.0,nan
+MontesoroBastia,Montesoro Bastia,42.671983,9.43505,49.900001525878906,nan
+MontevideoFING,Montevideo Fing,-34.918167,-56.166767,71.0,nan
+Montreal,Montreal,45.522558,-73.620786,62.0,nan
+Montsec,Montsec,42.051417,0.729689,1574.0,nan
+MoscowMSUMO,Moscow Msu Mo,55.706947,37.522019,192.0,nan
+MossLanding,Moss Landing,36.793133,-121.788167,20.0,nan
+MountChacaltaya,Mount Chacaltaya,-16.350139,-68.1315,5233.0,nan
+MountWilson,Mount Wilson,34.2247,-118.0559,1710.0,nan
+MtWLG,Mt Wlg,36.28333,100.89583,3816.0,nan
+Mukdahan,Mukdahan,16.606667,104.676111,166.0,nan
+MunichMaisach,Munich Maisach,48.209,11.258,520.0,nan
+MunichUniversity,Munich University,48.148,11.573,533.0,nan
+Murcia,Murcia,38.001,-1.1707,69.0,nan
+Muscat,Muscat,23.606383,58.435667,22.0,nan
+Mussafa,Mussafa,24.371667,54.466667,10.0,nan
+MuztaghAta,Muztagh Ata,38.408222,75.038764,3674.0,nan
+Mwinilunga,Mwinilunga,-11.74,24.430667,1375.0,nan
+Myanmar,Myanmar,16.864967,96.1538,20.0,nan
+NAMCO,Nam Co,30.772517,90.96245,4746.0,nan
+NASAAmes,Nasa Ames,37.419986,-122.056969,10.0,nan
+NASAKSC,Nasa Ksc,28.463763,-80.663476,1.2000000476837158,nan
+NASALaRC,Nasa Larc,37.10496,-76.37864,5.0,nan
+NCAR,Ncar,40.03753,-105.24277,1622.0,nan
+NCUTaiwan,Ncu Taiwan,24.967662,121.187508,171.0,nan
+NDMarbelUniv,Nd Marbel Univ,6.496011,124.842531,70.0,nan
+NEON-Boulder,Neon-Boulder,40.00787,-105.26821,1641.0,nan
+NEON-CPER,Neon-Cper,40.812444,-104.744238,1655.0,nan
+NEON-Disney,Neon-Disney,28.125039,-81.4362,19.0,nan
+NEON17-SJER,Neon17-Sjer,37.090419,-119.722136,320.29998779296875,nan
+NEONBARR,Neon Barr,71.28241,-156.61936,6.0,nan
+NEONBONA,Neon Bona,65.154033,-147.502583,263.0,nan
+NEONBartlett,Neon Bartlett,44.063881,-71.287203,273.0,nan
+NEONCLBJ,Neon Clbj,33.40123,-97.57,259.0,nan
+NEONCVALLA,Neon Cvalla,40.16063,-105.16725,1539.0,nan
+NEONDEJU,Neon Deju,63.881119,-145.751361,529.0,nan
+NEONGRSM,Neon Grsm,35.688961,-83.50195,579.0,nan
+NEONGUAN,Neon Guan,17.96955,-66.8687,128.0,nan
+NEONHEAL,Neon Heal,63.875689,-149.213339,678.1799926757812,nan
+NEONHarvard,Neon Harvard,42.5369,-72.172661,348.0,nan
+NEONHighParkFire,Neon Highparkfire,40.624173,-105.335581,2483.0,nan
+NEONKONZ,Neon Konz,39.10077,-96.56309,415.0,nan
+NEONLENO,Neon Leno,31.853881,-88.161219,43.0,nan
+NEONMLBS,Neon Mlbs,37.378306,-80.524836,1170.0,nan
+NEONMOAB,Neon Moab,38.248331,-109.388269,1799.0,nan
+NEONNIWO,Neon Niwo,40.05425,-105.582369,3513.0,nan
+NEONNOGP,Neon Nogp,46.769719,-100.91535,578.0,nan
+NEONOAES,Neon Oaes,35.41059,-99.05879,523.0,nan
+NEONONAQ,Neon Onaq,40.177589,-112.452439,1656.0,nan
+NEONORNL,Neon Ornl,35.964128,-84.282588,344.0,nan
+NEONOSBS,Neon Osbs,29.689269,-81.993431,47.0,nan
+NEONPUUM,Neon Puum,19.553144,-155.317242,1685.0,nan
+NEONRMNP,Neon Rmnp,40.2759,-105.545972,2750.0,nan
+NEONSCBI,Neon Scbi,38.892919,-78.1395,354.0,nan
+NEONSERC,Neon Serc,38.890117,-76.560017,9.753600120544434,nan
+NEONSJER,Neon Sjer,37.10878,-119.73228,368.0,nan
+NEONSRER,Neon Srer,31.910681,-110.835489,983.0,nan
+NEONSterling,Neon Sterling,40.461903,-103.029297,1372.0,nan
+NEONTALL,Neon Tall,32.950461,-87.393269,165.0,nan
+NEONTEAK,Neon Teak,37.005831,-119.006019,2147.0,nan
+NEONTOOL,Neon Tool,68.661089,-149.370469,843.0,nan
+NEONUKFS,Neon Ukfs,39.040431,-95.19215,321.0,nan
+NEONUNDE,Neon Unde,46.233881,-89.53725,520.0,nan
+NEONWOOD,Neon Wood,47.128228,-99.241356,590.0,nan
+NEONWREF,Neon Wref,45.820488,-121.951912,407.0,nan
+NEONYELL,Neon Yell,44.95348,-110.53914,2116.0,nan
+NGHIADO,Nghia Do,21.04778,105.79964,40.0,nan
+NPLTeddington,Npl Teddington,51.4258,-0.3445,160.0,nan
+NREL-Golden,Nrel-Golden,39.743725,-105.17799,1833.0,nan
+NSAYJPBOREAS,Nsa Yjp Boreas,55.903,-98.290001,290.0,nan
+NSPOTaiwan,Nspo Taiwan,24.783995,121.001122,99.0,nan
+NUIST,Nuist,32.206483,118.71715,62.0,nan
+NWChapelHill,Nw Chapel Hill,35.9712,-79.0934,175.0,nan
+NaalehuElementary,Naalehu Elementary,19.060874,-155.578983,196.0,nan
+Nainital,Nainital,29.35883,79.45827,1939.0,nan
+Nairobi,Nairobi,-1.338882,36.8653,1650.0,nan
+Namibe,Namibe,-15.159,12.178,11.0,nan
+NapoliCeSMA,Napoli Cesma,40.836842,14.306567,50.0,nan
+Nara,Nara,34.688,135.828,80.0,nan
+Narsarsuaq,Narsarsuaq,61.155952,-45.419379,75.0,nan
+Natal,Natal,-5.8415,-35.1995,40.0,nan
+Nauru,Nauru,-0.5206,166.9159,7.0,nan
+Ndola,Ndola,-12.995,28.658333,1270.0,nan
+NesZiona,Nes Ziona,31.9225,34.789167,40.0,nan
+NewDelhi,New Delhi,28.630467,77.1751,240.0,nan
+NewDelhiIMD,New Delhi Imd,28.5885,77.2216,241.0,nan
+NewHampshireUniv,New Hampshire Univ,43.1325,-70.92,30.0,nan
+NhaTrang,Nhatrang,12.204722,109.205556,20.0,nan
+Niabrara,Niabrara,42.764833,-100.02,730.0,nan
+Niamey,Niamey,13.481389,2.172222,205.0,nan
+Niassa,Niassa,-12.15512,37.56656,510.0,nan
+Nicosia,Nicosia,35.140628,33.381353,181.0,nan
+Niigata,Niigata,37.846,138.942,10.0,nan
+Ningbo,Ningbo,29.859945,121.546872,37.0,nan
+NongKhai,Nong Khai,17.8772,102.71671,175.0,nan
+NorfolkStateUniv,Norfolk State Univ,36.848,-76.259,20.0,nan
+NorthPole,North Pole,88.80333,24.25433,1.0,nan
+Noto,Noto,37.334444,137.136944,200.0,nan
+Noumea,Noumea,-22.301944,166.444167,12.0,nan
+NyAlesundAWI,Ny Alesund Awi,78.923166,11.92304,7.0,nan
+OBERNAI,Obernai,48.442778,7.5425,161.0,nan
+OHPOBSERVATOIRE,Ohp Observatoire,43.935,5.71,680.0,nan
+OKStUniv,Ok St Univ,35.04564,-97.91734,331.0,nan
+OPAL,Opal,79.990278,-85.939167,5.0,nan
+ORSHermosillo,Ors Hermosillo,29.0275,-111.145556,154.0,nan
+ORSUNAMISNP,Ors Unam Isnp,19.399467,-99.203683,2361.0,nan
+OUNWC,Ou Nwc,35.181861,-97.440306,379.6000061035156,nan
+OceolaNF,Oceolanf,30.205278,-82.442778,51.0,nan
+OkefenokeeNWR,Okefenokeenwr,30.741111,-82.128611,47.0,nan
+Okinawa,Okinawa,26.356667,127.768333,46.0,nan
+OkinawaHedo,Okinawa Hedo,26.867,128.249,60.0,nan
+Omkoi,Omkoi,17.798333,98.431667,1120.0,nan
+Oostende,Oostende,51.225,2.925,23.0,nan
+Osaka,Osaka,34.650933,135.590633,50.0,nan
+Osaka-North,Osaka-North,34.774,135.51,50.0,nan
+Osaka31,Osaka31,34.65179,135.5881,50.0,nan
+Ouagadougou,Ouagadougou,12.42413,-1.48723,302.0,nan
+Ouarzazate,Ouarzazate,30.928367,-6.912867,1136.0,nan
+Oujda,Oujda,34.65331,-1.89846,620.0,nan
+Oukaimeden,Oukaimeden,31.208793,-7.864486,2762.0,nan
+OwensLake,Owens Lake,36.487778,-117.870697,1103.0,nan
+Oxford,Oxford,51.759,-1.256,87.0,nan
+Oyster,Oyster,37.295044,-75.933192,8.699999809265137,nan
+PEARL,Pearl,80.053611,-86.416944,615.0,nan
+PKUPEK,Pku Pek,39.593,116.184,66.0,nan
+PNNL,Pnnl,46.34095,-119.2788,127.0,nan
+POLWETRzecin,Polwet Rzecin,52.762019,16.309589,54.0,nan
+PRINCEALBERT,Prince Albert,53.200001,-105.699997,425.0,nan
+PSDAChile,Psda Chile,-24.090306,-69.929028,965.0,nan
+Paddockwood,Paddockwood,53.507889,-105.561817,481.0,nan
+PagosaSprings,Pagosa Springs,37.270278,-107.050258,2316.47998046875,nan
+Palaiseau,Palaiseau,48.7116,2.215,156.0,nan
+Palangkaraya,Palangkaraya,-2.22799,113.94624,27.0,nan
+Palencia,Palencia,41.988572,-4.515694,750.0,nan
+Palgrunden,Palgrunden,58.755333,13.1515,49.0,nan
+PalmadeMallorca,Palma De Mallorca,39.5533,2.6251,10.0,nan
+PanamaBCI,Panama Bci,9.166667,-79.85,119.0,nan
+Pantnagar,Pantnagar,29.046339,79.520889,241.0,nan
+Paracou,Paracou,5.266944,-52.925833,50.0,nan
+ParanalCTA,Paranal Cta,-24.701105,-70.324794,2154.0,nan
+Paris,Paris,48.846797,2.355508,50.0,nan
+Payerne,Payerne,46.812408,6.942019,491.0,nan
+PennStateUniv,Penn State Univ,40.7421,-78.0809,401.0,nan
+Perth,Perth,-32.008056,115.893611,14.0,nan
+Peterhof,Peterhof,59.881,29.826,58.0,nan
+PetrolinaSONDA,Petrolina Sonda,-9.0691,-40.320108,381.0,nan
+Philadelphia,Philadelphia,40.035667,-75.004667,20.0,nan
+Picdumidi,Pic Du Midi,42.937217,0.1413,2898.0,nan
+PickleLake,Pickle Lake,51.449444,-90.2175,393.0,nan
+Pietersburg,Pietersburg,-23.883333,29.45,1249.0,nan
+PilarCordoba,Pilar Cordoba,-31.667411,-63.882597,333.0,nan
+Pimai,Pimai,15.181944,102.564167,220.0,nan
+PinehurstIdaho,Pinehurst Idaho,47.536739,-116.236917,680.0,nan
+PioneerJC,Pioneer Jc,1.384333,103.754528,25.0,nan
+Pokhara,Pokhara,28.186643,83.97518,800.0,nan
+Pontianak,Pontianak,0.07538,109.19086,2.0,nan
+Poprad-Ganovce,Poprad-Ganovce,49.035,20.322,706.0,nan
+Porquerolles,Porquerolles,43.001389,6.161389,22.0,nan
+PortglenoneMO,Portglenone Mo,54.865,-6.457,64.0,nan
+PortoNacional,Porto Nacional,-10.7,-48.41,210.0,nan
+PortoVelho,Porto Velho,-8.77,-63.95,110.0,nan
+PortoVelhoUNIR,Porto Velho Unir,-8.837083,-63.939983,129.0,nan
+PossessionIsland,Possession Island,-27.010428,15.194255,3.0,nan
+Potchefstroom,Potchefstroom,-26.69,27.091,1355.0,nan
+Praia,Praia,14.947,-23.484,102.0,nan
+PretoriaCSIR-DPSS,Pretoria Csir-Dpss,-25.756611,28.279722,1449.0,nan
+PretoriaCSIR-EC,Pretoria Csir-Ec,-25.750126,28.278441,1403.0,nan
+PrincetonUniv,Princeton Univ,40.35028,-74.65219,71.0,nan
+Progress,Progress,-69.37778,76.38861,32.0,nan
+ProspectHill,Prospect Hill,32.299314,-64.765092,64.0,nan
+PuertoMadryn,Puerto Madryn,-42.79,-65.01,15.0,nan
+Pullman,Pullman,46.75,-117.191666,779.0,nan
+Pune,Pune,18.537255,73.805491,595.0,nan
+PuntaArenasUMAG,Punta Arenas Umag,-53.1354,-70.8845,25.0,nan
+PusanNU,Pusan Nu,35.235354,129.082493,78.0,nan
+Puspiptek,Puspiptek,-6.3556,106.664383,58.0,nan
+QOMSCAS,Qoms Cas,28.365,86.948056,4276.0,nan
+QenaSVU,Qena Svu,26.199924,32.747029,75.69999694824219,nan
+Qiandaohu,Qiandaohu,29.555717,119.052633,133.0,nan
+QuitoUSFQ,Quito Usfq,-0.196244,-78.435589,2414.0,nan
+REUNIONSTDENIS,Reunion St Denis,-20.90139,55.48474,93.0,nan
+Raciborz,Raciborz,50.0831,18.1917,230.0,nan
+RaggedPoint,Ragged Point,13.165018,-59.432035,40.0,nan
+RailroadNSPO,Railroad Nspo,38.5046,-115.692,1438.0,nan
+RailroadValley,Railroad Valley,38.497,-115.691,1437.0,nan
+RailroadValley2,Railroad Valley2,38.497,-115.691,1437.0,nan
+RameHead,Rame Head,50.317132,-4.219809,105.0,nan
+RasElAin,Ras El Ain,31.670278,-7.599444,570.0,nan
+Realtor,Realtor,43.48555,5.383817,125.0,nan
+RedMountainPass,Red Mountain Pass,37.907449,-107.710917,3376.0,nan
+RedRiverDelta,Red River Delta,20.72853,106.1277,4.0,nan
+ResoluteBay,Resolute Bay,74.705123,-94.969409,35.0,nan
+RexburgIdaho,Rexburg Idaho,43.82011,-111.78301,1501.0,nan
+Reykjavik,Reykjavik,64.1278,-21.9037,51.0,nan
+RhylMO,Rhyl Mo,53.25929,-3.50859,77.0,nan
+Richland,Richland,46.34,-119.28,123.0,nan
+Rimrock,Rimrock,46.4875,-116.991667,824.0,nan
+RioBranco,Rio Branco,-9.957467,-67.86935,212.0,nan
+RioPiedras,Rio Piedras,18.40185,-66.051483,30.0,nan
+RiodeJaneiroUFRJ,Rio De Janeiro Ufrj,-22.857306,-43.233806,21.0,nan
+Rochester,Rochester,43.2337,-77.5864,107.0,nan
+RogersDryLake,Rogers Dry Lake,34.92555,-117.885,715.0,nan
+RomeESAESRIN,Rome Esa Esrin,41.826667,12.671833,240.0,nan
+RomeLaSapienza,Rome La Sapienza,41.901695,12.515773,75.0,nan
+RomeTorVergata,Rome Tor Vergata,41.83955,12.647333,130.0,nan
+RooseveltHS,Roosevelt Hs,38.994375,-76.868269,60.0,nan
+RoqueMuchachos,Roque Muchachos,28.7639,-17.8939,2396.0,nan
+Rossfeld,Rossfeld,48.335139,7.62475,167.0,nan
+RottnestIsland,Rottnest Island,-32.000103,115.501667,11.0,nan
+SACOL,Sacol,35.946,104.137083,1965.800048828125,nan
+SAGRES,Sagres,37.047706,-8.873517,26.0,nan
+SANTACRUZ,Santa Cruz,-17.802133,-63.177717,442.0,nan
+SANTACRUZUTEPSA,Santa Cruz Utepsa,-17.767325,-63.200961,432.0,nan
+SDSUIPLab,Sdsu Iplab,44.314828,-96.786075,518.0,nan
+SEARCH-Centreville,Search-Centreville,32.90289,-87.24968,126.0,nan
+SEARCH-Centreville2,Search-Centreville2,32.90289,-87.24968,126.0,nan
+SEARCH-OLF,Search-Olf,30.54997,-87.37531,44.0,nan
+SEARCH-Yorkville,Search-Yorkville,33.92833,-85.04555,394.0,nan
+SEDEBOKER,Sede Boker,30.855,34.782222,480.0,nan
+SEGCLopeGabon,Segc Lope Gabon,-0.20155,11.60082,280.0,nan
+SERC,Serc,38.888901,-76.555795,36.5,nan
+SMART,Smart,24.249321,55.612064,250.0,nan
+SMARTPOL,Smart Pol,24.249321,55.612064,250.0,nan
+SMEX,Smex,41.936,-93.664,316.0,nan
+SMHI,Smhi,58.58,16.15,33.0,nan
+SONETHarbin,Sonet Harbin,45.705,126.614,187.89999389648438,nan
+SONETHefei,Sonet Hefei,31.904722,117.162222,36.0,nan
+SONETZhoushan,Sonet Zhoushan,29.994,122.188,29.0,nan
+SP-EACH,Sp-Each,-23.48163,-46.49967,754.0,nan
+SPBayboro,Sp Bayboro,27.76155,-82.633,5.0,nan
+SSAYJPBOREAS,Ssa Yjp Boreas,53.674999,-104.650002,490.0,nan
+Saada,Saada,31.62583,-8.15583,420.0,nan
+SableIsland,Sable Island,43.933,-60.01,3.0,nan
+Saclay,Saclay,48.73333,2.16666,160.0,nan
+SacramentoCARB,Sacramento Carb,38.56844,-121.49311,15.0,nan
+SacramentoRiver,Sacramento River,38.049531,-121.88755,3.0,nan
+SaihSalam,Saih Salam,24.829467,55.312783,84.0,nan
+SakejiSchool,Sakeji School,-11.232956,24.312,1406.0,nan
+SalondeProvence,Salon De Provence,43.605556,5.120278,60.0,nan
+SaltonSea,Salton Sea,33.16923,-115.85593,-32.0,nan
+SanCristobalUSFQ,San Cristobal Usfq,-0.8954,-89.60879,22.0,nan
+SanGiuliano,San Giuliano,42.285556,9.519167,55.0,nan
+SanMarcoPlatform,San Marco Platform,-2.941667,40.214722,20.0,nan
+SanNicolas,San Nicolas,33.256889,-119.486972,133.0,nan
+SanNicolasVandal,San Nicolas Vandal,33.262214,-119.536711,194.0,nan
+SanPietroCapo,San Pietro Capo,44.650001,11.619999,11.0,nan
+SandiaNMPSEL,Sandia Nm Psel,35.054583,-106.540069,1662.5,nan
+SandyHook,Sandy Hook,40.448056,-73.99333,4.0,nan
+SantaCruzTenerife,Santa Cruz Tenerife,28.472528,-16.247361,52.0,nan
+SantaMonicaColg,Santa Monica Colg,34.01685,-118.47113,55.0,nan
+SantaRosa,Santa Rosa,10.8415,-85.615917,320.0,nan
+Santarem,Santarem,-2.428584,-54.706,25.0,nan
+Santiago,Santiago,-33.489633,-70.717033,510.0,nan
+SantiagoBeauchef,Santiago Beauchef,-33.457222,-70.661666,560.0,nan
+SantiagoBeauchef2,Santiago Beauchef 2,-33.457222,-70.661666,560.0,nan
+SantoPekoa,Santo Pekoa,-15.508,167.219,50.0,nan
+SaoMartinhoSONDA,Sao Martinho Sonda,-29.443333,-53.823444,489.0,nan
+SaoPaulo,Sao Paulo,-23.5615,-46.734983,786.0,nan
+SaoTome,Sao Tome,0.37469,6.71099,27.0,nan
+SaturnIsland,Saturn Island,48.775252,-123.128177,193.0,nan
+Section-7Platform,Section-7 Platform,44.5458,29.4466,30.0,nan
+Senanga,Senanga,-16.108889,23.293333,1025.0,nan
+SeoulSNU,Seoul Snu,37.458056,126.951111,116.0,nan
+Sesheke,Sesheke,-17.48083,24.303889,951.0,nan
+Sevastopol,Sevastopol,44.615833,33.517333,80.0,nan
+Sevilleta,Sevilleta,34.354721,-106.885002,1477.0,nan
+Seysses,Seysses,43.503333,1.259722,179.0,nan
+ShagayaPark,Shagaya Park,29.209072,47.060528,242.0,nan
+ShanghiMinhang,Shanghi Minhang,31.13045,121.39734,49.0,nan
+Shelton,Shelton,40.750064,-98.760286,616.0,nan
+Shijiazhuang-CHEY,Shijiazhuang-Chey,38.0,114.55,74.0,nan
+Shijiazhuang-SZF,Shijiazhuang-Szf,38.01667,114.45833,71.0,nan
+Shirahama,Shirahama,33.69345,135.356917,10.0,nan
+Shouxian,Shouxian,32.558383,116.78195,22.700000762939453,nan
+SigmaSpaceCorp,Sigma Space Corp,38.953,-76.836472,44.79999923706055,nan
+SilpakornUniv,Silpakorn Univ,13.819308,100.041183,72.0,nan
+SimonstownIMT,Simonstown Imt,-34.19272,18.44567,27.0,nan
+Singapore,Singapore,1.297667,103.780383,30.0,nan
+Sinhgad,Sinhgad,18.366667,73.75,1189.0,nan
+SiouxFalls,Sioux Falls,43.736481,-96.625991,505.0,nan
+SirBuNuair,Sir Bu Nuair,25.217825,54.231269,10.0,nan
+SirmioneMuseoGC,Sirmione Museo Gc,45.500278,10.605833,86.5,nan
+Skukuza,Skukuza,-24.9917,31.5875,265.0,nan
+SmithIslandCBF,Smith Island Cbf,37.969183,-76.02385,12.0,nan
+Socheongcho,Socheongcho,37.423133,124.738039,28.0,nan
+Sodankyla,Sodankyla,67.36662,26.62957,184.0,nan
+SofiaIEBAS,Sofia Iebas,42.6539,23.3868,631.0,nan
+SolarVillage,Solar Village,24.906933,46.397286,764.0,nan
+Solwezi,Solwezi,-12.170667,26.363333,1390.0,nan
+SonLa,Son La,21.3322,103.905151,681.0,nan
+SongkhlaMetSta,Songkhla Met Sta,7.184387,100.604583,15.0,nan
+Sopot,Sopot,54.450833,18.564722,11.0,nan
+Sorong,Sorong,-0.8746,131.2677,127.0,nan
+SouthGreenbay,South Greenbay,44.59633,-87.9512,175.8699951171875,nan
+SouthPoleObsNOAA,South Pole Obs Noaa,-90.0,70.3,2835.0,nan
+SoveratoIMAA,Soverato Imaa,38.689444,16.545278,40.0,nan
+Spokane,Spokane,47.61972,-117.53389,720.0,nan
+SraKaeo,Sra Kaeo,13.6889,102.5043,67.80000305175781,nan
+StHelena,St Helena,-15.9424,-5.6673,434.0,nan
+StLouisUniversity,St Louis University,38.636342,-90.231552,159.0,nan
+SteamboatSprings,Steamboat Springs,40.46376,-106.81699,2070.0,nan
+Stennis,Stennis,30.368014,-89.616667,20.0,nan
+Sterling,Sterling,38.98333,-77.46667,85.0,nan
+StornowayMO,Stornoway Mo,58.21156,-6.182147,82.5,nan
+Strzyzow,Strzyzow,49.8786,21.8613,450.0,nan
+Suffield,Suffield,50.28155,-111.130771,761.77197265625,nan
+Surinam,Surinam,5.8,-55.2,12.0,nan
+T0MAXMEX,T0 Max Mex,19.489944,-99.1485,2257.0,nan
+TABLEMOUNTAINCA,Table Mountain Ca,34.38,-117.68,2200.0,nan
+TGFTsukuba,Tgf Tsukuba,36.113889,140.096,25.0,nan
+THALA,Thala,35.55,8.683333,1091.0,nan
+TOULOUSE,Toulouse,43.561944,1.476389,150.0,nan
+TUBITAKUZAYAnkara,Tubitak Uzay Ankara,39.891,32.778,924.0,nan
+TWRS,Twrs,45.103582,-114.84991,1166.0,nan
+TabernasPSA-DLR,Tabernas Psa-Dlr,37.09076,-2.35818,500.0,nan
+TableMountain,Table Mountain,40.125,-105.237,1689.0,nan
+Tahir,Tahir,5.411,100.1967,37.0,nan
+Tahiti,Tahiti,-17.5769,-149.6063,98.0,nan
+TahoeCity,Tahoe City,39.1733,-120.135,1899.0,nan
+TaiPing,Tai Ping,10.3755,114.362,4.0,nan
+Taichung,Taichung,24.106167,120.49133,10.0,nan
+Taihu,Taihu,31.421,120.215333,20.0,nan
+TaipeiCWB,Taipei Cwb,25.014683,121.53837,26.0,nan
+TallTimbers,Talltimbers,30.664167,-84.23889,63.0,nan
+Tallahassee,Tallahassee,30.445833,-84.29935,49.0,nan
+TamanrassetINM,Tamanrasset Inm,22.79,5.53,1377.0,nan
+TamanrassetTMP,Tamanrasset Tmp,22.79,5.53,1377.0,nan
+Tarbes,Tarbes,43.25,0.083333,292.0,nan
+TarbesEtal,Tarbes Etal,43.224033,0.049283,332.0,nan
+TaylorRanchTWRS,Taylor Ranch Twrs,45.1035,-114.84995,1159.0,nan
+TechnionHaifaIL,Technion Haifa Il,32.77587,35.0249,230.0,nan
+Teide,Teide,28.27,-16.639,3555.0,nan
+Tel-AvivUniversity,Tel-Aviv University,32.1129,34.8062,76.0,nan
+Temuco-UFROCEFOP,Temuco-Ufro Cefop,-38.745803,-72.615525,119.0,nan
+Tenosique,Tenosique,17.4875,-91.425556,20.0,nan
+TheHague,The Hague,52.11048,4.32682,18.0,nan
+Thessaloniki,Thessaloniki,40.63,22.96,60.0,nan
+Thimphu,Thimphu,27.472643,89.639057,2314.0,nan
+Thompson,Thompson,55.799999,-97.849998,218.0,nan
+ThompsonFarm,Thompson Farm,43.108772,-70.948344,26.0,nan
+ThorntonC-power,Thornton C-Power,51.5325,2.955278,30.0,nan
+Thule,Thule,76.516102,-68.769001,225.0,nan
+Tiksi,Tiksi,71.586917,128.921417,17.0,nan
+Timisoara,Timisoara,45.74626,21.22736,122.0,nan
+TingaTingana,Tinga Tingana,-28.975833,139.990933,38.0,nan
+TiziOuzou,Tizi Ouzou,36.698611,4.055833,133.0,nan
+Tombstone,Tombstone,31.742,-110.05,1408.0,nan
+Tomsk,Tomsk,56.475351,85.04806,174.0,nan
+Tomsk22,Tomsk 22,56.417,84.074,80.0,nan
+TonopahAirport,Tonopah Airport,38.05044,-117.09052,1638.0,nan
+Toravere,Toravere,58.264895,26.466823,85.0,nan
+Toronto,Toronto,43.79,-79.47,186.0,nan
+Toulon,Toulon,43.135556,6.009444,50.0,nan
+Toulouse,Toulouse,43.574722,1.373889,150.0,nan
+ToulouseMF,Toulouse Mf,43.57261,1.37432,160.0,nan
+Toyama,Toyama,36.699,137.187,30.0,nan
+Trelew,Trelew,-43.249806,-65.308611,15.0,nan
+Tremiti,Tremiti,42.117965,15.490115,40.0,nan
+TrinidadHead,Trinidad Head,41.05392,-124.15102,105.0,nan
+Tromelin,Tromelin,-15.889167,54.517333,7.0,nan
+Tsumkwe,Tsumkwe,-19.616667,20.4425,1154.0,nan
+Tucson,Tucson,32.233002,-110.953003,779.0,nan
+Tucuman,Tucuman,-26.787153,-65.206697,481.0,nan
+TudorHill,Tudor Hill,32.264,-64.879,51.0,nan
+Tukurui,Tukurui,-3.716666,-49.683331,100.0,nan
+Tumbarumba,Tumbarumba,-35.7083,147.9499,776.0,nan
+TunisCarthage,Tunis Carthage,36.838719,10.199781,10.0,nan
+TuxtlaGutierrez,Tuxtla Gutierrez,16.754722,-93.152222,590.0,nan
+TuzGolu,Tuz Golu,38.749444,33.336111,907.0,nan
+TuzGolu2,Tuz Golu 2,38.837,33.449,917.0,nan
+TuzGolu3,Tuz Golu 3,38.792469,33.464678,906.1699829101562,nan
+UACJUNAMORS,Uacj Unam Ors,31.743333,-106.431667,1127.0,nan
+UAHuntsville,Uahuntsville,34.72533,-86.64473,223.0,nan
+UCLA,Ucla,34.069605,-118.442752,131.0,nan
+UCSB,Ucsb,34.415428,-119.84536,33.0,nan
+UEMMaputo,Uem Maputo,-25.949667,32.598833,59.20000076293945,nan
+UHAldine,Uh Aldine,29.901111,-95.326125,20.0,nan
+UHCoastalCenter,Uh Coastal Center,29.3883,-95.0425,5.0,nan
+UHLiberty,Uh Liberty,30.096944,-94.763,20.0,nan
+UHSugarland,Uh Sugarland,29.574167,-95.652,22.0,nan
+UMBC,Umbc,39.254628,-76.709353,79.0,nan
+UMBCtemp,Umbc Temp,39.254628,-76.709353,79.0,nan
+UNC-Bogota,Unc-Bogota,4.636933,-74.0808,2594.0,nan
+UNC-Gaitan,Unc-Gaitan,4.31068,-72.3518,192.0,nan
+UNC-Palmira,Unc-Palmira,3.512295,-76.30761,1065.199951171875,nan
+UPC-GEAB-Valledupar,Upc-Geab-Valledupar,9.5596,-73.3293,157.0,nan
+UPRMLidarLab,Uprm Lidar Lab,18.210131,-67.140125,32.0,nan
+USCSEAPRISM,Usc Seaprism,33.56371,-118.11782,31.0,nan
+USCSEAPRISM2,Usc Seaprism 2,33.56371,-118.11782,31.0,nan
+USDA,Usda,39.029999,-76.879997,50.0,nan
+USDA-BARC,Usda-Barc,39.03127,-76.93218,46.0,nan
+USDA-Howard,Usda-Howard,39.0542,-76.8775,52.79999923706055,nan
+USDAALARC,Usda Alarc,33.077454,-111.97339,377.0,nan
+USGSFlagstaffROLO,Usgs Flagstaff Rolo,35.21484,-111.63442,2179.60009765625,nan
+USMPenang,Usm Penang,5.35838,100.30231,51.0,nan
+Uberlandia,Uberlandia,-18.9,-48.28333,864.0,nan
+UbonRatchathani,Ubon Ratchathani,15.245518,104.871011,120.0,nan
+UdeConcepcion-CEFOP,Udeconcepcion-Cefop,-36.84278,-73.02531,170.0,nan
+Ukiah,Ukiah,45.13361,-118.918884,1028.0,nan
+Ulaangom,Ulaangom,49.973035,92.078183,944.0,nan
+UmmAlQuwain,Umm Al Quwain,25.533333,55.658333,20.0,nan
+UnivofAuckland,Univ Of Auckland,-36.852621,174.768143,100.0,nan
+UnivofHouston,Univ Of Houston,29.7177,-95.3416,65.0,nan
+UnivofLethbridge,Univ Of Lethbridge,49.681672,-112.868967,904.0,nan
+UnivofNevada-Reno,Univ Of Nevada-Reno,39.540867,-119.814033,1410.0,nan
+UofWisconsinSSEC,U Of Wisconsin Ssec,43.072492,-89.411354,330.0,nan
+Upington,Upington,-28.379,21.156,865.0,nan
+UpperBuffalo,Upper Buffalo,35.8258,-93.203,722.0,nan
+Ussuriysk,Ussuriysk,43.7004,132.1635,280.0,nan
+Utsteinen,Utsteinen,-71.95,23.333333,1396.0,nan
+Valladolid,Valladolid,41.6636,-4.70583,705.0,nan
+ValladolidSci,Valladolid Sci,41.6562,-4.7148,701.0,nan
+VechernayaHill,Vechernaya Hill,-67.66,46.158,80.0,nan
+Venise,Venise,45.3139,12.5083,10.0,nan
+ViennaBOKU,Vienna Boku,48.237861,16.331611,266.0,nan
+ViennaUNIVIE,Vienna Univie,48.221667,16.355833,225.0,nan
+Vientiane,Vientiane,17.99228,102.569642,170.0,nan
+Villefranche,Villefranche,43.683889,7.328889,130.0,nan
+Vinon,Vinon,43.709233,5.75865,304.0,nan
+VirginiaTech,Virginiatech,37.230775,-80.424681,690.0,nan
+Vishkhapatnam,Vishkhapatnam,17.72395,83.326933,30.0,nan
+WFFX-75SciObs,Wff X-75 Sci Obs,37.843908,-75.477517,10.0,nan
+WalkerBranch,Walker Branch,35.958333,-84.2875,365.0,nan
+Wallops,Wallops,37.93285,-75.47195,37.0,nan
+WallopsACHIEVE,Wallops Achieve,37.933486,-75.471,13.5,nan
+WarsawUW,Warsaw Uw,52.210932,20.982636,117.0,nan
+Waskesiu,Waskesiu,53.914386,-106.069578,569.0,nan
+WatnallMO,Watnall Mo,53.005652,-1.250958,120.0,nan
+WaveCISSiteCSI6,Wavecis Site Csi 6,28.866667,-90.483333,33.58100128173828,nan
+WeizmannInstitute,Weizmann Institute,31.907235,34.810531,73.0,nan
+Welgegund,Welgegund,-26.569444,26.939167,1480.0,nan
+Weybourne,Weybourne,52.95,1.121944,15.0,nan
+WhiteSands,White Sands,32.918999,-106.350998,1197.0,nan
+WhiteSandsHELSTF,White Sands Helstf,32.634942,-106.338072,1207.239990234375,nan
+Windhoek-NUST,Windhoek-Nust,-22.56591,17.07304,1676.0,nan
+Windpoort,Windpoort,-19.365556,15.482778,1206.0,nan
+WindsorB,Windsor B,42.283,-83.083,200.0,nan
+Wisconsin,Wisconsin,46.051888,-89.653725,505.0,nan
+WitsUniversity,Wits University,-26.192444,28.028972,1775.0,nan
+WythamWoods,Wytham Woods,51.770278,-1.3325,160.0,nan
+Xanthi,Xanthi,41.146767,24.91895,54.0,nan
+XiangHe,Xianghe,39.7536,116.9615,36.0,nan
+Xinglong,Xinglong,40.396389,117.578333,899.0,nan
+Xitun,Xitun,24.1622,120.6169,91.0,nan
+XuZhou-CUMT,Xuzhou-Cumt,34.21667,117.14167,59.70000076293945,nan
+YUMASL,Yuma Sl,32.644138,-114.58278,63.0,nan
+Yakutsk,Yakutsk,61.661667,129.366667,118.5,nan
+Yanqihu,Yanqihu,40.4083,116.6744,100.0,nan
+Yaqui,Yaqui,27.280833,-109.912,40.0,nan
+Yekaterinburg,Yekaterinburg,57.038333,59.545,300.0,nan
+YellowknifeAurora,Yellowknife Aurora,62.4513,-114.37625,220.8000030517578,nan
+YenBai,Yen Bai,21.70495,104.86894,53.0,nan
+Yevpatoria,Yevpatoria,45.2147,33.1422,6.0,nan
+YonseiUniversity,Yonsei University,37.56443,126.93479,97.0,nan
+Yulin,Yulin,38.283333,109.716667,1080.0,nan
+Yuma,Yuma,32.644138,-114.58278,63.0,nan
+Yushan,Yushan,23.487419,120.959199,3812.0,nan
+Zambezi,Zambezi,-13.533167,23.107194,1073.0,nan
+Zaragoza,Zaragoza,41.6334,-0.88235,250.0,nan
+Zeebrugge-MOW1,Zeebrugge-Mow1,51.362,3.12,15.0,nan
+Zhangye,Zhangye,39.078889,100.275556,1461.0,nan
+ZhongshanUniv,Zhongshan Univ,23.06,113.39,27.0,nan
+ZinderAirport,Zinder Airport,13.776683,8.990233,456.0,nan
+ZinderDMN,Zinder Dmn,13.775417,8.9841,460.0,nan
+Zouerate-Fennec,Zouerate-Fennec,22.75,-12.483333,343.0,nan
+ZugspitzeKIT,Zugspitze Kit,47.421,10.986,2961.4599609375,nan
+Zvenigorod,Zvenigorod,55.695,36.775,200.0,nan

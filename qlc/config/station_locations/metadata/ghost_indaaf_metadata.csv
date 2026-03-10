@@ -1,0 +1,9 @@
+site_id,site_name,latitude,longitude,altitude,area_classification
+AGOUFOU,"Agoufou, Mali",15.3333333,-1.4833333,300.0,rural
+BAMBEY,"Bambey, Senegal",14.7,-16.466666,31.0,rural
+BANIZOUMBOU,"Banizoumbou, Niger",13.3,2.366667,220.0,rural
+DAHRA,"Dahra, Senegal",15.402778,-15.443333,40.0,rural
+DJOUGOU,"Djougou, Benin",9.65,1.7333333,430.0,rural
+KATIBOUGOU,"Katibougou, Mali",12.9333333,-7.5333333,290.0,rural
+LAMTO,"Lamto, Côte D'Ivoire",6.216666,-5.033333,105.0,rural
+ZOETELE,"Zoétélé, Cameroon",3.166022,11.819369,720.0,rural

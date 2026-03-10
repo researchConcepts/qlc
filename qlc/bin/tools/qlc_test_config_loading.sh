@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Configuration Loading Test
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -17,7 +17,7 @@
 # Usage:
 #   bash $HOME/qlc/bin/tools/qlc_test_config_loading.sh
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 #
@@ -44,7 +44,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 echo ""
-echo "Config file exists: ✓"
+echo "Config file exists: OK"
 
 # Source the config with auto-export
 set -a
@@ -120,33 +120,33 @@ echo "=========================================="
 
 # Check critical paths
 if [ -z "$QLC_HOME" ]; then
-    echo "  ✗ QLC_HOME not set"
+    echo "  ERROR QLC_HOME not set"
 else
-    echo "  ✓ QLC_HOME set"
+    echo "  OK QLC_HOME set"
 fi
 
 if [ -z "$ANALYSIS_DIRECTORY" ]; then
-    echo "  ✗ ANALYSIS_DIRECTORY not set"
+    echo "  ERROR ANALYSIS_DIRECTORY not set"
 else
-    echo "  ✓ ANALYSIS_DIRECTORY set"
+    echo "  OK ANALYSIS_DIRECTORY set"
 fi
 
 if [ -z "$EVALTOOLS_OUTPUT_DIR" ]; then
-    echo "  ✗ EVALTOOLS_OUTPUT_DIR not set"
+    echo "  ERROR EVALTOOLS_OUTPUT_DIR not set"
 else
-    echo "  ✓ EVALTOOLS_OUTPUT_DIR set"
+    echo "  OK EVALTOOLS_OUTPUT_DIR set"
 fi
 
 if [ ${#SUBSCRIPT_NAMES[@]} -eq 0 ]; then
-    echo "  ✗ SUBSCRIPT_NAMES empty"
+    echo "  ERROR SUBSCRIPT_NAMES empty"
 else
-    echo "  ✓ SUBSCRIPT_NAMES contains ${#SUBSCRIPT_NAMES[@]} entries"
+    echo "  OK SUBSCRIPT_NAMES contains ${#SUBSCRIPT_NAMES[@]} entries"
 fi
 
 if [ ${#MARS_RETRIEVALS[@]} -eq 0 ]; then
-    echo "  ✗ MARS_RETRIEVALS empty"
+    echo "  ERROR MARS_RETRIEVALS empty"
 else
-    echo "  ✓ MARS_RETRIEVALS contains ${#MARS_RETRIEVALS[@]} entries"
+    echo "  OK MARS_RETRIEVALS contains ${#MARS_RETRIEVALS[@]} entries"
 fi
 
 echo ""

@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC Common Functions: Shared Utilities and Environment Management
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -18,7 +18,7 @@
 #   Sourced automatically by all QLC scripts
 #   Do not execute directly
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -128,16 +128,20 @@ parse_qlc_arguments() {
        [[ "$arg" == "--mod-only" ]] || [[ "$arg" == "-mod-only" ]] || \
        [[ "$arg" == "--mod_only" ]] || [[ "$arg" == "-mod_only" ]]; then
       log "Mode flag detected: $arg (handled by Python)"
-    # Filter out new named arguments (with values)
+    # Filter out new named arguments (with values) — handled by Python wrapper
     elif [[ "$arg" == --exp_ids=* ]] || [[ "$arg" == -exp_ids=* ]] || \
+         [[ "$arg" == --exps=* ]] || [[ "$arg" == -exps=* ]] || \
          [[ "$arg" == --start_date=* ]] || [[ "$arg" == -start_date=* ]] || \
          [[ "$arg" == --start=* ]] || [[ "$arg" == -start=* ]] || \
          [[ "$arg" == --end_date=* ]] || [[ "$arg" == -end_date=* ]] || \
          [[ "$arg" == --end=* ]] || [[ "$arg" == -end=* ]] || \
          [[ "$arg" == --workflow=* ]] || [[ "$arg" == -workflow=* ]] || \
          [[ "$arg" == --region=* ]] || [[ "$arg" == -region=* ]] || \
-         [[ "$arg" == --exp_labels=* ]] || [[ "$arg" == -exp_labels=* ]] || \
+         [[ "$arg" == --myvar=* ]] || [[ "$arg" == -myvar=* ]] || \
+         [[ "$arg" == --myvars=* ]] || [[ "$arg" == -myvars=* ]] || \
          [[ "$arg" == --station_selection=* ]] || [[ "$arg" == -station_selection=* ]] || \
+         [[ "$arg" == --station_file=* ]] || [[ "$arg" == -station_file=* ]] || \
+         [[ "$arg" == --exp_labels=* ]] || [[ "$arg" == -exp_labels=* ]] || \
          [[ "$arg" == --observation=* ]] || [[ "$arg" == -observation=* ]] || \
          [[ "$arg" == --obs_path=* ]] || [[ "$arg" == -obs_path=* ]] || \
          [[ "$arg" == --exp_path=* ]] || [[ "$arg" == -exp_path=* ]] || \
@@ -147,9 +151,6 @@ parse_qlc_arguments() {
     elif [[ "$arg" == -class=* ]] || [[ "$arg" == --class=* ]]; then
       class_arg="${arg#*=}"
       log "Class override option detected: -class=$class_arg"
-    # Filter out variable specification
-    elif [[ "$arg" == -vars=* ]] || [[ "$arg" == --vars=* ]]; then
-      log "Variables override option: $arg (handled by Python)"
     elif [[ "$arg" == -nml=* ]] || [[ "$arg" == --nml=* ]]; then
       log "Namelist override option: $arg"
     # Filter out script selection
@@ -166,12 +167,18 @@ parse_qlc_arguments() {
          [[ "$arg" == -area=* ]] || [[ "$arg" == --area=* ]] || \
          [[ "$arg" == -number=* ]] || [[ "$arg" == --number=* ]]; then
       log "MARS parameter override: $arg (handled by Python)"
-    # Filter out expert mode options
+    # Per-experiment GRIB param override: handled by Python (A1-MARS request generation only).
+    # --user=, --network=, --region= are also Python-handled (propagated via env vars).
     elif [[ "$arg" == -param=* ]] || [[ "$arg" == --param=* ]] || \
+         [[ "$arg" == -user=* ]]   || [[ "$arg" == --user=* ]] || \
+         [[ "$arg" == -network=* ]] || [[ "$arg" == --network=* ]] || \
+         [[ "$arg" == -region=* ]] || [[ "$arg" == --region=* ]]; then
+      log "Parameter handled by Python: $arg"
+    # Deprecated options: filter out but warn
+    elif [[ "$arg" == -vars=* ]] || [[ "$arg" == --vars=* ]] || \
          [[ "$arg" == -ncvar=* ]] || [[ "$arg" == --ncvar=* ]] || \
-         [[ "$arg" == -myvar=* ]] || [[ "$arg" == --myvar=* ]] || \
          [[ "$arg" == -levtype=* ]] || [[ "$arg" == --levtype=* ]]; then
-      log "Expert mode option: $arg"
+      log "WARNING: ${arg%%=*} is deprecated. Use --myvar=[level_type_]display_name,GRIB_param instead."
     else
       # Positional argument - keep it
       args+=("$arg")
@@ -250,13 +257,17 @@ parse_qlc_arguments() {
     # Split comma-separated values into array
     IFS=',' read -ra class_override <<< "$class_arg"
     
-    # Validate: must be either 1 (apply to all) or match number of experiments
+    # Validate: must be 1 (all exps), equal to real experiment count,
+    # or equal to original slot count (including 'none' placeholders).
+    # The last form lets users write one class per original command-line slot.
     if [ ${#class_override[@]} -eq 1 ]; then
       log "Class override: ${class_override[0]} (will be applied to all experiments)"
     elif [ ${#class_override[@]} -eq ${#experiments[@]} ]; then
-      log "Class override: ${class_override[*]} (one per experiment)"
+      log "Class override: ${class_override[*]} (one per real experiment)"
+    elif [ ${#class_override[@]} -eq ${#experiments_original[@]} ]; then
+      log "Class override: ${class_override[*]} (one per experiment slot, 'none' slots skipped)"
     else
-      log "Error: Number of classes (${#class_override[@]}) must be 1 or match number of experiments (${#experiments[@]})"
+      log "Error: Number of classes (${#class_override[@]}) must be 1, match real experiments (${#experiments[@]}), or match all experiment slots (${#experiments_original[@]})"
       return 1
     fi
   fi
@@ -299,6 +310,13 @@ parse_qlc_arguments() {
   if [ -n "${QLC_MODE_OBS_ONLY:-}" ]; then
     log "Mode flag detected: --obs-only (forced observation-only mode)"
     export QLC_MODE_OBS_ONLY
+    # Clear experiments array for processing (A1-MARS and model scripts will skip).
+    # experiments_original and experiments_dirname are already set above, so
+    # directory naming using the experiment IDs is preserved.
+    experiments=()
+    exp1=""
+    expN=""
+    log "Obs-only mode: experiments cleared for processing, dirname='${experiments_dirname}'"
   fi
   
   if [ -n "${QLC_MODE_MOD_ONLY:-}" ]; then
@@ -307,41 +325,87 @@ parse_qlc_arguments() {
   fi
   
   # Process additional CLI parameters from environment (set by Python wrapper)
-  if [ -n "${QLC_CLI_REGION:-}" ]; then
-    log "CLI parameter: --region=${QLC_CLI_REGION}"
-    export QLC_CLI_REGION
+  if [ -n "${QLC_CLI_ACTIVE_REGIONS:-}" ]; then
+    log "Command line input: --network=${QLC_CLI_ACTIVE_REGIONS}"
+    export QLC_CLI_ACTIVE_REGIONS
   fi
-  
+
+  if [ -n "${QLC_CLI_PLOT_REGIONS:-}" ]; then
+    log "Command line input: --region=${QLC_CLI_PLOT_REGIONS}"
+    export QLC_CLI_PLOT_REGIONS
+  fi
+
+  if [ -n "${QLC_CLI_MYVAR:-}" ]; then
+    log "Command line input: --myvar=${QLC_CLI_MYVAR}"
+    export QLC_CLI_MYVAR
+  fi
+
   if [ -n "${QLC_CLI_EXP_LABELS:-}" ]; then
-    log "CLI parameter: --exp_labels=${QLC_CLI_EXP_LABELS}"
-    export QLC_CLI_EXP_LABELS
+    EXP_LABELS="${QLC_CLI_EXP_LABELS}"
+    log "Command line input: --exp_labels=${QLC_CLI_EXP_LABELS}"
+    export QLC_CLI_EXP_LABELS EXP_LABELS
   fi
   
   if [ -n "${QLC_CLI_STATION_SELECTION:-}" ]; then
-    log "CLI parameter: --station_selection=${QLC_CLI_STATION_SELECTION}"
+    log "Command line input: --station_file=${QLC_CLI_STATION_SELECTION}"
     export QLC_CLI_STATION_SELECTION
   fi
   
   if [ -n "${QLC_CLI_OBSERVATION:-}" ]; then
-    log "CLI parameter: --observation=${QLC_CLI_OBSERVATION}"
+    log "Command line input: --observation=${QLC_CLI_OBSERVATION}"
     export QLC_CLI_OBSERVATION
   fi
   
   if [ -n "${QLC_CLI_OBS_PATH:-}" ]; then
-    log "CLI parameter: --obs_path=${QLC_CLI_OBS_PATH}"
+    log "Command line input: --obs_path=${QLC_CLI_OBS_PATH}"
     export QLC_CLI_OBS_PATH
   fi
   
   if [ -n "${QLC_CLI_EXP_PATH:-}" ]; then
-    log "CLI parameter: --exp_path=${QLC_CLI_EXP_PATH}"
+    log "Command line input: --exp_path=${QLC_CLI_EXP_PATH}"
     export QLC_CLI_EXP_PATH
   fi
   
   if [ -n "${QLC_CLI_SCRIPTS:-}" ]; then
-    log "CLI parameter: --scripts=${QLC_CLI_SCRIPTS}"
+    log "Command line input: --scripts=${QLC_CLI_SCRIPTS}"
     export QLC_CLI_SCRIPTS
   fi
-  
+
+  if [ -n "${QLC_CLI_USER:-}" ]; then
+    log "Command line input: --user=${QLC_CLI_USER}"
+    export QLC_CLI_USER
+  fi
+
+  if [ -n "${QLC_CLI_PARAM:-}" ]; then
+    log "Command line input: --param=${QLC_CLI_PARAM}"
+    export QLC_CLI_PARAM
+  fi
+
+  # Apply CLI overrides that take precedence over workflow config values.
+  # These must run after the config is already sourced (done in qlc_main.sh before
+  # subscripts are invoked), so every subscript gets the override via this function.
+
+  # --network=A,B,C overrides ACTIVE_REGIONS (comma-separated network/station-collection codes).
+  # Network codes must match REGION_*_NAME entries in the workflow config.
+  if [ -n "${QLC_CLI_ACTIVE_REGIONS:-}" ]; then
+    IFS=',' read -ra ACTIVE_REGIONS <<< "${QLC_CLI_ACTIVE_REGIONS}"
+    log "Active networks: ACTIVE_REGIONS=(${ACTIVE_REGIONS[*]})"
+  fi
+
+  # --region=EU,SA,GLOBE overrides REGION_*_PLOT_REGION for all active networks.
+  # Each active network is processed once per specified plot region (D1-ANAL only).
+  if [ -n "${QLC_CLI_PLOT_REGIONS:-}" ]; then
+    log "Active plot regions: QLC_CLI_PLOT_REGIONS=(${QLC_CLI_PLOT_REGIONS//,/ })"
+    export QLC_CLI_PLOT_REGIONS
+  fi
+
+  # --myvar=sfc_T2m,167;pl_T,130 overrides MARS_RETRIEVALS (semicolon-separated specs).
+  # Each spec has format: [level_type_]display_name,GRIB_param
+  if [ -n "${QLC_CLI_MYVAR:-}" ]; then
+    IFS=';' read -ra MARS_RETRIEVALS <<< "${QLC_CLI_MYVAR}"
+    log "Active variables: MARS_RETRIEVALS=(${MARS_RETRIEVALS[*]})"
+  fi
+
   return 0
 }
 
@@ -1836,33 +1900,24 @@ var_name_for_parsing() {
   echo "${var_name//_/-}"
 }
 
-# Function to format variable names with LaTeX math subscripts
-# Converts: NH4_as -> NH$_4$\_as, NH_3 -> NH$_3$, SO2 -> SO$_2$
-# Uses simple string replacements similar to Python approach
-# Usage: format_var_name_tex "NH4_as"
+# Function to format variable names for LaTeX display.
+# Variables like T2m, U10m contain digits that are part of the name (not chemical
+# subscripts) so applying automatic subscript conversion produces wrong output
+# (T2m -> T$_2$m). The safe approach is to display the name as-is and only
+# escape underscores so TeX does not choke on them.
+# If explicit chemical subscript formatting is needed for a specific variable
+# (e.g. NH$_4$, SO$_2$) add it here as an explicit lookup.
+# Usage: format_var_name_tex "T2m"  ->  "T2m"
+#        format_var_name_tex "PM2p5" ->  "PM2p5"
+#        format_var_name_tex "NH4_as" -> "NH4\\_as"
 format_var_name_tex() {
   local var_name="$1"
   if [ -z "$var_name" ]; then
     echo ""
     return
   fi
-  
-  # Step 1: Handle underscore before number (NH_3 -> NHSUB3) - replace with placeholder
-  var_name=$(echo "$var_name" | sed -E 's/([A-Za-z]+)_([0-9]+)/\1SUB\2/g')
-  
-  # Step 2: Convert all numbers after letters to subscripts (NH4 -> NH$_4$, NHSUB3 -> NH$_3$)
-  # Match letter(s) followed by "SUB" + digit(s) or just digit(s)
-  var_name=$(echo "$var_name" | sed -E 's/([A-Za-z]+)SUB([0-9]+)/\1$_\2$/g')
-  var_name=$(echo "$var_name" | sed -E 's/([A-Za-z]+)([0-9]+)/\1$_\2$/g')
-  
-  # Step 3: Protect subscripts by replacing $_digit$ with placeholder that includes the digit
-  var_name=$(echo "$var_name" | sed -E 's/\$_([0-9]+)\$/SUBSCRIPTPLACEHOLDER\1SUBSCRIPTPLACEHOLDER/g')
-  
-  # Step 4: Escape all underscores
-  var_name=$(echo "$var_name" | sed 's/_/\\_/g')
-  
-  # Step 5: Restore subscripts (replace placeholder back to $_digit$)
-  echo "$var_name" | sed -E 's/SUBSCRIPTPLACEHOLDER([0-9]+)SUBSCRIPTPLACEHOLDER/\$_\1\$/g'
+  # Only escape underscores – no automatic digit-to-subscript conversion.
+  echo "$var_name" | sed 's/_/\\_/g'
 }
 
 

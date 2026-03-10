@@ -1,0 +1,12 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+CA_CONC,CA_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate calcium (Ca) concentration; ug/m^3.
+CL_CONC,CL_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate chloride (Cl) concentration; ug/m^3.
+HNO3_CONC,HNO3_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient nitric acid (HNO3) concentration; ug/m^3.
+K_CONC,K_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate potassium (K) concentration; ug/m^3.
+MG_CONC,MG_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate magnesium (Mg) concentration; ug/m^3.
+NA_CONC,NA_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate sodium (Na) concentration; ug/m^3.
+NH4_CONC,NH4_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate ammonium (NH4) concentration; ug/m^3.
+NO3_CONC,NO3_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate nitrate (NO3) concentration; ug/m^3.
+SO2_CONC,SO2_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient sulfur dioxide (SO2) concentration; ug/m^3.
+SO4_CONC,SO4_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Mean ambient particulate sulfate (SO4) concentration; ug/m^3.
+TNO3_CONC,TNO3_CONC,ug/m^3,time,LATITUDE,LONGITUDE,SITE_ID,Total ambient nitrate (NO3+HNO3) concentration; ug/m^3.

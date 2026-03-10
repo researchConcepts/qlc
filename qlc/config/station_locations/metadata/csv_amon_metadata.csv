@@ -1,0 +1,143 @@
+site_id,site_name,latitude,longitude,altitude,state,country_code,county,status,site_class,start_date,end_date
+AB35,Elk Island,53.6824,-112.868,711.0,AB,CA,Improvement District No. 13 (Elk Island),A,I,2019-10-15,
+AL99,Sand Mountain Research & Extension Center,34.2886,-85.9699,349.0,AL,US,DeKalb,A,R,2011-03-29,
+AR03,Caddo Valley,34.1795,-93.0992,71.0,AR,US,Clark,A,R,2011-03-01,
+AR09,Rambo Hill,35.6246,-93.8688,261.0,AR,US,Franklin,A,I,2015-10-06,
+AR15,LC Farms,35.9334,-93.8491,454.0,AR,US,Madison,A,I,2015-10-06,
+AZ98,Chiricahua,32.0097,-109.3889,1570.0,AZ,US,Cochise,A,I,2011-03-22,
+CA03,Burbank Area,34.2616,-118.4123,,CA,US,Los Angeles,A,U,2025-06-03,
+CA04,Compton,33.9014,-118.205,,CA,US,Los Angeles,A,U,2025-06-03,
+CA05,Long Beach,33.7937,-118.171,,CA,US,Los Angeles,A,U,2025-06-03,
+CA06,Central LA,34.0664,-118.2269,,CA,US,Los Angeles,A,U,2025-06-03,
+CA07,Long Beach Route 710 Near-Road,33.8597,-118.2007,,CA,US,Los Angeles,A,U,2025-06-03,
+CA08,Mecca-Saul Martinez,33.572,-116.0638,,CA,US,Riverside,A,U,2025-06-03,
+CA10,Inland Valley San Bernardino,34.1,-117.492,,CA,US,San Bernardino,A,U,2025-06-03,
+CA11,Ontario Route 60 Near-Road,34.0309,-117.6174,,CA,US,San Bernardino,A,U,2025-06-03,
+CA44,Yosemite NP - Turtleback Dome,37.7133,-119.7061,1605.0,CA,US,Mariposa,A,I,2011-03-15,
+CA54,Anaheim,33.8306,-117.9385,,CA,US,Orange,A,U,2025-06-03,
+CA64,Rubidoux,33.9994,-117.4158,,CA,US,Riverside,A,U,2025-06-03,
+CA67,Joshua Tree National Park-Black Rock,34.0695,-116.3889,1239.0,CA,US,San Bernardino,A,R,2011-03-01,
+CA83,Sequoia NP - Ash Mountain,36.4894,-118.8228,457.0,CA,US,Tulare,A,I,2011-03-22,
+CA93,La Posta Band of Mission Indians,32.7252,-116.3644,,CA,US,San Diego,A,,2022-10-25,
+CO10,Gothic,38.9561,-106.986,2915.0,CO,US,Gunnison,A,I,2012-09-11,
+CO80,Akron 4E,40.1552,-103.1417,1364.0,CO,US,Washington,A,,2022-10-20,
+CO81,Missile Site Park,40.4288,-104.8617,1513.0,CO,US,Weld,A,,2020-12-08,
+CO82,Orchard,40.3199,-104.1598,1425.0,CO,US,Weld,A,,2021-01-19,
+CO88,Rocky Mountain National Park - Longs Peak,40.2778,-105.5453,2739.0,CO,US,Larimer,A,R,2011-05-10,
+CO98,Rocky Mountain National Park-Loch Vale,40.2878,-105.6628,3159.0,CO,US,Larimer,A,I,2011-05-10,
+CT15,Abington,41.84,-72.0101,209.0,CT,US,Windham,A,R,2011-03-29,
+FL11,Everglades National Park-Research Center,25.39,-80.68,2.0,FL,US,Dade,A,I,2011-03-15,
+FL19,Indian River,27.8492,-80.4554,1.0,FL,US,Indian River,A,R,2011-04-26,
+FL23,Sumatra,30.1106,-84.9902,14.0,FL,US,Liberty,A,I,2015-01-13,
+FL93,Canaveral National Seashores,28.6443,-80.6832,3.0,FL,US,Brevard,A,,2024-09-24,
+GA41,Georgia Station,33.1805,-84.4103,267.0,GA,US,Pike,A,R,2011-06-07,
+ID03,Craters of the Moon National Monument,43.4605,-113.5551,1807.0,ID,US,Butte,A,I,2010-06-07,
+ID07,Nez Perce,46.2745,-116.0216,903.0,ID,US,Idaho,A,I,2015-12-15,
+ID14,Kimberly,42.5533,-114.3547,1188.0,ID,US,Twin Falls,A,R,2017-06-13,
+IL11,Bondville,40.0528,-88.3719,212.0,IL,US,Champaign,A,S,2007-10-30,
+IL37,Stockton,42.2869,-89.9997,274.0,IL,US,Jo Daviess,A,I,2011-04-26,
+IN22,Southwest Purdue Agriculture Center,38.7408,-87.4855,134.0,IN,US,Knox,A,R,2015-01-13,
+KS08,Haskell Indian Nations University,38.9343,-95.2297,270.0,KS,US,Douglas,A,U,2024-11-12,
+KS31,Konza Prairie,39.1022,-96.6092,350.0,KS,US,Riley,A,R,2011-03-01,
+KY03,Mackville,37.7047,-85.0489,293.0,KY,US,Washington,A,R,2011-03-01,
+KY29,Crockett,37.9214,-83.0662,376.0,KY,US,Morgan,A,R,2015-01-13,
+MD01,Lake Montebello,39.3375,-76.5891,49.0,MD,US,Baltimore City,A,,2021-08-31,
+MD06,Blackwater NWR,38.4449,-76.1112,1.0,MD,US,Dorchester,A,R,2015-01-20,
+MD08,Piney Reservoir,39.7053,-79.0122,769.0,MD,US,Garrett,A,R,2010-08-03,
+MD92,Stewart Neck,38.1765,-75.7015,5.0,MD,US,Somerset,A,,2020-09-01,
+MD97,Pocomoke City,38.0139,-75.5456,2.0,MD,US,Worcester,A,,2020-03-31,
+MD99,Beltsville,39.028,-76.8171,46.0,MD,US,Prince Georges,A,U,2010-08-03,
+MI51,Unionville,43.6135,-83.3599,201.0,MI,US,Tuscola,A,R,2015-01-18,
+MI95,Hoxeyville,44.1808,-85.7389,293.0,MI,US,Wexford,A,I,2015-01-13,
+MN02,Red Lake,47.8638,-94.8352,372.0,MN,US,Beltrami,A,I,2015-01-13,
+MN18,Fernberg,47.9464,-91.4961,524.0,MN,US,Lake,A,I,2007-10-30,
+MS30,Coffeeville,34.0025,-89.7993,134.0,MS,US,Yalobusha,A,I,2015-01-06,
+NC06,Beaufort,34.8846,-76.6207,2.0,NC,US,Carteret,A,R,2010-04-27,
+NC25,Coweeta,35.0605,-83.4305,686.0,NC,US,Macon,A,R,2011-05-24,
+NC26,Candor,35.2632,-79.8365,198.0,NC,US,Montgomery,A,R,2011-04-26,
+NC30,Duke Forest,35.9709,-79.0933,174.0,NC,US,Orange,A,S,2008-06-24,
+NC35,Clinton Crops Research Station,35.0258,-78.2783,41.0,NC,US,Sampson,A,R,2008-08-05,
+NE09,Homestead,40.285,-96.8244,400.0,NE,US,Gage,A,R,2016-07-26,
+NE97,Santee Sioux - Environmental Office,42.7467,-97.9278,385.0,NE,US,Knox,A,,2024-06-11,
+NJ98,Washington Crossing CASTNET,40.3125,-74.8729,61.0,NJ,US,Mercer,A,U,2011-03-01,
+NS01,Kejimkujik National Park,44.4328,-65.2056,155.0,NS,CA,Queens,A,I,2013-10-08,
+NY16,Cary Institute,41.7858,-73.7414,128.0,NY,US,Dutchess,A,R,2009-10-13,
+NY67,Ithaca,42.4014,-76.6589,503.0,NY,US,Tompkins,A,R,2007-10-30,
+NY91,Claryville,41.9423,-74.5519,754.0,NY,US,Ulster,A,I,2015-01-13,
+NY94,Nick's Lake,43.6833,-74.9833,525.0,NY,US,Herkimer,A,I,2012-11-20,
+NY96,Cedar Beach-Southold,41.0347,-72.3891,1.0,NY,US,Suffolk,A,R,2014-08-05,
+NY98,Whiteface Mountain,44.3933,-73.8594,610.0,NY,US,Essex,A,I,2012-11-20,
+OH09,Oxford,39.5309,-84.7238,284.0,OH,US,Butler,A,R,2015-01-13,
+OH32,Kenyon College,40.37,-82.3955,312.0,OH,US,Knox,A,,2017-08-22,
+OH99,Quaker City,39.9427,-81.3379,371.0,OH,US,Noble,A,R,2015-01-13,
+OK98,Quapaw,36.9222,-94.8388,243.0,OK,US,,A,R,2015-10-06,
+OK99,Stilwell,35.7508,-94.67,299.0,OK,US,Adair,A,R,2007-10-30,
+ON26,Longwoods,42.8836,-81.4803,239.0,ON,CA,,A,R,2013-10-08,
+PA00,Arendtsville,39.9231,-77.3078,269.0,PA,US,Adams,A,R,2009-10-13,
+PA29,Kane Experimental Forest,41.5978,-78.7675,618.0,PA,US,Elk,A,R,2011-03-08,
+PA56,M. K. Goddard,41.4268,-80.1452,377.0,PA,US,Mercer,A,R,2014-12-30,
+PA97,Laurel Hill,39.9883,-79.2515,608.0,PA,US,Somerset,A,R,2015-07-17,
+PR20,El Verde,18.3206,-65.82,380.0,PR,US,Rio Grande,A,,2014-03-04,
+SK27,Pinehouse,55.5121,-106.7245,404.0,SK,CA,,A,I,2017-03-24,
+TN01,Great Smoky Mountains NP - Look Rock,35.6331,-83.9422,793.0,TN,US,Blount,A,R,2011-03-15,
+TN04,Speedwell,36.4698,-83.8272,384.0,TN,US,Claiborne,A,R,2015-01-13,
+TN07,Edgar Evins,36.0389,-85.733,302.0,TN,US,De Kalb,A,R,2015-01-13,
+TX41,Alabama-Coushatta,30.7015,-94.674,105.0,TX,US,Polk,A,I,2015-01-13,
+TX43,Ca??nceta,34.88,-101.665,1057.0,TX,US,Randall,A,I,2007-10-30,
+UT01,Logan,41.6661,-111.8914,1370.0,UT,US,Cache,A,S,2011-11-08,
+UT09,Canyonlands National Park-Island in the Sky,38.4584,-109.821,1797.0,UT,US,San Juan,A,I,2014-05-06,
+UT97,Salt Lake City,40.7118,-111.9609,1297.0,UT,US,Salt Lake,A,U,2011-11-08,
+VA13,Blue Grass Trail,37.3232,-80.4572,652.0,VA,US,Giles,A,R,2015-01-13,
+VA24,Prince Edward,37.1652,-78.3073,150.0,VA,US,Prince Edward,A,R,2011-03-01,
+WA04,Confederated Tribes of the Umatilla Indian Reservation,46.2026,-117.9539,681.0,WA,US,Columbia,A,,2020-11-10,
+WA99,Mount Rainier National Park-Tahoma Woods,46.7582,-122.1243,424.0,WA,US,Pierce,A,I,2011-03-16,
+WI01,Odanah,46.6022,-90.6561,188.0,WI,US,Ashland,A,,2018-10-02,
+WI06,UW Arboretum,43.041,-89.428,265.0,WI,US,Dane,A,U,2019-02-19,
+WI35,Perkinstown,45.2064,-90.5978,472.0,WI,US,Taylor,A,I,2011-03-29,
+WV18,Parsons,39.0897,-79.6622,505.0,WV,US,Tucker,A,I,2011-06-07,
+WY06,Pinedale,42.929,-109.7875,2388.0,WY,US,Sublette,A,I,2015-01-14,
+WY92,Grand Targhee,43.7927,-110.9593,2461.0,WY,US,Teton,A,,2019-10-01,
+WY94,Grand Tetons National Park,43.6709,-110.5995,2105.0,WY,US,Teton,A,I,2011-09-22,
+WY95,Brooklyn Lake,41.3647,-106.2408,3181.0,WY,US,Albany,A,I,2012-06-19,
+NC98,Duke Forest Flux Tower,35.9745,-79.099,206.0,NC,US,Orange,C,,2018-08-22,2025-02-11
+SK28,Flat Valley,54.2953,-109.2119,500.0,SK,CA,,C,I,2017-03-22,2024-12-31
+WY93,Basin - Big Horn,44.28,-108.0411,1241.0,WY,US,Big Horn,C,I,2015-06-02,2025-05-01
+AK06,Gates of the Arctic National Park - Bettles,66.906,-151.683,630.0,AK,US,Yukon-Koyukuk,I,I,2015-04-21,2015-10-21
+AK96,Toolik Field Station,68.6257,-149.6069,730.0,AK,US,North Slope Borough,I,I,2018-09-04,2023-08-01
+CO13,Fort Collins,40.5923,-105.1414,1570.0,CO,US,Larimer,I,S,2007-11-27,2022-05-10
+FL94,Gainesville,29.6489,-82.4913,,FL,US,Alachua,I,S,2017-05-23,2017-11-29
+GA40,Yorkville,33.9282,-85.0451,395.0,GA,US,Paulding,I,R,2011-12-23,2017-01-03
+IL46,Alhambra,38.8689,-89.6219,164.0,IL,US,Madison,I,R,2011-03-03,2022-11-29
+IN20,Roush Lake,40.8401,-85.4639,244.0,IN,US,Huntington,I,R,2015-01-13,2022-05-10
+IN99,Indianapolis,39.8108,-86.1144,230.0,IN,US,Marion,I,U,2007-10-30,2022-05-10
+KS03,Reserve,39.9792,-95.5681,265.0,KS,US,Brown,I,R,2011-10-11,2023-01-03
+KS97,Kickapoo Tribe - Powhattan,39.7603,-95.6358,367.0,KS,US,Brown,I,R,2015-01-13,2023-08-21
+KS98,Coffeyville,37.0469,-95.6133,230.0,KS,US,Montgomery,I,R,2007-10-30,2011-04-26
+KY98,Cadiz,36.7841,-87.8499,189.0,KY,US,Trigg,I,R,2011-03-15,2022-05-10
+ME93,Ashland,46.6038,-68.4132,231.0,ME,US,Aroostook,I,I,2015-01-13,2022-05-10
+MI52,Ann Arbor,42.4164,-83.9019,267.0,MI,US,Washtenaw,I,S,2015-02-03,2022-05-10
+MI96,Detroit,42.25,-83.2,180.0,MI,US,Wayne,I,U,2007-10-29,2022-05-10
+MN29,Blue Mounds,43.6666,-96.2333,478.0,MN,US,Rock,I,R,2007-10-30,2009-03-03
+MN42,Great River Bluffs,44.05,-91.6333,202.0,MN,US,Winona,I,R,2007-10-30,2009-03-10
+NC02,Cranberry,36.1054,-82.045,1216.0,NC,US,Avery,I,R,2015-01-13,2022-05-10
+NC99,Durham,35.8924,-78.8773,85.0,NC,US,Durham,I,U,2008-06-24,2009-02-11
+NE98,Santee,42.8292,-97.8541,443.0,NE,US,Knox,I,I,2011-04-26,2024-05-01
+NH02,Hubbard Brook,43.9433,-71.7029,250.0,NH,US,Grafton,I,R,2012-06-05,2022-05-10
+NM98,Navajo Lake,36.8097,-107.6515,1972.0,NM,US,Rio Arriba,I,I,2008-01-11,2022-05-10
+NM99,Farmington,36.7358,-108.2383,1634.0,NM,US,San Juan,I,R,2008-01-09,2022-05-10
+NY20,Huntington Wildlife,43.9731,-74.2231,500.0,NY,US,Essex,I,I,2012-06-05,2022-05-10
+NY43,Rochester,43.1463,-77.5482,136.0,NY,US,Monroe,I,U,2016-06-14,2017-10-03
+NY56,Queens College,40.7361,-73.8215,28.0,NY,US,Queens,I,U,2016-06-13,2017-10-03
+NY89,Pinnacle State Park,42.0914,-77.2097,507.0,NY,US,Steuben,I,R,2016-06-14,2017-10-03
+NY90,Potsdam - Clarkson University,44.6621,-75.002,147.0,NY,US,St. Lawrence,I,R,2016-06-14,2017-09-21
+OH02,Athens Super Site,39.3078,-82.1182,275.0,OH,US,Athens,I,R,2007-10-30,2022-05-10
+OH27,Cincinnati,39.15,-84.5166,194.0,OH,US,Hamilton,I,U,2007-10-30,2022-05-10
+OH54,Deer Creek State Park,39.6359,-83.2606,267.0,OH,US,Pickaway,I,R,2011-03-01,2022-05-10
+ON07,Egbert,44.2339,-79.7917,196.0,ON,CA,Simcoe,I,S,2007-10-30,2010-12-21
+ON25,Bonner Lake,49.3856,-82.1214,242.0,ON,CA,,I,I,2013-10-08,2017-03-21
+PA96,Penn State - Fairbrook Park,40.7209,-77.9317,374.0,PA,US,Centre,I,S,2015-01-13,2022-05-10
+SC05,Cape Romain National Wildlife Refuge,32.943,-79.6592,1.0,SC,US,Charleston,I,R,2007-10-30,2022-05-10
+VT99,Underhill,44.5283,-72.8684,399.0,VT,US,Chittenden,I,R,2012-11-20,2022-05-10
+WI07,Horicon Marsh,43.466,-88.621,287.0,WI,US,Dodge,I,R,2007-10-30,2022-05-10
+WI94,Bakken's Pond,43.1796,-90.1339,,WI,US,Suak,I,,2019-08-06,2021-12-31
+WV05,Cedar Creek State Park,38.8794,-80.8476,210.0,WV,US,Gilmer,I,R,2015-01-13,2022-05-10

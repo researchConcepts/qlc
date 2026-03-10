@@ -3,7 +3,7 @@
 # ============================================================================
 # QLC D1-ANAL: Multi-Region Station Analysis with qlc-py
 # ============================================================================
-# Part of QLC (Quick Look Content) v1.0.1-beta
+# Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
 # Documentation:
@@ -24,7 +24,7 @@
 #   Called automatically by qlc_main.sh - Do not call directly
 #   For help: qlc -h
 #
-# Copyright (c) 2018-2025 ResearchConcepts io GmbH. All Rights Reserved.
+# Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
 # ============================================================================
 
@@ -236,8 +236,17 @@ else
 fi
 log "Plot formats configured: ${PLOT_FORMATS[*]}"
 
+# Append mode suffix so obs-only / mod-only runs get their own output directory
+# and are not confused with a full collocation run using the same experiment IDs.
+mode_suffix=""
+if [ -n "${QLC_MODE_OBS_ONLY:-}" ]; then
+    mode_suffix="_obs-only"
+elif [ -n "${QLC_MODE_MOD_ONLY:-}" ]; then
+    mode_suffix="_mod-only"
+fi
+
 # Base path for outputs
-base_hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}"
+base_hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}${mode_suffix}"
 
 # ============================================================================
 # MULTI-REGION SUPPORT FUNCTIONS
@@ -352,7 +361,28 @@ load_region_config() {
         CURRENT_REGION_STATION_FILE="${QLC_CLI_STATION_SELECTION/#\~/$HOME}"
         log "CLI override: station_file = ${CURRENT_REGION_STATION_FILE}"
     fi
-    
+
+    # --region= plot region override: always set by the outer loop in process_multi_region.
+    # QLC_PLOT_REGION_CURRENT carries exactly ONE region code per iteration so that qlc-py
+    # receives a single string in the "plot_region" JSON field and cannot iterate internally.
+    # Never set CURRENT_REGION_PLOT_REGION to a comma-joined list here.
+    if [ -n "${QLC_PLOT_REGION_CURRENT:-}" ]; then
+        CURRENT_REGION_PLOT_REGION="${QLC_PLOT_REGION_CURRENT}"
+        log "CLI override: plot_region = ${CURRENT_REGION_PLOT_REGION}"
+    fi
+    # Defensive check: if QLC_CLI_PLOT_REGIONS is set but the outer loop did not isolate a
+    # single region, fail loudly rather than silently passing a comma-joined string to qlc-py.
+    if [ -z "${QLC_PLOT_REGION_CURRENT:-}" ] && [ -n "${QLC_CLI_PLOT_REGIONS:-}" ]; then
+        if [[ "${QLC_CLI_PLOT_REGIONS}" == *","* ]]; then
+            log "ERROR: --region= specifies multiple plot regions but QLC_PLOT_REGION_CURRENT is not set."
+            log "       This means load_region_config was called outside of the process_multi_region loop."
+            return 1
+        fi
+        # Single value: safe to apply directly
+        CURRENT_REGION_PLOT_REGION="${QLC_CLI_PLOT_REGIONS}"
+        log "CLI override: plot_region = ${CURRENT_REGION_PLOT_REGION}"
+    fi
+
     # Set default obs_dataset_version to 'latest' if not specified
     if [ -z "${CURRENT_REGION_OBS_DATASET_VERSION}" ]; then
         CURRENT_REGION_OBS_DATASET_VERSION="latest"
@@ -456,26 +486,62 @@ load_region_config() {
 # Function to filter region variables based on available MARS variables
 # Also extracts just the variable names (without levtype prefix) for qlc-py
 filter_region_variables() {
-    # Split requested variables by comma
-    IFS=',' read -ra region_vars <<< "$CURRENT_REGION_VARIABLES"
+    # ';' is the inter-variable separator. Each individual spec may be:
+    #   - Simple name:    "SO2"
+    #   - Full spec:      "T2m|2t|temp|degC"       (fields separated by '|')
+    #   - Preferred form: "PM2.5|pm2p5|PM2.5|ug/m3" (automatic unit conversion)
+    #   - Manual factor:  "PM2.5|pm2p5,*,1e9|PM2.5|N/A" (only if auto conversion unavailable)
+    # qlc-py receives the full specification per variable and handles '|' field parsing.
+    
+    local region_vars=()
+    if [[ "$CURRENT_REGION_VARIABLES" == *";"* ]]; then
+        # Multiple variable specs separated by ';'
+        IFS=';' read -ra region_vars <<< "$CURRENT_REGION_VARIABLES"
+    else
+        # Single variable spec (may be a simple name or a full '|'-separated spec)
+        region_vars=("$CURRENT_REGION_VARIABLES")
+    fi
     
     # Filter to only include available variables
     local filtered_vars=()
-    local filtered_vars_only=()  # Just variable names without levtype
+    local filtered_vars_only=()  # For qlc-py JSON (full spec preserved)
     local missing_vars=()
     
     for rv in "${region_vars[@]}"; do
         # Trim whitespace
         rv=$(echo "$rv" | xargs)
         
-        if [[ " ${available_vars[*]} " =~ " ${rv} " ]]; then
-            filtered_vars+=("$rv")
-            # Extract just the variable name (everything after first underscore)
-            # e.g., "sfc_NH4_as" -> "NH4_as", "pl_NH3" -> "NH3"
-            local levtype="${rv%%_*}"
-            local varname="${rv#${levtype}_}"
-            filtered_vars_only+=("$varname")
-        else
+        # Extract the user/display variable name (first field) for matching against available_vars.
+        # Extended format: "T2m|2t|temp|degC"        -> "T2m"  (split by '|')
+        # Legacy format:   "T2m:2t:temp:degC"        -> "T2m"  (split by ':')
+        # Simple name:     "NH3"                     -> "NH3"
+        local model_var="$rv"
+        if [[ "$rv" == *"|"* ]]; then
+            model_var="${rv%%|*}"
+        elif [[ "$rv" == *":"* ]]; then
+            model_var="${rv%%:*}"
+        elif [[ "$rv" == *","* ]]; then
+            model_var="${rv%%,*}"
+        fi
+        
+        # Build full variable name with levtype prefix for matching
+        # e.g., "NH3" with available "sfc_NH3" or "pl_NH3"
+        local matched=false
+        for av in "${available_vars[@]}"; do
+            # Extract variable part after levtype (sfc_NH3 -> NH3)
+            local levtype="${av%%_*}"
+            local varname="${av#${levtype}_}"
+            
+            if [ "$varname" == "$model_var" ]; then
+                filtered_vars+=("$av")
+                # For JSON: ALWAYS pass full specification (qlc-py parses it)
+                filtered_vars_only+=("$rv")
+                matched=true
+                break
+            fi
+        done
+        
+        if [ "$matched" = false ]; then
             missing_vars+=("$rv")
         fi
     done
@@ -500,11 +566,13 @@ filter_region_variables() {
     CURRENT_REGION_VARIABLES_FILTERED=$(IFS=,; echo "${filtered_vars[*]}")
     CURRENT_REGION_VARIABLES_ARRAY=("${filtered_vars[@]}")
     
-    # Store variable names only (for qlc-py JSON, without levtype prefix)
-    CURRENT_REGION_VARIABLES_FOR_JSON=$(IFS=,; echo "${filtered_vars_only[*]}")
+    # Store variable specifications for qlc-py JSON
+    # ALWAYS use semicolon separator for qlc-py (new standard)
+    # Full specifications are preserved and passed to qlc-py for parsing
+    CURRENT_REGION_VARIABLES_FOR_JSON=$(IFS=';'; echo "${filtered_vars_only[*]}")
     
     log "Variables to process for ${CURRENT_REGION_NAME}: ${CURRENT_REGION_VARIABLES_FILTERED}"
-    log "Variable names for qlc-py: ${CURRENT_REGION_VARIABLES_FOR_JSON}"
+    log "Variable specifications for qlc-py: ${CURRENT_REGION_VARIABLES_FOR_JSON}"
     return 0
 }
 
@@ -520,7 +588,16 @@ generate_region_json() {
     rm -f "$temp_config_file"
     
     log "Generating JSON configuration for ${CURRENT_REGION_NAME}: ${temp_config_file}"
-    
+
+    # Guard: plot_region must be a single token — qlc-py has its own internal region loop
+    # and would re-iterate if given a comma-separated list, producing unexpected cross-region runs.
+    if [[ "${CURRENT_REGION_PLOT_REGION:-}" == *","* ]]; then
+        log "ERROR: CURRENT_REGION_PLOT_REGION='${CURRENT_REGION_PLOT_REGION}' contains multiple values."
+        log "       Use --region=X to pass a single plot region per qlc-py invocation."
+        log "       The process_multi_region outer loop must iterate and call this function once per region."
+        return 1
+    fi
+
     # Determine what configurations to generate based on availability
     local has_obs=false
     local has_experiments=false
@@ -610,6 +687,14 @@ generate_region_json() {
     # Generate JSON configuration with explicit use_* flags
     # use_obs, use_mod, use_com: Control data loading/processing (independent of visualization)
     # show_station_timeseries_*: Control visualization only
+    #
+    # Observation path logic (v1.0.2b0):
+    #   obs_path: Base path WITHOUT subdirectory (e.g., ~/qlc/obs/data)
+    #   obs_dataset_type: Network identifier WITH subdirectory prefix (e.g., ver0d_china_aq)
+    #   qlc-py automatically extracts subdirectory from obs_dataset_type prefix:
+    #     - ver0d_china_aq -> obs_path/ver0d/china_aq/latest
+    #     - ghost_aeronet_lev20 -> obs_path/ghost/aeronet_lev20/latest
+    #     - nc_brazil_inmet -> obs_path/nc/Brazil_INMET
     cat > "$temp_config_file" << EOM
 [
   {
@@ -831,13 +916,27 @@ generate_region_tex() {
 #               title_final="${title_prefix} of ${exp_labels_array} (${tREGION})"
                 
                 # Determine image width based on plot type
-                # Scatter and taylor plots need smaller width to fit in TeX window
                 local image_width="0.95"
                 if [[ "$plot_filename" =~ (taylor) ]]; then
                     image_width="${D1_TEX_SCATTER_TAYLOR_WIDTH:-0.7}"
                 fi
                 if [[ "$plot_filename" =~ (scatter) ]]; then
                     image_width="${D1_TEX_SCATTER_TAYLOR_WIDTH:-0.6}"
+                fi
+                # Collocated map (_collocated_*_map.pdf) and base collocation
+                # output ending with _${exp}.pdf: scale to 0.65.
+                # Obs/mod-only maps (_map.pdf without collocation label): scale to 0.8.
+                if [[ "$plot_filename" == *_collocated_*_map.* ]]; then
+                    image_width="${D1_TEX_MAP_COLLOC_WIDTH:-0.65}"
+                elif [[ "$plot_filename" == *_map.* ]]; then
+                    image_width="${D1_TEX_MAP_WIDTH:-0.8}"
+                else
+                    for exp in "${experiments[@]}"; do
+                        if [[ "$plot_filename" == *_collocated_obs_mod_${exp}.* ]]; then
+                            image_width="${D1_TEX_MAP_COLLOC_WIDTH:-0.65}"
+                            break
+                        fi
+                    done
                 fi
                 
                 # Append frame to TeX file
@@ -1021,7 +1120,26 @@ EOF
         elif [ ${#station_names[@]} -gt 0 ]; then
             log "Added station plots for ${#station_names[@]} stations (${added_station_plots} plots)"
         fi
-        
+
+        # obs-only / mod-only: the collocation-specific patterns above produce nothing,
+        # so fall back to collecting ALL variable plots in the region output directory.
+        # This is the primary collection path for these modes (covers all experiments).
+        if [ -n "${QLC_MODE_OBS_ONLY:-}" ] || [ -n "${QLC_MODE_MOD_ONLY:-}" ]; then
+            local before_count
+            before_count=$(wc -l < "${var_plotlist}" 2>/dev/null || echo 0)
+            while IFS= read -r plot_file; do
+                if ! grep -qF "$plot_file" "${var_plotlist}"; then
+                    echo "$plot_file" >> "${var_plotlist}"
+                    log "Added plot (${mode_suffix:1} mode): $(basename "$plot_file")"
+                fi
+            done < <(find "${CURRENT_REGION_HPATH}" -maxdepth 1 -type f \
+                          -name "*${varname}*.${tex_plot_format}" 2>/dev/null | sort)
+            local after_count
+            after_count=$(wc -l < "${var_plotlist}" 2>/dev/null || echo 0)
+            log "Plot list for ${varname}: ${after_count} total entries (${before_count} before fallback, $((after_count - before_count)) added by fallback)"
+        fi
+        log "Final plot list for ${varname}: $(wc -l < "${var_plotlist}" 2>/dev/null || echo 0) entries"
+
         # Generate per-variable TeX file header
         if [ -s "${var_plotlist}" ]; then
             # Format variable name with LaTeX math subscripts
@@ -1048,25 +1166,31 @@ EOF
 # Function to process a single region
 process_single_region() {
     local region_code=$1
-    
-    log "========================================" 
-    log "Processing region: ${region_code}"
+    # effective_code: output path name; equals region_code unless a plot region suffix is appended
+    local effective_code="${2:-${region_code}}"
+
     log "========================================"
-    
+    log "Processing region: ${region_code}  (output: ${effective_code})"
+    log "========================================"
+
     # Clean up region directory to start from scratch
-    local region_hpath="${base_hpath}/${region_code}"
+    local region_hpath="${base_hpath}/${effective_code}"
     if [ -d "$region_hpath" ]; then
         log "Caution: Previous region directory exits: ${region_hpath}"
         log "Clean up manually if need: rm -rf $region_hpath"
 #       log "Cleaning up previous region directory: ${region_hpath}"
 #       rm -rf "$region_hpath"
     fi
-    
-    # Load region configuration
+
+    # Load region configuration using the config key (region_code), not the output name.
+    # load_region_config sets CURRENT_REGION_NAME = region_code; override it with effective_code
+    # afterwards so that generate_region_json/tex use the correct output paths.
     if ! load_region_config "${region_code}"; then
         log "Skipping region ${region_code} due to configuration error"
         return 1
     fi
+    # Apply effective output name (may differ from region_code when plot region suffix is active)
+    CURRENT_REGION_NAME="${effective_code}"
     
     # Filter variables
     if ! filter_region_variables; then
@@ -1089,26 +1213,26 @@ process_single_region() {
     # Validate that actual data output files were created (not just station location files)
     # For variables to be successfully processed, we expect variable-specific files
     # Pattern: *_{VARIABLE}_{DATES}_*.nc (e.g., qlc_D1-ANAL_US_..._O3_20251101-20251103_3hourly.nc)
-    local region_output_dir="${base_hpath}/${region_code}"
+    # Use effective_code (may carry plot-region suffix) for output validation path.
+    # Use SAVE_DATA_FORMAT (from workflow config) so csv output is also recognised.
+    local region_output_dir="${base_hpath}/${effective_code}"
+    local data_ext="${SAVE_DATA_FORMAT:-nc}"
     local data_file_count=0
-    
+
     if [ -d "${region_output_dir}" ]; then
-        # Count variable-specific data files (files with variable names and dates in the filename)
-        # These contain actual time series data, not just station coordinates
-        data_file_count=$(find "${region_output_dir}" -type f -name "*_[A-Z0-9]*_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_*.nc" | wc -l | tr -d ' ')
-        
+        data_file_count=$(find "${region_output_dir}" -type f \
+            -name "*_[A-Z0-9]*_[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]_*.${data_ext}" \
+            | wc -l | tr -d ' ')
+
         if [ "${data_file_count}" -eq 0 ]; then
-            log "Warning: No variable data files were generated for region ${region_code}"
-            log "  Station location files may exist, but no time series data was extracted"
+            log "Warning: No variable data files were generated for ${effective_code}"
             log "  This usually means no observation data was available for the selected variables and date range"
-            # Don't treat as failure if obs-only mode with no data - this is expected behavior
-            # But log it clearly so user knows what happened
             return 1
         else
-            log "Generated ${data_file_count} variable data files for region ${region_code}"
+            log "Generated ${data_file_count} variable data files for ${effective_code}"
         fi
     else
-        log "Warning: Output directory not created for region ${region_code}"
+        log "Warning: Output directory not created for ${effective_code}"
         return 1
     fi
     
@@ -1142,20 +1266,56 @@ process_multi_region() {
     fi
     
     log "Total regions to process: ${#regions_to_process[@]}"
-    
-    # Process each region
+
+    # Determine plot region list from CLI override (--region=EU,SA,GLOBE) or default (empty = use config).
+    local cli_plot_regions=()
+    if [ -n "${QLC_CLI_PLOT_REGIONS:-}" ]; then
+        IFS=',' read -ra cli_plot_regions <<< "${QLC_CLI_PLOT_REGIONS}"
+        log "CLI plot region override active: ${cli_plot_regions[*]}"
+    fi
+
+    # Process each network, optionally iterating over multiple plot regions.
+    # When multiple plot regions are given, output dirs get a _REGION suffix to avoid collision.
     local success_count=0
     local fail_count=0
     processed_regions=()
-    
+
     for region_code in "${regions_to_process[@]}"; do
-        # Process region (discovery happens in load_region_config if needed)
-        if process_single_region "${region_code}"; then
-            success_count=$((success_count + 1))
-            processed_regions+=("${region_code}")
+
+        if [ ${#cli_plot_regions[@]} -gt 0 ]; then
+            # Nested loop: run this network once per specified plot region
+            for plot_region in "${cli_plot_regions[@]}"; do
+                # Set single-value override picked up by load_region_config
+                export QLC_PLOT_REGION_CURRENT="${plot_region}"
+
+                # Use network_PLOTREGION as unique output name when multiple plot regions are active.
+                # For a single plot region keep the plain network name to preserve existing path conventions.
+                if [ ${#cli_plot_regions[@]} -gt 1 ]; then
+                    local effective_code="${region_code}_${plot_region}"
+                else
+                    local effective_code="${region_code}"
+                fi
+
+                log "  Network: ${region_code}  |  Plot region: ${plot_region}  |  Output: ${effective_code}"
+
+                if process_single_region "${region_code}" "${effective_code}"; then
+                    success_count=$((success_count + 1))
+                    processed_regions+=("${effective_code}")
+                else
+                    fail_count=$((fail_count + 1))
+                fi
+            done
+            unset QLC_PLOT_REGION_CURRENT
         else
-            fail_count=$((fail_count + 1))
+            # Default: use REGION_*_PLOT_REGION from config
+            if process_single_region "${region_code}" "${region_code}"; then
+                success_count=$((success_count + 1))
+                processed_regions+=("${region_code}")
+            else
+                fail_count=$((fail_count + 1))
+            fi
         fi
+
     done
     
     log "========================================" 
@@ -1182,139 +1342,6 @@ process_multi_region() {
 
 # ============================================================================
 # CLI-BASED SYNTHETIC REGION CREATION
-# ============================================================================
-# Create synthetic regions from command-line overrides when specified
-# This allows flexible region creation without modifying workflow configs
-# Precedence: CLI parameters > Workflow config > qlc.conf defaults
-# ============================================================================
-
-if [ -n "${QLC_CLI_REGION:-}" ]; then
-    log "CLI region override detected: ${QLC_CLI_REGION}"
-    
-    # Strategy 1: Match existing workflow region by PLOT_REGION
-    # Find all regions with matching PLOT_REGION (e.g., PLOT_REGION="US")
-    # Also check if --observation matches (if specified) to ensure consistency
-    matching_regions=()
-    for region_var in $(compgen -A variable | grep '^REGION_.*_PLOT_REGION$'); do
-        region_code=$(echo "$region_var" | sed 's/REGION_\(.*\)_PLOT_REGION/\1/')
-        plot_region_value=$(eval echo \${${region_var}})
-        
-        if [ "$plot_region_value" = "${QLC_CLI_REGION}" ]; then
-            # Check if --observation was specified and matches this region's obs_dataset_type
-            if [ -n "${QLC_CLI_OBSERVATION:-}" ]; then
-                obs_dataset_var="REGION_${region_code}_OBS_DATASET_TYPE"
-                obs_dataset_value=$(eval echo \${${obs_dataset_var}:-})
-                
-                # Only add to matching regions if observation types match
-                if [ "$obs_dataset_value" = "${QLC_CLI_OBSERVATION}" ]; then
-                    matching_regions+=("$region_code")
-                    log "Region ${region_code} matches both PLOT_REGION='${QLC_CLI_REGION}' and OBS_DATASET_TYPE='${QLC_CLI_OBSERVATION}'"
-                else
-                    log "Region ${region_code} has PLOT_REGION='${QLC_CLI_REGION}' but OBS_DATASET_TYPE='${obs_dataset_value}' (skipped, CLI wants '${QLC_CLI_OBSERVATION}')"
-                fi
-            else
-                # No --observation specified, accept any matching PLOT_REGION
-                matching_regions+=("$region_code")
-            fi
-        fi
-    done
-    
-    # If matching workflow regions found, use the first one from ACTIVE_REGIONS or first match
-    if [ ${#matching_regions[@]} -gt 0 ]; then
-        log "Found ${#matching_regions[@]} workflow region(s) matching CLI criteria: ${matching_regions[*]}"
-        
-        # Check if any matching region is in ACTIVE_REGIONS
-        selected_region=""
-        if [ ${#ACTIVE_REGIONS[@]} -gt 0 ]; then
-            for active_region in "${ACTIVE_REGIONS[@]}"; do
-                if [[ " ${matching_regions[*]} " =~ " ${active_region} " ]]; then
-                    selected_region="$active_region"
-                    break
-                fi
-            done
-        fi
-        
-        # If no active match, use first matching region
-        if [ -z "$selected_region" ]; then
-            selected_region="${matching_regions[0]}"
-            log "No matching region in ACTIVE_REGIONS, using first match: ${selected_region}"
-        else
-            log "Using active workflow region: ${selected_region}"
-        fi
-        
-        # Override ACTIVE_REGIONS to process only this region
-        ACTIVE_REGIONS=("$selected_region")
-        
-    else
-        # Strategy 2: No matching workflow region - create synthetic region
-        log "No workflow regions match PLOT_REGION='${QLC_CLI_REGION}'"
-        
-        # Determine observation dataset type
-        if [ -n "${QLC_CLI_OBSERVATION:-}" ]; then
-            obs_type_original="${QLC_CLI_OBSERVATION}"
-            # Normalize to lowercase for obs_dataset_type (directory structure convention)
-            obs_type_lower=$(echo "${obs_type_original}" | tr '[:upper:]' '[:lower:]')
-        else
-            log "ERROR: --region specified without matching workflow region and no --observation provided"
-            log "Please specify --observation to create a synthetic region, or use a workflow-defined region"
-            log "Available workflow regions (by PLOT_REGION):"
-            for region_var in $(compgen -A variable | grep '^REGION_.*_PLOT_REGION$'); do
-                region_code=$(echo "$region_var" | sed 's/REGION_\(.*\)_PLOT_REGION/\1/')
-                plot_region_value=$(eval echo \${${region_var}})
-                log "  ${region_code}: PLOT_REGION=${plot_region_value}"
-            done
-            exit 1
-        fi
-        
-        # Create synthetic region name: REGION_OBSERVATION (e.g., EU_EBAS_DAILY)
-        # Use tr for bash 3.2 compatibility (${VAR^^} requires bash 4.0+)
-        region_upper=$(echo "${QLC_CLI_REGION}" | tr '[:lower:]' '[:upper:]')
-        obs_upper=$(echo "${obs_type_original}" | tr '[:lower:]' '[:upper:]')
-        synthetic_region="${region_upper}_${obs_upper}"
-        log "Creating synthetic region from CLI: ${synthetic_region}"
-        
-        # Define synthetic region with CLI parameters + defaults
-        # Note: obs_dataset_type uses lowercase for directory structure compatibility
-        eval "REGION_${synthetic_region}_NAME='${synthetic_region}'"
-        eval "REGION_${synthetic_region}_OBS_DATASET_TYPE='${obs_type_lower}'"
-        log "  OBS_DATASET_TYPE: ${obs_type_lower} (normalized to lowercase)"
-        eval "REGION_${synthetic_region}_PLOT_REGION='${QLC_CLI_REGION}'"
-        
-        # Set obs_path (CLI > workflow default > qlc.conf default)
-        obs_path_value="${QLC_CLI_OBS_PATH:-${DEFAULT_OBS_PATH:-${QLC_HOME}/obs/data/ver0d}}"
-        eval "REGION_${synthetic_region}_OBS_PATH='${obs_path_value}'"
-        log "  OBS_PATH: ${obs_path_value}"
-        
-        # Set obs_dataset_version (CLI > workflow default > qlc.conf default)
-        obs_version_value="${QLC_CLI_OBS_DATASET_VERSION:-${DEFAULT_OBS_DATASET_VERSION:-latest}}"
-        eval "REGION_${synthetic_region}_OBS_DATASET_VERSION='${obs_version_value}'"
-        log "  OBS_DATASET_VERSION: ${obs_version_value}"
-        
-        # Set station file (CLI > none, will use discovery if not set)
-        if [ -n "${QLC_CLI_STATION_SELECTION:-}" ]; then
-            station_file_value="${QLC_CLI_STATION_SELECTION/#\~/$HOME}"
-            eval "REGION_${synthetic_region}_STATION_FILE='${station_file_value}'"
-            log "  STATION_FILE: ${station_file_value}"
-        else
-            eval "REGION_${synthetic_region}_STATION_FILE=''"
-            log "  STATION_FILE: (not set, will use region discovery)"
-        fi
-        
-        # Set station radius (CLI > workflow default > qlc.conf default)
-        radius_value="${DEFAULT_STATION_RADIUS_DEG:-${STATION_RADIUS_DEG:-0.5}}"
-        eval "REGION_${synthetic_region}_STATION_RADIUS_DEG='${radius_value}'"
-        log "  STATION_RADIUS_DEG: ${radius_value}"
-        
-        # Set ACTIVE_REGIONS to process only this synthetic region
-        ACTIVE_REGIONS=("$synthetic_region")
-        log "Synthetic region created and activated: ${synthetic_region}"
-    fi
-    
-    log "Final ACTIVE_REGIONS for CLI override: ${ACTIVE_REGIONS[*]}"
-    log "Note: Multi-region support via command line is limited to single region"
-    log "      For multi-region processing, define ACTIVE_REGIONS in workflow config"
-fi
-
 # Process all configured regions
 log "Starting multi-region processing..."
 process_multi_region

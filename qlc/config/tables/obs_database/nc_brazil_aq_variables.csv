@@ -1,0 +1,6 @@
+variable,native_name,unit,coordinate_time,coordinate_lat,coordinate_lon,coordinate_lev,description
+CO,CO,ppm,time,latitude,longitude,unknown,Carbon Monoxide
+NO,NO,ppm,time,latitude,longitude,unknown,Nitrogen Monoxide
+NO2,NO2,ppm,time,latitude,longitude,unknown,Nitrogen Dioxide
+O3,O3,ppm,time,latitude,longitude,unknown,Ozone
+SO2,SO2,ppm,time,latitude,longitude,unknown,Sulfur Dioxide

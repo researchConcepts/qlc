@@ -106,7 +106,7 @@ qlc -h
 - **HPC:** ATOS/ECMWF systems, SLURM-based clusters
 
 ### Python Version
-- **Required:** Python 3.10 or later
+- **Required:** Python 3.10 or 3.11 (Python 3.12+ is not yet supported)
 - **Recommended:** Python 3.10
 
 ### Disk Space
@@ -139,9 +139,9 @@ qlc-install --mode dev --tools essential   # With essential tools (recommended)
 ```
 
 **Mode Details:**
-- **test:** Creates `~/qlc/ -> $PERM/qlc_pypi/v1.0.1b0/test` (or `$HOME/qlc_pypi/...` if `$PERM` not set) with example data - best for learning and testing
-- **cams:** Creates `~/qlc/ -> $PERM/qlc_pypi/v1.0.1b0/cams` (or `$HOME/qlc_pypi/...` if `$PERM` not set) for operational CAMS analysis - requires MARS access
-- **dev:**  Creates `~/qlc-dev-run/ -> $PERM/qlc_pypi/v1.0.1b0/dev` (or `$HOME/qlc_pypi/...` if `$PERM` not set) for development - allows parallel testing
+- **test:** Creates `~/qlc/ -> $PERM/qlc_pypi/v1.0.2/test` (or `$HOME/qlc_pypi/...` if `$PERM` not set) with example data - best for learning and testing
+- **cams:** Creates `~/qlc/ -> $PERM/qlc_pypi/v1.0.2/cams` (or `$HOME/qlc_pypi/...` if `$PERM` not set) for operational CAMS analysis - requires MARS access
+- **dev:**  Creates `~/qlc-dev-run/ -> $PERM/qlc_pypi/v1.0.2/dev` (or `$HOME/qlc_pypi/...` if `$PERM` not set) for development - allows parallel testing
 
 **Note:** 
 - Both `--mode <mode>` and legacy flags (`--test`, `--cams`, `--dev`) are supported for backward compatibility
@@ -332,7 +332,7 @@ export SCRATCH="/ec/res4/scratch/$USER"    # Results data storage
   
 - **Test/Dev modes (isolated per version):**
   - Data directories created within version directory
-  - Example: `$PERM/qlc_pypi/v1.0.1b0/test/data/Results`
+  - Example: `$PERM/qlc_pypi/v1.0.2/test/data/Results`
 
 A stable symlink will always be created at `~/qlc` pointing to the installation base.
 
@@ -488,4 +488,4 @@ qlc-fix-evaltools -h       # Evaltools patcher help
 
 For developers who want to build from source or contribute to QLC:
 
-See: [docs.researchconcepts.io/qlc/latest/developer/building/](https://docs.researchconcepts.io/qlc/latest/developer/building/)
+See: [docs.researchconcepts.io/qlc/latest/developer/building/](https://docs.researchconcepts.io/qlc/latest/developer/building/) *(upcoming)*
