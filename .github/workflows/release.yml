@@ -36,6 +36,25 @@ jobs:
         run: |
           brew install geos proj
 
+      - name: Pre-cache virtualenv.pyz for cibuildwheel
+        # cibuildwheel downloads virtualenv.pyz via unauthenticated urllib (60 req/hr limit).
+        # Pre-download using GITHUB_TOKEN (5000 req/hr) to avoid HTTP 429 rate limit errors.
+        if: runner.os != 'Linux'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VENV_VER="20.27.1"
+          SRC="https://raw.githubusercontent.com/pypa/get-virtualenv/${VENV_VER}/public/virtualenv.pyz"
+          if [[ "$RUNNER_OS" == "macOS" ]]; then
+            DEST="$HOME/Library/Caches/cibuildwheel/virtualenv-${VENV_VER}.pyz"
+          else
+            DEST="$LOCALAPPDATA/pypa/cibuildwheel/Cache/virtualenv-${VENV_VER}.pyz"
+          fi
+          mkdir -p "$(dirname "$DEST")"
+          curl -fsSL -H "Authorization: token $GH_TOKEN" "$SRC" -o "$DEST"
+          echo "Pre-cached virtualenv to: $DEST"
+
       - name: Build wheels via cibuildwheel
         uses: pypa/cibuildwheel@v2.22.0
         env:
@@ -44,8 +63,6 @@ jobs:
           CIBW_ARCHS_LINUX: "x86_64"
           CIBW_BEFORE_ALL_LINUX: "yum install -y epel-release && yum install -y geos-devel proj-devel"
           CIBW_MANYLINUX_X86_64_IMAGE: "manylinux_2_28"
-          # Avoid downloading pinned virtualenv.pyz via GitHub blob URL (causes HTTP 429)
-          CIBW_DEPENDENCY_VERSIONS: "latest"
         with:
           output-dir: dist
 
