@@ -52,7 +52,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Script version
-SCRIPT_VERSION="0.4.3"
+SCRIPT_VERSION="1.0.2"
 
 # Default values
 MODE="test"
@@ -626,17 +626,55 @@ create_venv() {
     
     if [[ -d "$VENV_PATH" ]]; then
         if [[ "$FORCE" == true ]]; then
-            print_warning "Removing existing venv: $VENV_PATH"
-            rm -rf "$VENV_PATH"
-        else
-            print_warning "Virtual environment already exists: $VENV_PATH"
+            print_warning "Force mode — virtual environment already exists: $VENV_PATH"
             read -p "Remove and recreate? (y/n) " -n 1 -r
             echo
             if [[ $REPLY =~ ^[Yy]$ ]]; then
                 rm -rf "$VENV_PATH"
             else
-                print_info "Using existing virtual environment"
+                print_info "Cancelled"
                 return 0
+            fi
+        else
+            # Auto-backup: detect the installed QLC version and rename the existing venv
+            # to $HOME/venv/qlc-vX.Y.Z so it is preserved while the new install is fresh.
+            # This only applies to the default unversioned path ($HOME/venv/qlc).
+            # Already-versioned paths (qlc-v1.0.2, qlc-dev, custom names) are left unchanged.
+            local venv_basename
+            venv_basename="$(basename "$VENV_PATH")"
+            if [[ "$venv_basename" == "qlc" ]]; then
+                local old_version=""
+                if [[ -x "$VENV_PATH/bin/python" ]]; then
+                    old_version=$("$VENV_PATH/bin/python" -c \
+                        "from qlc.py.version import QLC_VERSION; print(QLC_VERSION)" 2>/dev/null || true)
+                fi
+                local backup_path
+                if [[ -n "$old_version" ]]; then
+                    backup_path="$(dirname "$VENV_PATH")/qlc-v${old_version}"
+                else
+                    backup_path="$(dirname "$VENV_PATH")/qlc-backup-$(date +%Y%m%d)"
+                fi
+                # Only rename if the backup target does not already exist
+                if [[ -d "$backup_path" ]]; then
+                    print_warning "Backup path already exists: $backup_path"
+                    print_warning "Removing existing venv without backup: $VENV_PATH"
+                    rm -rf "$VENV_PATH"
+                else
+                    print_info "Preserving existing venv as: $backup_path"
+                    mv "$VENV_PATH" "$backup_path"
+                    print_success "Previous installation backed up to: $(basename "$backup_path")"
+                fi
+            else
+                # Versioned or custom-named venv: ask before overwriting
+                print_warning "Virtual environment already exists: $VENV_PATH"
+                read -p "Remove and recreate? (y/n) " -n 1 -r
+                echo
+                if [[ $REPLY =~ ^[Yy]$ ]]; then
+                    rm -rf "$VENV_PATH"
+                else
+                    print_info "Using existing virtual environment"
+                    return 0
+                fi
             fi
         fi
     fi

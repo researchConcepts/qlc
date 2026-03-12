@@ -288,8 +288,8 @@ is_date() {
 args=()
 class_option=""
 for arg in "$@"; do
-  if [[ "$arg" == -class=* ]]; then
-    class_option="$arg"
+  if [[ "$arg" == -class=* ]] || [[ "$arg" == --class=* ]]; then
+    class_option="-class=${arg##*=}"
     echo "[$(date +"%Y-%m-%d %H:%M:%S")] Class override option: $class_option"
   else
     args+=("$arg")
@@ -332,6 +332,12 @@ CONFIG_FILE="$CONFIG_DIR/qlc_$USER_DIR.conf"
 set -a
 . "$CONFIG_FILE"
 set +a
+
+# Export WORKFLOW_CONFIG so Python's VariableRegistry can load workflow-specific
+# [VARIABLE_GROUPS] when expanding group refs (e.g. @TEST_VAR5, @AIFS_TESTS).
+# qlc_main.sh does the same; without this the MARS completion check in
+# get_required_mars_variables() fails to resolve group references.
+export WORKFLOW_CONFIG="$CONFIG_FILE"
 
 # Source the common functions script to make the 'log' function available
 . "$SCRIPTS_PATH/qlc_common_functions.sh"
