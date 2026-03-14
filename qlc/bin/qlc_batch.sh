@@ -275,7 +275,7 @@ fi
 
 # ----------------------------------------------------------------------------------------
 # Parse command line arguments dynamically to support variable number of experiments
-# Format: sqlc exp1 [exp2 ...] startDate endDate [config]
+# Format: sqlc exp1 [exp2 ...] startDate endDate [config] [named-options...]
 # ----------------------------------------------------------------------------------------
 
 # Function to check if argument is a date (matches YYYY-MM-DD pattern)
@@ -283,41 +283,71 @@ is_date() {
   [[ "$1" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]]
 }
 
-# Parse arguments and extract options (like -class=)
-# First pass: filter out options and build clean args array
-args=()
+# Build a safely-quoted copy of the full argument list.
+# This is embedded in generated batch scripts so that every 'qlc' invocation
+# receives all CLI options intact — Python's argument parser (qlc_wrapper.py)
+# then handles --myvar=, --scripts=, --mod-only, --network=, etc.
+# The old approach reconstructed only positionals + class, silently dropping
+# everything else and breaking any command that used additional CLI options.
+all_args=$(printf '%q ' "$@")
+
+# ─── First pass: separate positionals from named options ─────────────────────
+# Positional args (exp IDs, dates, workflow config name) are needed locally for
+# job naming, MARS flag checks, and sourcing the workflow config file.
+# Named options starting with '-' are handled by Python; we only extract the
+# well-known batch-scheduling ones (class, workflow, exps, dates) for local use.
+positional_args=()
+experiments=()
 class_option=""
+config_arg=""
+start_date=""
+end_date=""
+
 for arg in "$@"; do
-  if [[ "$arg" == -class=* ]] || [[ "$arg" == --class=* ]]; then
+  if [[ "$arg" == --class=* ]] || [[ "$arg" == -class=* ]]; then
     class_option="-class=${arg##*=}"
     echo "[$(date +"%Y-%m-%d %H:%M:%S")] Class override option: $class_option"
+  elif [[ "$arg" == --workflow=* ]]; then
+    config_arg="${arg#--workflow=}"
+  elif [[ "$arg" == --exps=* ]]; then
+    IFS=',' read -ra experiments <<< "${arg#--exps=}"
+  elif [[ "$arg" == --start_date=* ]] || [[ "$arg" == --start=* ]]; then
+    start_date="${arg##*=}"
+  elif [[ "$arg" == --end_date=* ]] || [[ "$arg" == --end=* ]]; then
+    end_date="${arg##*=}"
+  elif [[ "$arg" == -* ]]; then
+    : # Other named option — forwarded to qlc via all_args; nothing to do here
   else
-    args+=("$arg")
+    positional_args+=("$arg")
   fi
 done
 
-num_args=${#args[@]}
+# ─── Second pass: extract experiments / dates / config from positionals ───────
+# Only runs when positional arguments are present (classic or mixed syntax).
+num_positional=${#positional_args[@]}
 
-# Determine if last argument is a config name (not a date)
-if [ $num_args -ge 5 ] && ! is_date "${args[$((num_args-1))]}"; then
-  # Last arg is config name
-  config_arg="${args[$((num_args-1))]}"
-  end_date="${args[$((num_args-2))]}"
-  start_date="${args[$((num_args-3))]}"
-  # Everything before start_date is experiments
-  experiments=("${args[@]:0:$((num_args-3))}")
+if [ $num_positional -ge 3 ] && ! is_date "${positional_args[$((num_positional-1))]}"; then
+  # Last positional is the workflow config name
+  config_arg="${positional_args[$((num_positional-1))]}"
+  end_date="${end_date:-${positional_args[$((num_positional-2))]}}"
+  start_date="${start_date:-${positional_args[$((num_positional-3))]}}"
+  if [ ${#experiments[@]} -eq 0 ]; then
+    experiments=("${positional_args[@]:0:$((num_positional-3))}")
+  fi
   USER_DIR="$config_arg"
-elif [ $num_args -ge 4 ]; then
-  # No config name, using default
-  config_arg=""
-  end_date="${args[$((num_args-1))]}"
-  start_date="${args[$((num_args-2))]}"
-  # Everything before start_date is experiments
-  experiments=("${args[@]:0:$((num_args-2))}")
-  USER_DIR="default"
+elif [ $num_positional -ge 2 ]; then
+  end_date="${end_date:-${positional_args[$((num_positional-1))]}}"
+  start_date="${start_date:-${positional_args[$((num_positional-2))]}}"
+  if [ ${#experiments[@]} -eq 0 ]; then
+    experiments=("${positional_args[@]:0:$((num_positional-2))}")
+  fi
+  USER_DIR="${config_arg:-default}"
+elif [ -n "$config_arg" ]; then
+  # Fully named syntax (--exps= --start_date= --end_date= --workflow=)
+  USER_DIR="$config_arg"
 else
   echo "Error: Insufficient arguments"
-  echo "Usage: sqlc exp1 [exp2 ...] startDate endDate [config] [-class=xx|xx,yy,...]"
+  echo "Usage: sqlc exp1 [exp2 ...] startDate endDate [config] [options]"
   echo "Run 'sqlc' without arguments for detailed help."
   exit 1
 fi
@@ -391,10 +421,10 @@ fi
 
 log "----------------------------------------------------------------------------------------"
 
-# Build the command line to pass all arguments (experiments, dates, config, class_option)
-all_args="${experiments[*]} $start_date $end_date"
-[ -n "$config_arg" ] && all_args="$all_args $config_arg"
-[ -n "$class_option" ] && all_args="$all_args $class_option"
+# Pre-compute experiment list string for embedding in generated batch scripts.
+# The running batch job needs experiment IDs to locate MARS .id files; resolving
+# this at submission time avoids re-parsing the full (now option-rich) all_args.
+exp_list_precomputed="${experiments[*]}"
 
 # Determine if two-job workflow is needed
 # If workflow contains both A1-MARS (data retrieval) and processing scripts,
@@ -602,16 +632,9 @@ if [ \$qlc_exit_code -eq 0 ]; then
     
     # Collect all MARS job IDs from .id files (consistent with .flag/.download naming)
     # Note: .id files for completed jobs are cleaned up in qlc_A1-MARS.sh
-    # Extract experiments from command line args (first N non-date, non-config args)
-    exp_args=($all_args)
-    exp_list=""
-    for arg in "\${exp_args[@]}"; do
-        # Skip dates (contain hyphens and numbers) and known config names
-        if [[ "\$arg" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}\$ ]] || [[ "\$arg" == "test" ]] || [[ "\$arg" == "dev" ]]; then
-            continue
-        fi
-        exp_list="\$exp_list \$arg"
-    done
+    # Experiment list was resolved at job submission time to avoid re-parsing
+    # the full (option-rich) argument string inside the running batch job.
+    exp_list="$exp_list_precomputed"
     
     echo "Experiments being processed: \$exp_list"
     

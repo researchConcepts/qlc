@@ -381,6 +381,11 @@ parse_qlc_arguments() {
     export QLC_CLI_PARAM
   fi
 
+  if [ -n "${QLC_CLI_GRIB_SOURCE:-}" ]; then
+    log "Command line input: --use_grib=${QLC_CLI_GRIB_SOURCE}"
+    export QLC_CLI_GRIB_SOURCE
+  fi
+
   # Apply CLI overrides that take precedence over workflow config values.
   # These must run after the config is already sourced (done in qlc_main.sh before
   # subscripts are invoked), so every subscript gets the override via this function.
@@ -404,6 +409,15 @@ parse_qlc_arguments() {
   if [ -n "${QLC_CLI_MYVAR:-}" ]; then
     IFS=';' read -ra MARS_RETRIEVALS <<< "${QLC_CLI_MYVAR}"
     log "Active variables: MARS_RETRIEVALS=(${MARS_RETRIEVALS[*]})"
+  fi
+
+  # --grib / --nc overrides USE_GRIB_SOURCE for D1-ANAL.
+  # true:  read GRIB files directly from ~/qlc/Results/<expN>
+  # false: read NetCDF files from ~/qlc/Analysis/<expN> (requires B1-CONV,B2-PREP)
+  if [ -n "${QLC_CLI_GRIB_SOURCE:-}" ]; then
+    USE_GRIB_SOURCE="${QLC_CLI_GRIB_SOURCE}"
+    export USE_GRIB_SOURCE
+    log "USE_GRIB_SOURCE overridden by CLI: USE_GRIB_SOURCE=${USE_GRIB_SOURCE}"
   fi
 
   return 0

@@ -110,16 +110,20 @@ for exp in "${experiments[@]}"; do
     
     # Execute each MARS request
     for request_file in $exp_requests; do
-        # Extract variable name from filename (mars_EXPID_LEVTYPE_VARNAME.req)
-        # Example: mars_b2ro_pl_NH3.req -> pl_NH3
-        basename=$(basename "$request_file" .req)
-        # Remove "mars_EXPID_" prefix to get "LEVTYPE_VARNAME"
-        var_name=${basename#mars_${exp}_}
-        
-        # Convert dates to compact format (consistent with other scripts)
+        # Convert dates to compact format first — needed for both filename
+        # parsing and flag/target path construction below.
         sDate="${sDat//[-:]/}"
         eDate="${eDat//[-:]/}"
         mDate="$sDate-$eDate"
+
+        # Extract variable name from filename.
+        # New naming: mars_{exp}_{YYYYMMDD}-{YYYYMMDD}_{var}.req  e.g. mars_b2ro_20090101-20090131_pl_NH3.req
+        # Legacy (no date): mars_{exp}_{var}.req
+        basename=$(basename "$request_file" .req)
+        # Strip "mars_EXPID_" prefix → either "${mDate}_VARNAME" or plain "VARNAME"
+        temp_name=${basename#mars_${exp}_}
+        # Strip the date infix (YYYYMMDD-YYYYMMDD_) when present
+        var_name=${temp_name#${mDate}_}
         
         # Expected output file
         output_prefix="${exp}_${mDate}"

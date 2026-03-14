@@ -415,6 +415,15 @@ rm -f "${hpath}"/texPlotfiles_${QLTYPE}_*.list
 
 # Loop over all experiments
 for exp in "${experiments[@]}" ; do
+	# Guard: skip 'None' placeholder slots that somehow survived argument parsing.
+	# parse_qlc_arguments should have filtered these already, but an explicit check
+	# prevents accidental mkdir of ~/qlc/None/ (or similar) in edge cases.
+	# Use case for portable case-insensitive match (${var,,} requires bash 4+).
+	case "$exp" in
+		[Nn][Oo][Nn][Ee])
+			log "Skipping placeholder experiment: $exp"
+			continue ;;
+	esac
 	log  "----------------------------------------------------------------------------------------"
 	log "Processing ${PLOTTYPE} plot for experiment: $exp (reference: $ref_exp)"
 

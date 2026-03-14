@@ -392,6 +392,10 @@ load_region_config() {
     # 1. REGION_*_VARIABLES (if set in config)
     # 2. MARS_RETRIEVALS (if REGION_*_VARIABLES not set)
     # 3. Discover from files (if neither is set)
+    if [ -n "${QLC_MODE_MOD_ONLY:-}" ]; then
+        CURRENT_REGION_VARIABLES=""
+    fi
+
     if [ -z "$CURRENT_REGION_VARIABLES" ]; then
         # Get region-specific MARS_RETRIEVALS or use global
         local region_mars_retrievals=($(get_region_mars_retrievals "${region_code}"))
@@ -404,7 +408,8 @@ load_region_config() {
                     available_vars+=("$var")
                 done < <(expand_variable_spec "$spec")
             done
-            CURRENT_REGION_VARIABLES=$(IFS=,; echo "${available_vars[*]}")
+            # Use ';' as separator: filter_region_variables() splits on ';', not ','
+            CURRENT_REGION_VARIABLES=$(IFS=';'; echo "${available_vars[*]}")
             log "Loaded configuration for region: ${CURRENT_REGION_NAME}"
             log "  OBS_PATH: ${CURRENT_REGION_OBS_PATH}"
             log "  OBS_DATASET_TYPE: ${CURRENT_REGION_OBS_DATASET_TYPE}"
@@ -417,7 +422,8 @@ load_region_config() {
             discover_available_variables "${region_mars_retrievals[@]}" || true
             
             if [ ${#available_vars[@]} -gt 0 ]; then
-                CURRENT_REGION_VARIABLES=$(IFS=,; echo "${available_vars[*]}")
+                # Use ';' as separator: filter_region_variables() splits on ';', not ','
+                CURRENT_REGION_VARIABLES=$(IFS=';'; echo "${available_vars[*]}")
                 log "Loaded configuration for region: ${CURRENT_REGION_NAME}"
                 log "  OBS_PATH: ${CURRENT_REGION_OBS_PATH}"
                 log "  OBS_DATASET_TYPE: ${CURRENT_REGION_OBS_DATASET_TYPE}"
@@ -528,14 +534,25 @@ filter_region_variables() {
         # e.g., "NH3" with available "sfc_NH3" or "pl_NH3"
         local matched=false
         for av in "${available_vars[@]}"; do
-            # Extract variable part after levtype (sfc_NH3 -> NH3)
+            # Extract variable part after levtype prefix (e.g. sfc_NH3 -> NH3).
+            # Also accept a full exact match for the case where model_var already
+            # carries the levtype prefix (e.g. pl_HNO3 from the MARS_RETRIEVALS
+            # path in mod-only mode).
             local levtype="${av%%_*}"
             local varname="${av#${levtype}_}"
             
-            if [ "$varname" == "$model_var" ]; then
+            if [ "$varname" == "$model_var" ] || [ "$av" == "$model_var" ]; then
                 filtered_vars+=("$av")
-                # For JSON: ALWAYS pass full specification (qlc-py parses it)
-                filtered_vars_only+=("$rv")
+                # For JSON: full specs (containing '|' or ':') are passed through
+                # unchanged.  Plain levtype-prefixed names (e.g. pl_HNO3) have the
+                # prefix stripped so qlc-py can find the variable in its IFS lookup
+                # tables, which are indexed by bare name (HNO3, not pl_HNO3).
+                # File search still works because loadmod matches *HNO3* patterns.
+                local json_var="$rv"
+                if [[ "$rv" != *"|"* ]] && [[ "$rv" != *":"* ]]; then
+                    json_var="$varname"  # e.g. pl_HNO3 -> HNO3, sfc_NH3 -> NH3
+                fi
+                filtered_vars_only+=("$json_var")
                 matched=true
                 break
             fi
@@ -695,6 +712,21 @@ generate_region_json() {
     #     - ver0d_china_aq -> obs_path/ver0d/china_aq/latest
     #     - ghost_aeronet_lev20 -> obs_path/ghost/aeronet_lev20/latest
     #     - nc_brazil_inmet -> obs_path/nc/Brazil_INMET
+    #
+    # In mod-only mode (use_obs=false) the three obs lookup identity fields are
+    # intentionally left empty so qlc-py skips the obs dataset lookup entirely.
+    # The full variable spec (|pipe format) is preserved in all modes — it carries
+    # the IFS table mapping and must not be stripped to a bare variable name.
+    local eff_obs_path="${CURRENT_REGION_OBS_PATH:-""}"
+    local eff_obs_dataset_type="${CURRENT_REGION_OBS_DATASET_TYPE:-""}"
+    local eff_obs_dataset_version="${CURRENT_REGION_OBS_DATASET_VERSION:-""}"
+    if [ "$use_obs" = "false" ]; then
+        eff_obs_path=""
+        eff_obs_dataset_type=""
+        eff_obs_dataset_version=""
+        log "mod-only: obs_path/obs_dataset_type/obs_dataset_version suppressed in JSON"
+    fi
+
     cat > "$temp_config_file" << EOM
 [
   {
@@ -703,9 +735,9 @@ generate_region_json() {
     "workdir": "${QLC_HOME}/run",
     "output_base_name": "${region_hpath}/${QLTYPE}",
     "station_file": "${CURRENT_REGION_STATION_FILE:-""}",
-    "obs_path": "${CURRENT_REGION_OBS_PATH:-""}",
-    "obs_dataset_type": "${CURRENT_REGION_OBS_DATASET_TYPE:-""}",
-    "obs_dataset_version": "${CURRENT_REGION_OBS_DATASET_VERSION:-""}",
+    "obs_path": "${eff_obs_path}",
+    "obs_dataset_type": "${eff_obs_dataset_type}",
+    "obs_dataset_version": "${eff_obs_dataset_version}",
     "mod_path": "${mod_path_to_use}",
     "model": "${MODEL:-""}",
     "experiments": "${experiments_comma}",
@@ -1275,7 +1307,7 @@ process_multi_region() {
     fi
 
     # Process each network, optionally iterating over multiple plot regions.
-    # When multiple plot regions are given, output dirs get a _REGION suffix to avoid collision.
+    # When --region= is used, output dirs always carry a _REGION suffix for consistency.
     local success_count=0
     local fail_count=0
     processed_regions=()
@@ -1288,13 +1320,11 @@ process_multi_region() {
                 # Set single-value override picked up by load_region_config
                 export QLC_PLOT_REGION_CURRENT="${plot_region}"
 
-                # Use network_PLOTREGION as unique output name when multiple plot regions are active.
-                # For a single plot region keep the plain network name to preserve existing path conventions.
-                if [ ${#cli_plot_regions[@]} -gt 1 ]; then
-                    local effective_code="${region_code}_${plot_region}"
-                else
-                    local effective_code="${region_code}"
-                fi
+                # Region is prepended so the output directory matches the existing
+                # single-region naming convention (REGION_NETWORK).
+                # e.g. --network=AIRBASE --region=EU   → EU_AIRBASE
+                #      --network=AIRBASE --region=GLOBE → GLOBE_AIRBASE
+                local effective_code="${plot_region}_${region_code}"
 
                 log "  Network: ${region_code}  |  Plot region: ${plot_region}  |  Output: ${effective_code}"
 
