@@ -441,6 +441,24 @@ if [[ " ${SUBSCRIPT_NAMES[*]} " =~ " A1-MARS " ]] && [ ${#SUBSCRIPT_NAMES[@]} -g
   # Get variables from Python wrapper (same logic as qlc_main.sh)
   load_variable_registry
   parse_variable_and_mars_options "$@"
+
+  # Extract --myvar= CLI override and apply to MARS_RETRIEVALS so that
+  # get_required_mars_variables checks flag files for exactly the requested
+  # variables rather than the full workflow config set.  QLC_CLI_MYVAR is
+  # not set at this stage because Python has not yet been invoked; we parse
+  # the option directly from the raw argument list.
+  _preflight_myvar=""
+  for _pf_arg in "$@"; do
+    if [[ "$_pf_arg" == --myvar=* ]] || [[ "$_pf_arg" == -myvar=* ]]; then
+      _preflight_myvar="${_pf_arg#*=}"
+      break
+    fi
+  done
+  if [ -n "$_preflight_myvar" ]; then
+    IFS=';' read -ra MARS_RETRIEVALS <<< "$_preflight_myvar"
+    log "Preflight: --myvar= CLI override applied to MARS_RETRIEVALS: (${MARS_RETRIEVALS[*]})"
+  fi
+
   required_vars=()
   while IFS= read -r var; do
     required_vars+=("$var")

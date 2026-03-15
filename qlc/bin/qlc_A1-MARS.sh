@@ -107,6 +107,23 @@ for exp in "${experiments[@]}"; do
     
     request_count=$(echo "$exp_requests" | wc -l | tr -d ' ')
     log "Found $request_count MARS request file(s) for experiment: $exp"
+
+    # When --myvar= is active, build the set of expected variable IDs from
+    # MARS_RETRIEVALS (already overridden by parse_qlc_arguments above).
+    # This lets us skip stale .req files left by prior full-config runs that
+    # contain variables outside the current override scope (e.g. ml_* files
+    # when only pl_* were requested), preventing spurious retrieval attempts
+    # and the resulting dependency failures for experiments that lack those vars.
+    _myvar_scope=()
+    if [ -n "${QLC_CLI_MYVAR:-}" ]; then
+        for _spec in "${MARS_RETRIEVALS[@]}"; do
+            # Each entry may be "pl_HNO3,217006" or plain "pl_HNO3".
+            # Strip from the first comma onward to obtain the var ID.
+            _vid="${_spec%%,*}"
+            [ -n "$_vid" ] && _myvar_scope+=("$_vid")
+        done
+        log "Active --myvar= scope for $exp: ${_myvar_scope[*]}"
+    fi
     
     # Execute each MARS request
     for request_file in $exp_requests; do
@@ -124,6 +141,24 @@ for exp in "${experiments[@]}"; do
         temp_name=${basename#mars_${exp}_}
         # Strip the date infix (YYYYMMDD-YYYYMMDD_) when present
         var_name=${temp_name#${mDate}_}
+
+        # Skip .req files outside the --myvar= scope.  Stale files from a prior
+        # run that used the full MARS_RETRIEVALS config would otherwise be picked
+        # up by the glob above and submitted as new jobs, causing retrieval
+        # failures for experiments that do not carry those variables.
+        if [ ${#_myvar_scope[@]} -gt 0 ]; then
+            _in_scope=false
+            for _expected in "${_myvar_scope[@]}"; do
+                if [ "$var_name" = "$_expected" ]; then
+                    _in_scope=true
+                    break
+                fi
+            done
+            if [ "$_in_scope" = false ]; then
+                log "Variable $var_name: outside --myvar= scope, skipping stale request"
+                continue
+            fi
+        fi
         
         # Expected output file
         output_prefix="${exp}_${mDate}"
