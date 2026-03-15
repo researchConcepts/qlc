@@ -160,15 +160,41 @@ for exp in "${experiments[@]}"; do
             fi
         fi
         
-        # Expected output file
+        # Expected output file — computed from current naming convention.
         output_prefix="${exp}_${mDate}"
         target="$MARS_RETRIEVAL_DIRECTORY/$exp/${output_prefix}_${var_name}.grb"
-        
+
+        # For legacy req files (no date infix in filename) the TARGET= line inside
+        # the req file may point to a different path (e.g. j2js_pl_HNO3.grb without
+        # the date infix).  MARS writes to whatever TARGET says, so the batch script
+        # must check the same path — otherwise [ -f "$target" ] is always false and
+        # the completion flag is never created, causing endless re-submissions.
+        # Read the TARGET from the req file and use it when it differs from the
+        # computed path; fall back to the computed path for freshly generated files
+        # that carry no TARGET line yet.
+        _req_target=$(grep -m1 -i 'TARGET' "$request_file" 2>/dev/null \
+                      | sed 's/.*TARGET[[:space:]]*=[[:space:]]*//' \
+                      | tr -d '"' | tr -d "'" | tr -d ' ')
+        if [ -n "$_req_target" ] && [ "$_req_target" != "$target" ]; then
+            log "Variable $var_name: req TARGET differs from computed path — using req TARGET"
+            log "  Computed : $target"
+            log "  Req file : $_req_target"
+            target="$_req_target"
+        fi
+
         # Flag files for tracking (use compact date format to match Python wrapper)
         flag_base="$MARS_RETRIEVAL_DIRECTORY/$exp/data_retrieved_${exp}_${mDate}_${var_name}"
         completion_flag="${flag_base}.flag"
         download_flag="${flag_base}.download"
-        
+
+        # If the target .grb already exists and no flag has been written yet
+        # (e.g. a previous batch job completed but died before touch), create the
+        # flag now so the next run does not re-submit a redundant MARS job.
+        if [ -f "$target" ] && [ ! -f "$completion_flag" ]; then
+            log "Variable $var_name: .grb exists but flag missing — writing completion flag"
+            touch "$completion_flag"
+        fi
+
         # Check if already downloaded
         if [ -f "$completion_flag" ]; then
             log "Variable $var_name: already retrieved (skipping)"
