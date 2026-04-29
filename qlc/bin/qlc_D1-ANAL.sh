@@ -256,17 +256,27 @@ base_hpath="$PLOTS_DIRECTORY/${experiments_hyphen}_${mDate}${mode_suffix}"
 get_region_mars_retrievals() {
     local region_code=$1
     local override_var="REGION_${region_code}_MARS_RETRIEVALS[@]"
-    
+
+    # Priority 1: CLI --myvar= override (takes precedence over everything).
+    # This ensures --myvar= is a true override, not additive to region/global
+    # retrievals defined in the workflow config.
+    if [ -n "${QLC_CLI_MYVAR:-}" ]; then
+        log "Using CLI --myvar= override for ${region_code}: ${MARS_RETRIEVALS[*]}" >&2
+        echo "${MARS_RETRIEVALS[@]}"
+        return 0
+    fi
+
+    # Priority 2: region-specific REGION_*_MARS_RETRIEVALS (workflow config).
     if compgen -v | grep -q "^REGION_${region_code}_MARS_RETRIEVALS$"; then
-        # Use region-specific override
         local region_retrievals=("${!override_var}")
         log "Using region-specific MARS_RETRIEVALS for ${region_code}: ${region_retrievals[*]}" >&2
         echo "${region_retrievals[@]}"
-    else
-        # Use global default
-        log "Using global MARS_RETRIEVALS for ${region_code}: ${MARS_RETRIEVALS[*]}" >&2
-        echo "${MARS_RETRIEVALS[@]}"
+        return 0
     fi
+
+    # Priority 3: global default MARS_RETRIEVALS (workflow config).
+    log "Using global MARS_RETRIEVALS for ${region_code}: ${MARS_RETRIEVALS[*]}" >&2
+    echo "${MARS_RETRIEVALS[@]}"
 }
 
 # Function to discover available variables from file names
@@ -499,35 +509,50 @@ filter_region_variables() {
     #   - Manual factor:  "PM2.5|pm2p5,*,1e9|PM2.5|N/A" (only if auto conversion unavailable)
     # qlc-py receives the full specification per variable and handles '|' field parsing.
     
+    # Split strategy:
+    #   - Canonical separator between variable specs is ';' (semicolon).
+    #   - A single spec may itself contain ',' inside a pipe-format field
+    #     (e.g. "PM2.5|pm2p5,*,1e9|PM2.5|N/A"), so we must NOT split on ','.
+    #   - If the user provided a ','-separated list with no ';' or '|' or ':',
+    #     emit a CLEAR error pointing to the canonical form (strict per v1.0.3).
     local region_vars=()
     if [[ "$CURRENT_REGION_VARIABLES" == *";"* ]]; then
-        # Multiple variable specs separated by ';'
         IFS=';' read -ra region_vars <<< "$CURRENT_REGION_VARIABLES"
+    elif [[ "$CURRENT_REGION_VARIABLES" == *","* ]] \
+         && [[ "$CURRENT_REGION_VARIABLES" != *"|"* ]] \
+         && [[ "$CURRENT_REGION_VARIABLES" != *":"* ]]; then
+        log "ERROR: REGION_*_VARIABLES for '${CURRENT_REGION_NAME}' uses ',' as"
+        log "       the variable separator: '${CURRENT_REGION_VARIABLES}'"
+        log "       The canonical separator is ';' (semicolon). Replace commas"
+        log "       between variable specs with semicolons, e.g.:"
+        log "         REGION_${CURRENT_REGION_NAME}_VARIABLES=\"sfc_NH3;sfc_SO2;pl_O3\""
+        log "       (',' is reserved for fields within a single pipe-format spec,"
+        log "        such as \"PM2.5|pm2p5,*,1e9|PM2.5|N/A\".)"
+        return 1
     else
-        # Single variable spec (may be a simple name or a full '|'-separated spec)
         region_vars=("$CURRENT_REGION_VARIABLES")
     fi
-    
+
     # Filter to only include available variables
     local filtered_vars=()
     local filtered_vars_only=()  # For qlc-py JSON (full spec preserved)
     local missing_vars=()
-    
+
     for rv in "${region_vars[@]}"; do
         # Trim whitespace
         rv=$(echo "$rv" | xargs)
-        
-        # Extract the user/display variable name (first field) for matching against available_vars.
+
+        # Extract the user/display variable name (first field) for matching.
         # Extended format: "T2m|2t|temp|degC"        -> "T2m"  (split by '|')
         # Legacy format:   "T2m:2t:temp:degC"        -> "T2m"  (split by ':')
         # Simple name:     "NH3"                     -> "NH3"
+        # Note: we deliberately do NOT split on ',' here — commas inside a
+        # pipe-format spec are field separators (op,value), not list separators.
         local model_var="$rv"
         if [[ "$rv" == *"|"* ]]; then
             model_var="${rv%%|*}"
         elif [[ "$rv" == *":"* ]]; then
             model_var="${rv%%:*}"
-        elif [[ "$rv" == *","* ]]; then
-            model_var="${rv%%,*}"
         fi
         
         # Build full variable name with levtype prefix for matching
@@ -1223,7 +1248,16 @@ process_single_region() {
     fi
     # Apply effective output name (may differ from region_code when plot region suffix is active)
     CURRENT_REGION_NAME="${effective_code}"
-    
+
+    # Stage-2 CLI override: --obsmap= replaces REGION_*_VARIABLES for qlc-py comparison.
+    # This is the mod-obs mapping used by D1-ANAL and is distinct from --myvar= (Stage-1
+    # MARS retrieval). When both are given, --myvar= controls which model data is read
+    # and --obsmap= controls how each variable is matched to observations.
+    if [ -n "${QLC_CLI_OBSMAP:-}" ]; then
+        log "Applying CLI --obsmap= override for region ${CURRENT_REGION_NAME}"
+        CURRENT_REGION_VARIABLES="${QLC_CLI_OBSMAP}"
+    fi
+
     # Filter variables
     if ! filter_region_variables; then
         log "Skipping region ${region_code} - no valid variables"

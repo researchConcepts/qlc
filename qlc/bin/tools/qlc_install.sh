@@ -6,9 +6,11 @@
 # Part of QLC (Quick Look Content) v1.0.2
 # An Automated Model-Observation Comparison Suite Optimized for CAMS
 #
-# IMPORTANT: This script installs QLC from PyPI (https://pypi.org/project/rc-qlc/)
-#            using 'pip install rc-qlc' into a safe virtual environment.
+# IMPORTANT: This script installs QLC from PyPI (https://pypi.org/project/qlc/)
+#            using 'pip install qlc' into a safe virtual environment.
 #            For testing, it can also install from a local wheel file.
+#            NOTE: 'rc-qlc' is the deprecated predecessor package name. The new
+#                  canonical name from v1.0.3 onwards is 'qlc'.
 #
 # Documentation:
 #   https://docs.researchconcepts.io/qlc/latest/getting-started/installation/
@@ -19,7 +21,7 @@
 #   environment creation, package installation, and runtime configuration.
 #
 #   Repository: https://github.com/researchConcepts/qlc
-#   PyPI Package: https://pypi.org/project/rc-qlc/
+#   PyPI Package: https://pypi.org/project/qlc/
 #
 # Usage:
 # - One-Line Installation
@@ -36,7 +38,7 @@
 #   bash qlc_install.sh --mode dev  # Development and parallel testing
 #
 # - Install from local wheel (development / testing)
-#   bash qlc_install.sh --mode test --wheel /path/to/rc_qlc-1.0.1b0-*.whl
+#   bash qlc_install.sh --mode test --wheel /path/to/qlc-1.0.3-*.whl
 #
 # Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
@@ -52,7 +54,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Script version
-SCRIPT_VERSION="1.0.2"
+SCRIPT_VERSION="1.0.3"
 
 # Default values
 MODE="test"
@@ -150,7 +152,7 @@ Examples:
   $0 --mode test --version 0.4.1
 
   # Install from local wheel (for testing)
-  $0 --mode test --wheel /path/to/rc_qlc-0.4.3-cp310-cp310-macosx_10_9_universal2.whl
+  $0 --mode test --wheel /path/to/qlc-1.0.3-cp310-cp310-macosx_10_9_universal2.whl
 
   # Install with essential tools (recommended)
   # Includes: cdo, ncdump, xelatex, evaltools, pyferret, cartopy downloads
@@ -715,15 +717,18 @@ install_qlc() {
         print_info "Installation mode: $MODE"
     else
         # Install from PyPI
-        package_spec="rc-qlc"
+        # Canonical package name is 'qlc' from v1.0.3 onwards.
+        # Legacy 'rc-qlc' is kept as a thin shim package that pulls in 'qlc'.
+        package_spec="qlc"
         if [[ -n "$VERSION" ]]; then
-            package_spec="rc-qlc==$VERSION"
+            package_spec="qlc==$VERSION"
         fi
         # Add mode-specific extras
         package_spec="${package_spec}[${MODE}]"
         install_source="PyPI"
         print_info "Installing QLC from PyPI: $package_spec"
-        print_info "PyPI Package: https://pypi.org/project/rc-qlc/"
+        print_info "PyPI Package: https://pypi.org/project/qlc/"
+        print_info "(Legacy name 'rc-qlc' is still published as a shim that pulls in 'qlc'.)"
     fi
     
     # Build pip install command
@@ -802,10 +807,17 @@ try:
     
     if result.returncode != 0:
         # Fallback: try to get info from already installed package
+        # Try 'qlc' first (canonical v1.0.3+), fall back to 'rc-qlc' (legacy) if
+        # the user has an older installation still present.
         result = subprocess.run(
-            [sys.executable, '-m', 'pip', 'show', 'rc-qlc'],
+            [sys.executable, '-m', 'pip', 'show', 'qlc'],
             capture_output=True, text=True, timeout=10
         )
+        if result.returncode != 0:
+            result = subprocess.run(
+                [sys.executable, '-m', 'pip', 'show', 'rc-qlc'],
+                capture_output=True, text=True, timeout=10
+            )
         if result.returncode == 0:
             # Extract requires from installed package
             for line in result.stdout.split('\n'):
@@ -986,10 +998,11 @@ install_tools() {
     case "$TOOLS" in
         essential)
             print_info "Installing essential tools..."
-            print_info "Essential includes: cdo, ncdump, xelatex, evaltools, pyferret, cartopy"
-            print_info "Preferring module load for: cdo, ncdump, xelatex, pyferret"
+            print_info "Essential includes: evaltools, cartopy data, cfgrib (verified)"
+            print_info "System tools (cdo, ncdump, xelatex, pyferret) resolved via module load (HPC) or system PATH"
             echo ""
-            
+
+            # 1. Evaltools (pip package with NumPy 2.x patch)
             print_info "Installing evaltools with NumPy 2.x compatibility..."
             print_info "Running: qlc-install-tools --install-evaltools"
             if qlc-install-tools --install-evaltools; then
@@ -997,15 +1010,37 @@ install_tools() {
             else
                 print_warning "Evaltools installation had issues (may need manual setup)"
             fi
-            
-            print_info ""
-            print_info "System tools (cdo, ncdump, xelatex, pyferret) will be detected from:"
-            print_info "  1. Module system (module load) - preferred on HPC"
-            print_info "  2. System installation - fallback"
-            print_info ""
-            print_info "NOTE: Cartopy Natural Earth data is PRE-DOWNLOADED during installation setup"
-            print_info "      This happens automatically - NO runtime downloads will occur"
-            print_info ""
+
+            # 2. Cartopy Natural Earth data (must be called explicitly on some HPC setups;
+            #    post-install hooks are not always reliable via 'pip install' extras).
+            echo ""
+            print_info "Downloading Cartopy Natural Earth data (required for map plots)..."
+            print_info "Running: qlc-install-tools --install-cartopy"
+            if qlc-install-tools --install-cartopy; then
+                print_success "Cartopy Natural Earth data downloaded"
+            else
+                print_warning "Cartopy data download had issues; retry manually with"
+                print_warning "  qlc-install-tools --install-cartopy --force"
+            fi
+
+            # 3. cfgrib: listed as a core pip dependency but some ATOS/HPC environments
+            #    load an eccodes module that skips the pip install. Verify explicitly
+            #    and pip-install if missing.
+            echo ""
+            print_info "Verifying cfgrib (GRIB reader used by D1-ANAL when USE_GRIB_SOURCE=true)..."
+            if python -c "import cfgrib" >/dev/null 2>&1; then
+                print_success "cfgrib is importable"
+            else
+                print_info "cfgrib not found; installing via pip..."
+                if python -m pip install --no-cache-dir "cfgrib>=0.9.10"; then
+                    print_success "cfgrib installed"
+                else
+                    print_warning "cfgrib install failed; try manually with"
+                    print_warning "  pip install cfgrib"
+                fi
+            fi
+
+            echo ""
             print_info "After installation, run 'qlc-install-tools --check' to verify all tools"
             ;;
         evaltools)
@@ -1025,11 +1060,19 @@ install_tools() {
             fi
             ;;
         pyferret)
-            print_info "Installing pyferret..."
-            if qlc-install-extras --pyferret; then
-                print_success "PyFerret installed successfully"
+            # Prefer HPC module load (e.g. 'module load ferret' on ATOS); the pip
+            # pyferret package requires Python < 3.11 and often fails on HPC venvs.
+            if bash -c "command -v module >/dev/null 2>&1 && module avail ferret 2>&1 | grep -qi ferret"; then
+                print_info "Module 'ferret' detected on this system - skipping pip install."
+                print_info "Load it at runtime with: module load ferret"
+                print_success "PyFerret available via module system"
             else
-                print_warning "PyFerret installation had issues (may need manual setup)"
+                print_info "Installing pyferret..."
+                if qlc-install-extras --pyferret; then
+                    print_success "PyFerret installed successfully"
+                else
+                    print_warning "PyFerret installation had issues (may need manual setup)"
+                fi
             fi
             ;;
         all)
@@ -1067,11 +1110,18 @@ install_tools() {
                 print_warning "xelatex installation had issues (may need manual setup)"
             fi
 
-            print_info "Installing pyferret..."
-            if qlc-install-extras --pyferret; then
-                print_success "PyFerret installed successfully"
+            # Prefer HPC module load; see 'pyferret)' branch above for rationale.
+            if bash -c "command -v module >/dev/null 2>&1 && module avail ferret 2>&1 | grep -qi ferret"; then
+                print_info "Module 'ferret' detected on this system - skipping pip install."
+                print_info "Load it at runtime with: module load ferret"
+                print_success "PyFerret available via module system"
             else
-                print_warning "PyFerret installation had issues (may need manual setup)"
+                print_info "Installing pyferret..."
+                if qlc-install-extras --pyferret; then
+                    print_success "PyFerret installed successfully"
+                else
+                    print_warning "PyFerret installation had issues (may need manual setup)"
+                fi
             fi
             ;;
     esac

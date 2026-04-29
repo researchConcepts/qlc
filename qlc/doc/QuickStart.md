@@ -9,7 +9,8 @@ For complete installation options and detailed instructions, see the online docu
 
 The `qlc_install.sh` script performs four tasks:
 - a) Creates a QLC virtual environment (`~/venv/qlc`)
-- b) Installs QLC from latest PyPI release (`pip install rc-qlc`)
+- b) Installs QLC from latest PyPI release (`pip install qlc` — v1.0.3+; the legacy
+   name `pip install rc-qlc` still works as a thin shim that pulls in `qlc`)
 - c) Installs all required tools (cartopy data, evaltools, etc.)
 - d) Sets up QLC runtime environment with links to shared directories (`$SCRATCH`, `$HPCPERM`, `$PERM`)
 
@@ -191,8 +192,8 @@ source ~/.profile  # if needed
 
 ```bash
 WPATH=~/qlc_wheels
-WHEEL=$WPATH/rc_qlc-1.0.2-cp310-cp310-macosx_10_9_universal2.whl  # macOS
-WHEEL=$WPATH/rc_qlc-1.0.2-cp310-cp310-linux_x86_64.whl            # Linux
+WHEEL=$WPATH/qlc-1.0.3-cp310-cp310-macosx_10_9_universal2.whl  # macOS
+WHEEL=$WPATH/qlc-1.0.3-cp310-cp310-linux_x86_64.whl            # Linux
 ```
 
 ### Define installation mode
@@ -292,7 +293,7 @@ Continue with section 3 or 5.
 - **Quick Start:**    https://docs.researchconcepts.io/qlc/latest/getting-started/quickstart/
 - **Usage Guide:**    https://docs.researchconcepts.io/qlc/latest/user-guide/usage/
 - **GitHub:**         https://github.com/researchConcepts/qlc
-- **PyPI:**           https://pypi.org/project/rc-qlc/
+- **PyPI:**           https://pypi.org/project/qlc/  (legacy: https://pypi.org/project/rc-qlc/)
 
 ---
 

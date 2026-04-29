@@ -104,6 +104,11 @@ Arguments:
 Processing options:
   --obs-only                 Analyse observations only (skip model download/processing)
   --mod-only                 Analyse model results only (skip observation processing)
+  --use_grib=true|false      Override USE_GRIB_SOURCE for D1-ANAL only.
+                             true:  read GRIB files directly from ~/qlc/Results/<expN>
+                                    (use with --scripts=D1-ANAL,Z1-XPDF to skip B1-CONV/B2-PREP)
+                             false: read NetCDF files from ~/qlc/Analysis/<expN>
+                                    (requires B1-CONV,B2-PREP to have run)
   -class=xx[,yy]             Override MARS class per experiment (e.g. -class=nl or -class=nl,rd)
   --exp_labels=L1[,L2,...]   Display labels for experiments (comma-separated, same order as exps).
                              Quotes optional unless labels contain spaces: --exp_labels="Run 1,Run 2"
@@ -111,16 +116,19 @@ Processing options:
   --user=<label>             Override system username in PDF report titles/footers.
                              Example: --user=cams
 
-Variable override — GRIB retrieval context (A1-MARS, eac5, aifs, pyferret):
+Variable overrides — Stage 1 (MARS retrieval: A1-MARS, eac5, aifs, pyferret):
   --myvar=<spec>[;<spec>]    Override MARS_RETRIEVALS from workflow config.
-                             Each spec: [level_type_]display_name,GRIB_param
-                             Multiple specs separated by semicolon.
+                             Overrides (not adds to) both the global MARS_RETRIEVALS and any
+                             REGION_*_MARS_RETRIEVALS entries — the CLI value is authoritative.
+                             Each spec: [level_type_]display_name[,GRIB_param]  OR  @GROUP
+                             Variables must be defined in [VARIABLE_REGISTRY] of the active
+                             workflow config or in a referenced @GROUP — otherwise QLC will
+                             exit with a clear error. Use 'qlc-vars list' to see available names.
                              IMPORTANT: quote the value when using semicolons in a shell:
                                --myvar="sfc_T2m,167"
                                --myvar="sfc_T2m,167;pl_T,130"
+                               --myvar="@AIFS_SFC;pl_HNO3"
   --param=<grib>[;<grib>]    Per-experiment GRIB param override (A1-MARS only).
-                             Use when experiments use different GRIB codes for the same variable
-                             (e.g. IFS-AER vs IFS-HAMM7 aerosol schemes).
                              Separator rules: ';' between variables (matches --myvar= order),
                                               ',' between experiments (matches --exps= order).
                              Single entry broadcasts to all experiments.
@@ -128,23 +136,26 @@ Variable override — GRIB retrieval context (A1-MARS, eac5, aifs, pyferret):
                              IMPORTANT: always quote the value; requires --myvar= to be set:
                                --myvar="pl_NH4_as;pl_NO3_as" --param="35.212,249.210;36.212,247.210"
 
-Variable override — obs-mod mapping context (D1-ANAL / qpy, evaltools) [new in v1.0.2]:
-  --myvar="DisplayName|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]"
-                             Pipe-format variable spec for station collocation.
+Variable overrides — Stage 2 (mod-obs mapping: D1-ANAL / qpy, evaltools) [new in v1.0.3]:
+  --obsmap="DisplayName|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]"
+                             Pipe-format variable spec for station collocation. Overrides
+                             REGION_*_VARIABLES for every active network (--network=) in a
+                             single run — no workflow edits needed.
                              Multiple variables separated by ';' inside the quoted string.
-                             Arithmetic operators: * / + -  applied at load time (model or obs side).
-                             unitFAC: explicit scale factor (alternative to automatic unit conversion).
-                             Applied to all active networks (--network=) in one run — no workflow
-                             file changes required.
-                             Use for variables not in qlc's built-in unit table, custom model
-                             diagnostics, experimental datasets, or quick scaling tests.
+                             Arithmetic operators: * / + -  applied at load time (model or obs).
+                             unitFAC: explicit scale factor (alternative to automatic conversion).
+                             Use for variables not yet in qlc's built-in unit table, custom
+                             model diagnostics, or quick scaling tests.
                              Examples:
-                               --myvar="O3|go3|O3|ug/m3"                    O3: auto kg/kg -> ug/m3
-                               --myvar="PM2.5|pm2p5|PM2.5|ug/m3"            PM2.5: auto kg/m3 -> ug/m3
-                               --myvar="T2m|2t|temp|degC"                   T2m: auto K -> degC
-                               --myvar="MyVar|myvar,*,0.001|obs|N/A"         custom: scale model x0.001
-                               --myvar="MyVar|myvar|obs|unit,1e3"            custom: unitFAC=1e3
-                               --myvar="O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3"  multi-variable
+                               --obsmap="O3|go3|O3|ug/m3"                    O3: auto kg/kg -> ug/m3
+                               --obsmap="PM2.5|pm2p5|PM2.5|ug/m3"            PM2.5: auto kg/m3 -> ug/m3
+                               --obsmap="T2m|2t|temp|degC"                   T2m: auto K -> degC
+                               --obsmap="MyVar|myvar,*,0.001|obs|N/A"         custom: scale model x0.001
+                               --obsmap="MyVar|myvar|obs|unit,1e3"            custom: unitFAC=1e3
+                               --obsmap="O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3"  multi-variable
+                             Typical paired use with --myvar= for a complete override:
+                               --myvar="sfc_O3;sfc_PM2.5" \
+                                 --obsmap="O3|go3|O3|ug/m3;PM2.5|pm2p5|PM2.5|ug/m3"
 
 Network and region overrides (D1-ANAL only):
   --network=CODE[,CODE2,...] Override ACTIVE_REGIONS — which station networks to process.

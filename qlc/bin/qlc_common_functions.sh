@@ -386,6 +386,12 @@ parse_qlc_arguments() {
     export QLC_CLI_GRIB_SOURCE
   fi
 
+  if [ -n "${QLC_CLI_OBSMAP:-}" ]; then
+    # Stage-2 mod-obs mapping override (consumed by qlc_D1-ANAL.sh only).
+    log "Command line input: --obsmap=${QLC_CLI_OBSMAP}"
+    export QLC_CLI_OBSMAP
+  fi
+
   # Apply CLI overrides that take precedence over workflow config values.
   # These must run after the config is already sourced (done in qlc_main.sh before
   # subscripts are invoked), so every subscript gets the override via this function.
@@ -1462,10 +1468,14 @@ try:
         for var in vars_list:
             print(var.var_id)
     else:
-        sys.stderr.write('WARNING: No variables found for spec: $spec\n')
+        # Unknown / unresolved variable spec — emit a clear, user-visible error.
+        sys.stderr.write('ERROR: Variable spec could not be resolved: $spec\n')
+        sys.stderr.write('       Ensure the variable is listed in [VARIABLE_REGISTRY]\n')
+        sys.stderr.write('       of the workflow config or referenced via @GROUP.\n')
+        sys.stderr.write('       Run: qlc-vars list   to see available variables.\n')
         sys.exit(1)
 except Exception as e:
-    sys.stderr.write(f'Error expanding variable spec: {e}\n')
+    sys.stderr.write(f'ERROR: Failed to expand variable spec \"$spec\": {e}\n')
     sys.exit(1)
 "
 }

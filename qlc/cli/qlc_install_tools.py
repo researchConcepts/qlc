@@ -601,30 +601,57 @@ def install_cartopy_data(force: bool = False) -> bool:
 
 def install_pyferret_standalone(force: bool = False) -> bool:
     """
-    Install PyFerret using the qlc-install-extras Python entry point.
-    This ensures consistency and single source of truth.
+    Install PyFerret by delegating to qlc_install_pyferret.sh.
+
+    The pip-based path (qlc-install-extras --pyferret) fails on Python >= 3.11
+    because the pyferret PyPI package requires Python < 3.11.
+    The dedicated bash installer uses conda-forge / system PyFerret paths and
+    handles the Python version constraint correctly.
     """
-    log("Installing PyFerret only...")
-    
+    log("Installing PyFerret via qlc_install_pyferret.sh ...")
+
+    # Locate the bash installer relative to this file or via QLCHOME / venv layout.
+    # Typical install path: ~/qlc/bin/tools/qlc_install_pyferret.sh
+    bash_script: Optional[str] = None
+    candidates = []
+
+    qlchome = os.environ.get("QLCHOME", "")
+    if qlchome:
+        candidates.append(os.path.join(qlchome, "bin", "tools", "qlc_install_pyferret.sh"))
+
+    home = os.path.expanduser("~")
+    candidates.append(os.path.join(home, "qlc", "bin", "tools", "qlc_install_pyferret.sh"))
+
+    # Also look next to this file (editable / dev install layout)
+    pkg_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    candidates.append(os.path.join(pkg_root, "bin", "tools", "qlc_install_pyferret.sh"))
+
+    for path in candidates:
+        if os.path.isfile(path):
+            bash_script = path
+            break
+
+    if not bash_script:
+        log("qlc_install_pyferret.sh not found — cannot install PyFerret", "ERROR")
+        log(f"  Searched: {candidates}", "ERROR")
+        log("  Manual install: bash ~/qlc/bin/tools/qlc_install_pyferret.sh", "INFO")
+        return False
+
+    log(f"  Using: {bash_script}")
+    cmd = ["bash", bash_script]
+    if force:
+        cmd.append("--force")
+
     try:
-        # Import and run the install_extras module for pyferret only
-        from qlc.cli.qlc_install_extras import main as install_extras_main
-        
-        # Save current sys.argv and replace with install_extras arguments
-        original_argv = sys.argv
-        if force:
-            sys.argv = ["qlc-install-extras", "--pyferret", "--force"]
+        result = subprocess.run(cmd, check=False)
+        if result.returncode == 0:
+            log("PyFerret installation completed successfully")
+            return True
         else:
-            sys.argv = ["qlc-install-extras", "--pyferret"]
-        
-        try:
-            result = install_extras_main()
-            return result == 0
-        finally:
-            sys.argv = original_argv
-            
+            log(f"qlc_install_pyferret.sh exited with code {result.returncode}", "ERROR")
+            return False
     except Exception as e:
-        log(f"Failed to install PyFerret: {e}", "ERROR")
+        log(f"Failed to run qlc_install_pyferret.sh: {e}", "ERROR")
         return False
 
 

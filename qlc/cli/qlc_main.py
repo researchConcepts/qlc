@@ -352,7 +352,7 @@ Related Commands:
   sqlc                    Submit QLC jobs to batch scheduler
 
 Documentation:
-              https://pypi.org/project/rc-qlc/
+              https://pypi.org/project/qlc/
               https://github.com/researchConcepts/qlc
               https://docs.researchconcepts.io/qlc/latest/
               https://docs.researchconcepts.io/qlc/latest/user-guide/usage/

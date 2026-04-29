@@ -16,7 +16,7 @@ umask 0022
 #
 # Usage:
 #   qlc-install-enhanced [package] [options]
-#   Example: qlc-install-enhanced rc-qlc[test]
+#   Example: qlc-install-enhanced qlc[test]
 #
 # Copyright (c) 2018-2026 ResearchConcepts io GmbH. All Rights Reserved.
 # Questions/Comments: qlc Team @ ResearchConcepts io GmbH <qlc@researchconcepts.io>
@@ -37,13 +37,13 @@ if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   echo "  qlc-install-enhanced [package] [options]"
   echo ""
   echo "Smart Installation Commands:"
-  echo "  qlc-install-enhanced rc-qlc                    # → Creates ~/venv/qlc"
-  echo "  qlc-install-enhanced rc-qlc[dev]               # → Creates ~/venv/qlc-dev"
-  echo "  qlc-install-enhanced rc-qlc[0.4.1]            # → Creates ~/venv/qlc-0.4.1"
-  echo "  qlc-install-enhanced rc-qlc[test]              # → Creates ~/venv/qlc + test mode + tools"
-  echo "  qlc-install-enhanced rc-qlc[cams]              # → Creates ~/venv/qlc + cams mode + tools"
-  echo "  qlc-install-enhanced rc-qlc[dev]               # → Creates ~/venv/qlc-dev + dev mode + tools"
-  echo "  qlc-install-enhanced rc-qlc[0.4.1,cams]        # → Creates ~/venv/qlc-0.4.1 + cams mode + tools"
+  echo "  qlc-install-enhanced qlc                    # → Creates ~/venv/qlc"
+  echo "  qlc-install-enhanced qlc[dev]               # → Creates ~/venv/qlc-dev"
+  echo "  qlc-install-enhanced qlc[1.0.3]             # → Creates ~/venv/qlc-1.0.3"
+  echo "  qlc-install-enhanced qlc[test]              # → Creates ~/venv/qlc + test mode + tools"
+  echo "  qlc-install-enhanced qlc[cams]              # → Creates ~/venv/qlc + cams mode + tools"
+  echo "  qlc-install-enhanced qlc[dev]               # → Creates ~/venv/qlc-dev + dev mode + tools"
+  echo "  qlc-install-enhanced qlc[1.0.3,cams]        # → Creates ~/venv/qlc-1.0.3 + cams mode + tools"
   echo ""
   echo "Options:"
   echo "  --mode <mode>           Installation mode: test, cams, dev (default: test)"
@@ -54,16 +54,16 @@ if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   echo ""
   echo "Examples:"
   echo "  # Basic installation"
-  echo "  qlc-install-enhanced rc-qlc"
+  echo "  qlc-install-enhanced qlc"
   echo ""
   echo "  # Development installation with tools"
-  echo "  qlc-install-enhanced rc-qlc[dev]"
+  echo "  qlc-install-enhanced qlc[dev]"
   echo ""
   echo "  # Specific version with cams mode"
-  echo "  qlc-install-enhanced rc-qlc[0.4.3,cams]"
+  echo "  qlc-install-enhanced qlc[1.0.3,cams]"
   echo ""
   echo "  # Custom venv name"
-  echo "  qlc-install-enhanced rc-qlc --venv-name my-qlc"
+  echo "  qlc-install-enhanced qlc --venv-name my-qlc"
   echo ""
   echo "Platform Support:"
   echo "  - macOS: Uses system Python or framework Python"
@@ -90,7 +90,7 @@ fi
 # ----------------------------------------------------------------------------------------
 # Parse package specification
 # ----------------------------------------------------------------------------------------
-PACKAGE="rc-qlc"
+PACKAGE="qlc"
 MODE="test"
 VERSION=""
 EXTRAS=""
