@@ -34,3 +34,6 @@ __pycache__/            export-ignore
 /qlc/py/*.py            export-ignore
 /qlc/plugin/**          export-ignore
 /qlc/plugin/            export-ignore
+
+# 5. CI / publish tooling (dev-only).
+/.github/workflows/release.yml   export-ignore
