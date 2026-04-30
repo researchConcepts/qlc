@@ -2,9 +2,11 @@
 
 **An Automated Model-Observation Comparison Suite Optimized for CAMS**
 
+> v1.0.3: PyPI rename (`rc-qlc` → `qlc`, `rc-qlc` kept as a thin shim), CLI Stage-1/Stage-2 split (`--myvar=` for MARS retrieval, `--obsmap=` for mod-obs mapping), installer robustness fixes (Cartopy data, cfgrib, HPC PyFerret via `module load`), and bundled PyFerret palette (`qlc_diff_white_zone.spk`).
+
 > v1.0.2: Major feature release — 25 observation networks (incl. Brazilian networks), 7,855 variables, AERONET AOD mapping, and enhanced workflows.
 
-[![PyPI](https://img.shields.io/pypi/v/rc-qlc?color=blue)](https://pypi.org/project/rc-qlc/)
+[![PyPI](https://img.shields.io/pypi/v/qlc?color=blue)](https://pypi.org/project/qlc/)
 
 ---
 
@@ -33,8 +35,8 @@ One-Command Installation (using qlc_install.sh)
 
 The `qlc_install.sh` script performs four tasks:
 - a) Creates a QLC virtual environment (`~/venv/qlc`)
-- b) Installs QLC from latest PyPI release (`pip install rc-qlc`)
-- c) Installs all required tools (cartopy data, evaltools, etc.)
+- b) Installs QLC from latest PyPI release (`pip install qlc`; the legacy alias `pip install rc-qlc` still works and is redirected to `qlc` via a shim)
+- c) Installs all required tools (cartopy data, cfgrib, evaltools; `pyferret` is skipped automatically when a `ferret` HPC module is available)
 - d) Sets up QLC runtime environment with links to shared directories (`$SCRATCH`, `$HPCPERM`, `$PERM`)
 
 ```bash
@@ -94,6 +96,39 @@ ls -lrth ~/qlc/Presentations
 
 ---
 
+## What's New in v1.0.3
+
+### Release Highlights
+
+**PyPI Package Rename**
+- Package renamed from `rc-qlc` to `qlc` (approved via PEP 541)
+- `pip install qlc` is the new canonical install; `pip install rc-qlc` continues to work as a thin compatibility shim that pulls in the real `qlc` package and emits a `DeprecationWarning` on `import rc_qlc`
+- All `qlc`, `sqlc`, `qlc-py`, `qlc-vars`, and `qlc-install-*` CLI tools come from the real `qlc` package and work unchanged under either name
+
+**CLI Stage-1 / Stage-2 Split**
+- `--myvar=` is now **Stage-1 only** (MARS retrieval, data download). Short form: `displayName[,GRIB_id_or_ifs_shortname]` with optional level prefix (`sfc_`, `pl_`, `ml_`). Must resolve against the workflow's `[VARIABLE_REGISTRY]`.
+- New `--obsmap=` flag is **Stage-2** (mod-obs mapping, analysis). Pipe form: `displayName|modVar[,op,val]|obsVar[,op,val]|targetUnit[,unitFAC]` — the same spec that used to be overloaded onto `--myvar=` in v1.0.2.
+- Both flags are independent and may be combined in one run:
+  ```bash
+  qlc aifs1 aifs2 2025-11-01 2025-11-07 aifs -class=mc,mc \
+      --myvar="pl_O3,210203;sfc_NO2,210121" \
+      --obsmap="O3|go3|O3|ug/m3;NO2|no2|NO2|ug/m3"
+  ```
+- `--myvar=` now behaves as a true override of `MARS_RETRIEVALS` (replaces the workflow list instead of adding to it), fixing v1.0.2 failures where extra variables were fetched from MARS even when not needed.
+- Undefined variables in `--myvar=` now produce a clear error pointing to `[VARIABLE_REGISTRY]` and `qlc-vars list`, instead of a silent skip.
+- Comma-separated variable lists in `REGION_*_VARIABLES` (previously silently ignored) are now rejected with a pointer to the canonical `;` separator; commas inside a single pipe spec continue to work.
+
+**Installer Robustness**
+- `qlc_install.sh --tools essential` now explicitly calls `qlc-install-tools --install-cartopy` and verifies `cfgrib` is importable (auto-install if missing). These used to rely on a post-install hook that didn't fire in all HPC setups.
+- `pyferret` branches skip `pip install pyferret` when a `ferret` module is available via `module load` (e.g. ATOS HPC) — previously a common source of "pyferret install failed" messages.
+
+**Packaging**
+- `qlc_diff_white_zone.spk` (PyFerret palette) is now included in the wheel (was silently missing in v1.0.2).
+
+See [the full changelog](https://docs.researchconcepts.io/qlc/latest/reference/changelog) for details.
+
+---
+
 ## What's New in v1.0.2
 
 ### Major Enhancements
@@ -114,7 +149,7 @@ ls -lrth ~/qlc/Presentations
 - Finalized pipe-format spec: `userVAR|modVAR[,op,val]|obsVAR[,op,val]|targetUNIT[,unitFAC]`
 - Arithmetic transforms (`*`, `/`, `+`, `-`) applied independently on model or obs side at load time
 - `unitFAC` field as an alternative to automatic unit conversion — useful for variables not in qlc's built-in unit table, custom model diagnostics, or quick scaling tests
-- A single `--myvar=` CLI override applies the chosen spec across all active regions in one run, with no workflow file changes required
+- In v1.0.2 the pipe spec was passed via `--myvar=`; since **v1.0.3** it is passed via the dedicated **`--obsmap=`** flag (see the v1.0.3 section above)
 - `qlc-vars --exact` flag for precise IFS variable lookup
 
 **Plot and Analysis Fixes**
